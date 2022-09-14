@@ -1,0 +1,17 @@
+InCollegeTexas Standards
+
+- Create functions that house common logic.
+	- Example: Log in, Verify credintials meet requirements, sign up
+- Post teams when done with a function.
+	- Commit every time you finish and function and share link to that commit on Teams.
+	
+Git/GitHub Desktop:
+	- Always pull from the main branch before writing code/committing/pushing. (First step to synchronize with remote)
+	- NEVER push to the main branch.
+		- Create pull requests before pushing to main.
+	- Branch name: <sotry-id>-<branch-name>
+		IN-5_Menu
+	- Create a new branch before making any changes.
+	- Commit description: Be elaborate, what changed.
+	- Ask for code review from anyone for minor PRs and always include Scrum Master. (Pull Requests)
+	
