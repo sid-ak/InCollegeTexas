@@ -1,4 +1,4 @@
-from firebase.Firebase import database
+from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 
