@@ -1,5 +1,8 @@
 import pyrebase
-import configuration
+from firebase.Configuration import config
 
-firebase = pyrebase.initialize_app(configuration.config)
+configuration = config
+
+firebase = pyrebase.initialize_app(configuration)
 database = firebase.database()
+
