@@ -1,8 +1,13 @@
 from typing import List
 
 # this global variable will store the list of "made-up" skills
-SkillsList = ['communcation', 'marketing', 'python programming', 'web development', 'public speaking']
+SkillsList = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
 
+def DisplaySkills(skills):
+    index = 1
+    for i in range(len(skills)):
+        print(f'{str(index)}. {skills[i].title()}')
+        index += 1
 
 # this function will present a list of 5 skills and ask the user to select one
 # this function will return a string representing either one of the skills selected
@@ -19,10 +24,7 @@ def PresentSkillsAction() -> List[str]:
     while True:
         print("\nPlease select one of the following skills: ")
 
-        index = 1
-        for i in range(len(skills)):
-            print(f'{str(index)}. {skills[i].title()}')
-            index += 1
+        DisplaySkills(skills)
 
         while True:
             try:

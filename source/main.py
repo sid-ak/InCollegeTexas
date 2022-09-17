@@ -1,4 +1,4 @@
-from firebase.Firebase import database
+from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 from authentication.Signup import CheckDBSize
@@ -55,7 +55,7 @@ class Main:
             print(f"\nWelcome to your account, {loggedUser['username']}!")
 
             # this variable will help us find out if we want to end the session of the user
-            terminate_session = False
+            terminateSession = False
 
             while True:
                 print("\nPlease enter one of the following options to continue:")
@@ -80,7 +80,7 @@ class Main:
                             break
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
-                            terminate_session = True
+                            terminateSession = True
                             break
                         else:
                             print("\nError! Invalid Entry!")
@@ -88,11 +88,10 @@ class Main:
                         print("\nError! Invalid entry!")
                         break
 
-                if terminate_session:
+                if terminateSession:
                     break
 
-            if terminate_session:
+            if terminateSession:
                 print(f"\nGoodbye, {loggedUser['username']}.\n")
                 break
-
 
