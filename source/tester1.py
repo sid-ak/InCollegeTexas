@@ -2,6 +2,7 @@ import pytest
 import time
 from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
+from authentication.Signin import LoginUser
 
 """"tests whether it can limit to 5 functions """
 def test_RegisterNewUserLimit():
@@ -54,3 +55,7 @@ def test_RegisterNewUser_Success():
         })
         print(f"added {temp_username}")
 
+
+"""Test to test if Log In works"""
+def test_LogInUser():
+    assert LoginUser("obasit", "0s@masPwd") == True
