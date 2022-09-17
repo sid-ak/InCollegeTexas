@@ -16,7 +16,7 @@ def test_ValidatePassword():
 def test_LearnNewSkill(capfd):
     PresentSkillsAction()
     out, err = capfd.readouterr()
-    assert out == "1. communication\n2. marketing\n3. python programming\n4. web development\n5. public speaking\n"
+    assert out == "1. Communication\n2. Marketing\n3. Python programming\n4. Web development\n5. Public speaking\n"
 
 def test_JobInternshipSearch(capfd):
     FindJobInternshipAction()
