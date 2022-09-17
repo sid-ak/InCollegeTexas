@@ -1,5 +1,27 @@
 from firebase.Firebase import database
-from PasswordValidation import validatePassword
+
+
+# this function will validate the password and return True, if it is valid, False otherwise
+def validatePassword(password: str) -> bool:
+    checkLength = False
+    checkUpperCase = False
+    checkDigit = False
+    checkSpecialCharacter = False
+    if len(password) >= 8 and len(password) <= 12:
+        checkLength = True
+
+    for charCheck in password:
+        if charCheck.isupper():
+            checkUpperCase = True
+        elif charCheck.isdigit():
+            checkDigit = True
+        elif charCheck.islower() == False:
+            checkSpecialCharacter = True
+    
+    if checkDigit and checkLength and checkSpecialCharacter and checkUpperCase:
+        return True
+    else:
+        False
 
 
 # this function will accept username and password and return True, if the registration
@@ -10,17 +32,17 @@ def RegisterNewUser(username: str, password: str) -> bool:
         # get all DB entries to a local list
         queryResults = database.child('Users').get()
 
-        if len(queryResults) > 5:
+        if len(queryResults.val()) > 5:
             print("Error! There are already 5 accounts in the system!")
             return False
         else:
             # now check that the username is unique
-            for query in queryResults:
+            for query in queryResults.each():
                 if query.val()['username'] == username:
                     print("Error! This username already exists!")
                     return False
     except:
-        print("Error! Something went wrong when connecting to database!")
+        print("Error! Something went wrong when connecting to database to fetch all entries!")
         return False    
     
     # now let's check the password to see if it abides by the set standards
@@ -37,6 +59,8 @@ def RegisterNewUser(username: str, password: str) -> bool:
                 "password": password
             }
         )
+        
+        return True
     except:
-        print("Error! Something went wrong when connecting to database!")
+        print("Error! Something went wrong when connecting to database to push a new entry!")
         return False

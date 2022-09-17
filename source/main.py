@@ -11,21 +11,22 @@ while True:
             username = input("Please enter your username: ")
             password = input("Please enter your password: ")
             if LoginUser(username=username, password=password):
-                    print("Success! You have successfully logged into your account.")
+                    print("\nSuccess! You have successfully logged into your account.")
                     break
             else:
                 print("Failure! Incorrect credentials.")
         elif decision == 2:
             print("\nSignup Selected.")
             username = input("Please enter your username: ")
-            password = input("Please enter your password")
+            password = input("Please enter your password: ")
             if RegisterNewUser(username=username, password=password):
-                print("Sucess! You have sucessfully created a new account.")
+                print("\nSucess! You have sucessfully created a new account.")
                 break
             else:
-                print("Failure! We have not been able to create a new account for you.")
+                print("\nFailure! We have not been able to create a new account for you.")
         elif decision == -1:
-            print("Exit selected.")
+            print("\nExit selected.")
+            break
         else:
             print("Invalid entry! Please try again.")
     except:
