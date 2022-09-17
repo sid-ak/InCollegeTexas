@@ -2,6 +2,8 @@ from firebase.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 
+# this is the main run file
+
 print('Welcome! Please, select "1" to login or "2" to sign up with a new account')
 while True:
     try:
@@ -31,4 +33,6 @@ while True:
             print("Invalid entry! Please try again.")
     except:
         print("Invalid entry! Please try again.")
-                
+               
+
+
