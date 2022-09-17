@@ -35,6 +35,7 @@ def CheckDBSize() -> bool:
     else:
         return True
 
+
 # this function will accept username and password and return True, if the registration
 # was sucessful, False othwerwise; it validates database size limits and uniqueness of username
 def RegisterNewUser(username: str, password: str) -> bool:

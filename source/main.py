@@ -33,7 +33,7 @@ class Main:
                     print("Failure! Incorrect credentials.")
             elif decision == 2:
                 print("\nSignup Selected.")
-                if not CheckDBSize:
+                if not CheckDBSize():
                     print("\nFailure! We have not been able to create a new account for you.")
                 else:
                     username = input("\nPlease enter your username: ")
