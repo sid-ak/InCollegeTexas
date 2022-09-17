@@ -1,5 +1,5 @@
 import pyrebase
-from firebase.Configuration import config
+from .Configuration import config
 
 configuration = config
 

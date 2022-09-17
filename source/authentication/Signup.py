@@ -1,5 +1,4 @@
-from firebase.Firebase import database
-
+from firebaseSetup.Firebase import database
 
 # this function will validate the password and return True, if it is valid, False otherwise
 def ValidatePassword(password: str) -> bool:
