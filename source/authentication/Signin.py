@@ -1,4 +1,4 @@
-from firebase.Firebase import database
+from firebaseSetup.Firebase import database
 
 
 # this function will check if the username and password exists 
