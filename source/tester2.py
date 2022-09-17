@@ -1,6 +1,7 @@
 import pytest
 from authentication.Signup import ValidatePassword
 
+
 def test_validatePassword():
     good_pwd = ["Test123@", "Testing1234@"]
     for pwd in good_pwd:

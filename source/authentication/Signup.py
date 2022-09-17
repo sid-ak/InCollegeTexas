@@ -21,7 +21,7 @@ def ValidatePassword(password: str) -> bool:
     if checkDigit and checkLength and checkSpecialCharacter and checkUpperCase:
         return True
     else:
-        False
+        return False
 
 
 # this function will accept username and password and return True, if the registration
