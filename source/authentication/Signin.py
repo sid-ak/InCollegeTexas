@@ -14,14 +14,15 @@ def LoginUser(username: str, password: str) -> bool:
             if query.val()['username'] == username:
                 foundUser = True
                 if query.val()['password'] == password:
+                    print("\nYou have successfully logged in.")
                     return True
                 else:
-                    print("Error! Incorrect password!")
+                    print("\nIncorrect username/password, please try again.")
                     return False
 
         if not foundUser:
-            print("Error! Could not find an account with this username!")   
+            print("\nIncorrect username/password, please try again.")   
             return False
     except:
-        print("Error! Something went wrong when connecting to database!")
+        print("\nError! Something went wrong when connecting to database!")
         return False

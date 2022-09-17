@@ -2,7 +2,7 @@ from firebase.Firebase import database
 
 
 # this function will validate the password and return True, if it is valid, False otherwise
-def validatePassword(password: str) -> bool:
+def ValidatePassword(password: str) -> bool:
     checkLength = False
     checkUpperCase = False
     checkDigit = False
@@ -32,22 +32,22 @@ def RegisterNewUser(username: str, password: str) -> bool:
         # get all DB entries to a local list
         queryResults = database.child('Users').get()
 
-        if len(queryResults.each()) > 5:
-            print("Error! There are already 5 accounts in the system!")
+        if len(queryResults.each()) >= 5:
+            print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:
             # now check that the username is unique
             for query in queryResults.each():
                 if query.val()['username'] == username:
-                    print("Error! This username already exists!")
+                    print("\nError! This username already exists!")
                     return False
     except:
-        print("Error! Something went wrong when connecting to database to fetch all entries!")
+        print("\nError! Something went wrong when connecting to database to fetch all entries!")
         return False    
     
     # now let's check the password to see if it abides by the set standards
-    if not validatePassword(password=password):
-        print("Error! Your password does not meet one or some of the standards!")
+    if not ValidatePassword(password=password):
+        print("\nError! Your password does not meet one or some of the standards!")
         return False 
 
     # if the validation checks above pass, now we can try to create a new entry with the given values
@@ -62,5 +62,5 @@ def RegisterNewUser(username: str, password: str) -> bool:
         
         return True
     except:
-        print("Error! Something went wrong when connecting to database to push a new entry!")
+        print("\nError! Something went wrong when connecting to database to push a new entry!")
         return False
