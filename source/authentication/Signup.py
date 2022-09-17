@@ -32,7 +32,7 @@ def RegisterNewUser(username: str, password: str) -> bool:
         # get all DB entries to a local list
         queryResults = database.child('Users').get()
 
-        if len(queryResults.each()) > 5:
+        if len(queryResults.each()) >= 5:
             print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:
