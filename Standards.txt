@@ -12,7 +12,7 @@ Git/GitHub Desktop:
 	- Branch name: <sotry-id>-<branch-name>
 		Example: IN-5_Menu
 	- Commit name: <story-id>-<commit-name>
-		Example: IN-5: Changed the thid menu option.
+		Example: IN-5: Changed the third menu option.
 	- Create a new branch before making any changes.
 	- Commit description: Be elaborate, what changed.
 	- Ask for code review from anyone for minor PRs (Pull Requests) and always include Scrum Master.
