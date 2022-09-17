@@ -32,7 +32,7 @@ def RegisterNewUser(username: str, password: str) -> bool:
         # get all DB entries to a local list
         queryResults = database.child('Users').get()
 
-        if len(queryResults.val()) > 5:
+        if len(queryResults.each()) > 5:
             print("Error! There are already 5 accounts in the system!")
             return False
         else:

@@ -20,7 +20,7 @@ def LoginUser(username: str, password: str) -> bool:
                     return False
 
         if not foundUser:
-            print("Error! Could not find an account with is username!")   
+            print("Error! Could not find an account with this username!")   
             return False
     except:
         print("Error! Something went wrong when connecting to database!")
