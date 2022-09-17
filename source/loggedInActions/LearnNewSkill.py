@@ -16,40 +16,40 @@ def PresentSkillsAction() -> str:
         print(f'{str(index)}. {skills[i].title()}')
         index += 1
     
-    selected_skill = ""
+    selectedSkill = ""
 
     while True:
         try:
-            skill_select = int(input("\nEnter (-1 to go back): "))
-            if skill_select == 1:
-                selected_skill = skills[0]
+            skillSelect = int(input("\nEnter (-1 to go back): "))
+            if skillSelect == 1:
+                selectedSkill = skills[0]
                 print("\nunder construction")
                 break
-            elif skill_select == 2:
-                selected_skill = skills[1]
+            elif skillSelect == 2:
+                selectedSkill = skills[1]
                 print("\nunder construction")
                 break
-            elif skill_select == 3:
-                selected_skill = skills[2]
+            elif skillSelect == 3:
+                selectedSkill = skills[2]
                 print("\nunder construction")
                 break
-            elif skill_select == 4:
-                selected_skill = skills[3]
+            elif skillSelect == 4:
+                selectedSkill = skills[3]
                 print("\nunder construction")
                 break
-            elif skill_select == 5:
-                selected_skill = skills[4]
+            elif skillSelect == 5:
+                selectedSkill = skills[4]
                 print("\nunder construction")
                 break
-            elif skill_select == -1:
-                selected_skill = "SKIP"
+            elif skillSelect == -1:
+                selectedSkill = "SKIP"
                 break
             else:
-                selected_skill = "-1"
+                selectedSkill = "-1"
                 print("\nError! Invalid entry!")
         except:
-            selected_skill = "-1"
+            selectedSkill = "-1"
             print("\nError! Invalid Entry! Try again.")
 
-    return selected_skill
+    return selectedSkill
     

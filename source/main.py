@@ -1,6 +1,7 @@
 from firebase.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
+from authentication.Signup import CheckDBSize
 from loggedInActions.FindSomeone import FindSomeoneAction
 from loggedInActions.JobInternshipSearch import FindJobInternshipAction
 from loggedInActions.LearnNewSkill import PresentSkillsAction
@@ -10,9 +11,9 @@ from loggedInActions.LearnNewSkill import PresentSkillsAction
 class Main:
     
     # this variable will let us know if the user logged in or no
-    flag_logged_in = False
+    flagLoggedin = False
     # this dictionary will store the username and password of a logged in user
-    logged_user = {} 
+    loggedUser = {} 
 
     print('\nWelcome to InCollege! \nPlease, select "1" to login or "2" to sign up with a new account')
 
@@ -25,19 +26,22 @@ class Main:
                 password = input("Please enter your password: ")
                 if LoginUser(username=username, password=password):
                         # change the attribute of flag to True
-                        flag_logged_in = True
-                        logged_user["username"] = username
-                        logged_user["password"] = password
+                        flagLoggedin = True
+                        loggedUser["username"] = username
+                        loggedUser["password"] = password
                 else:
                     print("Failure! Incorrect credentials.")
             elif decision == 2:
                 print("\nSignup Selected.")
-                username = input("\nPlease enter your username: ")
-                password = input("Please enter your password: ")
-                if RegisterNewUser(username=username, password=password):
-                    print("\nSucess! You have sucessfully created a new account.\n")
-                else:
+                if not CheckDBSize:
                     print("\nFailure! We have not been able to create a new account for you.")
+                else:
+                    username = input("\nPlease enter your username: ")
+                    password = input("Please enter your password: ")
+                    if RegisterNewUser(username=username, password=password):
+                        print("\nSucess! You have sucessfully created a new account.\n")
+                    else:
+                        print("\nFailure! We have not been able to create a new account for you.")
             elif decision == -1:
                 print("\nExit selected.\n")
                 break
@@ -46,9 +50,9 @@ class Main:
         except:
             print("Invalid entry! Please try again.")
    
-        if flag_logged_in:
+        if flagLoggedin:
             # if the user logged in, continue with additional options
-            print(f"\nWelcome to your account, {logged_user['username']}!")
+            print(f"\nWelcome to your account, {loggedUser['username']}!")
 
             # this variable will help us find out if we want to end the session of the user
             terminate_session = False
@@ -88,7 +92,7 @@ class Main:
                     break
 
             if terminate_session:
-                print(f"\nGoodbye, {logged_user['username']}.\n")
+                print(f"\nGoodbye, {loggedUser['username']}.\n")
                 break
 
 
