@@ -26,14 +26,18 @@ def ValidatePassword(password: str) -> bool:
 # this function will query the Firebase DB and check the current number of accounts
 # it will return False if the number exceeds 5, True otherwise
 def CheckDBSize() -> bool:
-    # get all DB entries tp a local list
-    queryResults = database.child('Users').get()
+    try:
+        # get all DB entries tp a local list
+        queryResults = database.child('Users').get()
 
-    if len(queryResults.each()) >= 5:
-        print("\nAll permitted accounts have been created, please come back later!")
+        if len(queryResults.each()) >= 5:
+            print("\nAll permitted accounts have been created, please come back later!")
+            return False
+        else:
+            return True
+    except:
         return False
-    else:
-        return True
+
 
 # this function will accept username and password and return True, if the registration
 # was sucessful, False othwerwise; it validates database size limits and uniqueness of username
