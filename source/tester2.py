@@ -1,6 +1,7 @@
 import pytest
 from authentication.Signup import ValidatePassword
 
+# Tests below worked on for EPIC 1 - 9/19/22 by Anshika
 def test_validatePassword():
     good_pwd = ["Test123@", "Testing1234@"]
     for pwd in good_pwd:
