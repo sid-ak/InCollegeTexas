@@ -95,4 +95,3 @@ class Main:
                 print(f"\nGoodbye, {loggedUser['username']}.\n")
                 break
 
-
