@@ -53,9 +53,9 @@ def PresentSkillsAction() -> List[str]:
                     break
                 else:
                     selectedSkills.append("-1")
-                    print("\nError! Invalid entry!")
+                    print("\nError! Invalid entry! Try again.")
             except:
-                selectedSkills = "-1"
+                selectedSkills.append("-1")
                 print("\nError! Invalid Entry! Try again.")
         
         if terminateSelections:
