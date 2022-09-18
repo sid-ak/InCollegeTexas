@@ -3,6 +3,15 @@ from loggedInActions.LearnNewSkill import DisplaySkills
 from loggedInActions.JobInternshipSearch import FindJobInternshipAction
 from loggedInActions.FindSomeone import FindSomeoneAction
 
+def test_ValidatePassword():
+    good_pwd = ["Test123@", "Testing1234@"]
+    for pwd in good_pwd:
+        assert ValidatePassword(pwd) == True
+
+    bad_pwd = ["Test123", "test123@", "Test@One", "Test123@test1"]
+    for pwd in bad_pwd:
+        assert ValidatePassword(pwd) == False
+
 def test_LearnNewSkill(capfd):
     skills = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
     DisplaySkills(skills)
