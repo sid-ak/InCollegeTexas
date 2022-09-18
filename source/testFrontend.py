@@ -12,7 +12,7 @@ def test_ValidatePassword():
     for pwd in bad_pwd:
         assert ValidatePassword(pwd) == False
 
-def test_LearnNewSkill(capfd):
+def test_DisplaySkills(capfd):
     skills = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
     DisplaySkills(skills)
     out, err = capfd.readouterr()
