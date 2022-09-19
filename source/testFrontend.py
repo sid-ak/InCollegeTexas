@@ -3,6 +3,7 @@ from loggedInActions.LearnNewSkill import DisplaySkills
 from loggedInActions.JobInternshipSearch import FindJobInternshipAction
 from loggedInActions.FindSomeone import FindSomeoneAction
 
+# Tests below worked on for EPIC 1 - 9/19/22 by Anshika
 def test_ValidatePassword():
     good_pwd = ["Test123@", "Testing1234@"]
     for pwd in good_pwd:
