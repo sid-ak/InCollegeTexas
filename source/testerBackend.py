@@ -1,9 +1,10 @@
 import pytest
-import time
 from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
+from authentication.Signin import LoginUser
 
-""""tests whether it can limit to 5 functions """
+# Tests below worked on for EPIC 1 - 9/19/22 by Osama
+'''tests whether it can limit to 5 functions '''
 def test_RegisterNewUserLimit():
     # make 5 test accounts
     testAccounts = ["testAccount1", "testAccount2", "testAccount3", "testAccount4", "testAccount6"]
@@ -27,7 +28,7 @@ def test_RegisterNewUserLimit():
         if query.val()['username'] in testAccounts:
             database.child('Users').child(query.key()).remove()
 
-""""Test to see if account is added successfully"""
+'''Test to see if account is added successfully'''
 def test_RegisterNewUser_Success():
     queryResults = database.child('Users').get()
     if len(queryResults.each()) < 5:
@@ -54,3 +55,6 @@ def test_RegisterNewUser_Success():
         })
         print(f"added {temp_username}")
 
+'''Test to test if Log In works'''
+def test_LogInUser():
+    assert LoginUser("obasit", "0s@masPwd") == True
