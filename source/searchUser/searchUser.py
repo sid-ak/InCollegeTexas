@@ -1,7 +1,7 @@
 from firebaseSetup.Firebase import database
 
 
-# this function will check if the username and password exists 
+# this function will check if the firstname and lastname of a user exists in the database
 # and returns True if so, False otherwise
 def SearchUser(firstname: str, lastname: str) -> bool:
     try:
