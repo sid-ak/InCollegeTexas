@@ -11,7 +11,7 @@ def SearchUser(firstname: str, lastname: str) -> bool:
         # now let's loop through all the quries and check which matches
         foundUser = False
         for query in queryResults:
-            if query.val()['firstname'] == firstname and query.val()['lastname'] == lastname:
+            if query.val()['firstName'] == firstname and query.val()['lastName'] == lastname:
                 foundUser = True
                 print("\nThey are a part of the InCollege system!")
                 return True
