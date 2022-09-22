@@ -44,7 +44,7 @@ def CheckDBSize() -> bool:
 
 # this function will accept username and password and return True, if the registration
 # was successful, False otherwise; it validates database size limits and uniqueness of username
-def RegisterNewUser(username: str, password: str) -> bool:
+def RegisterNewUser(username: str, password: str, firstName: str, lastName: str) -> bool:
     try:
         # first let's check that the total number of users does not exceed 5
         if not CheckDBSize():
@@ -70,7 +70,7 @@ def RegisterNewUser(username: str, password: str) -> bool:
     # if the validation checks above pass, now we can try to create a new entry with the given values
     try:
         userId = UserHelpers.CreateUserId(username, password)
-        UserHelpers.CreateUser(User(userId, username))
+        UserHelpers.CreateUser(User(userId, username, firstName, lastName))
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")
