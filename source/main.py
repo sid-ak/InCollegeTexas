@@ -2,10 +2,10 @@ from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 from authentication.Signup import CheckDBSize
-from loggedInActions.FindSomeone import FindSomeoneAction
-from loggedInActions.JobInternshipSearch import FindJobInternshipAction
-from loggedInActions.LearnNewSkill import PresentSkillsAction
-from video.playVideo import playVideo
+from actions.FindSomeone import FindSomeoneAction
+from actions.JobInternshipSearch import FindJobInternshipAction
+from actions.LearnNewSkill import PresentSkillsAction
+from actions.PlayVideo import PlayVideo
 
 
 # this is the main run file
@@ -16,9 +16,9 @@ class Main:
     # this dictionary will store the username and password of a logged in user
     loggedUser = {} 
 
-    print("77% of users found InCollegeTexas to be really helpful in making new connection and for their job search\nGopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
+    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print('Welcome! Please, select "1" to login, "2" to sign up with a new account, or "3" to play the informational video')
+    print('Welcome!\nPlease, select:\n"1" to login your account\n"2" to sign up with a new account\n"3" to play the informational video')
 
     while True:
         try:
