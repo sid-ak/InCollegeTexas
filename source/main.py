@@ -39,7 +39,7 @@ class Main:
                     username = input("\nPlease enter your username: ")
                     password = input("Please enter your password: ")
                     if RegisterNewUser(username=username, password=password):
-                        print("\nSucess! You have sucessfully created a new account.\n")
+                        print("\nSuccess! You have successfully created a new account.\n")
                     else:
                         print("\nFailure! We have not been able to create a new account for you.")
             elif decision == -1:
