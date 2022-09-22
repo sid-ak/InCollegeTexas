@@ -1,11 +1,11 @@
-from model.User import GetAllUsers, CreateUserId
+from model.User import UserHelpers
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
 def LoginUser(username: str, password: str) -> bool:
     try:
-        userId = CreateUserId(username, password)
-        users = GetAllUsers()
+        userId = UserHelpers.CreateUserId(username, password)
+        users = UserHelpers.GetAllUsers()
         if (users == None):
             raise Exception()
 

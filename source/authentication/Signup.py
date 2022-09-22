@@ -1,4 +1,4 @@
-from model.User import GetAllUsers, CreateUser, User, CreateUserId
+from model.User import User, UserHelpers
 
 # this function will validate the password and return True, if it is valid, False otherwise
 def ValidatePassword(password: str) -> bool:
@@ -28,7 +28,7 @@ def ValidatePassword(password: str) -> bool:
 def CheckDBSize() -> bool:
     try:
         # get all DB entries tp a local list
-        users = GetAllUsers()
+        users = UserHelpers.GetAllUsers()
 
         if (users == None):
             return True
@@ -50,7 +50,7 @@ def RegisterNewUser(username: str, password: str) -> bool:
         if not CheckDBSize():
             return False
         
-        users = GetAllUsers()
+        users = UserHelpers.GetAllUsers()
         if (users != None):
             # get all DB entries to a local list
             # now check that the username is unique
@@ -69,8 +69,8 @@ def RegisterNewUser(username: str, password: str) -> bool:
 
     # if the validation checks above pass, now we can try to create a new entry with the given values
     try:
-        userId = CreateUserId(username, password)
-        CreateUser(User(userId, username))
+        userId = UserHelpers.CreateUserId(username, password)
+        UserHelpers.CreateUser(User(userId, username))
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")
