@@ -5,4 +5,4 @@ class User:
     Username: str
     Password: str
     FirstName: str
-    LastName: str        
+    LastName: str
