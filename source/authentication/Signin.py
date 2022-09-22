@@ -5,12 +5,19 @@ from model.User import GetAllUsers, CreateUserId
 def LoginUser(username: str, password: str) -> bool:
     try:
         userId = CreateUserId(username, password)
-        for user in GetAllUsers():
+        users = GetAllUsers()
+        if (users == None):
+            raise Exception()
+
+        for user in users:
             if user.Id == userId:
                 print("\nYou have successfully logged in.")
                 return True
-            print("\nIncorrect username/password, please try again.")
-            return False
+            else:
+                continue
+
+        print("\nIncorrect username/password, please try again.")
+        return False
     except:
         print("\nError! Something went wrong when connecting to database!")
         return False

@@ -19,7 +19,8 @@ class User:
                 LastName = user.val()["LastName"]
             )
 
-def UserToDict(user: User) -> list[dict]:
+# Converts this entity into a dictionary
+def UserToDict(user: User) -> dict:
     return {
         'Id': str(user.Id),
         'Username': str(user.Username),
