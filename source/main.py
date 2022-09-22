@@ -5,7 +5,7 @@ from authentication.Signup import CheckDBSize
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
-from actions.PlayVideo import PlayVideo
+from model.User import User, UserHelpers
 
 
 # this is the main run file
@@ -14,7 +14,7 @@ class Main:
     # this variable will let us know if the user logged in or no
     flagLoggedin = False
     # this dictionary will store the username and password of a logged in user
-    loggedUser = {} 
+    loggedUser: User
 
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
@@ -30,8 +30,8 @@ class Main:
                 if LoginUser(username=username, password=password):
                         # change the attribute of flag to True
                         flagLoggedin = True
-                        loggedUser["username"] = username
-                        loggedUser["password"] = password
+                        loggedUserId = UserHelpers.CreateUserId(username, password)
+                        loggedUser = User(loggedUserId, username)
                 else:
                     print("Failure! Incorrect credentials.")
             elif decision == 2:
@@ -41,14 +41,8 @@ class Main:
                 else:
                     username = input("\nPlease enter your username: ")
                     password = input("Please enter your password: ")
-                    firstName = input("Please enter your first name: ")
-                    lastName = input("Please enter your last name: ")
-                    if RegisterNewUser(
-                        username=username,
-                        password=password,
-                        firstName=firstName,
-                        lastName=lastName):
-                        print("\nSuccess! You have successfully created a new account.\n")
+                    if RegisterNewUser(username=username, password=password):
+                        print("\nSucess! You have sucessfully created a new account.\n")
                     else:
                         print("\nFailure! We have not been able to create a new account for you.")
             elif decision == 3:
@@ -64,7 +58,7 @@ class Main:
    
         if flagLoggedin:
             # if the user logged in, continue with additional options
-            print(f"\nWelcome to your account, {loggedUser['username']}!")
+            print(f"\nWelcome to your account, {loggedUser.Username}!")
 
             # this variable will help us find out if we want to end the session of the user
             terminateSession = False
@@ -104,6 +98,6 @@ class Main:
                     break
 
             if terminateSession:
-                print(f"\nGoodbye, {loggedUser['username']}.\n")
+                print(f"\nGoodbye, {loggedUser.Username}.\n")
                 break
 
