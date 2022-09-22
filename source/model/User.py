@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from gc import collect
 from firebaseSetup.Firebase import database
 
 @dataclass
