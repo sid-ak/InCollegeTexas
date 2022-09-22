@@ -2,9 +2,10 @@ from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 from authentication.Signup import CheckDBSize
-from loggedInActions.FindSomeone import FindSomeoneAction
-from loggedInActions.JobInternshipSearch import FindJobInternshipAction
-from loggedInActions.LearnNewSkill import PresentSkillsAction
+from actions.FindSomeone import FindSomeoneAction
+from actions.JobInternshipSearch import FindJobInternshipAction
+from actions.LearnNewSkill import PresentSkillsAction
+from actions.PlayVideo import PlayVideo
 
 
 # this is the main run file
@@ -15,7 +16,9 @@ class Main:
     # this dictionary will store the username and password of a logged in user
     loggedUser = {} 
 
-    print('\nWelcome to InCollege! \nPlease, select "1" to login or "2" to sign up with a new account')
+    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
+
+    print('Welcome!\nPlease, select:\n"1" to login your account\n"2" to sign up with a new account\n"3" to play the informational video')
 
     while True:
         try:
@@ -42,6 +45,9 @@ class Main:
                         print("\nSucess! You have sucessfully created a new account.\n")
                     else:
                         print("\nFailure! We have not been able to create a new account for you.")
+            elif decision == 3:
+                print("\nVideo Selected")
+                playVideo()
             elif decision == -1:
                 print("\nExit selected.\n")
                 break
