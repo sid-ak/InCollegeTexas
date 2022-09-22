@@ -9,7 +9,7 @@ class User:
     FirstName: str
     LastName: str
 
-    # Hydrates a User entity user a pyrebase response value.
+    # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
         return User(
                 Username = user.val()["Username"],
