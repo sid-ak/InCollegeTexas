@@ -25,7 +25,6 @@ def GetAllUsers(collection: str = "Users") -> list[User]:
     
     users = []
     for user in usersResponse.each():
-        print(type(user))
         users.append(User.HydrateUser(user))
 
     return users
