@@ -3,6 +3,8 @@ from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 
+#Tests below worked on for EPIC 2
+
 # Tests below worked on for EPIC 1 - 9/19/22 by Osama
 '''tests whether it can limit to 5 functions '''
 def test_RegisterNewUserLimit():
