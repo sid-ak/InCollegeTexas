@@ -1,62 +1,66 @@
 from firebaseSetup.Firebase import database
-from authentication.Signup import RegisterNewUser
+from authentication.Signup import RegisterNewUser, CheckDBSize
 from authentication.Signin import LoginUser
-from authentication.Signup import CheckDBSize
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
 from model.User import User, UserHelpers
+from actions.SearchUser import SearchUser
+from actions.PlayVideo import PlayVideo
 
 
 # this is the main run file
 class Main:
     
-    # this variable will let us know if the user logged in or no
-    flagLoggedin = False
     # this dictionary will store the username and password of a logged in user
-    loggedUser: User
+    loggedUser: User = None
 
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print('Welcome!\nPlease, select:\n"1" to login your account\n"2" to sign up with a new account\n"3" to play the informational video')
+    print('Welcome!\nPlease, select:' 
+        + '\n"1" to login your account\n' 
+        + '"2" to sign up with a new account\n'
+        + '"3" to play the informational video\n'
+        + '"4" to search an existing user')
 
     while True:
         try:
             decision = int(input("\nEnter (-1 to Exit): "))
+            
             if decision == 1:
-                print("\nLogin Selected.")
-                username = input("\nPlease enter your username: ")
-                password = input("Please enter your password: ")
-                if LoginUser(username=username, password=password):
-                        # change the attribute of flag to True
-                        flagLoggedin = True
-                        loggedUserId = UserHelpers.CreateUserId(username, password)
-                        loggedUser = User(loggedUserId, username)
+                if LoginUser() != None:
+                        loggedUser = LoginUser()
                 else:
                     print("Failure! Incorrect credentials.")
+            
             elif decision == 2:
                 print("\nSignup Selected.")
                 if not CheckDBSize():
                     print("\nFailure! We have not been able to create a new account for you.")
                 else:
-                    username = input("\nPlease enter your username: ")
-                    password = input("Please enter your password: ")
-                    if RegisterNewUser(username=username, password=password):
+                    if RegisterNewUser():
                         print("\nSucess! You have sucessfully created a new account.\n")
                     else:
                         print("\nFailure! We have not been able to create a new account for you.")
+            
             elif decision == 3:
                 print("\nVideo Selected")
-                playVideo()
+                PlayVideo()
+
+            elif decision == 4:
+                print("\nSearch User Selected")
+                SearchUser()
+            
             elif decision == -1:
                 print("\nExit selected.\n")
                 break
+            
             else:
                 print("Invalid entry! Please try again.")
         except:
             print("Invalid entry! Please try again.")
    
-        if flagLoggedin:
+        if loggedUser != None:
             # if the user logged in, continue with additional options
             print(f"\nWelcome to your account, {loggedUser.Username}!")
 
