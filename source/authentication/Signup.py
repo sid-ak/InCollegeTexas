@@ -1,4 +1,4 @@
-from model.User import User, UserHelpers
+from firebaseSetup.Firebase import database
 
 # this function will validate the password and return True, if it is valid, False otherwise
 def ValidatePassword(password: str) -> bool:
@@ -28,12 +28,9 @@ def ValidatePassword(password: str) -> bool:
 def CheckDBSize() -> bool:
     try:
         # get all DB entries tp a local list
-        users = UserHelpers.GetAllUsers()
+        queryResults = database.child('Users').get()
 
-        if (users == None):
-            return True
-
-        if len(users) >= 5:
+        if len(queryResults.each()) >= 5:
             print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:
@@ -47,12 +44,15 @@ def CheckDBSize() -> bool:
 def RegisterNewUser(username: str, password: str, firstName: str, lastName: str) -> bool:
     try:
         # first let's check that the total number of users does not exceed 5
+        # get all DB entries to a local list
+        queryResults = database.child('Users').get()
+
         if not CheckDBSize():
             return False
         
+        # get all DB entries to a local list
         users = UserHelpers.GetAllUsers()
         if (users != None):
-            # get all DB entries to a local list
             # now check that the username is unique
             for user in users:
                 if user.Username == username:
@@ -60,7 +60,7 @@ def RegisterNewUser(username: str, password: str, firstName: str, lastName: str)
                     return False
     except:
         print("\nError! Something went wrong when connecting to database to fetch all entries!")
-        return False    
+        return False
     
     # now let's check the password to see if it abides by the set standards
     if not ValidatePassword(password=password):
@@ -69,8 +69,14 @@ def RegisterNewUser(username: str, password: str, firstName: str, lastName: str)
 
     # if the validation checks above pass, now we can try to create a new entry with the given values
     try:
-        userId = UserHelpers.CreateUserId(username, password)
-        UserHelpers.CreateUser(User(userId, username, firstName, lastName))
+        # save a new entry inside the "Users" node
+        database.child('Users').push(
+            {
+                "username": username, 
+                "password": password
+            }
+        )
+        
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")

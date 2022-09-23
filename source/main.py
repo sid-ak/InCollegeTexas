@@ -6,19 +6,22 @@ from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
 from model.User import User, UserHelpers
+from actions.PlayVideo import PlayVideo
 
 
 # this is the main run file
 class Main:
     
-    # this variable will let us know if the user logged in or no
-    flagLoggedin = False
-    # this dictionary will store the username and password of a logged in user
+    # The user that is currently logged in.
     loggedUser: User
 
-    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
+    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" +
+        "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print('Welcome!\nPlease, select:\n"1" to login your account\n"2" to sign up with a new account\n"3" to play the informational video')
+    print("Welcome!\nPlease, select:\n" + 
+        "'1' to login your account\n" +
+        "'2' to sign up with a new account\n" + 
+        "'3' to play the informational video")
 
     while True:
         try:
@@ -30,8 +33,8 @@ class Main:
                 if LoginUser(username=username, password=password):
                         # change the attribute of flag to True
                         flagLoggedin = True
-                        loggedUserId = UserHelpers.CreateUserId(username, password)
-                        loggedUser = User(loggedUserId, username)
+                        loggedUser["username"] = username
+                        loggedUser["password"] = password
                 else:
                     print("Failure! Incorrect credentials.")
             elif decision == 2:
