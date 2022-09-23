@@ -1,28 +1,30 @@
-from firebaseSetup.Firebase import database
-
+from model.User import User, UserHelpers
+from actions.DisplayLoginMenu import DisplayLoginMenu
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
-def LoginUser(username: str, password: str) -> bool:
+def LoginUser() -> User:
     try:
-        # let's get all the DB queries in a list first
-        queryResults = database.child('Users').get()
+        print("\nLogin Selected.")
+        
+        username = input("\nPlease enter your username: ")
+        password = input("Please enter your password: ")
+        
+        userId = UserHelpers.CreateUserId(username, password)
+        users = UserHelpers.GetAllUsers()
+        if (users == None):
+            raise Exception()
 
-        # now let's loop through all the quries and check which matches
-        foundUser = False
-        for query in queryResults:
-            if query.val()['username'] == username:
-                foundUser = True
-                if query.val()['password'] == password:
-                    print("\nYou have successfully logged in.")
-                    return True
-                else:
-                    print("\nIncorrect username/password, please try again.")
-                    return False
+        for user in users:
+            if user.Id == userId:
+                print("\nYou have successfully logged in.")
+                DisplayLoginMenu(user)
+                return user
+            else:
+                continue
 
-        if not foundUser:
-            print("\nIncorrect username/password, please try again.")   
-            return False
+        print("\nIncorrect username/password, please try again.")
+        return None
     except:
         print("\nError! Something went wrong when connecting to database!")
-        return False
+        return None
