@@ -40,8 +40,8 @@ def CheckDBSize() -> bool:
 
 
 # this function will accept username and password and return True, if the registration
-# was sucessful, False othwerwise; it validates database size limits and uniqueness of username
-def RegisterNewUser(username: str, password: str) -> bool:
+# was successful, False otherwise; it validates database size limits and uniqueness of username
+def RegisterNewUser(username: str, password: str, firstName: str, lastName: str) -> bool:
     try:
         # first let's check that the total number of users does not exceed 5
         # get all DB entries to a local list
@@ -49,15 +49,18 @@ def RegisterNewUser(username: str, password: str) -> bool:
 
         if not CheckDBSize():
             return False
-        else:
+        
+        # get all DB entries to a local list
+        users = UserHelpers.GetAllUsers()
+        if (users != None):
             # now check that the username is unique
-            for query in queryResults.each():
-                if query.val()['username'] == username:
+            for user in users:
+                if user.Username == username:
                     print("\nError! This username already exists!")
                     return False
     except:
         print("\nError! Something went wrong when connecting to database to fetch all entries!")
-        return False    
+        return False
     
     # now let's check the password to see if it abides by the set standards
     if not ValidatePassword(password=password):

@@ -5,20 +5,23 @@ from authentication.Signup import CheckDBSize
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
+from model.User import User, UserHelpers
 from actions.PlayVideo import PlayVideo
 
 
 # this is the main run file
 class Main:
     
-    # this variable will let us know if the user logged in or no
-    flagLoggedin = False
-    # this dictionary will store the username and password of a logged in user
-    loggedUser = {} 
+    # The user that is currently logged in.
+    loggedUser: User
 
-    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
+    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" +
+        "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print('Welcome!\nPlease, select:\n"1" to login your account\n"2" to sign up with a new account\n"3" to play the informational video')
+    print("Welcome!\nPlease, select:\n" + 
+        "'1' to login your account\n" +
+        "'2' to sign up with a new account\n" + 
+        "'3' to play the informational video")
 
     while True:
         try:
@@ -58,7 +61,7 @@ class Main:
    
         if flagLoggedin:
             # if the user logged in, continue with additional options
-            print(f"\nWelcome to your account, {loggedUser['username']}!")
+            print(f"\nWelcome to your account, {loggedUser.Username}!")
 
             # this variable will help us find out if we want to end the session of the user
             terminateSession = False
@@ -98,6 +101,6 @@ class Main:
                     break
 
             if terminateSession:
-                print(f"\nGoodbye, {loggedUser['username']}.\n")
+                print(f"\nGoodbye, {loggedUser.Username}.\n")
                 break
 
