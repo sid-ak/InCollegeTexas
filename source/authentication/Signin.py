@@ -1,12 +1,15 @@
 from model.User import User, UserHelpers
+from actions.DisplayLoginMenu import DisplayLoginMenu
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
 def LoginUser() -> User:
     try:
         print("\nLogin Selected.")
+        
         username = input("\nPlease enter your username: ")
         password = input("Please enter your password: ")
+        
         userId = UserHelpers.CreateUserId(username, password)
         users = UserHelpers.GetAllUsers()
         if (users == None):
@@ -15,6 +18,7 @@ def LoginUser() -> User:
         for user in users:
             if user.Id == userId:
                 print("\nYou have successfully logged in.")
+                DisplayLoginMenu(user)
                 return user
             else:
                 continue
