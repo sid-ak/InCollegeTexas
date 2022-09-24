@@ -1,0 +1,48 @@
+{
+  "Jobs": {
+    "ae51f69f13682799d96de3b90559b9c212278eb746206627886a46c07c11b11d": {
+      "Description": "TestJobDesc",
+      "Employer": "TestJobEmpl",
+      "Id": "ae51f69f13682799d96de3b90559b9c212278eb746206627886a46c07c11b11d",
+      "Location": "TestJobLoc",
+      "Poster": {
+        "FirstName": "Sidharth",
+        "Id": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+        "LastName": "Anandkumar",
+        "Username": "Sid"
+      },
+      "Salary": "100000",
+      "Title": "TestJobTitle"
+    }
+  },
+  "OldUsers": {
+    "-NC8gw9QzEvULoalo4L3": {
+      "password": "Wdwad2131!",
+      "username": "alijon"
+    },
+    "-NCAu8dsRffhMAVnTMIq": {
+      "password": "Sidharth@7",
+      "username": "Sid"
+    },
+    "-NCCjAkecieri02U_eKM": {
+      "password": "0s@masPwd",
+      "username": "obasit"
+    },
+    "-NCCx5zgzgPsVGx3Ha2a": {
+      "password": "Rwew2!!2134",
+      "username": "tester"
+    },
+    "-NCGJR8yWgxPTMxGIMfe": {
+      "password": "utruERRR#22#",
+      "username": "taha"
+    }
+  },
+  "Users": {
+    "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46": {
+      "FirstName": "Sidharth",
+      "Id": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "LastName": "Anandkumar",
+      "Username": "Sid"
+    }
+  }
+}
