@@ -1,4 +1,4 @@
-from firebaseSetup.Firebase import database
+from model.User import User, UserHelpers
 
 # this function will validate the password and return True, if it is valid, False otherwise
 def ValidatePassword(password: str) -> bool:
@@ -27,10 +27,8 @@ def ValidatePassword(password: str) -> bool:
 # it will return False if the number exceeds 5, True otherwise
 def CheckDBSize() -> bool:
     try:
-        # get all DB entries tp a local list
-        queryResults = database.child('Users').get()
-
-        if len(queryResults.each()) >= 5:
+        allUsers = UserHelpers.GetAllUsers()
+        if len(allUsers) >= 5:
             print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:
@@ -43,10 +41,6 @@ def CheckDBSize() -> bool:
 # was successful, False otherwise; it validates database size limits and uniqueness of username
 def RegisterNewUser(username: str, password: str, firstName: str, lastName: str) -> bool:
     try:
-        # first let's check that the total number of users does not exceed 5
-        # get all DB entries to a local list
-        queryResults = database.child('Users').get()
-
         if not CheckDBSize():
             return False
         
@@ -70,12 +64,9 @@ def RegisterNewUser(username: str, password: str, firstName: str, lastName: str)
     # if the validation checks above pass, now we can try to create a new entry with the given values
     try:
         # save a new entry inside the "Users" node
-        database.child('Users').push(
-            {
-                "username": username, 
-                "password": password
-            }
-        )
+        userId = UserHelpers.CreateUserId(username, password)
+        user = User(userId, username, firstName, lastName)
+        UserHelpers.CreateUser(user)
         
         return True
     except:
