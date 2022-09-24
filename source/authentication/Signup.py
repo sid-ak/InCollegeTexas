@@ -1,4 +1,4 @@
-from firebaseSetup.Firebase import database
+from model.User import User, UserHelpers
 
 # this function will validate the password and return True, if it is valid, False otherwise
 def ValidatePassword(password: str) -> bool:
@@ -28,9 +28,12 @@ def ValidatePassword(password: str) -> bool:
 def CheckDBSize() -> bool:
     try:
         # get all DB entries tp a local list
-        queryResults = database.child('Users').get()
+        users = UserHelpers.GetAllUsers()
 
-        if len(queryResults.each()) >= 5:
+        if (users == None):
+            return True
+
+        if len(users) >= 5:
             print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:
@@ -40,40 +43,38 @@ def CheckDBSize() -> bool:
 
 
 # this function will accept username and password and return True, if the registration
-# was sucessful, False othwerwise; it validates database size limits and uniqueness of username
-def RegisterNewUser(username: str, password: str) -> bool:
-    try:
+# was successful, False otherwise; it validates database size limits and uniqueness of username
+def RegisterNewUser() -> bool:
+    try:        
         # first let's check that the total number of users does not exceed 5
-        # get all DB entries to a local list
-        queryResults = database.child('Users').get()
-
         if not CheckDBSize():
             return False
-        else:
+        
+        # get all DB entries to a local list
+        username = input("\nPlease enter your username: ")
+        users = UserHelpers.GetAllUsers()
+        if (users != None):
             # now check that the username is unique
-            for query in queryResults.each():
-                if query.val()['username'] == username:
+            for user in users:
+                if user.Username == username:
                     print("\nError! This username already exists!")
                     return False
     except:
         print("\nError! Something went wrong when connecting to database to fetch all entries!")
-        return False    
+        return False
     
     # now let's check the password to see if it abides by the set standards
+    password = input("\nPlease enter your password: ")
     if not ValidatePassword(password=password):
         print("\nError! Your password does not meet one or some of the standards!")
         return False 
-
+    
     # if the validation checks above pass, now we can try to create a new entry with the given values
+    firstName = input("\nPlease enter your first name: ")
+    lastName = input("\nPlease enter your last name: ")
     try:
-        # save a new entry inside the "Users" node
-        database.child('Users').push(
-            {
-                "username": username, 
-                "password": password
-            }
-        )
-        
+        userId = UserHelpers.CreateUserId(username, password)
+        UserHelpers.CreateUser(User(userId, username, firstName, lastName))
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")

@@ -1,7 +1,14 @@
 from authentication.Signup import ValidatePassword
-from loggedInActions.LearnNewSkill import DisplaySkills
-from loggedInActions.JobInternshipSearch import FindJobInternshipAction
-from loggedInActions.FindSomeone import FindSomeoneAction
+from actions.LearnNewSkill import DisplaySkills
+from actions.JobInternshipSearch import FindJobInternshipAction
+from actions.FindSomeone import FindSomeoneAction
+from actions.PlayVideo import PlayVideo
+
+# Tests below worked on for EPIC 2 - MM/DD/YYYY by XXXX
+def test_PlayVideo(capfd):
+    PlayVideo()
+    out, err = capfd.readouterr()
+    assert out == "Video is now playing!\n"
 
 # Tests below worked on for EPIC 1 - 9/19/22 by Anshika
 def test_ValidatePassword():

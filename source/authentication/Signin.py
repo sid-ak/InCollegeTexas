@@ -1,28 +1,76 @@
-from firebaseSetup.Firebase import database
-
+from model.User import User, UserHelpers
+from actions.FindSomeone import FindSomeoneAction
+from actions.JobInternshipSearch import FindJobInternshipAction
+from actions.LearnNewSkill import PresentSkillsAction
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
-def LoginUser(username: str, password: str) -> bool:
+def LoginUser() -> User:
     try:
-        # let's get all the DB queries in a list first
-        queryResults = database.child('Users').get()
+        print("\nLogin Selected.")
+        
+        username = input("\nPlease enter your username: ")
+        password = input("Please enter your password: ")
+        
+        userId = UserHelpers.CreateUserId(username, password)
+        users = UserHelpers.GetAllUsers()
+        if (users == None):
+            raise Exception()
 
-        # now let's loop through all the quries and check which matches
-        foundUser = False
-        for query in queryResults:
-            if query.val()['username'] == username:
-                foundUser = True
-                if query.val()['password'] == password:
-                    print("\nYou have successfully logged in.")
-                    return True
-                else:
-                    print("\nIncorrect username/password, please try again.")
-                    return False
+        for user in users:
+            if user.Id == userId:
+                print("\nYou have successfully logged in.")
+                DisplayLoginMenu(user)
+                return user
+            else:
+                continue
 
-        if not foundUser:
-            print("\nIncorrect username/password, please try again.")   
-            return False
+        print("\nIncorrect username/password, please try again.")
+        return None
     except:
         print("\nError! Something went wrong when connecting to database!")
-        return False
+        return None
+
+def DisplayLoginMenu(loggedUser: User):
+            # if the user logged in, continue with additional options
+            print(f"\nWelcome to your account, {loggedUser.Username}!")
+
+            # this variable will help us find out if we want to end the session of the user
+            terminateSession = False
+
+            while True:
+                print("\nPlease enter one of the following options to continue:")
+                options = '"1" - to search for a job or internship\n"2" - to find someone that you know\n"3" - to learn a new skill\n"-1" - to log out of your account'
+
+                while True:
+                    try:
+                        print(options)
+                        decision = int(input("\nEnter (-1 to Log Out): "))
+
+                        if decision == 1:
+                            print("\nYou have selected to search for job or internship.")
+                            FindJobInternshipAction()
+                            break
+                        elif decision == 2:
+                            print("\nYou have selected to find someone you know.")
+                            FindSomeoneAction()
+                            break
+                        elif decision == 3:
+                            print("\nYou have selected to learn a new skill.")
+                            PresentSkillsAction()
+                            break
+                        elif decision == -1:
+                            print("\nYou have selected to log out of your account.")
+                            terminateSession = True
+                            break
+                        else:
+                            print("\nError! Invalid Entry!")
+                    except:
+                        print("\nError! Invalid entry!")
+                        break
+
+                if terminateSession:
+                    break
+
+            if terminateSession:
+                print(f"\nGoodbye, {loggedUser.Username}.\n")
