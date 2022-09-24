@@ -25,11 +25,10 @@ def ValidatePassword(password: str) -> bool:
 
 # this function will query the Firebase DB and check the current number of accounts
 # it will return False if the number exceeds 5, True otherwise
-def CheckDBSize() -> bool:
+def CheckDBSize(collection: str="Users") -> bool:
     try:
         # get all DB entries tp a local list
-        users = UserHelpers.GetAllUsers()
-
+        users = UserHelpers.GetAllUsers(collection)
         if (users == None):
             return True
 
@@ -44,15 +43,14 @@ def CheckDBSize() -> bool:
 
 # this function will accept username and password and return True, if the registration
 # was successful, False otherwise; it validates database size limits and uniqueness of username
-def RegisterNewUser() -> bool:
+def RegisterNewUser(collection: str="Users") -> bool:
     try:        
         # first let's check that the total number of users does not exceed 5
-        if not CheckDBSize():
+        if not CheckDBSize(collection=collection):
             return False
-        
         # get all DB entries to a local list
         username = input("\nPlease enter your username: ")
-        users = UserHelpers.GetAllUsers()
+        users = UserHelpers.GetAllUsers(collection=collection)
         if (users != None):
             # now check that the username is unique
             for user in users:
@@ -74,7 +72,7 @@ def RegisterNewUser() -> bool:
     lastName = input("\nPlease enter your last name: ")
     try:
         userId = UserHelpers.CreateUserId(username, password)
-        UserHelpers.CreateUser(User(userId, username, firstName, lastName))
+        UserHelpers.CreateUser(User(userId, username, firstName, lastName), collection=collection)
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")

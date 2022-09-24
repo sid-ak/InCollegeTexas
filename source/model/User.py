@@ -5,7 +5,7 @@ from firebaseSetup.Firebase import database
 # A User entity.
 @dataclass
 class User:
-    Id: int
+    Id: str
     Username: str
     FirstName: str = ""
     LastName: str = ""
@@ -59,3 +59,14 @@ class UserHelpers:
     def CreateUserId(username: str, password: str) -> str:
         return hashlib.sha256(
             str.encode(username.join(password))).hexdigest()
+
+    def DeleteUserAccount(user: User, collection: str = "Users") -> bool:
+        users = UserHelpers.GetAllUsers(collection=collection)
+        if (users != None):
+            # now check that the username is unique
+            for dbUser in users:
+                if user.Username == dbUser.Username:
+                    database.child(collection).child(user.Id).remove()
+                    return True
+        else:
+            return False
