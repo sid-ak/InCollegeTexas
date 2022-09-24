@@ -3,7 +3,7 @@ import hashlib
 from firebaseSetup.Firebase import database
 from model.User import User, UserHelpers
 
-JobLimit: int = 5
+_jobLimit: int = 5
 
 # A Job entity.
 @dataclass
@@ -46,10 +46,16 @@ class JobHelpers:
     def GetAllJobs(collection: str = "Jobs") -> list[Job]:
         try:
             jobsResponse = database.child(collection).get()
+
+            if jobsResponse == None: return None
+            
+            jobsResponseList: list = jobsResponse.each()
+            if (jobsResponseList == None): return None 
             
             jobs: list[Job] = []
-            for user in jobsResponse.each():
-                jobs.append(Job.HydrateJob(user))
+            for job in jobsResponse.each():
+                if job == None: continue
+                else: jobs.append(Job.HydrateJob(job))
 
             return jobs
         except:
@@ -75,11 +81,11 @@ class JobHelpers:
         salary: str) -> str:
         return hashlib.sha256(
             str.encode(title
-                .join(employer))
+                .join(employer)
                 .join(desc)
                 .join(loc)
-                .join(salary)).hexdigest()
+                .join(salary))).hexdigest()
     
     # Checks if the maximum number of jobs have been posted.
     def IsLimitMet() -> bool:
-        return True if JobHelpers.GetAllJobs() == JobLimit else False
+        return True if JobHelpers.GetAllJobs() == _jobLimit else False
