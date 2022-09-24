@@ -5,7 +5,6 @@ from authentication.Signup import CheckDBSize
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
-from model.User import User, UserHelpers
 from actions.PlayVideo import PlayVideo
 
 
@@ -13,7 +12,9 @@ from actions.PlayVideo import PlayVideo
 class Main:
     
     # The user that is currently logged in.
-    loggedUser: User
+    loggedUser = {}
+    
+    flagLoggedin = False
 
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n" +
         "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
@@ -44,13 +45,19 @@ class Main:
                 else:
                     username = input("\nPlease enter your username: ")
                     password = input("Please enter your password: ")
-                    if RegisterNewUser(username=username, password=password):
-                        print("\nSucess! You have sucessfully created a new account.\n")
+                    firstName = input("Please enter your first name: ")
+                    lastName = input("Please enter your last name: ")
+                    if RegisterNewUser(
+                        username=username,
+                        password=password,
+                        firstName=firstName,
+                        lastName=lastName):
+                        print("\nSuccess! You have successfully created a new account.\n")
                     else:
                         print("\nFailure! We have not been able to create a new account for you.")
             elif decision == 3:
                 print("\nVideo Selected")
-                playVideo()
+                PlayVideo()
             elif decision == -1:
                 print("\nExit selected.\n")
                 break
@@ -61,14 +68,14 @@ class Main:
    
         if flagLoggedin:
             # if the user logged in, continue with additional options
-            print(f"\nWelcome to your account, {loggedUser.Username}!")
+            print(f"\nWelcome to your account, {loggedUser['username']}!")
 
             # this variable will help us find out if we want to end the session of the user
             terminateSession = False
 
             while True:
                 print("\nPlease enter one of the following options to continue:")
-                options = '"1" - to search for a job or internship\n"2" - to find someone that you know\n"3" - to learn a new skill\n"-1" - to log out of your account'
+                options = "'1' - to search for a job or internship\n" + "'2' - to find someone that you know\n" + "'3' - to learn a new skill\n" + "'-1' - to log out of your account"
 
                 while True:
                     try:
@@ -101,6 +108,6 @@ class Main:
                     break
 
             if terminateSession:
-                print(f"\nGoodbye, {loggedUser.Username}.\n")
+                print(f"\nGoodbye, {loggedUser['username']}.\n")
                 break
 

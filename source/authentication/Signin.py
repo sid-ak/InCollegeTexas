@@ -1,5 +1,4 @@
 from model.User import UserHelpers
-from firebaseSetup.Firebase import database
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
