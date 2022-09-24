@@ -5,6 +5,8 @@ from authentication.Signin import LoginUser
 from model.User import User, UserHelpers
 from testInputs.testInputs import set_keyboard_input
 
+USER_LIMIT = 5
+
 #Tests below worked on for EPIC 2
 def test_GetAllUsers():
     dbUsersResponse = database.child("Users").get()
@@ -22,7 +24,7 @@ def test_CheckDBSize():
     users = UserHelpers.GetAllUsers()
     if users == None:
         assert CheckDBSize() == True
-    elif len(users) >= 5:
+    elif len(users) >= USER_LIMIT:
         assert CheckDBSize() == False
     else:
         assert CheckDBSize() == True
