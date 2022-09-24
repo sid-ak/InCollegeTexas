@@ -30,6 +30,8 @@ def test_CheckDBSize():
 
 '''Test to see if account is added successfully'''
 def test_RegisterNewUser_Success(monkeypatch):
+    set_keyboard_input(["obasit2", "Mypassword3!", "Osama2", "Basit2"])
+    RegisterNewUser(collection="TestUsers")
     set_keyboard_input(["testID", "Mypassword3!", "Test", "Account"])
     user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
     result = RegisterNewUser(collection="TestUsers")
@@ -39,4 +41,6 @@ def test_RegisterNewUser_Success(monkeypatch):
 
 '''Test to test if Log In works'''
 def test_LogInUser():
-    assert LoginUser("obasit", "0s@masPwd") == True
+    set_keyboard_input(["obasit2", "Mypassword3!", "-1"])
+    assert LoginUser("TestUsers") == User("4819ac977d1fa72098663c88cbd1c1fdd5da8691a0a07285cc92d05288daf9a9", "obasit2",
+                                          "Osama2", "Basit2")

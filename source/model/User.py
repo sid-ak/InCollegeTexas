@@ -5,7 +5,7 @@ from firebaseSetup.Firebase import database
 # A User entity.
 @dataclass
 class User:
-    Id: int
+    Id: str
     Username: str
     FirstName: str = ""
     LastName: str = ""
