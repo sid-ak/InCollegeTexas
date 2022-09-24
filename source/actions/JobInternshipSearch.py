@@ -5,10 +5,10 @@ def FindJobInternshipAction(loggedUser: User):
     while True:
         print("\nPlease enter one of the following options to continue:\n"
             + "1 - Post a job")
-        
-        optionNo: int = int(input("\nEnter (-1 to go back): "))
-        
+                
         try:
+            optionNo: int = int(input("\nEnter (-1 to go back): "))
+            
             if optionNo == -1: break
             
             elif optionNo == 1:
