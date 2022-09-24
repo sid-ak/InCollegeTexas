@@ -27,7 +27,7 @@ def FindJobInternshipAction(loggedUser: User):
                     raise Exception("CreateJob failed.")
 
         except:
-            print(f"Exception: \n{job.Title} could not be created.")
+            print(f"Exception: \nJob could not be created.")
     
 
 # Constructs the job by taking user input and returns it.
