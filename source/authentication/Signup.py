@@ -27,8 +27,13 @@ def ValidatePassword(password: str) -> bool:
 # it will return False if the number exceeds 5, True otherwise
 def CheckDBSize() -> bool:
     try:
-        allUsers = UserHelpers.GetAllUsers()
-        if len(allUsers) >= 5:
+        # get all DB entries tp a local list
+        users = UserHelpers.GetAllUsers()
+
+        if (users == None):
+            return True
+
+        if len(users) >= 5:
             print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:
@@ -39,12 +44,14 @@ def CheckDBSize() -> bool:
 
 # this function will accept username and password and return True, if the registration
 # was successful, False otherwise; it validates database size limits and uniqueness of username
-def RegisterNewUser(username: str, password: str, firstName: str, lastName: str) -> bool:
-    try:
+def RegisterNewUser() -> bool:
+    try:        
+        # first let's check that the total number of users does not exceed 5
         if not CheckDBSize():
             return False
         
         # get all DB entries to a local list
+        username = input("\nPlease enter your username: ")
         users = UserHelpers.GetAllUsers()
         if (users != None):
             # now check that the username is unique
@@ -57,17 +64,17 @@ def RegisterNewUser(username: str, password: str, firstName: str, lastName: str)
         return False
     
     # now let's check the password to see if it abides by the set standards
+    password = input("\nPlease enter your password: ")
     if not ValidatePassword(password=password):
         print("\nError! Your password does not meet one or some of the standards!")
         return False 
-
+    
     # if the validation checks above pass, now we can try to create a new entry with the given values
+    firstName = input("\nPlease enter your first name: ")
+    lastName = input("\nPlease enter your last name: ")
     try:
-        # save a new entry inside the "Users" node
         userId = UserHelpers.CreateUserId(username, password)
-        user = User(userId, username, firstName, lastName)
-        UserHelpers.CreateUser(user)
-        
+        UserHelpers.CreateUser(User(userId, username, firstName, lastName))
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")
