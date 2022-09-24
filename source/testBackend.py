@@ -1,62 +1,48 @@
 import pytest
 from firebaseSetup.Firebase import database
-from authentication.Signup import RegisterNewUser
+from authentication.Signup import RegisterNewUser, CheckDBSize
 from authentication.Signin import LoginUser
+from model.User import User, UserHelpers
+from testInputs.testInputs import set_keyboard_input
+
+USER_LIMIT = 5
 
 #Tests below worked on for EPIC 2
+def test_GetAllUsers():
+    dbUsersResponse = database.child("Users").get()
+    dbUsers = []
+    for user in dbUsersResponse.each():
+        dbUsers.append(User.HydrateUser(user))
+
+    assert UserHelpers.GetAllUsers() == dbUsers
+
 
 # Tests below worked on for EPIC 1 - 9/19/22 by Osama
 '''tests whether it can limit to 5 functions '''
-def test_RegisterNewUserLimit():
+def test_CheckDBSize():
     # make 5 test accounts
-    testAccounts = ["testAccount1", "testAccount2", "testAccount3", "testAccount4", "testAccount6"]
-    testPwds = ["testPwd1", "testPwd2", "testPwd3", "testPwd4", "testPwd5"]
+    users = UserHelpers.GetAllUsers()
+    if users == None:
+        assert CheckDBSize() == True
+    elif len(users) >= USER_LIMIT:
+        assert CheckDBSize() == False
+    else:
+        assert CheckDBSize() == True
 
-    print("\nMaking 5 new account's")
-    for i in range(len(testAccounts)):
-        database.child('Users').push(
-            {
-                "username": testAccounts[i],
-                "password": testPwds[i],
-            }
-        )
-    # check if 6th can be added
-    assert RegisterNewUser("testAccount6", "testPwd6!") == False
-
-    #delete the additional accounts
-    print("Removing temporary accounts made now")
-    queryResults = database.child('Users').get()
-    for query in queryResults.each():
-        if query.val()['username'] in testAccounts:
-            database.child('Users').child(query.key()).remove()
 
 '''Test to see if account is added successfully'''
-def test_RegisterNewUser_Success():
-    queryResults = database.child('Users').get()
-    if len(queryResults.each()) < 5:
-        assert RegisterNewUser("testUser", "testPwd2@") == True
-    else:
-        queryResults = database.child('Users').get()  # User branch
-        userInfo = [(query.val()['username'], query.val()['password']) for query in queryResults.each()]
-        temp_username, temp_password = userInfo[4][0], userInfo[4][1]
-        for query in queryResults.each():
-            if query.val()['username'] == temp_username:
-                database.child('Users').child(query.key()).remove()
-                print(f"\nremoved {temp_username}")
+def test_RegisterNewUser_Success(monkeypatch):
+    set_keyboard_input(["obasit2", "Mypassword3!", "Osama2", "Basit2"])
+    RegisterNewUser(collection="TestUsers")
+    set_keyboard_input(["testID", "Mypassword3!", "Test", "Account"])
+    user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
+    result = RegisterNewUser(collection="TestUsers")
+    assert result == True
+    UserHelpers.DeleteUserAccount(user, "TestUsers")
 
-        assert RegisterNewUser("testUser", "testPwd2@") == True
-
-        queryResults = database.child('Users').get()
-        for query in queryResults.each():
-            if query.val()['username'] == "testUser":
-                database.child('Users').child(query.key()).remove()
-
-        database.child('Users').push({
-            "username": temp_username,
-            "password": temp_password
-        })
-        print(f"added {temp_username}")
 
 '''Test to test if Log In works'''
 def test_LogInUser():
-    assert LoginUser("obasit", "0s@masPwd") == True
+    set_keyboard_input(["obasit2", "Mypassword3!", "-1"])
+    assert LoginUser("TestUsers") == User("4819ac977d1fa72098663c88cbd1c1fdd5da8691a0a07285cc92d05288daf9a9", "obasit2",
+                                          "Osama2", "Basit2")

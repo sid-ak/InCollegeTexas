@@ -5,15 +5,16 @@ from actions.LearnNewSkill import PresentSkillsAction
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
-def LoginUser() -> User:
+def LoginUser(collection: str= "Users") -> User:
     try:
         print("\nLogin Selected.")
         
         username = input("\nPlease enter your username: ")
         password = input("Please enter your password: ")
         
-        userId: str = UserHelpers.CreateUserId(username, password)
-        users: list[User] = UserHelpers.GetAllUsers()
+        userId = UserHelpers.CreateUserId(username, password)
+        users = UserHelpers.GetAllUsers(collection=collection)
+        
         if (users == None):
             raise Exception()
 
