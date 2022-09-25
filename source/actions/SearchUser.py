@@ -24,14 +24,21 @@ def SearchUser() -> bool:
         return False
 
 def DisplayAuthentication():
-    decision: int = int(input("Enter 1 to Log In\nEnter 2 to Sign Up\n"))
-    
-    try:
-        if (decision == 1):
-            LoginUser()
-        elif (decision == 2):
-            RegisterNewUser()
-        else:
-            raise Exception()
-    except:
-        print("\nInvalid input.")
+    while True:
+        print("\nPlease enter one of the following options to continue:\n"
+            + "1 - Log In\n"
+            + "2 - Sign Up")
+        
+        try:
+            decision: int = int(input("\nEnter (-1 to go back): "))
+
+            if decision == -1: break
+
+            if (decision == 1):
+                LoginUser()
+            elif (decision == 2):
+                RegisterNewUser()
+            else:
+                raise Exception()
+        except:
+            print("\nInvalid input.")
