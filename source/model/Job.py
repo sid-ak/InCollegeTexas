@@ -8,7 +8,7 @@ _jobLimit: int = 5
 # A Job entity.
 @dataclass
 class Job:
-    Id: int
+    Id: str
     Title: str
     Employer: str
     Description: str
@@ -89,3 +89,13 @@ class JobHelpers:
     # Checks if the maximum number of jobs have been posted.
     def IsLimitMet() -> bool:
         return True if JobHelpers.GetAllJobs() == _jobLimit else False
+
+    def DeleteJob(job: Job, collection: str = "Jobs"):
+        jobs = JobHelpers.GetAllJobs(collection=collection)
+        if (jobs != None):
+            for dbJob in jobs:
+                if job.Id == dbJob.Id and job.Title == dbJob.Title:
+                    database.child(collection).child(job.Id).remove()
+                    return True
+        else:
+            return False
