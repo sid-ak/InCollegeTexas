@@ -34,10 +34,16 @@ class UserHelpers:
     def GetAllUsers(collection: str = "Users") -> list[User]:
         try:
             usersResponse = database.child(collection).get()
+
+            if usersResponse == None: return None
+
+            userResponseList: list = usersResponse.each()
+            if (userResponseList == None): return None 
             
             users: list[User] = []
             for user in usersResponse.each():
-                users.append(User.HydrateUser(user))
+                if user == None: continue
+                else: users.append(User.HydrateUser(user))
 
             return users
         except:

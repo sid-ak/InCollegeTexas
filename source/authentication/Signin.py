@@ -14,6 +14,7 @@ def LoginUser(collection: str= "Users") -> User:
         
         userId = UserHelpers.CreateUserId(username, password)
         users = UserHelpers.GetAllUsers(collection=collection)
+        
         if (users == None):
             raise Exception()
 
@@ -36,7 +37,7 @@ def DisplayLoginMenu(loggedUser: User):
             print(f"\nWelcome to your account, {loggedUser.Username}!")
 
             # this variable will help us find out if we want to end the session of the user
-            terminateSession = False
+            terminateSession: bool = False
 
             while True:
                 print("\nPlease enter one of the following options to continue:")
@@ -49,7 +50,7 @@ def DisplayLoginMenu(loggedUser: User):
 
                         if decision == 1:
                             print("\nYou have selected to search for job or internship.")
-                            FindJobInternshipAction()
+                            FindJobInternshipAction(loggedUser)
                             break
                         elif decision == 2:
                             print("\nYou have selected to find someone you know.")

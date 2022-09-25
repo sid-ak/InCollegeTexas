@@ -8,7 +8,7 @@ from actions.PlayVideo import PlayVideo
 # this is the main run file
 class Main:
     
-    # this dictionary will store the username and password of a logged in user
+    # The user that is currently logged in.
     loggedUser: User = None
 
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
