@@ -3,11 +3,40 @@ from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser, CheckDBSize
 from authentication.Signin import LoginUser
 from model.User import User, UserHelpers
+from model.Job import Job, JobHelpers
+from actions.JobInternshipSearch import MakeJob, FindJobInternshipAction
 from testInputs.testInputs import set_keyboard_input
 
 USER_LIMIT = 5
+JOB_LIMIT = 5
 
 #Tests below worked on for EPIC 2
+def test_CreateJob():
+    poster = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
+    job_id = JobHelpers.CreateJobId("Test Software Engineer", "Aramark", "coding", "Atlanta", "60000")
+    first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster)
+
+    if JobHelpers.IsLimitMet():
+        assert JobHelpers.CreateJob(first_job, "TestJobs") == False
+    else:
+        assert JobHelpers.CreateJob(first_job, "TestJobs") == True
+        JobHelpers.DeleteJob(first_job, "TestJobs")
+
+
+def test_JobLimit():
+    if len(JobHelpers.GetAllJobs()) >= JOB_LIMIT :
+        assert JobHelpers.IsLimitMet() == True
+    else:
+        assert JobHelpers.IsLimitMet() == False
+
+def test_GetAllJobs():
+    dbJobsResponse = database.child("Jobs").get()
+    dbJobs = []
+    for job in dbJobsResponse.each():
+        dbJobs.append(Job.HydrateJob(job))
+
+    assert JobHelpers.GetAllJobs() == dbJobs
+
 def test_GetAllUsers():
     dbUsersResponse = database.child("Users").get()
     dbUsers = []
@@ -32,8 +61,6 @@ def test_CheckDBSize():
 
 '''Test to see if account is added successfully'''
 def test_RegisterNewUser_Success(monkeypatch):
-    set_keyboard_input(["obasit2", "Mypassword3!", "Osama2", "Basit2"])
-    RegisterNewUser(collection="TestUsers")
     set_keyboard_input(["testID", "Mypassword3!", "Test", "Account"])
     user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
     result = RegisterNewUser(collection="TestUsers")
