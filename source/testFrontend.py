@@ -26,10 +26,10 @@ def test_DisplaySkills(capfd):
     out, err = capfd.readouterr()
     assert out == "1. Communication\n2. Marketing\n3. Python Programming\n4. Web Development\n5. Public Speaking\n"
 
-def test_JobInternshipSearch(capfd):
-    FindJobInternshipAction()
-    out, err = capfd.readouterr()
-    assert out == "\nunder construction\n"
+# def test_JobInternshipSearch(capfd):
+#     FindJobInternshipAction()
+#     out, err = capfd.readouterr()
+#     assert out == "\nunder construction\n"
 
 def test_FindSomeone(capfd):
     FindSomeoneAction()
