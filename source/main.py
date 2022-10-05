@@ -3,7 +3,8 @@ from authentication.Signin import LoginUser
 from model.User import User
 from actions.SearchUser import SearchUser
 from actions.PlayVideo import PlayVideo
-
+from actions.DisplayImpLinks import DisplayImpLinks
+from helpers.MenuHelpers import MenuHelpers
 
 # this is the main run file
 class Main:
@@ -18,11 +19,12 @@ class Main:
         + '\n"1" to login your account\n' 
         + '"2" to sign up with a new account\n'
         + '"3" to play the informational video\n'
-        + '"4" to search an existing user')
+        + '"4" to search an existing user\n'
+        + '"5" to display important links')
 
     while True:
         try:
-            decision = int(input("\nEnter (-1 to Exit): "))
+            decision: int = MenuHelpers.InputOptionNo()
             
             if decision == 1:
                 loggedUser = LoginUser()
@@ -46,6 +48,10 @@ class Main:
             elif decision == 4:
                 print("\nSearch User Selected")
                 SearchUser()
+            
+            elif decision == 5:
+                print("\nImportant Links Selected")
+                DisplayImpLinks()
             
             elif decision == -1:
                 print("\nExit selected.\n")

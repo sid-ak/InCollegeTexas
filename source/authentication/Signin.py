@@ -1,7 +1,9 @@
+from tkinter import Menu
 from model.User import User, UserHelpers
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
+from helpers.MenuHelpers import MenuHelpers
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
@@ -46,7 +48,8 @@ def DisplayLoginMenu(loggedUser: User):
                 while True:
                     try:
                         print(options)
-                        decision = int(input("\nEnter (-1 to Log Out): "))
+
+                        decision = MenuHelpers.InputOptionNo()
 
                         if decision == 1:
                             print("\nYou have selected to search for job or internship.")
