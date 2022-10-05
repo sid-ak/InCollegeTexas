@@ -1,4 +1,3 @@
-from tkinter import Menu
 from model.User import User, UserHelpers
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
