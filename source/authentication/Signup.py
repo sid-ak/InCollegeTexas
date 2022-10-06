@@ -72,7 +72,7 @@ def RegisterNewUser(collection: str="Users") -> bool:
     lastName = input("\nPlease enter your last name: ")
     try:
         userId = UserHelpers.CreateUserId(username, password)
-        UserHelpers.CreateUser(User(userId, username, firstName, lastName), collection=collection)
+        UserHelpers.UpdateUser(User(userId, username, firstName, lastName), collection=collection)
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")

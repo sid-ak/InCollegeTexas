@@ -8,16 +8,18 @@ from model.User import User
 # Guest Controls, and Languages.
 def DisplayImpLinks(loggedUser: User = None):
     while True:
-        print("\nPlease select one of the following links to display its content:"
-            + "\n1 - Copyright Notice"
-            + "\n2 - About"
-            + "\n3 - Accessibility"
-            + "\n4 - User Agreement"
-            + "\n5 - Privacy Policy"
-            + "\n6 - Cookie Policy"
-            + "\n7 - Copyright Policy"
-            + "\n8 - Brand Policy"
-            + "\n9 - Languages")
+        print("\nPlease select one of the following links to display its content:")
+        MenuHelpers.DisplayOptions(
+            ["Copyright Notice",
+            "About",
+            "Accessibility",
+            "User Agreement",
+            "Privacy Policy",
+            "Cookie Policy",
+            "Copyright Policy",
+            "Brand Policy",
+            "Languages"]
+        )
 
         try:
             optionNo: int = MenuHelpers.InputOptionNo()

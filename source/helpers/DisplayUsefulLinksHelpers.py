@@ -7,14 +7,19 @@ class DisplayUsefulLinksHelpers:
 
     def General():
         while True:
-            print("\nPlease select one of the following links to display its content:"
-            + "\n1 - Sign Up"
-            + "\n2 - Help Center"
-            + "\n3 - About"
-            + "\n4 - Press"
-            + "\n5 - Blog"
-            + "\n6 - Careers"
-            + "\n7 - Developers")
+            print("\nPlease select one of the following links to display its content:")
+
+            MenuHelpers.DisplayOptions(
+                [
+                    "Sign Up",
+                    "Help Center",
+                    "About",
+                    "Press",
+                    "Blog",
+                    "Careers",
+                    "Developers"
+                ]
+            )
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()

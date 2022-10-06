@@ -1,6 +1,5 @@
 from authentication.Signup import ValidatePassword
 from actions.LearnNewSkill import DisplaySkills
-from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.FindSomeone import FindSomeoneAction
 from actions.PlayVideo import PlayVideo
 
@@ -29,4 +28,4 @@ def test_DisplaySkills(capfd):
 def test_FindSomeone(capfd):
     FindSomeoneAction()
     out, err = capfd.readouterr()
-    assert out == "\nunder construction\n"
+    assert out == "under construction\n"

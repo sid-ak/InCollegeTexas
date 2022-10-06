@@ -2,6 +2,7 @@ from model.User import User, UserHelpers
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
+from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.MenuHelpers import MenuHelpers
 from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
@@ -44,11 +45,16 @@ def DisplayLoginMenu(loggedUser: User):
 
             while True:
                 print("\nPlease enter one of the following options to continue:")
-                options = '"1" - to search for a job or internship\n"2" - to find someone that you know\n"3" - to learn a new skill\n"4" - to display important links\n"5" - to display useful links\n"-1" - to log out of your account'
+                options = ["Search for a job or internship",
+                    "Find someone that you know",
+                    "Learn a new skill",
+                    "Display important links",
+                    "Display useful links",
+                    "Logout"]
 
                 while True:
                     try:
-                        print(options)
+                        MenuHelpers.DisplayOptions(options)
 
                         decision = MenuHelpers.InputOptionNo()
 
@@ -65,8 +71,9 @@ def DisplayLoginMenu(loggedUser: User):
                             PresentSkillsAction()
                             break
                         elif decision == 4:
-                            print("\nImportant Links Selected")
-                            DisplayImpLinks()
+                            print("\nYou have selected to learn a new skill.")
+                            DisplayImpLinks(loggedUser)
+                            break
                         elif decision == 5:
                             print("\nUseful Links Selected")
                             DisplayUsefulLinks()

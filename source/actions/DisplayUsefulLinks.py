@@ -8,11 +8,15 @@ from model.User import User
 
 def DisplayUsefulLinks(loggedUser: User = None):
     while True:
-        print ("\nPlease select one of the following links to display its content:"
-            + "\n1 - General"
-            + "\n2 - Browse InCollege"
-            + "\n3 - Business Solutions"
-            + "\n4 - Directories")
+        print("\nPlease select one of the following links to display its content:")
+        MenuHelpers.DisplayOptions(
+            [
+                "General",
+                "Browse InCollege",
+                "Business Solutions",
+                "Directories"
+            ]
+        )
 
         try:
             optNo: int = MenuHelpers.InputOptionNo()

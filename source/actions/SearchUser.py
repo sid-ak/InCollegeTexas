@@ -26,9 +26,8 @@ def SearchUser() -> bool:
 
 def DisplayAuthentication():
     while True:
-        print("\nPlease enter one of the following options to continue:\n"
-            + "1 - Log In\n"
-            + "2 - Sign Up")
+        print("\nPlease enter one of the following options to continue:")
+        MenuHelpers.DisplayOptions(["Log In", "Sign Up"])
         
         try:
             decision: int = MenuHelpers.InputOptionNo()

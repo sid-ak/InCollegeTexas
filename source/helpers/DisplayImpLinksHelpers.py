@@ -1,5 +1,6 @@
 from helpers.MenuHelpers import MenuHelpers
-from model.User import User
+from model.User import User, UserHelpers
+from enums.LanguageEnum import LanguageEnum
 
 class DisplayImpLinksHelpers:
 
@@ -25,10 +26,24 @@ class DisplayImpLinksHelpers:
             + "\nWhen you are using our application, you are agreeing to InCollege's Privacy,"
             + "\nCookie, Copyright and Brand Policy.\n")
     
-    # TODO: Call ShowGuestControls here.
     def PrintPrivacyPolicy(loggedUser: User = None):
-        print("\nPrivacy Policy:")
-        print("\nWe make sure that your passwords are protected safely!\n")
+        while True:
+            try:
+                print("\nPrivacy Policy:")
+                print("\nWe make sure that your passwords are protected safely!\n"
+                    + "\nAdditional options:"
+                    + "\n1 - Guest Controls")
+                
+                decision: int = MenuHelpers.InputOptionNo()
+
+                if decision == -1: break
+
+                elif decision == 1:
+                    DisplayImpLinksHelpers.ShowGuestControls(loggedUser)
+
+            except:
+                print("\nAn unexpected error ocurred.")
+
 
     def PrintCookiePolicy():
         print("\nCookie Policy:")
@@ -49,12 +64,48 @@ class DisplayImpLinksHelpers:
             + "\n2 - Have a seamless user experience."
             + "\n3 - Store data effectively.\n")
     
-    # TODO: Finish method.
+    # Allows a user to toggle certain notification preferences.
     def ShowGuestControls(loggedUser: User = None):
-        ("\nGuest Controls:\n")
-        MenuHelpers.PrintUnderConstruction()
+        while True:
+            print("\nGuest Controls:")
 
-    # TODO: Finish method.
+            if loggedUser == None:
+                print("You must be logged in to modify guest controls.")
+                break
+            
+            print("\nSelect an option to toggle it on or off:")
+            MenuHelpers.DisplayOptions(["InCollege Email", "SMS", "Targeted Advertising"])
+            
+            decision: int = MenuHelpers.InputOptionNo()
+
+            if decision == -1: break
+            
+            elif decision == 1: UserHelpers.ToggleEmailEnabled(loggedUser)
+            elif decision == 2: UserHelpers.ToggleSmsEnabled(loggedUser)
+            elif decision == 3: UserHelpers.ToggleTargetedAdvertEnabled(loggedUser)
+
+            else:
+                print("Unexpected exception ocurred, invalid input.\n"
+                    + "Please enter a number between 1 and 3.\n")
+
     def ShowLanguagePreferences(loggedUser: User = None):
-        ("\nLanguage Preference:\n")
-        MenuHelpers.PrintUnderConstruction()
+        while True:
+            print("\nLanguage Preference:")
+
+            if loggedUser == None:
+                print("You must be logged in to modify language preference.")
+                break
+        
+            print("\nSelect an option to set your preferred language:")
+            MenuHelpers.DisplayOptions(["English", "Spanish"])
+
+            decision: int = MenuHelpers.InputOptionNo()
+
+            if decision == -1: break
+            
+            elif decision == 1: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.English)
+            elif decision == 2: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.Spanish)
+
+            else:
+                print("Unexpected exception ocurred, invalid input.\n"
+                    + "Please enter either 1 or 2.\n")
