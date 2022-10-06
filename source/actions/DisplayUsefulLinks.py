@@ -40,6 +40,5 @@ def DisplayUsefulLinks(loggedUser: User = None):
                     + "Please enter a number between 1 and 4.\n")
         
         except:
-            print("Unexpected exception ocurred, invalid input.\n"
-            + "Please enter a number between 1 and 4.\n")
+            print("Unexpected error ocurred\n")
                     
