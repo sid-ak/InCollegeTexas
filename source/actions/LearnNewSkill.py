@@ -1,4 +1,5 @@
 from typing import List
+from helpers.MenuHelpers import MenuHelpers
 
 # this global variable will store the list of "made-up" skills
 SkillsList = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
@@ -28,26 +29,27 @@ def PresentSkillsAction() -> List[str]:
 
         while True:
             try:
-                skillSelect = int(input("\nEnter (-1 to go back): "))
+                skillSelect = MenuHelpers.InputOptionNo()
+                
                 if skillSelect == 1:
                     selectedSkills.append(skills[0])
-                    print("\nunder construction")
+                    MenuHelpers.PrintUnderConstruction()
                     break
                 elif skillSelect == 2:
                     selectedSkills.append(skills[1])
-                    print("\nunder construction")
+                    MenuHelpers.PrintUnderConstruction()
                     break
                 elif skillSelect == 3:
                     selectedSkills.append(skills[2])
-                    print("\nunder construction")
+                    MenuHelpers.PrintUnderConstruction()
                     break
                 elif skillSelect == 4:
                     selectedSkills.append(skills[3])
-                    print("\nunder construction")
+                    MenuHelpers.PrintUnderConstruction()
                     break
                 elif skillSelect == 5:
                     selectedSkills.append(skills[4])
-                    print("\nunder construction")
+                    MenuHelpers.PrintUnderConstruction()
                     break
                 elif skillSelect == -1:
                     selectedSkills.append("SKIP")

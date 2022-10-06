@@ -1,6 +1,7 @@
 from model.User import UserHelpers
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
+from helpers.MenuHelpers import MenuHelpers
 
 
 # this function will check if the firstname and lastname of a user exists in the database
@@ -30,7 +31,7 @@ def DisplayAuthentication():
             + "2 - Sign Up")
         
         try:
-            decision: int = int(input("\nEnter (-1 to go back): "))
+            decision: int = MenuHelpers.InputOptionNo()
 
             if decision == -1: break
 
