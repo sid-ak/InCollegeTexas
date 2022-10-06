@@ -28,4 +28,4 @@ def test_DisplaySkills(capfd):
 def test_FindSomeone(capfd):
     FindSomeoneAction()
     out, err = capfd.readouterr()
-    assert out == "\nunder construction\n"
+    assert out == "under construction\n"
