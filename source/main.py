@@ -15,12 +15,14 @@ class Main:
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
         + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print('Welcome!\nPlease, select:' 
-        + '\n"1" to login your account\n' 
-        + '"2" to sign up with a new account\n'
-        + '"3" to play the informational video\n'
-        + '"4" to search an existing user\n'
-        + '"5" to display important links')
+    print("Welcome!\nPlease select an option to continue:")
+    MenuHelpers.DisplayOptions(
+        ["Log In",
+        "Sign Up",
+        "Play an Informational Video",
+        "Search User",
+        "Display Important Links"]
+    ) 
 
     while True:
         try:
@@ -51,7 +53,7 @@ class Main:
             
             elif decision == 5:
                 print("\nImportant Links Selected")
-                DisplayImpLinks()
+                DisplayImpLinks(loggedUser)
             
             elif decision == -1:
                 print("\nExit selected.\n")

@@ -1,6 +1,5 @@
 from authentication.Signup import ValidatePassword
 from actions.LearnNewSkill import DisplaySkills
-from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.FindSomeone import FindSomeoneAction
 from actions.PlayVideo import PlayVideo
 
