@@ -1,5 +1,6 @@
 from helpers.MenuHelpers import MenuHelpers
 from model.User import User, UserHelpers
+from enums.LanguageEnum import LanguageEnum
 
 class DisplayImpLinksHelpers:
 
@@ -69,10 +70,10 @@ class DisplayImpLinksHelpers:
             print("\nGuest Controls:")
 
             if loggedUser == None:
-                print("You must be logged in to modify guest controls")
+                print("You must be logged in to modify guest controls.")
                 break
             
-            print("\nSelect an option to toggle it on or off")
+            print("\nSelect an option to toggle it on or off:")
             MenuHelpers.DisplayOptions(["InCollege Email", "SMS", "Targeted Advertising"])
             
             decision: int = MenuHelpers.InputOptionNo()
@@ -87,7 +88,24 @@ class DisplayImpLinksHelpers:
                 print("Unexpected exception ocurred, invalid input.\n"
                     + "Please enter a number between 1 and 3.\n")
 
-    # TODO: Finish method.
     def ShowLanguagePreferences(loggedUser: User = None):
-        print("\nLanguage Preference:")
-        MenuHelpers.PrintUnderConstruction()
+        while True:
+            print("\nLanguage Preference:")
+
+            if loggedUser == None:
+                print("You must be logged in to modify language preference.")
+                break
+        
+            print("\nSelect an option to set your preferred language:")
+            MenuHelpers.DisplayOptions(["English", "Spanish"])
+
+            decision: int = MenuHelpers.InputOptionNo()
+
+            if decision == -1: break
+            
+            elif decision == 1: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.English)
+            elif decision == 2: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.Spanish)
+
+            else:
+                print("Unexpected exception ocurred, invalid input.\n"
+                    + "Please enter either 1 or 2.\n")
