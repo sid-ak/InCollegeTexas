@@ -4,6 +4,7 @@ from model.User import User
 from actions.SearchUser import SearchUser
 from actions.PlayVideo import PlayVideo
 from actions.DisplayImpLinks import DisplayImpLinks
+from actions.DisplayUsefulLinks import DisplayUsefulLinks
 from helpers.MenuHelpers import MenuHelpers
 
 # this is the main run file
@@ -20,7 +21,8 @@ class Main:
         + '"2" to sign up with a new account\n'
         + '"3" to play the informational video\n'
         + '"4" to search an existing user\n'
-        + '"5" to display important links')
+        + '"5" to display important links\n'
+        + '"6" to display useful links\n')
 
     while True:
         try:
@@ -52,6 +54,10 @@ class Main:
             elif decision == 5:
                 print("\nImportant Links Selected")
                 DisplayImpLinks()
+
+            elif decision == 6:
+                print("\nUseful Links Selected")
+                DisplayUsefulLinks()
             
             elif decision == -1:
                 print("\nExit selected.\n")
