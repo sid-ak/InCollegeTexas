@@ -6,20 +6,20 @@ class DisplayGeneralLinksHelpers:
     def ShowHelpCenter():
         print("\nWe're here to help")
 
-    def About():
+    def ShowAbout():
         print("\nIn College:"
         + "\nWelcome to In College, the world's largest college student network"
         + "\nwith many users in many countries and territories worldwide")
 
-    def Press():
+    def ShowPress():
         print("\nIn College Pressroom:"
         + "\nStay on top of the latest news, updates, and reports")
 
-    def Blog():
+    def ShowBlog():
         MenuHelpers.PrintUnderConstruction()
     
-    def Careers():
+    def ShowCareers():
         MenuHelpers.PrintUnderConstruction()
 
-    def Developers():
+    def ShowDevelopers():
         MenuHelpers.PrintUnderConstruction()
