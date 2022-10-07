@@ -37,7 +37,7 @@ class DisplayUsefulLinksHelpers:
                             print("\nFailure! We have not been able to create a new account for you.")
 
                 elif optionNo == 2:
-                    DisplayGeneralLinksHelpers.HelpCenter()
+                    DisplayGeneralLinksHelpers.ShowHelpCenter()
 
                 elif optionNo == 3:
                     DisplayGeneralLinksHelpers.About()
