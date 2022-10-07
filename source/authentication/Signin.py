@@ -75,7 +75,7 @@ def DisplayLoginMenu(loggedUser: User):
                             DisplayImpLinks(loggedUser)
                             break
                         elif decision == 5:
-                            print("\nUseful Links Selected")
+                            print("\nYou have selected to display useful links.")
                             DisplayUsefulLinks()
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")

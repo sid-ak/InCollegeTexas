@@ -4,7 +4,7 @@ from model.User import User
 class DisplayGeneralLinksHelpers:
 
     def ShowHelpCenter():
-        print("\nWe're here to help\n")
+        print("\nWe're here to help")
 
     def About():
         print("\nIn College:"
