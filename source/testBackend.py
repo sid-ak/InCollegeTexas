@@ -4,7 +4,6 @@ from authentication.Signup import RegisterNewUser, CheckDBSize
 from authentication.Signin import LoginUser
 from model.User import User, UserHelpers
 from model.Job import Job, JobHelpers
-from actions.JobInternshipSearch import MakeJob, FindJobInternshipAction
 from testInputs.testInputs import set_keyboard_input
 
 USER_LIMIT = 5
