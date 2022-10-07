@@ -40,19 +40,19 @@ class DisplayUsefulLinksHelpers:
                     DisplayGeneralLinksHelpers.ShowHelpCenter()
 
                 elif optionNo == 3:
-                    DisplayGeneralLinksHelpers.About()
+                    DisplayGeneralLinksHelpers.ShowAbout()
 
                 elif optionNo == 4:
-                    DisplayGeneralLinksHelpers.Press()
+                    DisplayGeneralLinksHelpers.ShowPress()
 
                 elif optionNo == 5:
-                    DisplayGeneralLinksHelpers.Blog()
+                    DisplayGeneralLinksHelpers.ShowBlog()
 
                 elif optionNo == 6:
-                    DisplayGeneralLinksHelpers.Careers()
+                    DisplayGeneralLinksHelpers.ShowCareers()
 
                 elif optionNo == 7:
-                    DisplayGeneralLinksHelpers.Developers()
+                    DisplayGeneralLinksHelpers.ShowDevelopers()
 
                 else:
                     print("Unexpected exception ocurred, invalid input.\n"
