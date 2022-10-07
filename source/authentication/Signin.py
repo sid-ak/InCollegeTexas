@@ -4,6 +4,8 @@ from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
 from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.MenuHelpers import MenuHelpers
+from actions.DisplayImpLinks import DisplayImpLinks
+from actions.DisplayUsefulLinks import DisplayUsefulLinks
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
@@ -46,7 +48,9 @@ def DisplayLoginMenu(loggedUser: User):
                 options = ["Search for a job or internship",
                     "Find someone that you know",
                     "Learn a new skill",
-                    "Display important links"]
+                    "Display important links",
+                    "Display useful links",
+                    "Logout"]
 
                 while True:
                     try:
@@ -70,6 +74,9 @@ def DisplayLoginMenu(loggedUser: User):
                             print("\nYou have selected to display important links.")
                             DisplayImpLinks(loggedUser)
                             break
+                        elif decision == 5:
+                            print("\nYou have selected to display useful links.")
+                            DisplayUsefulLinks()
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True
