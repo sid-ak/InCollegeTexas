@@ -71,7 +71,7 @@ def DisplayLoginMenu(loggedUser: User):
                             PresentSkillsAction()
                             break
                         elif decision == 4:
-                            print("\nYou have selected to learn a new skill.")
+                            print("\nYou have selected to display important links.")
                             DisplayImpLinks(loggedUser)
                             break
                         elif decision == 5:
