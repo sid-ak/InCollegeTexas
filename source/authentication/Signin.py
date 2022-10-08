@@ -72,7 +72,7 @@ def DisplayLoginMenu(loggedUser: User):
                             break
                         elif decision == 4:
                             print("\nYou have selected to display important links.")
-                            DisplayImpLinks(loggedUser)
+                            DisplayImpLinks(loggedUser=loggedUser)
                             break
                         elif decision == 5:
                             print("\nYou have selected to display useful links.")

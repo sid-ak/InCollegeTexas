@@ -39,7 +39,7 @@ class UserHelpers:
             'EmailEnabled': str(user.EmailEnabled),
             'SmsEnabled': str(user.SmsEnabled),
             'TargetedAdvertEnabled': str(user.TargetedAdvertEnabled),
-            'LanguagePreference': str(user.LanguagePreference.name)
+            'LanguagePreference': str(user.LanguagePreference)
         }
 
     # Gets a PyreResponse of all users from the DB and returns
