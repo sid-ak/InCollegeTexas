@@ -79,6 +79,7 @@ def test_LogInUser():
                                           "Osama2", "Basit2")
 
 
+# Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
 def test_ImportantLinksDisplay():
     # test that "Copyright" link is displayed
