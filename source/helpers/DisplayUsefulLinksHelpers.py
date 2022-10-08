@@ -5,7 +5,7 @@ from model.User import User
 
 class DisplayUsefulLinksHelpers:
 
-    def General(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
+    def General(onTest: bool = False, testInput: int = -1):
         while True:
             print("\nPlease select one of the following links to display its content:")
 
