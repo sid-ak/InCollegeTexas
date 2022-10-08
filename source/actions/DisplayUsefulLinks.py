@@ -32,7 +32,7 @@ def DisplayUsefulLinks(onTest: bool = False, testInput: int = -1, loggedUser: Us
             if optNo == -1: break
 
             elif optNo == 1:
-                DisplayUsefulLinksHelpers.General(onTest=onTest,testInput = 2,loggedUser=loggedUser) # will lead to more options
+                DisplayUsefulLinksHelpers.General(onTest=onTest,loggedUser=loggedUser) # will lead to more options
 
             elif optNo == 2:
                 DisplayUsefulLinksHelpers.BrowseInCollege()
