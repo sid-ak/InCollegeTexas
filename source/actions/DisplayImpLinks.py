@@ -6,23 +6,32 @@ from model.User import User
 # A Copyright Notice, About, Accessibility, User Agreement, 
 # Privacy Policy, Cookie Policy, Copyright Policy, Brand Policy, 
 # Guest Controls, and Languages.
-def DisplayImpLinks(loggedUser: User = None):
+# the parameters "onTest" and "testInput" are used for test purposes only
+def DisplayImpLinks(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
     while True:
-        print("\nPlease select one of the following links to display its content:")
-        MenuHelpers.DisplayOptions(
-            ["Copyright Notice",
-            "About",
-            "Accessibility",
-            "User Agreement",
-            "Privacy Policy",
-            "Cookie Policy",
-            "Copyright Policy",
-            "Brand Policy",
-            "Languages"]
-        )
+        # we display the menu selections if not on test
+        if not onTest:
+            print("\nPlease select one of the following links to display its content:")
+            MenuHelpers.DisplayOptions(
+                ["Copyright Notice",
+                "About",
+                "Accessibility",
+                "User Agreement",
+                "Privacy Policy",
+                "Cookie Policy",
+                "Copyright Policy",
+                "Brand Policy",
+                "Languages"]
+            )
 
         try:
-            optionNo: int = MenuHelpers.InputOptionNo()
+            optionNo: int = -1
+            # if not onTest, the function is not being tested - so we ask for user input
+            if not onTest:
+                optionNo = MenuHelpers.InputOptionNo()
+            # otherwise, the function is being tested
+            else:
+                optionNo = testInput
 
             if optionNo == -1: break
 
@@ -35,7 +44,7 @@ def DisplayImpLinks(loggedUser: User = None):
             elif optionNo == 4:
                 DisplayImpLinksHelpers.PrintUserAgreement()
             elif optionNo == 5:
-                DisplayImpLinksHelpers.PrintPrivacyPolicy(loggedUser)
+                DisplayImpLinksHelpers.PrintPrivacyPolicy(onTest=onTest, loggedUser=loggedUser)
             elif optionNo == 6:
                 DisplayImpLinksHelpers.PrintCookiePolicy()
             elif optionNo == 7:
@@ -43,7 +52,7 @@ def DisplayImpLinks(loggedUser: User = None):
             elif optionNo == 8:
                 DisplayImpLinksHelpers.PrintBrandPolicy()
             elif optionNo == 9:
-                DisplayImpLinksHelpers.ShowLanguagePreferences(loggedUser)
+                DisplayImpLinksHelpers.ShowLanguagePreferences(loggedUser=loggedUser)
             else:
                 print("Unexpected exception ocurred, invalid input.\n"
                     + "Please enter a number between 1 and 10.\n")
@@ -51,4 +60,7 @@ def DisplayImpLinks(loggedUser: User = None):
         except:
             print("Unexpected exception ocurred, invalid input.\n"
             + "Please enter a number between 1 and 10.\n")
+        
+        if onTest:
+            break
 

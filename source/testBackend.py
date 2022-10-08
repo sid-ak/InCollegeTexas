@@ -1,10 +1,14 @@
 import pytest
+from io import StringIO
+import sys
 from firebaseSetup.Firebase import database
 from authentication.Signup import RegisterNewUser, CheckDBSize
 from authentication.Signin import LoginUser
 from model.User import User, UserHelpers
 from model.Job import Job, JobHelpers
 from testInputs.testInputs import set_keyboard_input
+from actions.DisplayImpLinks import DisplayImpLinks
+from helpers.DisplayImpLinksHelpers import ShowGuestControls
 
 USER_LIMIT = 5
 JOB_LIMIT = 5
@@ -72,3 +76,72 @@ def test_LogInUser():
     set_keyboard_input(["obasit2", "Mypassword3!", "-1"])
     assert LoginUser("TestUsers") == User("4819ac977d1fa72098663c88cbd1c1fdd5da8691a0a07285cc92d05288daf9a9", "obasit2",
                                           "Osama2", "Basit2")
+
+
+'''Test to see all "Important Links" are displayed'''
+def test_ImportantLinksDisplay():
+    # test that "Copyright" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=1)
+    sys.stdout = sys.__stdout__
+    assert "Copyright" in capturedOutput.getvalue()
+    
+
+    # test that "About" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=2)
+    sys.stdout = sys.__stdout__
+    assert "About" in capturedOutput.getvalue()
+
+    # test that "Accessibility" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=3)
+    sys.stdout = sys.__stdout__
+    assert "Accessibility" in capturedOutput.getvalue()
+
+    # test that "User Agreement" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=4)
+    sys.stdout = sys.__stdout__
+    assert "User Agreement" in capturedOutput.getvalue()
+
+    # test that "Privacy Policy" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=5)
+    sys.stdout = sys.__stdout__
+    assert "Privacy Policy" in capturedOutput.getvalue()
+
+    # test that "Cookie Policy" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=6)
+    sys.stdout = sys.__stdout__
+    assert "Cookie Policy" in capturedOutput.getvalue()
+
+    # test that "Copyright Policy" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=7)
+    sys.stdout = sys.__stdout__
+    assert "Copyright Policy" in capturedOutput.getvalue()
+
+    # test that "Brand Policy" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=8)
+    sys.stdout = sys.__stdout__
+    assert "Brand Policy" in capturedOutput.getvalue()
+
+    # test that "Guest Controls" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    ShowGuestControls(onTest=True)
+    sys.stdout = sys.__stdout__
+    assert "Guest Controls" in capturedOutput.getvalue()
+
+test_ImportantLinksDisplay()
