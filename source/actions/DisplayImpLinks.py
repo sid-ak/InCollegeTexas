@@ -52,7 +52,7 @@ def DisplayImpLinks(onTest: bool = False, testInput: int = -1, loggedUser: User 
             elif optionNo == 8:
                 DisplayImpLinksHelpers.PrintBrandPolicy()
             elif optionNo == 9:
-                DisplayImpLinksHelpers.ShowLanguagePreferences(loggedUser=loggedUser)
+                DisplayImpLinksHelpers.ShowLanguagePreferences(onTest=onTest, loggedUser=loggedUser)
             else:
                 print("Unexpected exception ocurred, invalid input.\n"
                     + "Please enter a number between 1 and 10.\n")

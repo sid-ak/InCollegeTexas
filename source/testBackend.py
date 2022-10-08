@@ -1,3 +1,4 @@
+from unicodedata import name
 import pytest
 from io import StringIO
 import sys
@@ -8,7 +9,7 @@ from model.User import User, UserHelpers
 from model.Job import Job, JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
-from helpers.DisplayImpLinksHelpers import ShowGuestControls
+
 
 USER_LIMIT = 5
 JOB_LIMIT = 5
@@ -140,8 +141,68 @@ def test_ImportantLinksDisplay():
     # test that "Guest Controls" link is displayed
     capturedOutput = StringIO()
     sys.stdout = capturedOutput
-    ShowGuestControls(onTest=True)
+    DisplayImpLinks(onTest=True, testInput=5)
     sys.stdout = sys.__stdout__
     assert "Guest Controls" in capturedOutput.getvalue()
 
-test_ImportantLinksDisplay()
+    # test that "Language Preferences" link is displayed
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=9)
+    sys.stdout = sys.__stdout__
+    assert "Language Preference" in capturedOutput.getvalue()
+
+
+'''Test ensure if Privacy Policy is selected, the user will be provided with an additional option: "Guest Controls'''
+def test_GuestControlsAfterPrivacy():
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=5)
+    sys.stdout = sys.__stdout__
+    assert "Additional options" in capturedOutput.getvalue() and "1 - Guest Controls" in capturedOutput.getvalue()
+
+
+'''Test that Guest Controls will provide a user with the ability to individually turn off 
+the InCollege Email, SMS, and Targeted Advertising features'''
+def test_GuestControlsTogglers():
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=5)
+    sys.stdout = sys.__stdout__
+    
+    assertOutput = ["Select an option to toggle it on or off:", "InCollege Email", "SMS", "Targeted Advertising"]
+
+    for assertItem in assertOutput:
+        assert assertItem in capturedOutput.getvalue()
+
+
+'''Test to ensure a new user has the settings ^ turned on'''
+def test_NewUserControlsOn():
+    # create a dummy new user
+    newUser = User(Id="TestID", Username="TestUserName")
+
+    assert newUser.EmailEnabled
+    assert newUser.SmsEnabled
+    assert newUser.TargetedAdvertEnabled
+
+
+'''Test ensure if the user is logged in, selecting the Languages option will allow a 
+user to select between English and Spanish'''
+def test_LanguagePreferencesEnglishSpanish():
+    capturedOutput = StringIO()
+    sys.stdout = capturedOutput
+    DisplayImpLinks(onTest=True, testInput=9)
+    sys.stdout = sys.__stdout__
+    
+    assertOutput = ["Select an option to set your preferred language:", "English", "Spanish"]
+
+    for assertItem in assertOutput:
+        assert assertItem in capturedOutput.getvalue()
+
+
+'''Test to ensure a new user has language set to “English”'''
+def test_NewUserEnglishSet():
+    # create a dummy new user
+    newUser = User(Id="TestID", Username="TestUserName")
+
+    assert str(newUser.LanguagePreference.value) == '(1,)'

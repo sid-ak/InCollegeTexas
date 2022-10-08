@@ -77,10 +77,9 @@ class DisplayImpLinksHelpers:
         while True:
             print("\nGuest Controls:")
 
-            if not onTest and loggedUser == None:
+            if loggedUser == None:
                 print("You must be logged in to modify guest controls.")
-                if not onTest:
-                    break
+                break
             
             print("\nSelect an option to toggle it on or off:")
             MenuHelpers.DisplayOptions(["InCollege Email", "SMS", "Targeted Advertising"])
@@ -112,7 +111,7 @@ class DisplayImpLinksHelpers:
             
             print("\nSelect an option to set your preferred language:")
             MenuHelpers.DisplayOptions(["English", "Spanish"])
-
+            
             if not onTest:
                 decision: int = MenuHelpers.InputOptionNo()
 
