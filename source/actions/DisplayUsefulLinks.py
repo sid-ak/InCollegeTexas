@@ -6,25 +6,33 @@ from model.User import User
 # A General option (which leads to “Sign Up”, “Help Center”, “About”, “Press”, “Blog”, “Careers”, and “Developers”)
 # Browse InCollege, Business Solutions, and Directories
 
-def DisplayUsefulLinks(loggedUser: User = None):
+def DisplayUsefulLinks(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
     while True:
-        print("\nPlease select one of the following links to display its content:")
-        MenuHelpers.DisplayOptions(
-            [
-                "General",
-                "Browse InCollege",
-                "Business Solutions",
-                "Directories"
-            ]
-        )
+
+        if not onTest:
+            print("\nPlease select one of the following links to display its content:")
+            MenuHelpers.DisplayOptions(
+                [
+                    "General",
+                    "Browse InCollege",
+                    "Business Solutions",
+                    "Directories"
+                ]
+            )
 
         try:
-            optNo: int = MenuHelpers.InputOptionNo()
+            optNo: int = -1
+
+            if not onTest:
+                optNo = MenuHelpers.InputOptionNo()
+            
+            else:
+                optNo = testInput
 
             if optNo == -1: break
 
             elif optNo == 1:
-                DisplayUsefulLinksHelpers.General() # will lead to more options
+                DisplayUsefulLinksHelpers.General(onTest=onTest,testInput = 2,loggedUser=loggedUser) # will lead to more options
 
             elif optNo == 2:
                 DisplayUsefulLinksHelpers.BrowseInCollege()
@@ -38,7 +46,10 @@ def DisplayUsefulLinks(loggedUser: User = None):
             else :
                 print("Unexpected exception ocurred, invalid input.\n"
                     + "Please enter a number between 1 and 4.\n")
-        
+    
         except:
             print("Unexpected error ocurred\n")
-                    
+
+        if onTest:
+            break
+                
