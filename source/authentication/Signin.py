@@ -49,8 +49,7 @@ def DisplayLoginMenu(loggedUser: User):
                     "Find someone that you know",
                     "Learn a new skill",
                     "Display important links",
-                    "Display useful links",
-                    "Logout"]
+                    "Display useful links"]
 
                 while True:
                     try:
