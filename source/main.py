@@ -55,7 +55,7 @@ class Main:
             
             elif decision == 5:
                 print("\nImportant Links Selected")
-                DisplayImpLinks(loggedUser)
+                DisplayImpLinks(loggedUser=loggedUser)
 
             elif decision == 6:
                 print("\nUseful Links Selected")

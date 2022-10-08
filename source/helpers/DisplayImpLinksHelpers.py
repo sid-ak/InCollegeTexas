@@ -25,8 +25,9 @@ class DisplayImpLinksHelpers:
         print("\nWelcome!"
             + "\nWhen you are using our application, you are agreeing to InCollege's Privacy,"
             + "\nCookie, Copyright and Brand Policy.\n")
-    
-    def PrintPrivacyPolicy(loggedUser: User = None):
+
+    # the parameter "onTest" is used for test purposes only, to avoid user inputs
+    def PrintPrivacyPolicy(onTest: bool = False, loggedUser: User = None):
         while True:
             try:
                 print("\nPrivacy Policy:")
@@ -34,16 +35,22 @@ class DisplayImpLinksHelpers:
                     + "\nAdditional options:"
                     + "\n1 - Guest Controls")
                 
-                decision: int = MenuHelpers.InputOptionNo()
+                if not onTest:
+                    decision: int = MenuHelpers.InputOptionNo()
 
-                if decision == -1: break
+                    if decision == -1: break
 
-                elif decision == 1:
-                    DisplayImpLinksHelpers.ShowGuestControls(loggedUser)
+                    elif decision == 1:
+                        DisplayImpLinksHelpers.ShowGuestControls(loggedUser=loggedUser)
+                
+                if onTest:
+                    DisplayImpLinksHelpers.ShowGuestControls(onTest=onTest)
 
             except:
                 print("\nAn unexpected error ocurred.")
 
+            if onTest:
+                break
 
     def PrintCookiePolicy():
         print("\nCookie Policy:")
@@ -65,47 +72,57 @@ class DisplayImpLinksHelpers:
             + "\n3 - Store data effectively.\n")
     
     # Allows a user to toggle certain notification preferences.
-    def ShowGuestControls(loggedUser: User = None):
+    # the parameters "onTest" and "testInput" are used for test purposes only
+    def ShowGuestControls(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
         while True:
             print("\nGuest Controls:")
 
-            if loggedUser == None:
+            if not onTest and loggedUser == None:
                 print("You must be logged in to modify guest controls.")
-                break
+                if not onTest:
+                    break
             
             print("\nSelect an option to toggle it on or off:")
             MenuHelpers.DisplayOptions(["InCollege Email", "SMS", "Targeted Advertising"])
             
-            decision: int = MenuHelpers.InputOptionNo()
+            if not onTest:
+                decision: int = MenuHelpers.InputOptionNo()
 
-            if decision == -1: break
-            
-            elif decision == 1: UserHelpers.ToggleEmailEnabled(loggedUser)
-            elif decision == 2: UserHelpers.ToggleSmsEnabled(loggedUser)
-            elif decision == 3: UserHelpers.ToggleTargetedAdvertEnabled(loggedUser)
+                if decision == -1: break
+                
+                elif decision == 1: UserHelpers.ToggleEmailEnabled(loggedUser=loggedUser)
+                elif decision == 2: UserHelpers.ToggleSmsEnabled(loggedUser=loggedUser)
+                elif decision == 3: UserHelpers.ToggleTargetedAdvertEnabled(loggedUser=loggedUser)
+
+                else:
+                    print("Unexpected exception ocurred, invalid input.\n"
+                        + "Please enter a number between 1 and 3.\n")
 
             else:
-                print("Unexpected exception ocurred, invalid input.\n"
-                    + "Please enter a number between 1 and 3.\n")
+                break
 
-    def ShowLanguagePreferences(loggedUser: User = None):
+    # the parameters "onTest" and "testInput" are for test purposes only
+    def ShowLanguagePreferences(onTest: bool = False, testInput = -1, loggedUser: User = None):
         while True:
             print("\nLanguage Preference:")
 
-            if loggedUser == None:
+            if not onTest and loggedUser == None:
                 print("You must be logged in to modify language preference.")
                 break
-        
+            
             print("\nSelect an option to set your preferred language:")
             MenuHelpers.DisplayOptions(["English", "Spanish"])
 
-            decision: int = MenuHelpers.InputOptionNo()
+            if not onTest:
+                decision: int = MenuHelpers.InputOptionNo()
 
-            if decision == -1: break
-            
-            elif decision == 1: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.English)
-            elif decision == 2: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.Spanish)
+                if decision == -1: break
+                
+                elif decision == 1: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.English)
+                elif decision == 2: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.Spanish)
 
+                else:
+                    print("Unexpected exception ocurred, invalid input.\n"
+                        + "Please enter either 1 or 2.\n")
             else:
-                print("Unexpected exception ocurred, invalid input.\n"
-                    + "Please enter either 1 or 2.\n")
+                break
