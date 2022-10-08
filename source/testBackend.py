@@ -76,7 +76,7 @@ def test_RegisterNewUser_Success(monkeypatch):
 def test_LogInUser():
     set_keyboard_input(["obasit2", "Mypassword3!", "-1"])
     assert LoginUser("TestUsers") == User("4819ac977d1fa72098663c88cbd1c1fdd5da8691a0a07285cc92d05288daf9a9", "obasit2",
-                                          "Osama2", "Basit2")
+                                          "Osama2", "Basit2", True, True, True, "English")
 
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
