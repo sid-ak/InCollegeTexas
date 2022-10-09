@@ -73,7 +73,7 @@ class DisplayImpLinksHelpers:
     
     # Allows a user to toggle certain notification preferences.
     # the parameters "onTest" and "testInput" are used for test purposes only
-    def ShowGuestControls(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
+    def ShowGuestControls(onTest: bool = False, loggedUser: User = None):
         while True:
             print("\nGuest Controls:")
 
@@ -90,9 +90,9 @@ class DisplayImpLinksHelpers:
 
                 if decision == -1: break
                 
-                elif decision == 1: UserHelpers.ToggleEmailEnabled(loggedUser=loggedUser)
-                elif decision == 2: UserHelpers.ToggleSmsEnabled(loggedUser=loggedUser)
-                elif decision == 3: UserHelpers.ToggleTargetedAdvertEnabled(loggedUser=loggedUser)
+                elif decision == 1: UserHelpers.ToggleEmailEnabled(loggedUser)
+                elif decision == 2: UserHelpers.ToggleSmsEnabled(loggedUser)
+                elif decision == 3: UserHelpers.ToggleTargetedAdvertEnabled(loggedUser)
 
                 else:
                     print("Unexpected exception ocurred, invalid input.\n"
