@@ -5,7 +5,7 @@ from model.User import User
 
 class DisplayUsefulLinksHelpers:
 
-    def General():
+    def General(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
         while True:
             print("\nPlease select one of the following links to display its content:")
 
@@ -22,7 +22,14 @@ class DisplayUsefulLinksHelpers:
             )
 
             try:
-                optionNo: int = MenuHelpers.InputOptionNo()
+        
+                optionNo: int = -1
+
+                if not onTest:
+                    optionNo = MenuHelpers.InputOptionNo()
+                
+                else:
+                    optionNo = testInput
 
                 if optionNo == -1: break
 
@@ -56,11 +63,15 @@ class DisplayUsefulLinksHelpers:
 
                 else:
                     print("Unexpected exception ocurred, invalid input.\n"
-                        + "Please enter a number between 1 and 7.\n")
+                    + "Please enter a number between 1 and 7.\n")
+
             
             except:
                 print("Unexpected exception ocurred, invalid input.\n"
                 + "Please enter a number between 1 and 7.\n")
+
+            if onTest:
+                break
 
     def BrowseInCollege():
         MenuHelpers.PrintUnderConstruction()
