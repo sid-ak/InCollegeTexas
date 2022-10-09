@@ -10,7 +10,7 @@ from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 
 
-# Tests below worked on for EPIC 2 - MM/DD/YYYY by XXXX
+# Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
     PlayVideo()
     out, err = capfd.readouterr()
@@ -39,6 +39,8 @@ def test_FindSomeone(capfd):
     FindSomeoneAction()
     out, err = capfd.readouterr()
     assert out == "under construction\n"
+
+# TESTS BELOW FOR EPIC 3 BY AOUN - 10/08/2022
 
 # Test to see if all Useful link works below
 def test_UsefulLinksDisplay():
