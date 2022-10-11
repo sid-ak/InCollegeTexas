@@ -22,6 +22,7 @@ def ValidatePassword(password: str) -> bool:
     else:
         return False
 
+USER_LIMIT = 10
 
 # this function will query the Firebase DB and check the current number of accounts
 # it will return False if the number exceeds 5, True otherwise
@@ -32,7 +33,7 @@ def CheckDBSize(collection: str="Users") -> bool:
         if (users == None):
             return True
 
-        if len(users) >= 5:
+        if len(users) >= USER_LIMIT:
             print("\nAll permitted accounts have been created, please come back later!")
             return False
         else:

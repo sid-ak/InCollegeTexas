@@ -10,7 +10,7 @@ from model.Job import Job, JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
 
-USER_LIMIT = 5
+USER_LIMIT = 10
 JOB_LIMIT = 5
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
