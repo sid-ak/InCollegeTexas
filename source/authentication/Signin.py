@@ -6,6 +6,10 @@ from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.MenuHelpers import MenuHelpers
 from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
+#just added - Anshika - get checked:
+from actions.ShowMyNetwrok import ShowMyNetwork
+from actions.DisplayPendingRequests import DisplayPendingRequests
+#add something for the search users function - CONFUSION
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
@@ -49,7 +53,10 @@ def DisplayLoginMenu(loggedUser: User):
                     "Find someone that you know",
                     "Learn a new skill",
                     "Display important links",
-                    "Display useful links"]
+                    "Display useful links",
+                    "Search Users"
+                    "Display pending requests", 
+                    "Show my network"]
 
                 while True:
                     try:
@@ -76,6 +83,15 @@ def DisplayLoginMenu(loggedUser: User):
                         elif decision == 5:
                             print("\nYou have selected to display useful links.")
                             DisplayUsefulLinks()
+                        elif decision == 6:
+                            print("\nYou have selected to search users.")
+                            SearchUsers() #create a function to search users - CONFUSION
+                        elif decision == 7:
+                            print("\nYou have selected to display pending requests.")
+                            DisplayPendingRequests(loggedUser) #just added - Anshika - get checked
+                        elif decision == 8: 
+                            print("\nYou have selected to show my network.")
+                            ShowMyNetwork(loggedUser) #just added - Anshika - get checked
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True
