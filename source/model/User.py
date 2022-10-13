@@ -69,7 +69,7 @@ class UserHelpers:
 
     # takes User as parameter whose friends we need to find
     # returns a list of User (list[User]) of all of the userToFind's friends
-    def GetFriends(userToFind: str):
+    def GetFriends(userToFind: str) -> list[User]:
         friends = []
         usersResponse = database.child("Users").get()
 
@@ -175,7 +175,7 @@ class UserHelpers:
 
     # Sends friend request from sender to receiver
     # adds senders username to receivers friends dictionary as pending(False)
-    def SendFriendRequest(sender: User, receiver: User, collection: str = "Users"):
+    def SendFriendRequest(sender: User, receiver: User, collection: str = "Users") -> bool:
         dbusers = UserHelpers.GetAllUsers()
         isPresent = False
         for user in dbusers:
@@ -184,11 +184,11 @@ class UserHelpers:
                 break
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
-            return
+            return False
 
         if sender.Username in receiver.Friends:
             print("\nYou've already sent a request to this user!\n")
-            return
+            return False
 
         try:
             receiver.Friends[sender.Username] = False
