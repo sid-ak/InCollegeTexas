@@ -48,7 +48,6 @@ class UserHelpers:
         }
 
 
-
     # Gets a PyreResponse of all users from the DB and returns
     # a list of User entities after constructing it.
     def GetAllUsers(collection: str = "Users") -> list[User]:
@@ -78,15 +77,18 @@ class UserHelpers:
             if user == None:
                 continue
             elif (user.val()["Username"] == userToFind):
-                friends_dict = user.val()["Friends"]
-                if len(friends_dict) == 0:
-                    return friends
+                try:
+                    friends_dict = user.val()["Friends"]
+                    if len(friends_dict) == 0:
+                        return friends
 
-                usersResponse2 = database.child("Users").get()
-                for friend in friends_dict:
-                    for user2 in usersResponse2.each():
-                        if user2.val()["Username"] == friend:
-                            friends.append(User.HydrateUser(user2))
+                    usersResponse2 = database.child("Users").get()
+                    for friend in friends_dict:
+                        for user2 in usersResponse2.each():
+                            if user2.val()["Username"] == friend:
+                                friends.append(User.HydrateUser(user2))
+                except:
+                    print("\nOh no! An exception occurred. Report to admin\n")
 
         return friends
 
@@ -170,3 +172,24 @@ class UserHelpers:
                 print(f"\nPreferred language set to: {user.LanguagePreference.name}")
         except:
             print("Exception occurred. Targeted Advertising preference could not be toggled.")
+
+    # Sends friend request from sender to receiver
+    # adds senders username to receivers friends dictionary as pending(False)
+    def SendFriendRequest(sender: User, receiver: User, collection: str = "Users"):
+        if sender.Username in receiver.Friends:
+            print("\nYou've already sent a request to this user!\n")
+            return
+
+        try:
+            receiver.Friends[sender.Username] = False
+            new_dict = receiver.Friends
+            database.child("Users").child(receiver.Id).child("Friends").set(new_dict)
+
+            print(f"\nFriend request sent to: {receiver.Username}")
+            return True
+
+        except:
+            print("\nException occurred. Friend request could not be sent\n")
+            return False
+
+
