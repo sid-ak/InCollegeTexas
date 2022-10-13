@@ -176,6 +176,16 @@ class UserHelpers:
     # Sends friend request from sender to receiver
     # adds senders username to receivers friends dictionary as pending(False)
     def SendFriendRequest(sender: User, receiver: User, collection: str = "Users"):
+        dbusers = UserHelpers.GetAllUsers()
+        isPresent = False
+        for user in dbusers:
+            if user.Username == receiver.Username:
+                isPresent = True
+                break
+        if not isPresent:
+            print("Receiving user is not a registered user. Friend request can't be sent")
+            return
+
         if sender.Username in receiver.Friends:
             print("\nYou've already sent a request to this user!\n")
             return
