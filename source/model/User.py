@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Dict
 import hashlib
 from firebaseSetup.Firebase import database
 from enums.LanguageEnum import LanguageEnum
@@ -6,6 +7,7 @@ from enums.LanguageEnum import LanguageEnum
 # A User entity.
 @dataclass
 class User:
+
     Id: str
     Username: str
     FirstName: str = ""
@@ -14,6 +16,7 @@ class User:
     SmsEnabled: bool = True
     TargetedAdvertEnabled: bool = True
     LanguagePreference: LanguageEnum = LanguageEnum.English
+    Friends: Dict[str, bool] = field(default_factory=dict)
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
@@ -25,9 +28,10 @@ class User:
                 EmailEnabled = user.val()["EmailEnabled"],
                 SmsEnabled = user.val()["SmsEnabled"],
                 TargetedAdvertEnabled = user.val()["TargetedAdvertEnabled"],
-                LanguagePreference = user.val()["LanguagePreference"]
+                LanguagePreference = user.val()["LanguagePreference"],
+                Friends = user.val()["Friends"]
             )
-    
+
 class UserHelpers:
     # Converts this entity into a dictionary
     def UserToDict(user: User) -> dict:
@@ -39,8 +43,11 @@ class UserHelpers:
             'EmailEnabled': str(user.EmailEnabled),
             'SmsEnabled': str(user.SmsEnabled),
             'TargetedAdvertEnabled': str(user.TargetedAdvertEnabled),
-            'LanguagePreference': str(user.LanguagePreference)
+            'LanguagePreference': str(user.LanguagePreference),
+            'Friends': str(user.Friends)
         }
+
+
 
     # Gets a PyreResponse of all users from the DB and returns
     # a list of User entities after constructing it.
@@ -50,8 +57,8 @@ class UserHelpers:
             if usersResponse == None: return None
 
             userResponseList: list = usersResponse.each()
-            if (userResponseList == None): return None 
-            
+            if (userResponseList == None): return None
+
             users: list[User] = []
             for user in usersResponse.each():
                 if user == None: continue
@@ -60,6 +67,28 @@ class UserHelpers:
             return users
         except:
             return None
+
+    # takes User as parameter whose friends we need to find
+    # returns a list of User (list[User]) of all of the userToFind's friends
+    def GetFriends(userToFind: User.Username):
+        friends = []
+        usersResponse = database.child("Users").get()
+
+        for user in usersResponse.each():
+            if user == None:
+                continue
+            elif (user.val()["Username"] == userToFind):
+                friends_dict = user.val()["Friends"]
+                if len(friends_dict) == 0:
+                    return friends
+
+                usersResponse2 = database.child("Users").get()
+                for friend in friends_dict:
+                    for user2 in usersResponse2.each():
+                        if user2.val()["Username"] == friend:
+                            friends.append(User.HydrateUser(user2))
+
+        return friends
 
     # Creates the specified user in the DB.
     # Takes an optional argument for the child node in the DB.
@@ -95,7 +124,7 @@ class UserHelpers:
         try:
             if user == None: return
 
-            user.EmailEnabled = not user.EmailEnabled            
+            user.EmailEnabled = not user.EmailEnabled
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
@@ -108,7 +137,7 @@ class UserHelpers:
         try:
             if user == None: return
 
-            user.SmsEnabled = not user.SmsEnabled            
+            user.SmsEnabled = not user.SmsEnabled
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
@@ -121,7 +150,7 @@ class UserHelpers:
         try:
             if user == None: return
 
-            user.TargetedAdvertEnabled = not user.TargetedAdvertEnabled            
+            user.TargetedAdvertEnabled = not user.TargetedAdvertEnabled
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
@@ -134,7 +163,7 @@ class UserHelpers:
         try:
             if user == None: return
 
-            user.LanguagePreference = language            
+            user.LanguagePreference = language
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
