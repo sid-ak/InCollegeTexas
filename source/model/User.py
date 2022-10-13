@@ -70,7 +70,7 @@ class UserHelpers:
 
     # takes User as parameter whose friends we need to find
     # returns a list of User (list[User]) of all of the userToFind's friends
-    def GetFriends(userToFind: User.Username):
+    def GetFriends(userToFind: str):
         friends = []
         usersResponse = database.child("Users").get()
 
