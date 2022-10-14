@@ -174,10 +174,10 @@ class UserHelpers:
             print("Exception occurred. Targeted Advertising preference could not be toggled.")
 
     # helper to check if a given user is present in the db
-    def CheckUserPrescenceInDB(user: User, collection: str = "Users") -> bool:
+    def CheckUserPrescenceInDB(userToCheck: User, collection: str = "Users") -> bool:
         dbusers = UserHelpers.GetAllUsers(collection)
         for user in dbusers:
-            if user.Username == user.Username:
+            if userToCheck.Username == user.Username:
                 return True
         return False
 
