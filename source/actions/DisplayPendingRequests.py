@@ -3,7 +3,6 @@ import hashlib
 from firebaseSetup.Firebase import database
 from model.User import User, UserHelpers
 from helpers.MenuHelpers import MenuHelpers
-#import: GetPendingRequests, AcceptRequest, RejectRequest
 
 # we will be showing the pending requests the logged in user has
 # and display an option to accept or reject the requests at the end

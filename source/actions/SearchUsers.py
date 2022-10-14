@@ -39,10 +39,10 @@ def FriendRequest():
             MenuHelpers.DisplayOptions(["1 - Yes", "-1 - Go back"])
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
-                SendFriendRequest() #somethingin () #Osama's function being called
+                UserHelpers.SendFriendRequest() #somethingin () #Osama's function being called
             #elif decision == -1:
                 #break
             else:
-                print("Please enter 1 to send a friend request or 2 to go back.")
+                print("Please enter 1 to send a friend request or -1 to go back.")
         except:
             print("Unexpected error ocurred\n")
