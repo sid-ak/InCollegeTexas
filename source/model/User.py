@@ -298,14 +298,3 @@ class UserHelpers:
 
 
 
-
-
-
-
-
-
-
-        return True
-
-
-
