@@ -18,11 +18,11 @@ def DisplayPendingRequests(loggedUser: User):
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
                 print("You have selected to accept a request.\nEnter the username of the user you want to accept the request from.")
-                AcceptRequest(loggedUser) #calling Osama's function
+                UserHelpers.AcceptFriendRequest(loggedUser) #calling Osama's function - param what?
 
             elif decision == 2:
                 print("You have selected to reject a request.\nEnter the username of the user you want to reject the request from.")
-                RejectRequest(loggedUser) #calling Osama's function
+                UserHelpers.RejectFriendRequest(loggedUser) #calling Osama's function - param what?
 
             elif decision == -1:
                 break

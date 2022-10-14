@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import hashlib
 from firebaseSetup.Firebase import database
-from model.User import User, UserHelpers, GetFriends
+from model.User import User, UserHelpers
 from helpers.MenuHelpers import MenuHelpers
 # import:SearchUsers, SendFriendRequest
 
