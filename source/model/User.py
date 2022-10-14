@@ -292,6 +292,10 @@ class UserHelpers:
             del userToDelete.Friends[user.Username]
             new_dict = userToDelete.Friends
             database.child(collection).child(user.Id).child("Friends").set(new_dict)
+
+            print(f"\nYou successfully removed {userToDelete.Username} as a friend\n")
+            return True
+
         except:
             print(f"\nUh Oh! There seemed to be an issue with removing {userToDelete.Username}\n")
             return False
