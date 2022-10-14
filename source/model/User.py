@@ -92,6 +92,29 @@ class UserHelpers:
 
         return friends
 
+    # Gets pending friends of a user
+    def GetPendingRequests(userName: str) -> list[User]:
+        pendingRequests = []
+        usersResponse = database.child("Users").get()
+        for user in usersResponse.each():
+            if user == None:
+                continue
+            elif (user.val()["Username"] == userName):
+                try:
+                    userFriends = UserHelpers.GetFriends(userName)
+                    user = User.HydrateUser(user)
+                    friends_dict = user.Friends
+                    if len(friends_dict) == 0:
+                        return []
+                    for friend in userFriends:
+                        if friend.Username in user.Friends and friends_dict[friend.Username] == False:
+                            pendingRequests.append(friend)
+                    return pendingRequests
+                except:
+                    print("Something went wrong")
+                    return []
+
+
     # Creates the specified user in the DB.
     # Takes an optional argument for the child node in the DB.
     # Return true if creation was successful.
