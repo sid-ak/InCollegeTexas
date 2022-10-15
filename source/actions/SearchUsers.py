@@ -7,42 +7,48 @@ from helpers.MenuHelpers import MenuHelpers
 
 # user will be able to serach for users in the system by their last name, university, or major
 
-def SearchUsers():
+def SearchUsers(loggedUser: User):
     while True:
         try:
-            print("Please select one of the following options:\n")
-            MenuHelpers.DisplayOptions(["1 - Search by last name", "2 - Search by university", "3 - Search by major"])
+            print("\nPlease select one of the following options:\n")
+            MenuHelpers.DisplayOptions(["Search by last name", "Search by university", "Search by major"])
             decision = MenuHelpers.InputOptionNo()
+            searchedUsers = []
             if decision == 1:
-                print("You have selected to search by last name.\nEnter the last name of the user you want to search for.")
-                # query into the database to search for the user by last name
-                FriendRequest()
+                lastName = input("You have selected to search by last name.\nEnter the last name of the user you want to search for: ")
+                searchedUsers = UserHelpers.SearchByAttribute('LastName', lastName)
             elif decision == 2:
-                print("You have selected to search by university.\nEnter the university of the user you want to search for.")
-                # query into the database to search for the user by university
-                FriendRequest()
+                university = input("You have selected to search by university.\nEnter the university of the user you want to search for: ")
+                searchedUsers = UserHelpers.SearchByAttribute('University', university)
             elif decision == 3:
-                print("You have selected to search by major.\nEnter the major of the user you want to search for.")
-                # query into the database to search for the user by major
-                FriendRequest()
+                major = input("You have selected to search by major.\nEnter the major of the user you want to search for: ")
+                searchedUsers = UserHelpers.SearchByAttribute('Major', major)
             elif decision == -1:
                 break
             else:
-                print("Please enter 1 to search by last name, 2 to search by university, 3 to search by major or -1 to go back.")
+                print("Invalid input.\n")
+                continue
+            for i, user in enumerate(searchedUsers):
+                print("{}. {} {}\n".format(i + 1, user.FirstName, user.LastName))
+            print("Enter the option number of the user you want to send a friend request to: ")
+            option = MenuHelpers.InputOptionNo()
+            FriendRequest(loggedUser, searchedUsers[option-1])
         except:
             print("Unexpected error ocurred\n")
 
-def FriendRequest():
+def FriendRequest(loggedUser, receiver):
     while True:
         try:
             print("Do you want to send a friend request?:\n")
-            MenuHelpers.DisplayOptions(["1 - Yes", "-1 - Go back"])
+            MenuHelpers.DisplayOptions(["Yes", "No"])
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
-                UserHelpers.SendFriendRequest() #somethingin () #Osama's function being called
-            #elif decision == -1:
-                #break
+                UserHelpers.SendFriendRequest(loggedUser, receiver)
+                break
+            elif decision == 2 or decision == -1:
+                break
             else:
-                print("Please enter 1 to send a friend request or -1 to go back.")
+                print("Invalid input.\n")
+                continue
         except:
             print("Unexpected error ocurred\n")

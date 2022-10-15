@@ -12,27 +12,28 @@ def ShowMyNetwork(loggedUser: User):
             print("Your network:\n")
 
             #wait for the below function to be merged and edit the output accordingly
-            friends = UserHelpers.GetFriends(loggedUser) # this function will print the friends of the logged in user 
+            friends = UserHelpers.GetFriends(loggedUser.Username, True) # this function will print the friends of the logged in user 
 
             if (len(friends) == 0):
                 print("You have no friends yet.\n")
                 break
 
-            counter = 1
-            for user in friends:
-                print("{}. {} {}\n".format(counter, user.FirstName, user.LastName))
-                counter += 1
+            for i, user in enumerate(friends):
+                print("{}. {} {}\n".format(i + 1, user.FirstName, user.LastName))
 
             print("\nPlease select one of the following options:\n")
             MenuHelpers.DisplayOptions(["Do you want to disconnect with a friend?"])
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
                 print("You have selected to disconnect with a friend.")
-                UserHelpers.DeleteFriend(loggedUser) #calling Osama's function - param what?
+                print("Enter the option number of the friend you want to disconnect with: ")
+                option = MenuHelpers.InputOptionNo()
+                UserHelpers.DeleteFriend(loggedUser, friends[option-1]) 
                 break
             elif decision == -1:
                 break
             else:
-                print("Please enter 1 to disconnect with a friend or -1 to go back.")
+                print("Invalid input.\n")
+                continue
         except:
             print("Unexpected error ocurred\n")

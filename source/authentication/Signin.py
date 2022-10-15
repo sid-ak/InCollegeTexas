@@ -8,6 +8,8 @@ from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
 #just added - Anshika - get checked:
 from actions.ShowMyNetwrok import ShowMyNetwork
+from actions.DisplayPendingRequests import DisplayPendingRequests
+from actions.SearchUsers import SearchUsers
 #from actions.DisplayPendingRequests import DisplayPendingRequests
 #add something for the search users function - CONFUSION
 
@@ -85,13 +87,13 @@ def DisplayLoginMenu(loggedUser: User):
                             DisplayUsefulLinks()
                         elif decision == 6:
                             print("\nYou have selected to search users.")
-                            #SearchUsers() #create a function to search users - CONFUSION
+                            SearchUsers(loggedUser)
                         elif decision == 7:
                             print("\nYou have selected to display pending requests.")
-                            #DisplayPendingRequests(loggedUser) #just added - Anshika - get checked
+                            DisplayPendingRequests(loggedUser)
                         elif decision == 8: 
                             print("\nYou have selected to show my network.")
-                            ShowMyNetwork(loggedUser) #just added - Anshika - get checked
+                            ShowMyNetwork(loggedUser) 
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True

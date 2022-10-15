@@ -69,7 +69,7 @@ class UserHelpers:
 
     # takes User as parameter whose friends we need to find
     # returns a list of User (list[User]) of all of the userToFind's friends
-    def GetFriends(userNameToFind: str) -> list[User]:
+    def GetFriends(userNameToFind: str, status: bool) -> list[User]:
         friends = []
         usersResponse = database.child("Users").get()
 
@@ -84,9 +84,10 @@ class UserHelpers:
 
                     usersResponse2 = database.child("Users").get()
                     for friend in friends_dict:
-                        for user2 in usersResponse2.each():
-                            if user2.val()["Username"] == friend:
-                                friends.append(User.HydrateUser(user2))
+                        if friends_dict[friend] == status:
+                            for user2 in usersResponse2.each():
+                                if user2.val()["Username"] == friend:
+                                    friends.append(User.HydrateUser(user2))
                 except:
                     print("\nOh no! An exception occurred. Report to admin\n")
 
@@ -101,7 +102,7 @@ class UserHelpers:
                 continue
             elif (user.val()["Username"] == userName):
                 try:
-                    userFriends = UserHelpers.GetFriends(userName)
+                    userFriends = UserHelpers.GetFriends(userName, False)
                     user = User.HydrateUser(user)
                     friends_dict = user.Friends
                     if len(friends_dict) == 0:
@@ -218,6 +219,10 @@ class UserHelpers:
             return False
 
         try:
+            sender.Friends[receiver.Username] = False
+            new_dict = sender.Friends
+            database.child(collection).child(sender.Id).child("Friends").set(new_dict)
+
             receiver.Friends[sender.Username] = False
             new_dict = receiver.Friends
             database.child(collection).child(receiver.Id).child("Friends").set(new_dict)
@@ -314,7 +319,7 @@ class UserHelpers:
             database.child(collection).child(user.Id).child("Friends").set(new_dict)
             del userToDelete.Friends[user.Username]
             new_dict = userToDelete.Friends
-            database.child(collection).child(user.Id).child("Friends").set(new_dict)
+            database.child(collection).child(userToDelete.Id).child("Friends").set(new_dict)
 
             print(f"\nYou successfully removed {userToDelete.Username} as a friend\n")
             return True
@@ -323,5 +328,10 @@ class UserHelpers:
             print(f"\nUh Oh! There seemed to be an issue with removing {userToDelete.Username}\n")
             return False
 
-
-
+    def SearchByAttribute(attribute: str, value: str, collection: str = "Users") -> list:
+        users = UserHelpers.GetAllUsers(collection)
+        results = []
+        for user in users:
+            if getattr(user, attribute) == value:
+                results.append(user)
+        return results
