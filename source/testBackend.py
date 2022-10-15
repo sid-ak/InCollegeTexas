@@ -187,7 +187,7 @@ def test_LogInUser():
 # EPIC 4 (Friends, Network): Tests that no more than 10 users can sign up.
 def test_UserLimit():
     # Arrange: Set collection to insert into an user limit.
-    testCollection: str = "TestUsers"
+    testCollection: str = "TestUsersOverLimit"
     users: list[User] = []
     
     # Arrange: Initialize required fields to create a user.
