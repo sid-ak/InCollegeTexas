@@ -69,9 +69,9 @@ class UserHelpers:
 
     # takes User as parameter whose friends we need to find
     # returns a list of User (list[User]) of all of the userToFind's friends
-    def GetFriends(userNameToFind: str, status: bool) -> list[User]:
+    def GetFriends(userNameToFind: str, collection: str= "Users") -> list[User]:
         friends = []
-        usersResponse = database.child("Users").get()
+        usersResponse = database.child(collection).get()
 
         for user in usersResponse.each():
             if user == None:
@@ -82,34 +82,34 @@ class UserHelpers:
                     if len(friends_dict) == 0:
                         return friends
 
-                    usersResponse2 = database.child("Users").get()
+                    usersResponse2 = database.child(collection).get()
                     for friend in friends_dict:
-                        if friends_dict[friend] == status:
-                            for user2 in usersResponse2.each():
-                                if user2.val()["Username"] == friend:
-                                    friends.append(User.HydrateUser(user2))
+                        for user2 in usersResponse2.each():
+                            if user2.val()["Username"] == friend and friends_dict[friend] == True:
+                                friends.append(User.HydrateUser(user2))
                 except:
                     print("\nOh no! An exception occurred. Report to admin\n")
 
         return friends
 
     # Gets pending friends of a user
-    def GetPendingRequests(userName: str) -> list[User]:
+    def GetPendingRequests(userName: str, collection: str = "Users") -> list[User]:
         pendingRequests = []
-        usersResponse = database.child("Users").get()
+        usersResponse = database.child(collection).get()
         for user in usersResponse.each():
             if user == None:
                 continue
             elif (user.val()["Username"] == userName):
                 try:
-                    userFriends = UserHelpers.GetFriends(userName, False)
                     user = User.HydrateUser(user)
                     friends_dict = user.Friends
                     if len(friends_dict) == 0:
                         return []
-                    for friend in userFriends:
-                        if friend.Username in user.Friends and friends_dict[friend.Username] == False:
-                            pendingRequests.append(friend)
+                    users = UserHelpers.GetAllUsers(collection)
+                    for friend in friends_dict:
+                        for u in users:
+                            if u.Username == friend and friends_dict[friend] == False:
+                                pendingRequests.append(u)
                     return pendingRequests
                 except:
                     print("Something went wrong")
