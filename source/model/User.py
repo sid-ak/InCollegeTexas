@@ -77,31 +77,39 @@ class UserHelpers:
     # returns a list of User (list[User]) of all of the userToFind's friends
     def GetFriends(userNameToFind: str, collection: str= "Users") -> list[User]:
         friends = []
-        usersResponse = database.child(collection).get()
+        try:
+            usersResponse = database.child(collection).get()
+        except:
+            print("Error reaching out to the DB!")
+            return None
+        try:
+            for user in usersResponse.each():
+                if user == None:
+                    continue
+                elif (user.val()["Username"] == userNameToFind):
+                    try:
+                        friends_dict = user.val()["Friends"]
+                        if len(friends_dict) == 0:
+                            return friends
 
-        for user in usersResponse.each():
-            if user == None:
-                continue
-            elif (user.val()["Username"] == userNameToFind):
-                try:
-                    friends_dict = user.val()["Friends"]
-                    if len(friends_dict) == 0:
-                        return friends
-
-                    usersResponse2 = database.child(collection).get()
-                    for friend in friends_dict:
-                        for user2 in usersResponse2.each():
-                            if user2.val()["Username"] == friend and friends_dict[friend] == True:
-                                friends.append(User.HydrateUser(user2))
-                except:
-                    print("\nOh no! An exception occurred. Report to admin\n")
+                        usersResponse2 = database.child(collection).get()
+                        for friend in friends_dict:
+                            for user2 in usersResponse2.each():
+                                if user2.val()["Username"] == friend and friends_dict[friend] == True:
+                                    friends.append(User.HydrateUser(user2))
+        except:
+            print("\nOh no! An exception occurred. Report to admin\n")
 
         return friends
 
     # Gets pending friends of a user
     def GetPendingRequests(userName: str, collection: str = "Users") -> list[User]:
         pendingRequests = []
-        usersResponse = database.child(collection).get()
+        try:
+            usersResponse = database.child(collection).get()
+        except:
+            print("Error reaching to the DB!")
+            return None
         for user in usersResponse.each():
             if user == None:
                 continue
