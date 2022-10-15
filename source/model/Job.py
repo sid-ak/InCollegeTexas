@@ -87,8 +87,13 @@ class JobHelpers:
                 .join(salary))).hexdigest()
     
     # Checks if the maximum number of jobs have been posted.
-    def IsLimitMet() -> bool:
-        return True if JobHelpers.GetAllJobs() == _jobLimit else False
+    def IsJobLimitMet(collection: str = "Jobs") -> bool:
+        allJobs: list[User] = JobHelpers.GetAllJobs(collection)
+        
+        if allJobs == ([] or None):
+            return False
+        
+        return True if len(allJobs) == _jobLimit else False
 
     def DeleteJob(job: Job, collection: str = "Jobs"):
         jobs = JobHelpers.GetAllJobs(collection=collection)

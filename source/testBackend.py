@@ -3,7 +3,7 @@ import pytest
 from io import StringIO
 import sys
 from firebaseSetup.Firebase import database
-from authentication.Signup import RegisterNewUser, CheckDBSize
+from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 from model.User import User, UserHelpers
 from model.Job import Job, JobHelpers
@@ -142,7 +142,7 @@ def test_CreateJob():
     job_id = JobHelpers.CreateJobId("Test Software Engineer", "Aramark", "coding", "Atlanta", "60000")
     first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster)
 
-    if JobHelpers.IsLimitMet():
+    if JobHelpers.IsJobLimitMet():
         assert JobHelpers.CreateJob(first_job, "TestJobs") == False
     else:
         assert JobHelpers.CreateJob(first_job, "TestJobs") == True
@@ -150,9 +150,9 @@ def test_CreateJob():
 
 def test_JobLimit():
     if len(JobHelpers.GetAllJobs()) >= JOB_LIMIT :
-        assert JobHelpers.IsLimitMet() == True
+        assert JobHelpers.IsJobLimitMet() == True
     else:
-        assert JobHelpers.IsLimitMet() == False
+        assert JobHelpers.IsJobLimitMet() == False
 
 def test_GetAllJobs():
     dbJobsResponse = database.child("Jobs").get()
