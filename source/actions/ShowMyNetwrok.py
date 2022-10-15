@@ -12,7 +12,7 @@ def ShowMyNetwork(loggedUser: User):
             print("Your network:\n")
 
             #wait for the below function to be merged and edit the output accordingly
-            friends = UserHelpers.GetFriends(loggedUser.Username, True) # this function will print the friends of the logged in user 
+            friends = UserHelpers.GetFriends(loggedUser.Username) # this function will print the friends of the logged in user 
 
             if (len(friends) == 0):
                 print("You have no friends yet.\n")

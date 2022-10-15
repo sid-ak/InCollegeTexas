@@ -32,7 +32,12 @@ def SearchUsers(loggedUser: User):
                 print("{}. {} {}\n".format(i + 1, user.FirstName, user.LastName))
             print("Enter the option number of the user you want to send a friend request to: ")
             option = MenuHelpers.InputOptionNo()
-            FriendRequest(loggedUser, searchedUsers[option-1])
+            if option in range(1 , len(searchedUsers) + 1 ):
+                FriendRequest(loggedUser, searchedUsers[option-1])
+            elif option == -1:
+                continue
+            else:
+                print("Invalid input.\n")
         except:
             print("Unexpected error ocurred\n")
 
