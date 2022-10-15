@@ -86,7 +86,6 @@ def test_ImportantLinksDisplay():
     sys.stdout = sys.__stdout__
     assert "Language Preference" in capturedOutput.getvalue()
 
-
 '''Test ensure if Privacy Policy is selected, the user will be provided with an additional option: "Guest Controls'''
 def test_GuestControlsAfterPrivacy():
     capturedOutput = StringIO()
@@ -94,7 +93,6 @@ def test_GuestControlsAfterPrivacy():
     DisplayImpLinks(onTest=True, testInput=5)
     sys.stdout = sys.__stdout__
     assert "Additional options" in capturedOutput.getvalue() and "1 - Guest Controls" in capturedOutput.getvalue()
-
 
 '''Test that Guest Controls will provide a user with the ability to individually turn off 
 the InCollege Email, SMS, and Targeted Advertising features'''
@@ -109,7 +107,6 @@ def test_GuestControlsTogglers():
     for assertItem in assertOutput:
         assert assertItem in capturedOutput.getvalue()
 
-
 '''Test to ensure a new user has the settings ^ turned on'''
 def test_NewUserControlsOn():
     # create a dummy new user
@@ -118,7 +115,6 @@ def test_NewUserControlsOn():
     assert newUser.EmailEnabled
     assert newUser.SmsEnabled
     assert newUser.TargetedAdvertEnabled
-
 
 '''Test ensure if the user is logged in, selecting the Languages option will allow a 
 user to select between English and Spanish'''
@@ -133,14 +129,12 @@ def test_LanguagePreferencesEnglishSpanish():
     for assertItem in assertOutput:
         assert assertItem in capturedOutput.getvalue()
 
-
 '''Test to ensure a new user has language set to “English”'''
 def test_NewUserEnglishSet():
     # create a dummy new user
     newUser = User(Id="TestID", Username="TestUserName")
 
     assert str(newUser.LanguagePreference.value) == '(1,)'
-
 
 #Tests below worked on for EPIC 2
 def test_CreateJob():
@@ -153,7 +147,6 @@ def test_CreateJob():
     else:
         assert JobHelpers.CreateJob(first_job, "TestJobs") == True
         JobHelpers.DeleteJob(first_job, "TestJobs")
-
 
 def test_JobLimit():
     if len(JobHelpers.GetAllJobs()) >= JOB_LIMIT :
@@ -177,7 +170,6 @@ def test_GetAllUsers():
 
     assert UserHelpers.GetAllUsers() == dbUsers
 
-
 # Tests below worked on for EPIC 1 - 9/19/22 by Osama
 '''tests whether it can limit to 5 functions '''
 def test_CheckDBSize():
@@ -190,7 +182,6 @@ def test_CheckDBSize():
     else:
         assert CheckDBSize() == True
 
-
 '''Test to see if account is added successfully'''
 def test_RegisterNewUser_Success(monkeypatch):
     set_keyboard_input(["testID", "Mypassword3!", "Test", "Account"])
@@ -199,9 +190,8 @@ def test_RegisterNewUser_Success(monkeypatch):
     assert result == True
     UserHelpers.DeleteUserAccount(user, "TestUsers")
 
-
 '''Test to test if Log In works'''
 def test_LogInUser():
-    set_keyboard_input(["obasit2", "Mypassword3!", "-1"])
-    assert LoginUser("TestUsers") == User("4819ac977d1fa72098663c88cbd1c1fdd5da8691a0a07285cc92d05288daf9a9", "obasit2",
-                                          "Osama2", "Basit2", True, True, True, "English")
+    set_keyboard_input(["Sid", "Sidharth@7", "-1"])
+    loggedInUser = LoginUser()
+    assert loggedInUser != None
