@@ -28,12 +28,14 @@ def ShowMyNetwork(loggedUser: User):
                 print("You have selected to disconnect with a friend.")
                 print("Enter the option number of the friend you want to disconnect with: ")
                 option = MenuHelpers.InputOptionNo()
-                UserHelpers.DeleteFriend(loggedUser, friends[option-1]) 
-                break
+                if option in range(1, len(friends) + 1):
+                    UserHelpers.DeleteFriend(loggedUser, friends[option-1]) 
+                else:
+                    print("Invalid input.\n")
             elif decision == -1:
                 break
             else:
                 print("Invalid input.\n")
-                continue
         except:
-            print("Unexpected error ocurred\n")
+            print("Unexpected error ocurred hahahaha\n")
+            break

@@ -40,6 +40,7 @@ def SearchUsers(loggedUser: User):
                 print("Invalid input.\n")
         except:
             print("Unexpected error ocurred\n")
+            break
 
 def FriendRequest(loggedUser, receiver):
     while True:
@@ -57,3 +58,4 @@ def FriendRequest(loggedUser, receiver):
                 continue
         except:
             print("Unexpected error ocurred\n")
+            break

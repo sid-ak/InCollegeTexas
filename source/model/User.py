@@ -342,9 +342,13 @@ class UserHelpers:
             return False
 
     def SearchByAttribute(attribute: str, value: str, collection: str = "Users") -> list:
-        users = UserHelpers.GetAllUsers(collection)
-        results = []
-        for user in users:
-            if getattr(user, attribute) == value:
-                results.append(user)
-        return results
+        try:
+            users = UserHelpers.GetAllUsers(collection)
+            results = []
+            for user in users:
+                if getattr(user, attribute) == value:
+                    results.append(user)
+            return results
+        except:
+            print("\nUh Oh! Something went wrong while searching for users\n")
+            return []

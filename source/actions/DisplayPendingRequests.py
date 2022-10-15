@@ -23,18 +23,26 @@ def DisplayPendingRequests(loggedUser: User):
             if decision == 1:
                 print("You have selected to accept a request.\nEnter the option number of the user you want to accept the request from: ")
                 option = MenuHelpers.InputOptionNo()
-                UserHelpers.AcceptFriendRequest(loggedUser, pendingRequests[option-1]) 
+                if option in range(1, len(pendingRequests) + 1):
+                    UserHelpers.AcceptFriendRequest(loggedUser, pendingRequests[option-1])
+                else:
+                    print("Invalid input.\n")
+                    continue
 
             elif decision == 2:
                 print("You have selected to reject a request.\nEnter the option number of the user you want to reject the request from: ")
                 option = MenuHelpers.InputOptionNo()
-                UserHelpers.RejectFriendRequest(loggedUser, pendingRequests[option-1]) 
+                if option in range(1, len(pendingRequests)+1):
+                    UserHelpers.RejectFriendRequest(loggedUser, pendingRequests[option-1])
+                else:
+                    print("Invalid input.\n")
+                    continue
 
             elif decision == -1:
                 break
 
             else:
                 print("Invalid input.\n")
-                continue
         except:
             print("Unexpected error ocurred\n")
+            break
