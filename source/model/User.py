@@ -97,6 +97,8 @@ class UserHelpers:
                             for user2 in usersResponse2.each():
                                 if user2.val()["Username"] == friend and friends_dict[friend] == True:
                                     friends.append(User.HydrateUser(user2))
+                    except:
+                        print("\nSomething went wrong accessing your friends!\n")
         except:
             print("\nOh no! An exception occurred. Report to admin\n")
 
