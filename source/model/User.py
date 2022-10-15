@@ -49,7 +49,6 @@ class UserHelpers:
             'Friends': str(user.Friends)
         }
 
-
     # Gets a PyreResponse of all users from the DB and returns
     # a list of User entities after constructing it.
     def GetAllUsers(collection: str = "Users") -> list[User]:
@@ -68,6 +67,20 @@ class UserHelpers:
             return users
         except:
             return None
+
+    # Gets a specific User from the database based on the user object provided.
+    def GetUser(user: User, collection: str = "Users") -> User:
+        try:
+            user: User = User.HydrateUser(
+                database.child(collection).child(user.Id).get())
+            
+            if user == None:
+                raise Exception(
+                    f"Could not get the specified user with username: {user.Username}")
+            
+            return user
+        except:
+            print(f"Could not get the specified user with username: {user.Username}")
 
     # takes User as parameter whose friends we need to find
     # returns a list of User (list[User]) of all of the userToFind's friends
@@ -115,7 +128,6 @@ class UserHelpers:
                 except:
                     print("Something went wrong")
                     return []
-
 
     # Creates the specified user in the DB.
     # Takes an optional argument for the child node in the DB.

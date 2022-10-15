@@ -229,9 +229,42 @@ def test_UserLimit():
 
 # EPIC 4: Ensures that a user is initialized with a list of empty friends.
 def test_UserFriends_InitializedToEmpty():
+    # Arrange
     username: str = "testUsername"
     password: str = "testPassword@0"
     userId: str = UserHelpers.CreateUserId(username, password)
     testUser: User = User(userId, username)
 
+    # Act and Assert
     assert testUser.Friends == {}
+
+# EPIC 4: Ensures that a user has pending requests if a friend request is sent.
+def test_UserFriends_SendFriendRequest():
+    # Arrange
+    testCollection: str = "TestUsers"
+    users: list[User] = []
+
+    # Arrange: Create two users.
+    i: int = 0
+    while (i < 2):
+        username: str = f"testUsername{i}"
+        password: str = f"testPassword@{i}"
+        userId: str = UserHelpers.CreateUserId(username, password)
+        user: User = User(userId, username)
+
+        UserHelpers.UpdateUser(user, testCollection)
+        users.append(user)
+        i += 1
+    
+    # Act and Assert: Ensure that the friend request gets sent successfully.
+    user1: User = users[0]
+    user2: User = users[1]
+    assert UserHelpers.SendFriendRequest(user1, user2, testCollection) == True
+
+    # Act and Assert: Ensure that the friend request was received and is pending.
+    testUser2: User = UserHelpers.GetUser(user2, testCollection)
+    assert testUser2.Friends["testUsername0"] == False
+
+    # Destroy: Delete all test users after the test run.
+    for user in users:
+        UserHelpers.DeleteUserAccount(user, testCollection)
