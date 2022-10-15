@@ -219,9 +219,6 @@ class UserHelpers:
             return False
 
         try:
-            sender.Friends[receiver.Username] = False
-            new_dict = sender.Friends
-            database.child(collection).child(sender.Id).child("Friends").set(new_dict)
 
             receiver.Friends[sender.Username] = False
             new_dict = receiver.Friends
