@@ -225,4 +225,13 @@ def test_UserLimit():
 
     # Destroy: Delete all test users after the test run.
     for user in users:
-        UserHelpers.DeleteUserAccount(user, testCollection) 
+        UserHelpers.DeleteUserAccount(user, testCollection)
+
+# EPIC 4: Ensures that a user is initialized with a list of empty friends.
+def test_UserFriends_InitializedToEmpty():
+    username: str = "testUsername"
+    password: str = "testPassword@0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    testUser: User = User(userId, username)
+
+    assert testUser.Friends == {}
