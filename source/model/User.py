@@ -4,7 +4,6 @@ import hashlib
 from firebaseSetup.Firebase import database
 from enums.LanguageEnum import LanguageEnum
 
-_userLimit: int = 10
 
 # A User entity.
 @dataclass
@@ -34,6 +33,8 @@ class User:
             )
 
 class UserHelpers:
+    _userLimit: int = 10
+
     # Converts this entity into a dictionary
     def UserToDict(user: User) -> dict:
         return {
@@ -333,4 +334,4 @@ class UserHelpers:
         if allUsers == ([] or None):
             return False
         
-        return True if len(allUsers) == _userLimit else False
+        return True if len(allUsers) == UserHelpers._userLimit else False

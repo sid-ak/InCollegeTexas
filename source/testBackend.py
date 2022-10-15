@@ -9,9 +9,6 @@ from model.Job import Job, JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
 
-USER_LIMIT = 10
-JOB_LIMIT = 5
-
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
 def test_ImportantLinksDisplay():
@@ -148,7 +145,7 @@ def test_CreateJob():
         JobHelpers.DeleteJob(first_job, "TestJobs")
 
 def test_JobLimit():
-    if len(JobHelpers.GetAllJobs()) >= JOB_LIMIT :
+    if len(JobHelpers.GetAllJobs()) >= JobHelpers._jobLimit:
         assert JobHelpers.IsJobLimitMet() == True
     else:
         assert JobHelpers.IsJobLimitMet() == False
@@ -184,15 +181,16 @@ def test_LogInUser():
     loggedInUser = LoginUser()
     assert loggedInUser != None
 
-# EPIC 4 (Friends, Network): Tests that no more than 10 users can sign up.
+# EPIC 4: Tests that no more than 10 users can sign up.
 def test_UserLimit():
     # Arrange: Set collection to insert into an user limit.
     testCollection: str = "TestUsersOverLimit"
     users: list[User] = []
+    userLimit: int = UserHelpers._userLimit
     
     # Arrange: Initialize required fields to create a user.
     i: int = 0
-    while (i < USER_LIMIT):
+    while (i < userLimit):
         username: str = f"testUser{i}"
         password: str = f"testPassword@{i}"
         userId: str = UserHelpers.CreateUserId(username, password)
@@ -211,7 +209,7 @@ def test_UserLimit():
         i += 1
     
     # Arrange: Create a user that is over the limit.
-    exceededUserLimit = USER_LIMIT
+    exceededUserLimit = userLimit
     username: str = f"testUserOverLimit{exceededUserLimit}"
     password: str = f"testPassword@{exceededUserLimit}"
 
