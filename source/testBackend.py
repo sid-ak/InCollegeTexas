@@ -171,17 +171,6 @@ def test_GetAllUsers():
     assert UserHelpers.GetAllUsers() == dbUsers
 
 # Tests below worked on for EPIC 1 - 9/19/22 by Osama
-'''tests whether it can limit to 5 functions '''
-def test_CheckDBSize():
-    # make 5 test accounts
-    users = UserHelpers.GetAllUsers()
-    if users == None:
-        assert CheckDBSize() == True
-    elif len(users) >= USER_LIMIT:
-        assert CheckDBSize() == False
-    else:
-        assert CheckDBSize() == True
-
 '''Test to see if account is added successfully'''
 def test_RegisterNewUser_Success(monkeypatch):
     set_keyboard_input(["testID", "Mypassword3!", "Test", "Account"])
@@ -195,3 +184,43 @@ def test_LogInUser():
     set_keyboard_input(["Sid", "Sidharth@7", "-1"])
     loggedInUser = LoginUser()
     assert loggedInUser != None
+
+# EPIC 4 (Friends, Network): Tests that no more than 10 users can sign up.
+def test_UserLimit():
+    # Arrange: Set collection to insert into an user limit.
+    testCollection: str = "TestUsers"
+    users: list[User] = []
+    
+    # Arrange: Initialize required fields to create a user.
+    i: int = 0
+    while (i < USER_LIMIT):
+        username: str = f"testUser{i}"
+        password: str = f"testPassword@{i}"
+        userId: str = UserHelpers.CreateUserId(username, password)
+        firstName: str = f"testFirstName{i}"
+        lastName: str = f"testLastName{i}"
+
+        user: User = User(
+            userId,
+            username,
+            firstName,
+            lastName)
+        
+        # Act and Assert: Insert user until max count.
+        assert True == UserHelpers.UpdateUser(user, testCollection)
+        users.append(user)
+        i += 1
+    
+    # Act and Assert: Insert user over max count and ensure it fails.
+    exceededUserLimit = USER_LIMIT
+    username: str = f"testUserOverLimit{exceededUserLimit}"
+    password: str = f"testPassword@{exceededUserLimit}"
+
+    userOverLimit: User = User(
+        UserHelpers.CreateUserId(username, password),
+        username,
+        f"testFirstName{exceededUserLimit}",
+        f"testLastName{exceededUserLimit}"
+    )
+
+    assert False == UserHelpers.UpdateUser(userOverLimit, testCollection)

@@ -4,10 +4,11 @@ import hashlib
 from firebaseSetup.Firebase import database
 from enums.LanguageEnum import LanguageEnum
 
+_userLimit: int = 10
+
 # A User entity.
 @dataclass
 class User:
-
     Id: str
     Username: str
     FirstName: str = ""
@@ -120,6 +121,9 @@ class UserHelpers:
     # Return true if creation was successful.
     def UpdateUser(user: User, collection: str = "Users") -> bool:
         try:
+            if (UserHelpers.IsUserLimitMet(collection)):
+                return False
+
             database.child(collection).child(
                 user.Id).set(UserHelpers.UserToDict(user))
             return True
@@ -197,7 +201,7 @@ class UserHelpers:
             print("Exception occurred. Targeted Advertising preference could not be toggled.")
 
     # helper to check if a given user is present in the db
-    def CheckUserPrescenceInDB(userToCheck: User, collection: str = "Users") -> bool:
+    def CheckUserPresenceInDB(userToCheck: User, collection: str = "Users") -> bool:
         dbusers = UserHelpers.GetAllUsers(collection)
         for user in dbusers:
             if userToCheck.Username == user.Username:
@@ -208,7 +212,7 @@ class UserHelpers:
     # adds senders username to receivers friends dictionary as pending(False)
     def SendFriendRequest(sender: User, receiver: User, collection: str = "Users") -> bool:
 
-        isPresent = UserHelpers.CheckUserPrescenceInDB(receiver, collection)
+        isPresent = UserHelpers.CheckUserPresenceInDB(receiver, collection)
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
             return False
@@ -234,7 +238,7 @@ class UserHelpers:
     # and adds user to userToAdd's friend list (2-way update)
     def AcceptFriendRequest(user: User, userToAdd: User, collection: str = "Users") -> bool:
         # checkis user to add in DB
-        isPresent = UserHelpers.CheckUserPrescenceInDB(userToAdd, collection)
+        isPresent = UserHelpers.CheckUserPresenceInDB(userToAdd, collection)
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
             return False
@@ -267,7 +271,7 @@ class UserHelpers:
     # rejecting a userToReject user by removing it from user User's Friend list
     def RejectFriendRequest(user: User, userToReject: User, collection: str = "Users") -> bool:
         # check if userToReject in DB
-        isPresent = UserHelpers.CheckUserPrescenceInDB(userToReject, collection)
+        isPresent = UserHelpers.CheckUserPresenceInDB(userToReject, collection)
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
             return False
@@ -292,10 +296,9 @@ class UserHelpers:
             print(f"\nUh Oh, there seemed to be an error rejecting {userToReject.Username}'s request.\n")
             return False
 
-
     def DeleteFriend(user: User, userToDelete: User, collection: str = "Users") -> bool:
 
-        isPresent = UserHelpers.CheckUserPrescenceInDB(userToDelete, collection)
+        isPresent = UserHelpers.CheckUserPresenceInDB(userToDelete, collection)
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
             return False
@@ -323,5 +326,11 @@ class UserHelpers:
             print(f"\nUh Oh! There seemed to be an issue with removing {userToDelete.Username}\n")
             return False
 
-
-
+    # Checks if the maximum number of jobs have been posted.
+    def IsUserLimitMet(collection: str = "Users") -> bool:
+        allUsers: list[User] = UserHelpers.GetAllUsers(collection)
+        
+        if allUsers == ([] or None):
+            return False
+        
+        return True if len(allUsers) == _userLimit else False
