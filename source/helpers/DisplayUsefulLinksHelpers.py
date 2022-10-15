@@ -1,8 +1,7 @@
 from helpers.MenuHelpers import MenuHelpers
 from helpers.DisplayGeneralLinksHelpers import DisplayGeneralLinksHelpers
 from authentication.Signup import RegisterNewUser
-from model.User import User
-from source.model.User import UserHelpers
+from model.User import User, UserHelpers
 
 class DisplayUsefulLinksHelpers:
 

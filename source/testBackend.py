@@ -1,5 +1,4 @@
-from unicodedata import name
-import pytest
+from cgi import test
 from io import StringIO
 import sys
 from firebaseSetup.Firebase import database
@@ -211,7 +210,7 @@ def test_UserLimit():
         users.append(user)
         i += 1
     
-    # Act and Assert: Insert user over max count and ensure it fails.
+    # Arrange: Create a user that is over the limit.
     exceededUserLimit = USER_LIMIT
     username: str = f"testUserOverLimit{exceededUserLimit}"
     password: str = f"testPassword@{exceededUserLimit}"
@@ -223,4 +222,9 @@ def test_UserLimit():
         f"testLastName{exceededUserLimit}"
     )
 
+    # Act and Assert: Inserting a user over the limit should fail.
     assert False == UserHelpers.UpdateUser(userOverLimit, testCollection)
+
+    # Destroy: Delete all test users after the test run.
+    for user in users:
+        UserHelpers.DeleteUserAccount(user, testCollection) 
