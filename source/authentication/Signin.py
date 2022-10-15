@@ -6,12 +6,10 @@ from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.MenuHelpers import MenuHelpers
 from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
-#just added - Anshika - get checked:
 from actions.ShowMyNetwrok import ShowMyNetwork
 from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.SearchUsers import SearchUsers
-#from actions.DisplayPendingRequests import DisplayPendingRequests
-#add something for the search users function - CONFUSION
+
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
