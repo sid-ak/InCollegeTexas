@@ -239,7 +239,7 @@ def test_UserFriends_InitializedToEmpty():
     assert testUser.Friends == {}
 
 # EPIC 4: Ensures that a user has pending requests if a friend request is sent.
-def test_UserFriends_SendFriendRequest():
+def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
     # Arrange
     testCollection: str = "TestUsers"
     users: list[User] = []
@@ -264,6 +264,29 @@ def test_UserFriends_SendFriendRequest():
     # Act and Assert: Ensure that the friend request was received and is pending.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
     assert testUser2.Friends["testUsername0"] == False
+
+    # Destroy: Delete all test users after the test run.
+    if deleteTestUsers:
+        for user in users:
+            UserHelpers.DeleteUserAccount(user, testCollection)
+
+# EPIC 4: Ensures that a user can accept a friend request as expected.
+def test_UserFriends_AcceptFriendRequest():
+    testCollection: str = "TestUsers"
+
+    # Arrange: Create test users and send a friend request.
+    test_UserFriends_SendFriendRequest(deleteTestUsers=False)
+    
+    users: list[User] = UserHelpers.GetAllUsers(testCollection)
+    for user in users:
+        if user.Username == "testUsername0": user1: User = user
+        if user.Username == "testUsername1": user2: User = user
+    
+    # Act and Assert: Ensure a user can accept a friend request successfully.
+    assert UserHelpers.AcceptFriendRequest(user2, user1, testCollection) == True
+
+    testUser2: User = UserHelpers.GetUser(user2, testCollection)
+    assert testUser2.Friends["testUsername0"] == True
 
     # Destroy: Delete all test users after the test run.
     for user in users:
