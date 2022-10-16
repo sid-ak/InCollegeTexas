@@ -14,7 +14,7 @@ def FindJobInternshipAction(loggedUser: User):
             if optionNo == -1: break
             
             elif optionNo == 1:
-                if (JobHelpers.IsLimitMet()):
+                if (JobHelpers.IsJobLimitMet()):
                     print("\nThe maximum have jobs have been posted" +
                         "\nPlease come back later, thank you.")
                     break

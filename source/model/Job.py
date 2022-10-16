@@ -3,8 +3,6 @@ import hashlib
 from firebaseSetup.Firebase import database
 from model.User import User, UserHelpers
 
-_jobLimit: int = 5
-
 # A Job entity.
 @dataclass
 class Job:
@@ -29,6 +27,8 @@ class Job:
             )
 
 class JobHelpers:
+    _jobLimit: int = 5
+
     # Converts this entity into a dictionary.
     def JobToDict(job: Job) -> dict:
         return {
@@ -87,8 +87,13 @@ class JobHelpers:
                 .join(salary))).hexdigest()
     
     # Checks if the maximum number of jobs have been posted.
-    def IsLimitMet() -> bool:
-        return True if JobHelpers.GetAllJobs() == _jobLimit else False
+    def IsJobLimitMet(collection: str = "Jobs") -> bool:
+        allJobs: list[User] = JobHelpers.GetAllJobs(collection)
+        
+        if allJobs == ([] or None):
+            return False
+        
+        return True if len(allJobs) == JobHelpers._jobLimit else False
 
     def DeleteJob(job: Job, collection: str = "Jobs"):
         jobs = JobHelpers.GetAllJobs(collection=collection)
