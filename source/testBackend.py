@@ -1,4 +1,4 @@
-from cgi import test
+import pytest
 from io import StringIO
 import sys
 from firebaseSetup.Firebase import database
@@ -286,6 +286,30 @@ def test_UserFriends_AcceptFriendRequest():
 
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
     assert testUser2.Friends["testUsername0"] == True
+
+    # Destroy: Delete all test users after the test run.
+    for user in users:
+        UserHelpers.DeleteUserAccount(user, testCollection)
+
+# EPIC 4: Ensures that a user can reject a friend request as expected.
+def test_UserFriends_RejectFriendRequest():
+    testCollection: str = "TestUsers"
+
+    # Arrange: Create test users and send a friend request.
+    test_UserFriends_SendFriendRequest(deleteTestUsers=False)
+    
+    users: list[User] = UserHelpers.GetAllUsers(testCollection)
+    for user in users:
+        if user.Username == "testUsername0": user1: User = user
+        if user.Username == "testUsername1": user2: User = user
+    
+    # Act and Assert: Ensure a user can reject a friend request successfully.
+    assert UserHelpers.RejectFriendRequest(user2, user1, testCollection) == True
+
+    # Assert: Accessing a rejected friend request should result in a key error.
+    testUser2: User = UserHelpers.GetUser(user2, testCollection)
+    with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
+        testUser2.Friends["testUsername0"] 
 
     # Destroy: Delete all test users after the test run.
     for user in users:
