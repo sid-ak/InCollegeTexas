@@ -6,7 +6,7 @@ from helpers.MenuHelpers import MenuHelpers
 #something for DisconnectWithFriend function
 
 # we will show the logged in user's network and display an option to disconnect with friends at the end
-def ShowMyNetwork(loggedUser: User):
+def ShowMyNetwork(loggedUser: User = None):
     while True:
         try:
             print("Your network:\n")
@@ -37,5 +37,5 @@ def ShowMyNetwork(loggedUser: User):
             else:
                 print("Invalid input.\n")
         except:
-            print("Unexpected error ocurred hahahaha\n")
+            print("Unexpected error ocurred\n")
             break

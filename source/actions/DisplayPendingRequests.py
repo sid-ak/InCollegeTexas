@@ -7,7 +7,7 @@ from helpers.MenuHelpers import MenuHelpers
 # we will be showing the pending requests the logged in user has
 # and display an option to accept or reject the requests at the end
 
-def DisplayPendingRequests(loggedUser: User):
+def DisplayPendingRequests(loggedUser: User = None):
     while True:
         try:
             print("Your pending requests:\n")
