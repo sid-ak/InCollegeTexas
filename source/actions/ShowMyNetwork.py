@@ -3,30 +3,30 @@ import hashlib
 from firebaseSetup.Firebase import database
 from model.User import User, UserHelpers
 from helpers.MenuHelpers import MenuHelpers
-#something for DisconnectWithFriend function
+
 
 # we will show the logged in user's network and display an option to disconnect with friends at the end
 def ShowMyNetwork(loggedUser: User = None):
     while True:
         try:
-            print("Your network:\n")
-
             #wait for the below function to be merged and edit the output accordingly
-            friends = UserHelpers.GetFriends(loggedUser.Username) # this function will print the friends of the logged in user 
+            # this function will print the friends of the logged in user 
+            friends = UserHelpers.GetFriends(loggedUser.Username) 
 
             if (len(friends) == 0):
-                print("You have no friends yet.\n")
+                print("\nYou have no friends yet.\n")
                 break
 
+            print("\n\nYour network:\n")
             for i, user in enumerate(friends):
                 print("{}. {} {}\n".format(i + 1, user.FirstName, user.LastName))
 
-            print("\nPlease select one of the following options:\n")
-            MenuHelpers.DisplayOptions(["Do you want to disconnect with a friend?"])
+            print("\nPlease select one of the following options:")
+            MenuHelpers.DisplayOptions(["Disconnect with a friend"])
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
-                print("\nYou have selected to disconnect with a friend.")
-                print("Enter the option number of the friend you want to disconnect with.")
+                print("FRIEND DISONNECT SELECTED")
+                print("\n\nPlease select the option number of the friend you want to disconnect with: ")
                 option = MenuHelpers.InputOptionNo()
                 if option in range(1, len(friends) + 1):
                     UserHelpers.DeleteFriend(loggedUser, friends[option-1]) 

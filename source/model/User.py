@@ -85,7 +85,7 @@ class UserHelpers:
         try:
             usersResponse = database.child(collection).get()
         except:
-            print("Error reaching out to the DB!")
+            print("\nError! Something went wrong when connecting to database!\n")
             return None
         try:
             for user in usersResponse.each():
@@ -109,7 +109,7 @@ class UserHelpers:
                     except:
                         print("\nSomething went wrong accessing your friends!\n")
         except:
-            print("\nOh no! An exception occurred. Report to admin\n")
+            print("\nError! Something went wrong when connecting to database!\n")
 
         return friends
 
@@ -119,7 +119,7 @@ class UserHelpers:
         try:
             usersResponse = database.child(collection).get()
         except:
-            print("Error reaching to the DB!")
+            print("\nError! Something went wrong when connecting to database!\n")
             return None
         for user in usersResponse.each():
             if user == None:
@@ -137,7 +137,7 @@ class UserHelpers:
                                 pendingRequests.append(u)
                     return pendingRequests
                 except:
-                    print("Something went wrong")
+                    print("\nError! Something went wrong when connecting to database!\n")
                     return []
 
 
@@ -181,7 +181,7 @@ class UserHelpers:
             if updatedUser == True:
                 print(f"\nEmail Enabled: {user.EmailEnabled}")
         except:
-            print("Exception occurred. Email preference could not be toggled.")
+            print("\nError! Exception occurred: Email preference could not be toggled.\n")
 
     # Toggles the sms preference for a user.
     def ToggleSmsEnabled(user: User, collection: str = "Users"):
@@ -192,9 +192,9 @@ class UserHelpers:
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
-                print(f"\nSMS Enabled: {user.SmsEnabled}")
+                print(f"\nSMS Enabled: {user.SmsEnabled}\n")
         except:
-            print("Exception occurred. SMS preference could not be toggled.")
+            print("\nError! Exception occurred: SMS preference could not be toggled.\n")
 
     # Toggles the advertising preference for a user.
     def ToggleTargetedAdvertEnabled(user: User, collection: str = "Users"):
@@ -205,9 +205,9 @@ class UserHelpers:
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
-                print(f"\nTargeted Advertising Enabled: {user.TargetedAdvertEnabled}")
+                print(f"\nTargeted Advertising Enabled: {user.TargetedAdvertEnabled}\n")
         except:
-            print("Exception occurred. Targeted Advertising preference could not be toggled.")
+            print("\nError! Exception occurred: Targeted Advertising preference could not be toggled.\n")
 
     # Sets the preferred language for a user as specified.
     def SetLangPreference(user: User, language: LanguageEnum, collection: str = "Users"):
@@ -218,9 +218,9 @@ class UserHelpers:
             updatedUser: bool = UserHelpers.UpdateUser(user, collection)
 
             if updatedUser == True:
-                print(f"\nPreferred language set to: {user.LanguagePreference.name}")
+                print(f"\nPreferred language set to: {user.LanguagePreference.name}\n")
         except:
-            print("Exception occurred. Targeted Advertising preference could not be toggled.")
+            print("\nError! Exception occurred: Targeted Advertising preference could not be toggled.\n")
 
     # helper to check if a given user is present in the db
     def CheckUserPrescenceInDB(userToCheck: User, collection: str = "Users") -> bool:
@@ -235,11 +235,11 @@ class UserHelpers:
     def SendFriendRequest(sender: User, receiver: User, collection: str = "Users") -> bool:
         isPresent = UserHelpers.CheckUserPrescenceInDB(receiver, collection)
         if not isPresent:
-            print("Receiving user is not a registered user. Friend request can't be sent")
+            print("\nError! Receiving user is not a registered user. Friend request can't be sent\n")
             return False
 
         if sender.Username in receiver.Friends:
-            print("\nYou've already sent a request to this user!\n")
+            print("\nError! You've already sent a request to this user!\n")
             return False
 
         try:
@@ -253,11 +253,11 @@ class UserHelpers:
 
             database.child(collection).child(receiver.Id).child("Friends").set(new_dict)
 
-            print(f"\nFriend request sent to: {receiver.Username}")
+            print(f"\nSuccess! Friend request sent to: {receiver.Username}\n")
             return True
 
         except:
-            print("\nException occurred. Friend request could not be sent\n")
+            print("\nError! Exception occurred. Friend request could not be sent\n")
             return False
 
     # function accepts User class object as param
@@ -267,15 +267,15 @@ class UserHelpers:
         # check is user to add in DB
         isPresent = UserHelpers.CheckUserPrescenceInDB(userToAdd, collection)
         if not isPresent:
-            print("Receiving user is not a registered user. Friend request can't be sent")
+            print("\n Error! Receiving user is not a registered user. Friend request can't be sent.\n")
             return False
         # check if userToAdd in users friend list
         if userToAdd.Username not in user.Friends:
-            print(f"\nUh Oh! Something went wrong. {userToAdd.Username} couldn't be found\n")
+            print(f"\nError! Something went wrong when connecting to database. {userToAdd.Username} couldn't be found\n")
             return False
         # check if userToAdd in users friend list and already accepted
         elif user.Friends[userToAdd.Username] == True:
-            print(f"\nLooks like you're already friends with {userToAdd.Username}!\n")
+            print(f"\nError! Looks like you're already friends with {userToAdd.Username}!\n")
             return False
 
         try:
@@ -292,7 +292,7 @@ class UserHelpers:
             return True
 
         except:
-            print("\nOh No! Something went wrong while adding friends!\n")
+            print("\nError! Something went wrong while adding friends!\n")
             return False
 
     # rejecting a userToReject user by removing it from user User's Friend list
@@ -300,16 +300,16 @@ class UserHelpers:
         # check if userToReject in DB
         isPresent = UserHelpers.CheckUserPrescenceInDB(userToReject, collection)
         if not isPresent:
-            print("Receiving user is not a registered user. Friend request can't be sent")
+            print("\nError! Receiving user is not a registered user. Friend request can't be sent\n")
             return False
 
         # check if userToAdd in users friend list
         if userToReject.Username not in user.Friends:
-            print(f"\nUh Oh! {userToReject.Username} isn't a friend\n")
+            print(f"\nError! {userToReject.Username} isn't a friend\n")
             return False
         # check if userToReject iis already accepted
         elif user.Friends[userToReject.Username] == True:
-            print(f"Can't reject {userToReject.Username}. {userToReject.Username} is an accepted friend!\n")
+            print(f"\nError! Can't reject {userToReject.Username}. {userToReject.Username} is an accepted friend!\n")
             return False
 
         try:
@@ -320,7 +320,7 @@ class UserHelpers:
             print(f"\nYou rejected {userToReject.Username}'s friend request.\n")
             return True
         except:
-            print(f"\nUh Oh, there seemed to be an error rejecting {userToReject.Username}'s request.\n")
+            print(f"\nError! There seemed to be an error rejecting {userToReject.Username}'s request.\n")
             return False
 
 
@@ -328,7 +328,7 @@ class UserHelpers:
 
         isPresent = UserHelpers.CheckUserPrescenceInDB(userToDelete, collection)
         if not isPresent:
-            print("Receiving user is not a registered user. Friend request can't be sent")
+            print("\nError! Receiving user is not a registered user. Friend request can't be sent.\n")
             return False
         # check if user to delete is a friend
         if userToDelete.Username not in user.Friends:
@@ -351,7 +351,7 @@ class UserHelpers:
             return True
 
         except:
-            print(f"\nUh Oh! There seemed to be an issue with removing {userToDelete.Username}\n")
+            print(f"\nError! There seemed to be an issue with removing {userToDelete.Username}\n")
             return False
 
     def SearchByAttribute(attribute: str, value: str, collection: str = "Users") -> list:
@@ -363,5 +363,5 @@ class UserHelpers:
                     results.append(user)
             return results
         except:
-            print("\nUh Oh! Something went wrong while searching for users\n")
+            print("\nError! Something went wrong when connecting to database!\n")
             return []

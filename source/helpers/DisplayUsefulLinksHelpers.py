@@ -34,7 +34,7 @@ class DisplayUsefulLinksHelpers:
                 if optionNo == -1: break
 
                 elif optionNo == 1:
-                    print("\nSignup Selected.")
+                    print("SIGNUP SELECTED")
                     if not CheckDBSize():
                         print("\nFailure! We have not been able to create a new account for you.")
                     else:
