@@ -15,7 +15,7 @@ from actions.SearchUsers import SearchUsers
 # and returns True if so, False otherwise
 def LoginUser(collection: str= "Users") -> User:
     try:
-        print("\nLogin Selected.")
+        print("\n\nLogin Selected.")
         
         username = input("\nPlease enter your username: ")
         password = input("Please enter your password: ")
@@ -42,13 +42,13 @@ def LoginUser(collection: str= "Users") -> User:
 
 def DisplayLoginMenu(loggedUser: User):
             # if the user logged in, continue with additional options
-            print(f"\nWelcome to your account, {loggedUser.Username}!")
+            print(f"\n\nWelcome to your account, {loggedUser.Username}!")
 
             # this variable will help us find out if we want to end the session of the user
             terminateSession: bool = False
 
             while True:
-                print("\nPlease enter one of the following options to continue:")
+                print("\n\nPlease enter one of the following options to continue:")
                 options = ["Search for a job or internship",
                     "Find someone that you know",
                     "Learn a new skill",

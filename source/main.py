@@ -13,30 +13,28 @@ class Main:
     # The user that is currently logged in.
     loggedUser: User = None
 
+    print("\nWelcome to InCollege!")
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
         + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print("Welcome!\nPlease select an option to continue:")
-    MenuHelpers.DisplayOptions(
-        ["Log In",
-        "Sign Up",
-        "Play an Informational Video",
-        "Search User",
-        "Display Important Links",
-        "Display Useful Links"]
-    ) 
-
     while True:
+        print("\n\nPlease select an option to continue:")
+        MenuHelpers.DisplayOptions(
+            ["Log In",
+            "Sign Up",
+            "Play an Informational Video",
+            "Search User",
+            "Display Important Links",
+            "Display Useful Links"]
+        ) 
         try:
             decision: int = MenuHelpers.InputOptionNo()
             
             if decision == 1:
                 loggedUser = LoginUser()
-                if loggedUser == None:
-                    print("Failure! Incorrect credentials.")
             
             elif decision == 2:
-                print("\nSignup Selected.")
+                print("\n\nSignup Selected.")
                 if not CheckDBSize():
                     print("\nFailure! We have not been able to create a new account for you.")
                 else:
@@ -46,23 +44,23 @@ class Main:
                         print("\nFailure! We have not been able to create a new account for you.")
             
             elif decision == 3:
-                print("\nVideo Selected")
+                print("\n\nVideo Selected")
                 PlayVideo()
 
             elif decision == 4:
-                print("\nSearch User Selected")
+                print("\n\nSearch User Selected")
                 SearchUser()
             
             elif decision == 5:
-                print("\nImportant Links Selected")
+                print("\n\nImportant Links Selected")
                 DisplayImpLinks(loggedUser=loggedUser)
 
             elif decision == 6:
-                print("\nUseful Links Selected")
+                print("\n\nUseful Links Selected")
                 DisplayUsefulLinks()
             
             elif decision == -1:
-                print("\nExit selected.\n")
+                print("\n\nExit selected.\n")
                 break
             
             else:

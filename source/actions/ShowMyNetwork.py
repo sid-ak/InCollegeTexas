@@ -25,8 +25,8 @@ def ShowMyNetwork(loggedUser: User = None):
             MenuHelpers.DisplayOptions(["Do you want to disconnect with a friend?"])
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
-                print("You have selected to disconnect with a friend.")
-                print("Enter the option number of the friend you want to disconnect with: ")
+                print("\nYou have selected to disconnect with a friend.")
+                print("Enter the option number of the friend you want to disconnect with.")
                 option = MenuHelpers.InputOptionNo()
                 if option in range(1, len(friends) + 1):
                     UserHelpers.DeleteFriend(loggedUser, friends[option-1]) 

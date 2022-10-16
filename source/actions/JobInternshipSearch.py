@@ -6,7 +6,7 @@ from helpers.MenuHelpers import MenuHelpers
 def FindJobInternshipAction(loggedUser: User):
     while True:
         print("\nPlease enter one of the following options to continue:\n"
-            + "1 - Post a job")
+            + "1 - Post a job\n")
                 
         try:
             optionNo: int = MenuHelpers.InputOptionNo()
