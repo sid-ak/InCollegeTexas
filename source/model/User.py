@@ -17,6 +17,8 @@ class User:
     TargetedAdvertEnabled: bool = True
     LanguagePreference: LanguageEnum = LanguageEnum.English
     Friends: Dict[str, bool] = field(default_factory=dict)
+    University: str = ""
+    Major: str = ""
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user, collection: str = "Users"):
@@ -34,7 +36,9 @@ class User:
                 SmsEnabled = user.val()["SmsEnabled"],
                 TargetedAdvertEnabled = user.val()["TargetedAdvertEnabled"],
                 LanguagePreference = user.val()["LanguagePreference"],
-                Friends = friends
+                Friends = friends,
+                University = user.val()["University"],
+                Major = user.val()["Major"]
             )
 
 class UserHelpers:
