@@ -53,7 +53,9 @@ class UserHelpers:
             'SmsEnabled': str(user.SmsEnabled),
             'TargetedAdvertEnabled': str(user.TargetedAdvertEnabled),
             'LanguagePreference': str(user.LanguagePreference),
-            'Friends': user.Friends
+            'Friends': user.Friends,
+            'University': str(user.University),
+            'Major': str(user.Major)
         }
 
 
@@ -352,5 +354,14 @@ class UserHelpers:
             print(f"\nUh Oh! There seemed to be an issue with removing {userToDelete.Username}\n")
             return False
 
-
-
+    def SearchByAttribute(attribute: str, value: str, collection: str = "Users") -> list:
+        try:
+            users = UserHelpers.GetAllUsers(collection)
+            results = []
+            for user in users:
+                if getattr(user, attribute) == value:
+                    results.append(user)
+            return results
+        except:
+            print("\nUh Oh! Something went wrong while searching for users\n")
+            return []

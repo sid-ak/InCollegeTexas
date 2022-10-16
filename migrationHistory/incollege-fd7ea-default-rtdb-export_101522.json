@@ -1,0 +1,134 @@
+{
+  "Jobs": {
+    "ae51f69f13682799d96de3b90559b9c212278eb746206627886a46c07c11b11d": {
+      "Description": "TestJobDesc",
+      "Employer": "TestJobEmpl",
+      "Id": "ae51f69f13682799d96de3b90559b9c212278eb746206627886a46c07c11b11d",
+      "Location": "TestJobLoc",
+      "Poster": {
+        "EmailEnabled": true,
+        "FirstName": "Sidharth",
+        "Id": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+        "LanguagePreference": "English",
+        "LastName": "Anandkumar",
+        "SmsEnabled": true,
+        "TargetedAdvertEnabled": true,
+        "Username": "Sid"
+      },
+      "Salary": "100000",
+      "Title": "TestJobTitle"
+    }
+  },
+  "OldUsers": {
+    "-NC8gw9QzEvULoalo4L3": {
+      "password": "Wdwad2131!",
+      "username": "alijon"
+    },
+    "-NCAu8dsRffhMAVnTMIq": {
+      "password": "Sidharth@7",
+      "username": "Sid"
+    },
+    "-NCCjAkecieri02U_eKM": {
+      "password": "0s@masPwd",
+      "username": "obasit"
+    },
+    "-NCCx5zgzgPsVGx3Ha2a": {
+      "password": "Rwew2!!2134",
+      "username": "tester"
+    },
+    "-NCGJR8yWgxPTMxGIMfe": {
+      "password": "utruERRR#22#",
+      "username": "taha"
+    }
+  },
+  "Users": {
+    "274a2af5c4e7e85eeceba5536cfc9b2313409f256ecbb773f63d157d412d6695": {
+      "EmailEnabled": "True",
+      "FirstName": "Osama",
+      "Friends": {
+        "Prerna": false,
+        "Sid": true
+      },
+      "Id": "274a2af5c4e7e85eeceba5536cfc9b2313409f256ecbb773f63d157d412d6695",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Basit",
+      "Major": "Computer Science",
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "University of South Florida",
+      "Username": "obasit7"
+    },
+    "447173e8597e33fdbafa2bf2b78f9b304dc501c705f3f9e271e734e71da8ecfb": {
+      "EmailEnabled": "True",
+      "FirstName": "Prerna",
+      "Friends": {
+        "obasit7": true
+      },
+      "Id": "447173e8597e33fdbafa2bf2b78f9b304dc501c705f3f9e271e734e71da8ecfb",
+      "LanguagePreference": "English",
+      "LastName": "Yarehalli",
+      "Major": "Computer Science",
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "University of South Florida",
+      "Username": "Prerna"
+    },
+    "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46": {
+      "EmailEnabled": "True",
+      "FirstName": "Sidharth",
+      "Friends": {
+        "Prerna": false,
+        "obasit7": true
+      },
+      "Id": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "LanguagePreference": "Spanish",
+      "LastName": "Anandkumar",
+      "Major": "Computer Science",
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "University of South Florida",
+      "Username": "Sid"
+    },
+    "8375bfd337f2b8276806b72de40f4934a68b425f9e42e0ea71362b42bc97ff96": {
+      "EmailEnabled": "USF",
+      "FirstName": "Aoun",
+      "Friends": "{}",
+      "Id": "8375bfd337f2b8276806b72de40f4934a68b425f9e42e0ea71362b42bc97ff96",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Ashraff",
+      "Major": "",
+      "SmsEnabled": "CS",
+      "TargetedAdvertEnabled": "True",
+      "University": "",
+      "Username": "Aoun"
+    },
+    "c62736ff1a163022cab59b7fd5a5d62168b6509fdedb639ec30aded7982b10db": {
+      "EmailEnabled": "True",
+      "FirstName": "Amir",
+      "Friends": "{}",
+      "Id": "c62736ff1a163022cab59b7fd5a5d62168b6509fdedb639ec30aded7982b10db",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Aslamov",
+      "Major": "",
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "",
+      "Username": "amir"
+    },
+    "d6652b11b6a6555acb4b697463e1c67d7ff36ac5bd5a85a84ee677b19d1c2608": {
+      "EmailEnabled": "True",
+      "FirstName": "Anshika",
+      "Friends": {
+        "obasit7": true
+      },
+      "Id": "d6652b11b6a6555acb4b697463e1c67d7ff36ac5bd5a85a84ee677b19d1c2608",
+      "LanguagePreference": "English",
+      "LastName": "Bhowmick",
+      "Major": "Computer Science",
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "University of South Florida",
+      "Username": "Anshika"
+    }
+  }
+}
