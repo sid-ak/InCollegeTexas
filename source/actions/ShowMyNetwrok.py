@@ -37,5 +37,5 @@ def ShowMyNetwork(loggedUser: User):
             else:
                 print("Invalid input.\n")
         except:
-            print("Unexpected error ocurred hahahaha\n")
+            print("Unexpected error ocurred\n")
             break
