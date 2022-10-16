@@ -169,9 +169,8 @@ def test_GetAllUsers():
 # Tests below worked on for EPIC 1 - 9/19/22 by Osama
 '''Test to see if account is added successfully'''
 def test_RegisterNewUser_Success(monkeypatch):
-    set_keyboard_input(["testID", "Mypassword3!", "Test", "Account"])
-    user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
-    result = RegisterNewUser(collection="TestUsers")
+    user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID")
+    result = UserHelpers.UpdateUser(user, "TestUsers")
     assert result == True
     UserHelpers.DeleteUserAccount(user, "TestUsers")
 
