@@ -89,6 +89,32 @@
       "University": "University of South Florida",
       "Username": "Sid"
     },
+    "8375bfd337f2b8276806b72de40f4934a68b425f9e42e0ea71362b42bc97ff96": {
+      "EmailEnabled": "USF",
+      "FirstName": "Aoun",
+      "Friends": "{}",
+      "Id": "8375bfd337f2b8276806b72de40f4934a68b425f9e42e0ea71362b42bc97ff96",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Ashraff",
+      "Major": "",
+      "SmsEnabled": "CS",
+      "TargetedAdvertEnabled": "True",
+      "University": "",
+      "Username": "Aoun"
+    },
+    "c62736ff1a163022cab59b7fd5a5d62168b6509fdedb639ec30aded7982b10db": {
+      "EmailEnabled": "True",
+      "FirstName": "Amir",
+      "Friends": "{}",
+      "Id": "c62736ff1a163022cab59b7fd5a5d62168b6509fdedb639ec30aded7982b10db",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Aslamov",
+      "Major": "",
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "",
+      "Username": "amir"
+    },
     "d6652b11b6a6555acb4b697463e1c67d7ff36ac5bd5a85a84ee677b19d1c2608": {
       "EmailEnabled": "True",
       "FirstName": "Anshika",
