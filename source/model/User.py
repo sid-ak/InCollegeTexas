@@ -17,6 +17,8 @@ class User:
     TargetedAdvertEnabled: bool = True
     LanguagePreference: LanguageEnum = LanguageEnum.English
     Friends: Dict[str, bool] = field(default_factory=dict)
+    University: str = ""
+    Major: str = ""
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
@@ -29,7 +31,9 @@ class User:
                 SmsEnabled = user.val()["SmsEnabled"],
                 TargetedAdvertEnabled = user.val()["TargetedAdvertEnabled"],
                 LanguagePreference = user.val()["LanguagePreference"],
-                Friends = user.val()["Friends"]
+                Friends = user.val()["Friends"],
+                University= user.val()["University"],
+                Major= user.val()["Major"]
             )
 
 class UserHelpers:
@@ -46,7 +50,9 @@ class UserHelpers:
             'SmsEnabled': str(user.SmsEnabled),
             'TargetedAdvertEnabled': str(user.TargetedAdvertEnabled),
             'LanguagePreference': str(user.LanguagePreference),
-            'Friends': str(user.Friends)
+            'Friends': str(user.Friends),
+            'University': str(user.University),
+            'Major': str(user.Major)
         }
 
     # Gets a PyreResponse of all users from the DB and returns
@@ -84,46 +90,57 @@ class UserHelpers:
 
     # takes User as parameter whose friends we need to find
     # returns a list of User (list[User]) of all of the userToFind's friends
-    def GetFriends(userNameToFind: str) -> list[User]:
+    def GetFriends(userNameToFind: str, collection: str= "Users") -> list[User]:
         friends = []
-        usersResponse = database.child("Users").get()
+        try:
+            usersResponse = database.child(collection).get()
+        except:
+            print("Error reaching out to the DB!")
+            return None
+        try:
+            for user in usersResponse.each():
+                if user == None:
+                    continue
+                elif (user.val()["Username"] == userNameToFind):
+                    try:
+                        friends_dict = user.val()["Friends"]
+                        if len(friends_dict) == 0:
+                            return friends
 
-        for user in usersResponse.each():
-            if user == None:
-                continue
-            elif (user.val()["Username"] == userNameToFind):
-                try:
-                    friends_dict = user.val()["Friends"]
-                    if len(friends_dict) == 0:
-                        return friends
-
-                    usersResponse2 = database.child("Users").get()
-                    for friend in friends_dict:
-                        for user2 in usersResponse2.each():
-                            if user2.val()["Username"] == friend:
-                                friends.append(User.HydrateUser(user2))
-                except:
-                    print("\nOh no! An exception occurred. Report to admin\n")
+                        usersResponse2 = database.child(collection).get()
+                        for friend in friends_dict:
+                            for user2 in usersResponse2.each():
+                                if user2.val()["Username"] == friend and friends_dict[friend] == True:
+                                    friends.append(User.HydrateUser(user2))
+                    except:
+                        print("\nSomething went wrong accessing your friends!\n")
+        except:
+            print("\nOh no! An exception occurred. Report to admin\n")
 
         return friends
 
     # Gets pending friends of a user
-    def GetPendingRequests(userName: str) -> list[User]:
+    def GetPendingRequests(userName: str, collection: str = "Users") -> list[User]:
         pendingRequests = []
-        usersResponse = database.child("Users").get()
+        try:
+            usersResponse = database.child(collection).get()
+        except:
+            print("Error reaching to the DB!")
+            return None
         for user in usersResponse.each():
             if user == None:
                 continue
             elif (user.val()["Username"] == userName):
                 try:
-                    userFriends = UserHelpers.GetFriends(userName)
                     user = User.HydrateUser(user)
                     friends_dict = user.Friends
                     if len(friends_dict) == 0:
                         return []
-                    for friend in userFriends:
-                        if friend.Username in user.Friends and friends_dict[friend.Username] == False:
-                            pendingRequests.append(friend)
+                    users = UserHelpers.GetAllUsers(collection)
+                    for friend in friends_dict:
+                        for u in users:
+                            if u.Username == friend and friends_dict[friend] == False:
+                                pendingRequests.append(u)
                     return pendingRequests
                 except:
                     print("Something went wrong")
@@ -235,6 +252,7 @@ class UserHelpers:
             return False
 
         try:
+
             receiver.Friends[sender.Username] = False
             new_dict = receiver.Friends
             database.child(collection).child(receiver.Id).child("Friends").set(new_dict)
@@ -330,7 +348,7 @@ class UserHelpers:
             database.child(collection).child(user.Id).child("Friends").set(new_dict)
             del userToDelete.Friends[user.Username]
             new_dict = userToDelete.Friends
-            database.child(collection).child(user.Id).child("Friends").set(new_dict)
+            database.child(collection).child(userToDelete.Id).child("Friends").set(new_dict)
 
             print(f"\nYou successfully removed {userToDelete.Username} as a friend\n")
             return True
@@ -347,3 +365,15 @@ class UserHelpers:
             return False
         
         return True if len(allUsers) == UserHelpers._userLimit else False
+    
+    def SearchByAttribute(attribute: str, value: str, collection: str = "Users") -> list:
+        try:
+            users = UserHelpers.GetAllUsers(collection)
+            results = []
+            for user in users:
+                if getattr(user, attribute) == value:
+                    results.append(user)
+            return results
+        except:
+            print("\nUh Oh! Something went wrong while searching for users\n")
+            return []

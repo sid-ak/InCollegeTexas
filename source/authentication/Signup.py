@@ -51,9 +51,11 @@ def RegisterNewUser(collection: str="Users") -> bool:
     # if the validation checks above pass, now we can try to create a new entry with the given values
     firstName = input("\nPlease enter your first name: ")
     lastName = input("\nPlease enter your last name: ")
+    university = input("\nPlease enter your university: ")
+    major = input("\nPlease enter your major: ")
     try:
         userId = UserHelpers.CreateUserId(username, password)
-        UserHelpers.UpdateUser(User(userId, username, firstName, lastName), collection=collection)
+        UserHelpers.UpdateUser(User(userId, username, firstName, lastName, university, major), collection=collection)
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")
