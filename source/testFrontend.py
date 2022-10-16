@@ -5,9 +5,14 @@ from actions.LearnNewSkill import DisplaySkills
 from actions.FindSomeone import FindSomeoneAction
 from actions.PlayVideo import PlayVideo
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
+from actions.SearchUsers import SearchUsers,FriendRequest
+from actions.DisplayPendingRequests import DisplayPendingRequests
+from actions.ShowMyNetwork import ShowMyNetwork
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
+from model.User import User, UserHelpers
+
 
 
 # Tests below worked on for EPIC 2
@@ -209,3 +214,168 @@ def test_GeneralSetting():
                         "7 - Developers",
                         "under construction"
                       ]
+
+def test_SearchUsersLastName():
+  set_keyboard_input(["1" ])
+  SearchUsers()
+  output = get_display_output()
+  assert output == ["\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "You have selected to search by last name.\nEnter the last name of the user you want to search for: ",
+                    "Unexpected error ocurred\n",
+                  ]
+def test_SearchUsersLastName2():
+  set_keyboard_input(["1", "Bhowmick"])
+  SearchUsers()
+  output = get_display_output()
+  assert output == ["\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "You have selected to search by last name.\nEnter the last name of the user you want to search for: ",
+                    "1. Anshika Bhowmick\n",
+                    "Enter the option number of the user you want to send a friend request to: ",
+                    "\nEnter (-1 to exit current menu): ",
+                    "Unexpected error ocurred\n"
+                  ]
+  
+
+def test_SearchUsersUniversity():
+  set_keyboard_input(["2"])
+  SearchUsers()
+  output = get_display_output()
+  assert output == ["\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "You have selected to search by university.\nEnter the university of the user you want to search for: ",
+                    "Unexpected error ocurred\n",
+                  ]
+  
+  set_keyboard_input(["2","University of South Florida" , "-1"])
+  SearchUsers()
+  output = get_display_output()
+  assert output == ["\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "You have selected to search by university.\nEnter the university of the user you want to search for: ",
+                    "1. Osama Basit\n",
+                    "2. Prerna Yarehalli\n",
+                    "3. Sidharth Anandkumar\n",
+                    "4. Anshika Bhowmick\n",
+                    "Enter the option number of the user you want to send a friend request to: ",
+                    "\nEnter (-1 to exit current menu): ",
+                    "\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "Unexpected error ocurred\n"
+                  ]
+
+def test_SearchUsersMajor():
+  set_keyboard_input(["3", "-1"])
+  SearchUsers()
+  output = get_display_output()
+  assert output == ["\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "You have selected to search by major.\nEnter the major of the user you want to search for: ",
+                    "Enter the option number of the user you want to send a friend request to: ",
+                    "\nEnter (-1 to exit current menu): ",
+                    "Unexpected error ocurred\n",
+                  ]
+  
+  set_keyboard_input(["3", "Computer Science" , "-1"])
+  SearchUsers()
+  output = get_display_output()
+  assert output == ["\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "You have selected to search by major.\nEnter the major of the user you want to search for: ",
+                    "1. Osama Basit\n",
+                    "2. Prerna Yarehalli\n",
+                    "3. Sidharth Anandkumar\n",
+                    "4. Anshika Bhowmick\n",
+                    "Enter the option number of the user you want to send a friend request to: ",
+                    "\nEnter (-1 to exit current menu): ",
+                    "\nPlease select one of the following options:\n",
+                    "1 - Search by last name",
+                    "2 - Search by university",
+                    "3 - Search by major",
+                    "\nEnter (-1 to exit current menu): ",
+                    "Unexpected error ocurred\n"
+                  ]
+
+
+def test_sendFriendRequest():
+  set_keyboard_input(["1", "-1"])
+  FriendRequest()
+  output = get_display_output()
+  assert output == ["Do you want to send a friend request?:\n",
+                    "1 - Yes",
+                    "2 - No",
+                    "\nEnter (-1 to exit current menu): ",
+                    "Unexpected error ocurred\n"
+                    ]
+
+  set_keyboard_input(["2", "-1"])
+  FriendRequest()
+  output = get_display_output()
+  assert output == ["Do you want to send a friend request?:\n",
+                    "1 - Yes",
+                    "2 - No",
+                    "\nEnter (-1 to exit current menu): ",
+                    ]
+
+def test_DisplayPendingRequest():
+  set_keyboard_input(["1"])
+  users = UserHelpers.GetAllUsers()
+  for user in users:
+    if user.Username == "Sid":
+      DisplayPendingRequests(user)
+  output = get_display_output()
+  assert output == ["Your pending requests:\n",
+                    "You have no pending requests.\n",
+                    ]
+
+  set_keyboard_input(["2", "-1"])
+  users = UserHelpers.GetAllUsers()
+  for user in users:
+    if user.Username == "Sid":
+      DisplayPendingRequests(user)
+  output = get_display_output()
+  assert output == ["Your pending requests:\n",
+                    "You have no pending requests.\n",
+                    ]
+
+
+def test_ShowYourNetwork():
+  set_keyboard_input([])
+  users = UserHelpers.GetAllUsers()
+  for user in users:
+    if user.Username == "Sid":
+      ShowMyNetwork(user)
+  output = get_display_output()
+  assert output == ["Your network:\n",
+                    "1. Anshika Bhowmick\n",
+                    "2. Prerna Yarehalli\n",
+                    "3. Osama Basit\n",
+                    "\nPlease select one of the following options:\n",
+                    "1 - Do you want to disconnect with a friend?",
+                    "\nEnter (-1 to exit current menu): ",
+                    "Unexpected error ocurred\n"
+                    ]
+
+

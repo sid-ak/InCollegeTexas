@@ -7,7 +7,7 @@ from helpers.MenuHelpers import MenuHelpers
 
 # user will be able to serach for users in the system by their last name, university, or major
 
-def SearchUsers(loggedUser: User):
+def SearchUsers(loggedUser: User = None):
     while True:
         try:
             print("\nPlease select one of the following options:\n")
@@ -42,7 +42,7 @@ def SearchUsers(loggedUser: User):
             print("Unexpected error ocurred\n")
             break
 
-def FriendRequest(loggedUser, receiver):
+def FriendRequest(loggedUser: User = None , receiver: User = None):
     while True:
         try:
             print("Do you want to send a friend request?:\n")
