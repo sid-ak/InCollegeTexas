@@ -7,7 +7,7 @@ from actions.PlayVideo import PlayVideo
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
 from actions.SearchUsers import SearchUsers,FriendRequest
 from actions.DisplayPendingRequests import DisplayPendingRequests
-from actions.ShowMyNetwrok import ShowMyNetwork
+from actions.ShowMyNetwork import ShowMyNetwork
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output

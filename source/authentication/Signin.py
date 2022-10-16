@@ -6,7 +6,7 @@ from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.MenuHelpers import MenuHelpers
 from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
-from actions.ShowMyNetwrok import ShowMyNetwork
+from actions.ShowMyNetwork import ShowMyNetwork
 from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.SearchUsers import SearchUsers
 
