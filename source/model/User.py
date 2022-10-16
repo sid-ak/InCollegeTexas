@@ -53,7 +53,9 @@ class UserHelpers:
             'SmsEnabled': str(user.SmsEnabled),
             'TargetedAdvertEnabled': str(user.TargetedAdvertEnabled),
             'LanguagePreference': str(user.LanguagePreference),
-            'Friends': user.Friends
+            'Friends': user.Friends,
+            'University': user.University,
+            'Major': user.Major
         }
 
 
@@ -303,7 +305,7 @@ class UserHelpers:
 
         # check if userToAdd in users friend list
         if userToReject.Username not in user.Friends:
-            print(f"\nUh Oh! {userToReject.Username} isn't a friend friend\n")
+            print(f"\nUh Oh! {userToReject.Username} isn't a friend\n")
             return False
         # check if userToReject iis already accepted
         elif user.Friends[userToReject.Username] == True:
