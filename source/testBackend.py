@@ -284,8 +284,13 @@ def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
     # Act and Assert: Ensure a user can accept a friend request successfully.
     assert UserHelpers.AcceptFriendRequest(user2, user1, testCollection) == True
 
+    # Assert: Ensure the receiver now has the receiver as a friend.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
     assert testUser2.Friends["testUsername0"] == True
+
+    # Assert: Ensure that the sender has the receiver as a friend to confirm mutuality.
+    testUser1: User = UserHelpers.GetUser(user1, testCollection)
+    assert testUser1.Friends["testUsername1"] == True
 
     # Destroy: Delete all test users after the test run.
     if deleteTestUsers:
@@ -310,7 +315,12 @@ def test_UserFriends_RejectFriendRequest():
     # Assert: Accessing a rejected friend request should result in a key error.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
     with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
-        testUser2.Friends["testUsername0"] 
+        testUser2.Friends["testUsername0"]
+    
+    # Assert: Ensure mutuality.
+    testUser1: User = UserHelpers.GetUser(user1, testCollection)
+    with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
+        testUser1.Friends["testUsername1"] 
 
     # Destroy: Delete all test users after the test run.
         for user in users:
@@ -334,7 +344,12 @@ def test_UserFriends_DeleteFriend():
     # Assert: Accessing a deleted friend should result in a key error.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
     with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
-        testUser2.Friends["testUsername0"] 
+        testUser2.Friends["testUsername0"]
+
+    # Assert: Ensure mutuality.
+    testUser1: User = UserHelpers.GetUser(user1, testCollection)
+    with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
+        testUser1.Friends["testUsername1"]
 
     # Destroy: Delete all test users after the test run.
     for user in users:

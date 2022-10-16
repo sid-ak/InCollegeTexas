@@ -4,7 +4,6 @@ import hashlib
 from firebaseSetup.Firebase import database
 from enums.LanguageEnum import LanguageEnum
 
-
 # A User entity.
 @dataclass
 class User:
