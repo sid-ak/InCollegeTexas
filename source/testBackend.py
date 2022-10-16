@@ -270,7 +270,7 @@ def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
             UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 4: Ensures that a user can accept a friend request as expected.
-def test_UserFriends_AcceptFriendRequest():
+def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
     testCollection: str = "TestUsers"
 
     # Arrange: Create test users and send a friend request.
@@ -288,8 +288,9 @@ def test_UserFriends_AcceptFriendRequest():
     assert testUser2.Friends["testUsername0"] == True
 
     # Destroy: Delete all test users after the test run.
-    for user in users:
-        UserHelpers.DeleteUserAccount(user, testCollection)
+    if deleteTestUsers:
+        for user in users:
+            UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 4: Ensures that a user can reject a friend request as expected.
 def test_UserFriends_RejectFriendRequest():
@@ -307,6 +308,30 @@ def test_UserFriends_RejectFriendRequest():
     assert UserHelpers.RejectFriendRequest(user2, user1, testCollection) == True
 
     # Assert: Accessing a rejected friend request should result in a key error.
+    testUser2: User = UserHelpers.GetUser(user2, testCollection)
+    with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
+        testUser2.Friends["testUsername0"] 
+
+    # Destroy: Delete all test users after the test run.
+        for user in users:
+            UserHelpers.DeleteUserAccount(user, testCollection)
+
+# EPIC 4: Ensures that a user can delete a friend as expected.
+def test_UserFriends_DeleteFriend():
+    testCollection: str = "TestUsers"
+
+    # Arrange: Create test users, send and accept a friend request.
+    test_UserFriends_AcceptFriendRequest(deleteTestUsers=False)
+    
+    users: list[User] = UserHelpers.GetAllUsers(testCollection)
+    for user in users:
+        if user.Username == "testUsername0": user1: User = user
+        if user.Username == "testUsername1": user2: User = user
+    
+    # Act and Assert: Ensure a user can delete a friend successfully.
+    assert UserHelpers.DeleteFriend(user2, user1, testCollection) == True
+
+    # Assert: Accessing a deleted friend should result in a key error.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
     with pytest.raises(KeyError): # Verify that a KeyError exception is raised.
         testUser2.Friends["testUsername0"] 
