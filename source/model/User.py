@@ -19,7 +19,12 @@ class User:
     Friends: Dict[str, bool] = field(default_factory=dict)
 
     # Hydrates a User entity using a pyrebase response value and returns it.
-    def HydrateUser(user):
+    def HydrateUser(user, collection: str = "Users"):
+        try:
+            friends = user.val()["Friends"]
+        except:
+            friends = {}
+
         return User(
                 Id = user.val()["Id"],
                 Username = user.val()["Username"],
@@ -29,7 +34,7 @@ class User:
                 SmsEnabled = user.val()["SmsEnabled"],
                 TargetedAdvertEnabled = user.val()["TargetedAdvertEnabled"],
                 LanguagePreference = user.val()["LanguagePreference"],
-                Friends = user.val()["Friends"]
+                Friends = friends
             )
 
 class UserHelpers:
@@ -44,7 +49,7 @@ class UserHelpers:
             'SmsEnabled': str(user.SmsEnabled),
             'TargetedAdvertEnabled': str(user.TargetedAdvertEnabled),
             'LanguagePreference': str(user.LanguagePreference),
-            'Friends': str(user.Friends)
+            'Friends': user.Friends
         }
 
 
@@ -82,7 +87,11 @@ class UserHelpers:
                     continue
                 elif (user.val()["Username"] == userNameToFind):
                     try:
-                        friends_dict = user.val()["Friends"]
+                        try:
+                            friends_dict = user.val()["Friends"]
+                        except:
+                            return []
+
                         if len(friends_dict) == 0:
                             return friends
 
@@ -218,7 +227,6 @@ class UserHelpers:
     # Sends friend request from sender to receiver
     # adds senders username to receivers friends dictionary as pending(False)
     def SendFriendRequest(sender: User, receiver: User, collection: str = "Users") -> bool:
-
         isPresent = UserHelpers.CheckUserPrescenceInDB(receiver, collection)
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
@@ -229,8 +237,14 @@ class UserHelpers:
             return False
 
         try:
+            friendResponse = database.child("Users").child(receiver.Id).get()
             receiver.Friends[sender.Username] = False
             new_dict = receiver.Friends
+            try:
+                friendResponse.val()['Friends']
+            except:
+                database.child(collection).child(receiver.Id).child("Friends").set(new_dict)
+
             database.child(collection).child(receiver.Id).child("Friends").set(new_dict)
 
             print(f"\nFriend request sent to: {receiver.Username}")
@@ -244,7 +258,7 @@ class UserHelpers:
     # and adds userToAdd user to their friends list
     # and adds user to userToAdd's friend list (2-way update)
     def AcceptFriendRequest(user: User, userToAdd: User, collection: str = "Users") -> bool:
-        # checkis user to add in DB
+        # check is user to add in DB
         isPresent = UserHelpers.CheckUserPrescenceInDB(userToAdd, collection)
         if not isPresent:
             print("Receiving user is not a registered user. Friend request can't be sent")
@@ -285,7 +299,7 @@ class UserHelpers:
 
         # check if userToAdd in users friend list
         if userToReject.Username not in user.Friends:
-            print(f"\nUh Oh! Something went wrong. {userToReject.Username} couldn't be found in your friends\n")
+            print(f"\nUh Oh! {userToReject.Username} isn't a friend friend\n")
             return False
         # check if userToReject iis already accepted
         elif user.Friends[userToReject.Username] == True:
@@ -325,7 +339,7 @@ class UserHelpers:
             database.child(collection).child(user.Id).child("Friends").set(new_dict)
             del userToDelete.Friends[user.Username]
             new_dict = userToDelete.Friends
-            database.child(collection).child(user.Id).child("Friends").set(new_dict)
+            database.child(collection).child(userToDelete.Id).child("Friends").set(new_dict)
 
             print(f"\nYou successfully removed {userToDelete.Username} as a friend\n")
             return True
