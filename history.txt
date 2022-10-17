@@ -1,0 +1,1717 @@
+commit 1ee4ee68734c1ecbab2bfd24e9d3bd6b07c56791
+Merge: ad364a0 2066734
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 16 17:27:16 2022 -0400
+
+    Merge pull request #43 from sid-ak/IN-34-Test-Friends
+    
+    IN-34: Test Friends
+
+commit ad364a0cd189640d520b194e00152213eb5f57cb
+Merge: 344364a 7d0660a
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Oct 16 15:00:39 2022 -0400
+
+    Merge pull request #47 from sid-ak/IN-35-TEST-Console-Modifications
+    
+    IN-35-TEST-Console-Modifications - added all the function in test fro…
+
+commit 344364aac4180f8c682c2381bc9cdf350460d08c
+Merge: 9cc5fe0 9d43d8d
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Oct 16 14:59:42 2022 -0400
+
+    Merge pull request #45 from sid-ak/IN-30/FriendsLogic
+    
+    IN-30/UserFriends - added checks to see if friends exist in DB
+
+commit 2066734d5a4524022a8bc4fcc1c6010b62964cff
+Merge: 5a09e94 9d43d8d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 12:51:47 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
+
+commit 5a09e9465d02760da11e55036ce521614befae8d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 12:44:09 2022 -0400
+
+    IN-34: Added a test to verify that deleting a friend works as expected.
+
+commit 7d0660a2db0f8fec59a193cb493823e3cff35d18
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sun Oct 16 12:32:20 2022 -0400
+
+    IN-35-TEST-Console-Modifications - change the name of the file shoeMyNetwork due to a typo
+
+commit 0b63088806e3b8c69328c2ae0930e15d8e1d824c
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sun Oct 16 12:24:17 2022 -0400
+
+    IN-35-TEST-Console-Modifications - added all the function in test frontend to tes all the new functionality and their outputs
+
+commit 9d43d8d1ccfb42b8e43a0d5e709b10b334449444
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 16 12:18:18 2022 -0400
+
+    fixed print statement
+
+commit 3682fd08d50fcc187787cd004580a9f86a0416d7
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 12:13:11 2022 -0400
+
+    IN-34: Added a test to verify that rejecting a friend request works as expected.
+
+commit 951785c737c3b36506fe5bc72f50626fbc252b01
+Merge: 94ddc3c 9253fc3
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 11:54:13 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
+
+commit 9253fc360644d687f80c62febabd4e72fbb506d0
+Merge: 4cd4c10 33871cc
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 11:39:01 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' of https://github.com/sid-ak/incollegetexas into IN-30/FriendsLogic
+
+commit 4cd4c102538e36e452d4aaff3b80868952c96fac
+Merge: 726019a 9cc5fe0
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 11:36:58 2022 -0400
+
+    Merge branch 'main' into IN-30/FriendsLogic
+
+commit 33871cc895e62a42f2d17419fb1de9ca30f68dc7
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 16 11:28:31 2022 -0400
+
+    fixed print statement
+
+commit 94ddc3c51d10c02c7806f0c193199da03399f32d
+Merge: 8075aaf 726019a
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 11:07:18 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
+
+commit 726019a4987e666cd28013c2f19502149884a03d
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 16 02:40:03 2022 -0400
+
+    updated with major and university model
+
+commit d0354e39dc4cb2d1acee8e1d759ee1250f473b04
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 16 02:31:06 2022 -0400
+
+    added checks to see if friends exist in DB. Fixes errors occurred in tests
+
+commit 8075aaf89e78279477765192f358495953a305e8
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 22:41:22 2022 -0400
+
+    IN-34: Fixed a failing register new user test.
+
+commit 2be3bb6a420eb7630bb970f7deb23610f38abb28
+Merge: 4e7f1a8 fa6e832
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 22:35:49 2022 -0400
+
+    Merge branch 'main' into IN-34-Test-Friends
+
+commit 9cc5fe0a3deeb6786596613f1f5b3d148461c312
+Merge: fa6e832 b3eabfd
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Oct 15 22:33:37 2022 -0400
+
+    Merge pull request #44 from sid-ak/MigrationHistory
+    
+    Migration_10/15/22_Updated
+
+commit b3eabfd643e1680e0f102724fc45a6b00a271d54
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 22:33:00 2022 -0400
+
+    Migration_10/15/22_Updated
+
+commit fa6e832e69ef94eec9382193380367123b8cfcab
+Merge: b0494a5 1c3b596
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Sat Oct 15 19:54:16 2022 -0400
+
+    Merge pull request #40 from sid-ak/IN-32-frontend
+    
+    Frontend functionalities
+
+commit 4e7f1a8164db0e97b50469f0aa71bbc32f3b28e2
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 19:45:34 2022 -0400
+
+    IN-34: Added a test to verify that the user can accept a friend request as expected.
+
+commit e3aaf436bff7d0c3e4c1f4de7dc7c627c2a10f0b
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 19:09:23 2022 -0400
+
+    IN-34: Added a test to verify that sending a friend requests works as expected and ensured that it is considered pending.
+
+commit 1c3b5960450878090af60fe61ccd2c1b025ea3fc
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 17:06:26 2022 -0400
+
+    asked for user's uni & major (Signup.py)
+
+commit b59a78c139cb00447984db6cd477ac76d1e41eed
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 16:02:34 2022 -0400
+
+    IN-34: Added a test to verify that the user is initialized with an empty dictionary of friends.
+
+commit d446378b06d0bd48966451da259f3318ddcc60e3
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:57:48 2022 -0400
+
+    IN-34: DRY'd the limit constants.
+
+commit 6b34343cce0716b53ed9d64de36d7db3f6728914
+Merge: 40c12ce b0494a5
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:54:00 2022 -0400
+
+    Merge branch 'main' into IN-34-Test-Friends
+
+commit b0494a558cf675f75aa97d6e86aef05fb31cb4f9
+Merge: da1aa2b 27fea65
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:40:10 2022 -0400
+
+    Merge pull request #42 from sid-ak/MigrationHistory
+    
+    Migration_10/15/22
+
+commit 27fea65150eb4131ed3d863674c82d2a57f9f3f3
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:39:18 2022 -0400
+
+    Migration_10/15/22
+
+commit 40c12cea45a1c051827aa42858f9480da31ac988
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:35:52 2022 -0400
+
+    IN-34: Separated the test node in the DB that verifies user limit.
+
+commit 10d7529e0309e1064d00afce707440cb6b95a092
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:33:21 2022 -0400
+
+    IN-34: Deleted all test users after the user limit test run.
+
+commit 46f767f3d498ba3380730a6730cca4e5d46b1a39
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:21:39 2022 -0400
+
+    IN-34: Simplified the user and job limit implementations so they actually work.
+
+commit e665472ff8bcb746ad753bac1db8717850b21a60
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 15:11:30 2022 -0400
+
+    IN-34: Added a test to verify user limit and improved the implementation of the limit check.
+
+commit ff05acfde6ea6c4fa73356db447c2074a4c05dbe
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 15 13:41:58 2022 -0400
+
+    IN-34: Fixed a failing log in test.
+
+commit a0a8cb736039725ecd0bc1da6a6161a7fb7aeb40
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 13:22:20 2022 -0400
+
+    made the asked changes + debugged some frontened functionalities
+
+commit 55e44e27826c37a3c8d2f098840a0502dc3b0f5f
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 12:38:31 2022 -0400
+
+    added a check for SearchUsers
+
+commit 659c9047df17a87f694746991b8ab9c4f5c070e9
+Merge: 28e68f2 e995eed
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 11:39:39 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
+
+commit e995eed77747945d8616cd5f27704dfc93eada30
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Oct 15 11:35:53 2022 -0400
+
+    added try and excepts
+
+commit 28e68f283e0180808de28d84d3bea5b3ce32510c
+Merge: 90346b9 c6f68b2
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 11:29:52 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
+
+commit c6f68b2ebb98ada7f63cf1a54116179beffb2ce3
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Oct 15 11:17:01 2022 -0400
+
+    added try and excepts
+
+commit 90346b95d4ad1e776eb8d41108dbdc1a2e47069a
+Merge: 7023229 31c0ce6
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 02:47:20 2022 -0400
+
+    Merge branch 'IN-30/UpdateUserClass' into IN-32-frontend
+
+commit 7023229cff67f5c43666ef9a589bb5132efa374c
+Merge: 98946e1 0db13f3
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 15 02:46:34 2022 -0400
+
+    Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
+
+commit 31c0ce67182b84a95f0ca1a7adbf72441ab2ef4e
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Oct 15 00:18:12 2022 -0400
+
+    updated User class with Major and University
+
+commit 0db13f3764bcf97be184e7d48d8bf0323462fe4b
+Author: obasit7 <basitosama@gmail.com>
+Date:   Fri Oct 14 23:56:02 2022 -0400
+
+    fixed pendingReq function... hopefully
+
+commit 98946e1e4219fad58b614ea048989cbd4364eb32
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 23:24:43 2022 -0400
+
+    reverted a change in SendFriendRequest
+
+commit 6b1e4c990eef9f2fca3de90fa902f5792850f6d6
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 23:05:25 2022 -0400
+
+    removed placeholder comments
+
+commit 4f7e0bdf1ed2db3e2fdee8ef330e7ccba1cb0fb8
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 23:03:11 2022 -0400
+
+    added frontend functionality + debugged backend
+
+commit c8d15add28f81f61467d8d1013aec6a3bbbeda66
+Author: obasit7 <basitosama@gmail.com>
+Date:   Fri Oct 14 22:42:51 2022 -0400
+
+    updated get friends function to check if friends
+
+commit 89d61988fc42cdf15a23e64864b8478c62f82cdf
+Merge: a3f7891 da1aa2b
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 18:59:52 2022 -0400
+
+    Merge branch 'main' into IN-32-frontend
+
+commit a3f78913b9ae3b7f7f45c50a28a3446ef0dee579
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 18:59:23 2022 -0400
+
+    rectified mistakes
+
+commit da1aa2bfb400ac5ca3938bb480f9bf33d1d4708d
+Merge: b10854e 0b5aeed
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Fri Oct 14 18:58:08 2022 -0400
+
+    Merge pull request #38 from sid-ak/IN-30/FriendsLogic
+    
+    IN-30/GetPendingFriends - get pending requests of a user
+
+commit 0b5aeedb420d441aa92a10a3acf3c6f8bc851b6e
+Author: obasit7 <basitosama@gmail.com>
+Date:   Fri Oct 14 18:23:02 2022 -0400
+
+    get pending requests of a user
+
+commit 4a2a331660b3ce48b6c68d65ef506797308adcab
+Merge: 08aff2f b10854e
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 17:19:55 2022 -0400
+
+    Merge branch 'main' into IN-32-frontend
+
+commit 08aff2fb872cbe7f13594ce87fcbb511597f2986
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 14 17:19:11 2022 -0400
+
+    made changes to the options
+
+commit b10854e84a0b4353ba0b42668abe8ce45ba5fd93
+Merge: 34479e1 dc8b123
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Fri Oct 14 15:43:30 2022 -0400
+
+    Merge pull request #37 from sid-ak/IN-30/FriendsLogic
+    
+    IN-30/FriendAcceptRejectLogic - added additional logic for friends
+
+commit dc8b123336ed955ff913bd69a8116e92d1db3e95
+Author: obasit7 <basitosama@gmail.com>
+Date:   Fri Oct 14 15:42:05 2022 -0400
+
+    added return statement in try
+
+commit d26f3902f7a9d7ed03f27ac0573482dfaa1a5091
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 23:54:54 2022 -0400
+
+    removed trailing (unreachable) return statement from DeleteFriend
+
+commit 17ea97356349889ce71575eb1184d619a64b74b9
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 23:51:04 2022 -0400
+
+    changed variable name to avoid errors
+
+commit 8bc483eaecb6e0496aef5a1096ba066772b23ce7
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 23:49:00 2022 -0400
+
+    forgot to add 2 way functionality to deleteFriend. Added now
+
+commit f0dd35cf17a7ca35e5f348ef050ef1f1995cada7
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 23:45:48 2022 -0400
+
+    added additional logic for accepting, rejecting and removing a user from friend list
+
+commit e7d764906e76d5946c22a96aa907f7ae11c49117
+Merge: c1be293 34479e1
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 13 18:53:03 2022 -0400
+
+    Merge branch 'main' into IN-32-frontend
+
+commit c1be29300ce957214c1bfc33aeaf4ed9dfe8166d
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 13 18:52:09 2022 -0400
+
+    added all the frontend requirements
+
+commit 34479e1484a094166ac2f94d6e01dec320f51b54
+Merge: 24f8149 14bb1ce
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Thu Oct 13 18:22:37 2022 -0400
+
+    Merge pull request #36 from sid-ak/IN-30/FriendsLogic
+    
+    IN-30 added Friends logic and GetFriends logic
+
+commit 14bb1cefc4bf79bbcb913ac8af1c8371a934f6a8
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 12:40:24 2022 -0400
+
+    added return types
+
+commit 97e9083e4edfdeda46ad11169c98a5e24c3a53f9
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 00:24:02 2022 -0400
+
+    check to see if receiver is present in database for SendFriendRequest
+
+commit 3e791d7b2d3e543fe21f49837bbd26b124ead806
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 13 00:18:10 2022 -0400
+
+    added functionality for a user to send friend request to another user
+
+commit fa24f6a9bb8fabdfd75b0c36d260d211701f9e3e
+Author: obasit7 <basitosama@gmail.com>
+Date:   Wed Oct 12 23:34:58 2022 -0400
+
+    updated userToFind to str
+
+commit 74401b91680c635d24f11f815ed0660e8a14d11e
+Author: obasit7 <basitosama@gmail.com>
+Date:   Wed Oct 12 23:26:50 2022 -0400
+
+    1- added Friends attribute to the user class
+    2- added GetFriends function that returns a list of a users friends the users Username
+
+commit 24f814957fd36937c58b369aca4730f2898aa80a
+Merge: 4730408 573655c
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Tue Oct 11 14:02:19 2022 -0400
+
+    Merge pull request #35 from sid-ak/EPIC4/User_Limit_Increase
+    
+    USER LIMIT INCREASE - changed user limit from 5 to 10
+
+commit 573655ce6244a146848870a02744120c6b1b8198
+Author: obasit7 <basitosama@gmail.com>
+Date:   Mon Oct 10 23:16:58 2022 -0400
+
+    changed user limit from 5 to 10
+
+commit 4730408faa8e20bcca70d52ecd5500eab4a3fcb6
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 9 11:10:56 2022 -0400
+
+    formatting changes - brought latest created tests to the top
+
+commit 5d05b13a881edf2684083ccd653caf71a45da327
+Merge: 3ea8c87 040bd53
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Sat Oct 8 22:17:52 2022 -0400
+
+    Merge pull request #33 from sid-ak/IN-27-TEST-Useful-Links
+    
+    IN-27- Added the test cases for the DisplayUsefulLink Functions and m…
+
+commit 3ea8c87ef833c8138f877cc8754bafaeeeab7764
+Merge: aefe8c2 c4deb40
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Oct 8 21:22:26 2022 -0400
+
+    Merge pull request #32 from sid-ak/DisplayImpLinksFix
+    
+    Display Important Links Fix
+
+commit 040bd5320766c22c9ebf8b7d1198a0eead2b6699
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sat Oct 8 18:42:56 2022 -0400
+
+    IN-27-Removed Comments
+
+commit 0f246b4fdeac8d624258692ade7e78ecf8718c83
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sat Oct 8 18:36:01 2022 -0400
+
+    IN-27-made changes to the test file according to the standards
+
+commit aefe8c291a2a8b772125e0b66d6b4ba436ff4a2f
+Merge: 2f00ad5 5cd4c6a
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Sat Oct 8 16:24:18 2022 -0400
+
+    Merge pull request #34 from sid-ak/IN-20-useful-links
+    
+    Deleted the logout option (from Signin.py)
+
+commit 9a0f3527f58e555417cf68c2fb38ea5cbd32d328
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sat Oct 8 16:23:59 2022 -0400
+
+    IN-27- Removed loggedUser from DisplayUSefulLinksHelper.py as suggested by Sidharth
+
+commit 2f00ad51ace7d25f2f938281470f5a8ea2c9028f
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Oct 8 16:13:13 2022 -0400
+
+    fixed log in test
+
+commit 5cd4c6a6e8b42be6ac0fefa2025ce9050756521c
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Oct 8 16:04:19 2022 -0400
+
+    Deleted the logout option (from Signin.py)
+
+commit 627fb49c80a4d253d426c9b75599fe46cb11d512
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sat Oct 8 15:57:46 2022 -0400
+
+    IN-27- Added the test cases for the DisplayUsefulLink Functions and made some changes to DisplayUsefulLink.py and DisplayUsefulLinkHelpers.py for easier testing
+
+commit c4deb40cf763e36733dbe5d35bfe43cb7460fcd3
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 8 15:50:41 2022 -0400
+
+    Fixed an incorrect parameter being passed to the DisplayImpLinks method due to recent changes.
+
+commit c424c05853f92a23181fc237d03399881d2a28da
+Merge: e11065b befb938
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sat Oct 8 15:02:34 2022 -0400
+
+    Merge pull request #31 from sid-ak/IN-28-TEST-ImportantInCollegeLinks
+    
+    In 28 test important in college links
+
+commit befb938aad4b47e7319d49f7f67788427135cb3d
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Oct 8 15:00:18 2022 -0400
+
+    Added Epic description for the tests
+
+commit 9211e659e6edcca790cdaa3d135141116a7aaff0
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Oct 8 14:55:35 2022 -0400
+
+    Removed the duplicate file
+
+commit 83f1927e3f5aefc39b6e789c025596184b7af579
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Fri Oct 7 22:10:10 2022 -0400
+
+    completed the ticket IN-28 with all the tests
+    
+    1. added relevant tests to cover all items of the ticket
+    
+    2. Some parts of the original code ("DisplayImpLinks.py" and "DisplayImpLinksHelpers") have been modified - there has been an addition of 1 or 2 parameters necessary to implement tests on the functions. Otherwise, these functions cal "input" function that prevents functional testing to be done on them.
+
+commit 9d10ebb8cf26c6620ef7e99e319f4684541f4dc5
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Fri Oct 7 21:05:43 2022 -0400
+
+    initial set up
+
+commit e11065b645cadcc54a92399540602f59f8ed1354
+Merge: c2847f5 af2a4a9
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Fri Oct 7 19:44:01 2022 -0400
+
+    Merge pull request #30 from sid-ak/IN-20-useful-links
+    
+    changed function names for better understanding
+
+commit af2a4a9208d856c0ec23f264b8959aca1078b0f8
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Fri Oct 7 19:40:13 2022 -0400
+
+    changed function names for better understanding
+
+commit c2847f53ede6c34b453a3b381cc729a724e6cd49
+Merge: 2c98f2a a2f7d04
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Thu Oct 6 23:57:02 2022 -0400
+
+    Merge pull request #29 from sid-ak/IN-20-useful-links
+    
+    IN-20: added useful & general links functionality
+
+commit a2f7d04157cba0d37b303fe7f12976655bfa9168
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 6 23:38:44 2022 -0400
+
+    addressed the requested changes
+
+commit d4a98a36ffe1263d792ea075009f766bc6bfcc47
+Merge: eed302a 2c98f2a
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 6 23:28:13 2022 -0400
+
+    Merge branch 'main' into IN-20-useful-links
+
+commit eed302ac30ab01b5001c51d37f6ee5cecea915b2
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 6 23:26:45 2022 -0400
+
+    changed name of the help function
+
+commit 2c98f2aaf2a47a71a812ee4405cf0ab29b79a4ce
+Merge: 5f4180c a76c855
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Thu Oct 6 23:19:32 2022 -0400
+
+    Merge pull request #28 from sid-ak/IN-24-Important-Links-Extension
+    
+    IN-24: Important Links Extension
+
+commit a76c855f53de62513b5039fdd5b78ce59196f31b
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 6 23:16:02 2022 -0400
+
+    IN-24: Addressed review, fixed copy error.
+
+commit 20643a665baa4daee0cd5e4ea43c1f769dba8b0f
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 6 17:05:46 2022 -0400
+
+    IN-20-modified catch message
+
+commit 398e8d3ecab43471cee0e36be0e945d06de5257b
+Merge: 6d3abea 883201f
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 6 17:02:23 2022 -0400
+
+    Merge branch 'IN-24-Important-Links-Extension' into IN-20-useful-links + made necessary changes
+
+commit 6d3abeae8a6ff5395a90db59fb4cf554abce964c
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Thu Oct 6 16:13:20 2022 -0400
+
+    IN-20: added useful & general links functionality
+
+commit 883201f67efe419c1bf4d157465a3a91ceb9a90e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 6 01:46:10 2022 -0400
+
+    IN-24: Fixed a minor frontend test.
+
+commit 14bd7077f8575663f87d08e3a9afced7102e6492
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 6 01:43:12 2022 -0400
+
+    IN-24: Implemented the language preference functionality using the LanguageEnum as required.
+
+commit a2ae0a3e227c8cddeb013540d9f03beb6a70bebf
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 6 01:42:29 2022 -0400
+
+    IN-24: Introduced a LanguageEnum.
+
+commit 7c341e29bde935fa079f75be205b914c1fbae8ca
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 6 01:09:51 2022 -0400
+
+    IN-24: Implemented functionality required to toggle email, sms and advertising preferences for a user.
+
+commit 755e60bd968363f7ab517d58aab0b98fa325c097
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 6 01:07:48 2022 -0400
+
+    IN-24: DRY'd by adding a helper method to display options and cleaned up.
+
+commit 5f4180c49872af294895c1e0e3c441c786f5c937
+Merge: 7e799bc cd1921f
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Wed Oct 5 23:17:02 2022 -0400
+
+    Merge pull request #27 from sid-ak/IN-21-Important-Links
+    
+    IN-21: Important Links
+
+commit 7e799bcc0824231a782fb240c70dc62f9f49befa
+Merge: ecc07b4 c3e2b0e
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Wed Oct 5 21:31:35 2022 -0400
+
+    Merge pull request #26 from sid-ak/DeleteTestFrontend
+    
+    Deleted test_JobInternshipSearch
+
+commit cd1921f8d014bd3c1b47cd7315775bdfc1d16b3b
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Oct 5 10:00:30 2022 -0400
+
+    IN-21: Introduced the imp links and their content.
+
+commit e8187143a2341eb12fdc5212765f71adf6b380fb
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Oct 5 09:57:34 2022 -0400
+
+    DRY'd the menu option selection and printing the under construction message.
+
+commit c3e2b0ebf868315b3f935657a4c9519221644cfd
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Oct 5 08:23:52 2022 -0400
+
+    Deleted test_JobInternshipSearch
+
+commit ecc07b489ccd8daf57e5fd85298e628686b6549a
+Merge: 292cfa3 30c9cde
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Wed Oct 5 08:18:53 2022 -0400
+
+    Merge pull request #25 from sid-ak/MigrationHistory
+    
+    Migration_10/05/22
+
+commit 30c9cde22a351409d91d3de11b3208d5edbd4d98
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Oct 5 08:14:09 2022 -0400
+
+    Migration_10/05/22
+
+commit 292cfa3b6a87bdfbe510fbbf8d024f593ce4dd7a
+Merge: c9315da 6bf32c0
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Wed Oct 5 08:16:06 2022 -0400
+
+    Merge pull request #24 from sid-ak/MigrationHistory
+    
+    Added snapshot for 10/05/22
+
+commit 6bf32c0d946e2fa079f4a91c883b0acd13a313f6
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Oct 5 08:14:09 2022 -0400
+
+    Added snapshot for 10/05/22
+
+commit c9315da20bc0c37cda585802f89b99d92293eb54
+Merge: 015f748 fab6345
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Sun Sep 25 23:22:24 2022 -0400
+
+    Merge pull request #23 from sid-ak/FixTestFrontend
+    
+    Commented out test_JobInternshipSearch
+
+commit fab63451bbf57cea4e4cd088720a96ad495e104a
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sun Sep 25 23:20:40 2022 -0400
+
+    Commented out test_JobInternshipSearch
+
+commit 015f748d501fe55937dc996ef2f350e3e63b51cb
+Merge: 47730df eb9c22f
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Sep 25 18:31:55 2022 -0400
+
+    Merge pull request #22 from sid-ak/IN17/JobModelTests
+    
+    IN17/JobModelTests
+
+commit eb9c22fc6ec362a486260d5e0f24311399d29f2a
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Sep 25 14:19:43 2022 -0400
+
+    1- added deleteJob feature in JobHelpers
+    2- added test to check for CreateJobs, JobLimit, GetAllJobs
+
+commit 47730df3203a2e5cf2f4e782c59a9cd7457ffa3f
+Merge: a7e012d 3677095
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Sun Sep 25 13:25:04 2022 -0400
+
+    Merge pull request #21 from sid-ak/IN-12-Go-Back
+    
+    IN-12-Added a feature to go back to the previous options.
+
+commit 367709592239c91387649fb3b0951f7e4db78461
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Sun Sep 25 12:59:44 2022 -0400
+
+    IN-12-Added a feature to go back to the previous options.
+
+commit a7e012dd4558e78fecb957b192abb26992177f21
+Merge: 4e01be2 acf8f80
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Sep 25 12:42:35 2022 -0400
+
+    Merge pull request #18 from sid-ak/IN-17-Job-Model
+    
+    IN-17: Job Model
+
+commit acf8f80586026a1940bf742ac8310a66abb065b9
+Merge: e068b13 4e01be2
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Sep 24 17:52:52 2022 -0400
+
+    Merge branch 'main' into IN-17-Job-Model
+
+commit 4e01be2c2ddcc75800f91547bd3a1803879cc321
+Merge: 47b99eb aff5625
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Sat Sep 24 17:48:29 2022 -0400
+
+    Merge pull request #20 from sid-ak/IN-11/TestingUsers
+    
+    In 11/testingUsers - added functionality in LogIn and SignUp to address both Users and TestUsers nodes in firebase. Added testUsers to Firebase as well
+
+commit aff5625e91dffa8a1175d800fd813bbea76d9e27
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 24 17:38:12 2022 -0400
+
+    set userlimit as a constant
+
+commit e068b139bb326b61ef116d812463627dcb93a283
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 15:48:58 2022 -0400
+
+    IN-17: Removed the reference to an object which was outside its scope.
+
+commit d0055ef495a7a57ab2860bc0800dbcb9d1d79e5b
+Merge: d071546 47b99eb
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Sat Sep 24 14:10:08 2022 -0400
+
+    Merge branch 'main' into IN-17-Job-Model
+
+commit 7cbc96294e29233564c68da9bbd440ba367d68e5
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 24 14:05:09 2022 -0400
+
+    1- set userID type to str from int
+    2- modified login test according to new logic
+    3- Passed collection name to signin functions to enable functionality for both Users and TestUsers DBs
+
+commit c755c29bc7ed0a45dddd0cd93340b163b4203b1b
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 24 13:48:54 2022 -0400
+
+    1- added test for RegisterNewUser using existing functions
+    2- modified User class to support adding users for both Users and TestUsers DBs
+    3- added a DeleteUserAccount in UserHelpers
+
+commit d071546ee815096f011412ddeba57e420b092de8
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 13:00:56 2022 -0400
+
+    IN-17: Included the optionNo input inside the try block.
+
+commit 4d258331b0d0856704335610e21e8deb81af5da2
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 24 12:54:36 2022 -0400
+
+    added tests to for checkDBSize and GetAllUsers
+
+commit 47b99eb1930758f3d3390de6f5ebc2b055671457
+Merge: a89a2c3 ffc45a7
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Sep 24 12:47:45 2022 -0400
+
+    Merge pull request #19 from sid-ak/MigrationHistory
+    
+    Migration_09/24/22
+
+commit ffc45a75b69dde7116396e8f1d83e0bb642c3a99
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 12:46:11 2022 -0400
+
+    Migration_09/24/22
+
+commit fa8cea920e029d76157b8c2569867628a8aef14d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 09:33:40 2022 -0400
+
+    IN-17: Typo.
+
+commit 7a2923d409cb3f802ed12aae387962a99cd3617e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 09:26:23 2022 -0400
+
+    IN-17: Finished the FindJobInternshipAction to post a job.
+
+commit 60a3f41e507ec38c1af081bbebb3406b4dee8aa6
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 08:20:09 2022 -0400
+
+    IN-17: Updated the change tracker.
+
+commit f8c2cedd1786ac826333c51a3f0e4d12f05841ac
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 08:18:28 2022 -0400
+
+    IN-17: Updated gitignore to ignore additional cache files and deleted existing cache.
+
+commit d2b719ca58b37c6e3e78257a89dc8415cfdd21e2
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 08:14:06 2022 -0400
+
+    IN-17: Updated gitignore
+
+commit 15c4ca96930c58eca64552745c2e572bffc528a4
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 24 08:13:27 2022 -0400
+
+    IN-17: Comment change.
+
+commit 1e3b5ec876f44eaade824862aea1e182b701b337
+Merge: 7c35862 a89a2c3
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Sep 23 23:22:23 2022 -0400
+
+    Merge branch 'main' into IN-17-Job-Model
+
+commit a89a2c39e08432e21b52a25190d5776ac9a629e5
+Merge: 2f1d86b d0955ba
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Fri Sep 23 20:40:23 2022 -0400
+
+    Merge pull request #17 from sid-ak/IN-12-search-user
+    
+    IN-12: Bad Merge Fix Part 2
+
+commit d0955ba5db89931c527cb36129fdc88deee9a2fd
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Sep 23 20:38:28 2022 -0400
+
+    Re-added previous commits.
+
+commit 2f1d86b5331bda8e4e0b9d0106f7fb6e37b683b7
+Merge: 12007e8 2c1d9f0
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Fri Sep 23 20:16:39 2022 -0400
+
+    Merge pull request #16 from sid-ak/IN-11-BadMergeFix
+    
+    IN-11: Bad Merge Fix
+
+commit 2c1d9f0c8231f03de5ccda3ef8b1f4ad2ce951f4
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Sep 23 20:13:16 2022 -0400
+
+    IN-11: Re-added other changes using the GetAllUsers method.
+
+commit 6548ef4845c0d54bd9f7031c0557b4195a02f184
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Sep 23 20:10:05 2022 -0400
+
+    IN-11: Re-added the User model.
+
+commit 7c35862fedc53d6a53ad0d664daa94e9c737f69c
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Sep 23 19:39:54 2022 -0400
+
+    IN-17: Introduced a Job model.
+
+commit 12007e890be3ce4a09fdf980f6624c8e27401b1e
+Merge: 05181ec 378c454
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Fri Sep 23 19:25:46 2022 -0400
+
+    Merge pull request #13 from sid-ak/IN-11-User-Model
+    
+    IN-11: User Model
+
+commit 378c45482a43efe459e2939ca6563672aeaec963
+Merge: bac5a61 05181ec
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Fri Sep 23 19:24:42 2022 -0400
+
+    Merge branch 'main' into IN-11-User-Model
+
+commit 05181ec3ea33bfef070c9acfed00aad185ce1d8f
+Merge: a4bbe3a 6368920
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Fri Sep 23 18:52:48 2022 -0400
+
+    Merge pull request #15 from sid-ak/IN9-Video
+    
+    added test for PlayVideo and added new week update comments in test f…
+
+commit 1b958add86ffb9f5d6686cf92ca66aac5144fbde
+Merge: 3346874 a4bbe3a
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 22:55:35 2022 -0400
+
+    Merge branch 'main' into IN-17-Job-Model
+
+commit a4bbe3a7f9f37f908a661950e690c859f3ba7733
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 22:48:14 2022 -0400
+
+    Revert "Merge pull request #14 from sid-ak/IN-12-search-user"
+    
+    This reverts commit 05413da92651e21e20e7b164afde83c53e19083f, reversing
+    changes made to 540d9d537af4d3a29c4e8ced28074038871fec39.
+
+commit 33468741ed5602402260276aba41e2f24955723f
+Merge: 9e43766 05413da
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 22:43:58 2022 -0400
+
+    Merge branch 'main' into IN-17-Job-Model
+
+commit 05413da92651e21e20e7b164afde83c53e19083f
+Merge: 540d9d5 20b92f9
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Thu Sep 22 22:32:10 2022 -0400
+
+    Merge pull request #14 from sid-ak/IN-12-search-user
+    
+    In 12 search user
+
+commit 6368920624f85dd35f1f345f502422c0aae9285d
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Sep 22 22:29:55 2022 -0400
+
+    added test for PlayVideo and added new week update comments in test files
+
+commit bac5a61e4fd0cd4bf1d7be00106b335593238192
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 21:15:17 2022 -0400
+
+    Revert "Merge branch 'IN-12-search-user' into IN-11-User-Model"
+    
+    This reverts commit cc7853fdca34480cc5ea956a544a8c4a3032a246, reversing
+    changes made to 9e437662651f7b5cfe6c04dbde1ccfc1d6089bef.
+
+commit cc7853fdca34480cc5ea956a544a8c4a3032a246
+Merge: 9e43766 20b92f9
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 21:13:18 2022 -0400
+
+    Merge branch 'IN-12-search-user' into IN-11-User-Model
+
+commit 9e437662651f7b5cfe6c04dbde1ccfc1d6089bef
+Merge: 73adea1 540d9d5
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 21:10:54 2022 -0400
+
+    Merge branch 'main' into IN-11-User-Model
+
+commit 20b92f90d0d3ed246d6b13596274baaecdd9bd2d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 20:38:40 2022 -0400
+
+    IN-12: Iplmented authentication beyond search user and tidied up.
+
+commit 5c31bb4eaf709da4fd13687a169261e8e8f35357
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Thu Sep 22 20:03:56 2022 -0400
+
+    IN-12: Added a search user method and cleaned up the main file.
+
+commit cb7eaf7fca931286d255b572b5a52d4ab29fb2dc
+Merge: ce84ea6 73adea1
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Thu Sep 22 19:15:33 2022 -0400
+
+    Merge branch 'IN-11-User-Model' into IN-12-search-user
+
+commit 73adea1caeda70c60b9628dfc25f1d11634debfc
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 19:14:21 2022 -0400
+
+    IN-11: Used the User model in the main file.
+
+commit 5dbec7b49bcf60de2a1d2b79022e8ac8dc537680
+Merge: efccef8 56c939e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 19:06:52 2022 -0400
+
+    Merge branch 'IN-10-success-story' into IN-11-User-Model
+
+commit ce84ea6f09575e0f1f54862d4495fa4fb1a3a2ee
+Merge: ebd4c09 efccef8
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Thu Sep 22 19:00:56 2022 -0400
+
+    Merge remote-tracking branch 'origin/IN-11-User-Model' into IN-12-search-user
+
+commit 540d9d537af4d3a29c4e8ced28074038871fec39
+Merge: e936c59 56c939e
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Thu Sep 22 09:25:13 2022 -0400
+
+    Merge pull request #12 from sid-ak/IN-10-success-story
+    
+    IN-10: Added Video Option, in the main file and created a function to…
+
+commit efccef8562427a4a9f42fdf1d6a4b166003a7a22
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 02:24:59 2022 -0400
+
+    IN-11: Took first name and last name as input from the user.
+
+commit 24faab4edc169b9ee91fba585626ff05d4824f72
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 02:12:13 2022 -0400
+
+    IN-11: Separated user helpers into its own class.
+
+commit 08f3a50a122a01b050469dda3de5ee9106afdc54
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 02:00:39 2022 -0400
+
+    IN-11: Comments and cleanup.
+
+commit 5e26f1a6a720066d5cfa47b5d0c3e55309ba8946
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 01:39:12 2022 -0400
+
+    IN-11: Added a hashing implementation using the unique username and password of a user so we don't have to store passwords in plain text while also being able to authenticate users.
+
+commit 6fc377c0f25cdd07835a0909be66617fd6281d4d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 01:37:21 2022 -0400
+
+    IN-11: Used the GetAllUsers method where possible.
+
+commit 2228eb0c79c6246a2d1ab9f905b68070f4cb7816
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Sep 22 01:33:35 2022 -0400
+
+    IN-11: Typo
+
+commit 56c939e39a41003126521acb1be5968240e6c0d6
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Wed Sep 21 23:29:29 2022 -0400
+
+    IN-10: made changed the file name LoggedInActions to Actions and added the PlayVideo.py file  to it. Also made changes to the success story
+
+commit 56cd819b99910183ecb197626b79ac21edef9d14
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:56:32 2022 -0400
+
+    IN-11: Removed unused import.
+
+commit f18b07c1702b8e22fe48fb59e1b48f649122ec8d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:55:24 2022 -0400
+
+    IN-11: Removed unused file.
+
+commit 5287f678dcc2855dae6f8068a72a4ff161bff1f2
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:54:26 2022 -0400
+
+    IN-11: More cleanup.
+
+commit 1b25ff92103ad0b2b9249bd8c2e1c8a979082353
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:53:36 2022 -0400
+
+    IN-11: Cleanup.
+
+commit 3a3dea3ded7e807e6586568bdc7820dbcc20869b
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:45:12 2022 -0400
+
+    IN-11: Simplified the code a little.
+
+commit 3a557ea95b1b07dffeba0233d3b0974486700127
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:21:31 2022 -0400
+
+    Removed whitespace.
+
+commit 2cd00f721f116746951c5d67922a3bd3671b6003
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 21 21:03:41 2022 -0400
+
+    Introduced a User entity and implemented a GetAllUsers method with it.
+
+commit ebd4c095aae4bfa7367db9991f081d1c9e465408
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Wed Sep 21 18:48:33 2022 -0400
+
+    IN-12: Changed firstname and lastname to firstName and lastName
+
+commit e7bea36b6e42739ec3b2e7ca905a5a6328273c03
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Tue Sep 20 13:09:45 2022 -0400
+
+    IN-12: Updated the comment
+
+commit 47b419e3d987b1e9ae7688885e7b74634cd996b8
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Tue Sep 20 12:52:11 2022 -0400
+
+    IN-12: added a function to search the user using their first and last name
+
+commit b6f46fe7c9f40aaea7eb7eef80e86b2fb049a33d
+Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
+Date:   Tue Sep 20 11:10:48 2022 -0400
+
+    IN-10: Added Video Option, in the main file and created a function to play the video
+
+commit e936c592bbb0326645f04c7503072f70ce6f8eb6
+Merge: 1f5f965 e73ec9f
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:35:54 2022 -0400
+
+    Merge pull request #11 from sid-ak/Cleanup
+    
+    Cleanup.
+
+commit e73ec9f8e8a12e6954efe9a2d4ba3a1b360d9557
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:34:21 2022 -0400
+
+    Cleanup.
+
+commit 1f5f9652d52119f88024e8b17ebadf274b94fe43
+Merge: c509708 3de5add
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:31:38 2022 -0400
+
+    Merge pull request #10 from sid-ak/Cleanup
+    
+    Updated README to include testing instructions.
+
+commit 3de5addfa13475ec798f36363e19fe7951c185ea
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:30:33 2022 -0400
+
+    Updated README to include testing instructions.
+
+commit c509708960134e510dfd390a5a6e701a0a5f3bb2
+Merge: 652884c 255cd47
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:24:32 2022 -0400
+
+    Merge pull request #9 from sid-ak/Readme-GettingStarted
+    
+    Added getting started steps
+
+commit 255cd4725fbaa0f339a9cef4ad6adc474ab7316e
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:24:19 2022 -0400
+
+    Added getting started steps
+
+commit 652884ce24fa2b4825006ce7a1f05b9a98e2ef79
+Merge: 319cc05 c8f5d8c
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:10:06 2022 -0400
+
+    Merge pull request #8 from sid-ak/IN-3-tester1
+    
+    IN3-FinalUpdate
+
+commit c8f5d8c5918e2cea4bff302150bf7d527ac8643a
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:08:59 2022 -0400
+
+    Added comment for frontend tests
+
+commit 3c2bb6c6b8467d40b83cb196b0b96d04e5dbd46f
+Merge: 013da71 319cc05
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Sep 18 20:07:32 2022 -0400
+
+    Merge branch 'main' into IN-3-tester1
+
+commit 013da711579dfcaae4ee04aebde8a3bd130c82c0
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Sep 18 20:00:44 2022 -0400
+
+    changed tester 1 file name
+
+commit 92beac2b8c5438a0e13023480f1120b14421fc19
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Sep 18 19:56:25 2022 -0400
+
+    added comments for test file last updated
+
+commit 319cc052d36abaf379388da44305a0f3836ae244
+Merge: c6a6307 962dbfa
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Sep 17 21:10:31 2022 -0400
+
+    Merge pull request #7 from sid-ak/IN-8-test-frontend
+    
+    Testing the menu options (IN-5)
+
+commit 962dbfa31eea1a4f321e88384f1f7b43670801c7
+Merge: 56f8462 c6a6307
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 21:06:05 2022 -0400
+
+    Merge branch 'main' into IN-8-test-frontend
+
+commit 56f8462039e3bc9ae1b3323960f1698c98692b80
+Merge: 78825e4 d8d643c
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 21:02:54 2022 -0400
+
+    Merge branch 'main' into IN-8-test-menu
+
+commit 78825e409dcf9fa0b46cf4ae132c85698b2c0f9a
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 21:00:31 2022 -0400
+
+    Cleanup
+
+commit b5dacf3c757fc24acdd2e89026b8a1d1e738cd7c
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 20:58:15 2022 -0400
+
+    Minor rename
+
+commit c6a63077e4aea004f7468eb146c5f660df64f782
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 20:57:06 2022 -0400
+
+    bug fix: fixed the loop in the learnNewSkill function to allow break out of loop when -1 selected
+
+commit 911b1dabd011549629fea87e388598daaa5a1157
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 20:39:50 2022 -0400
+
+    Renamed test file and reorganized.
+
+commit f89ea9fae9d4df09f5b768f1878edc10ba8e69d9
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 20:33:36 2022 -0400
+
+    seperating the tests
+
+commit d8d643c198a64a700e568e5897bd286f0ba30729
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 19:58:02 2022 -0400
+
+    put the connection to db operation block in CheckDBSize in a try block to make it safe
+
+commit 01f7b631a8ecacb8331aba5fedc3e9f5b25eec4b
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 19:50:02 2022 -0400
+
+    fixed the call to CheckDBSize call, was missing parentheses
+
+commit 764fd3eaaec9d3bd0e7e29e57fba477474a92632
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 19:17:48 2022 -0400
+
+    created test cases for LearnNewSkills(), JobInternshipSearch(), and FindSomeone().
+    Also, fixed typo & refactored the skills menu
+
+commit 7d53d13be0fb89617e2341670c7ae1d6384f5111
+Merge: 281d9b4 96ecf31
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 19:01:50 2022 -0400
+
+    Merge branch 'main' into IN-8-test-menu
+
+commit 281d9b4d1e9c164cf2cc3d1fbe6861b5cb330378
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 18:53:12 2022 -0400
+
+    testing new code
+
+commit 96ecf3185d82ebd6f14498b454753a68ccda92ca
+Merge: 51bdd17 8145ba2
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 18:41:55 2022 -0400
+
+    Merge branch 'main' of https://github.com/sid-ak/incollegetexas
+
+commit 51bdd17d54c6c6444e3c046cd7eea57abae05c7e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Sep 17 18:41:51 2022 -0400
+
+    Create .gitignore
+
+commit 8145ba218eec1f533604e0639a73226e3af6ff5b
+Merge: c0a15ab 74fefa2
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Sep 17 18:39:20 2022 -0400
+
+    Merge pull request #5 from sid-ak/IN-5-AdditionaOptions
+    
+    added addition options for a user that successfully logged in
+
+commit 74fefa25af74b0eb4bc8001aadc0b8765252d381
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 18:33:16 2022 -0400
+
+    finalizing last commit
+
+commit 174b80340bac9e5181bfd1a50f174972c53ca7b3
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 18:29:13 2022 -0400
+
+    tests for LearnNEwSkill(), JobInternshipSearch(), and FindSomeone()
+
+commit 5734e9c48ea170096d1879914fde9222b434b52b
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 18:27:14 2022 -0400
+
+    fixed LearnNewSkills function to keep asking skills
+    
+    1. fixed Sid's change request on LearnNewSkills function
+    
+    2. changed the return type of LearnNewSkill function to list to track all the skills selected by the user
+
+commit 51f293df9ffe6b4e5eeaea8f48c2a11dafca3c40
+Merge: 2d340e9 e487362
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 18:17:29 2022 -0400
+
+    Merge branch 'IN-5-AdditionaOptions' into IN-8-test-menu
+
+commit d1ea1ddb461ec92523da79bfeb576ece7bdcedd6
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 18:08:27 2022 -0400
+
+    testfor user log in added
+
+commit e4873628bd22f938e806a0e05d21e7c68a2ae037
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 18:05:21 2022 -0400
+
+    PR change request handled
+    
+    Fixed issues of PR request change made by Sid
+
+commit c0a15abc5b0ef41675c1f94ec045021cc4c401f6
+Merge: 84d71d6 5ffab0f
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Sat Sep 17 17:58:18 2022 -0400
+
+    Merge pull request #4 from sid-ak/IN-3-tester1
+    
+    In-3/tester1-corrected filepaths and added Osamas test file
+
+commit 5ffab0fcc8018d1f34c75b54c6d1c0f69494ed61
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 17:55:27 2022 -0400
+
+    added test to check success for registering new user
+
+commit 14cb82d884b55b9b8e4aadf4624ddbd1b35f71b1
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 17:32:29 2022 -0400
+
+    added addition options for a user that successfully logged in
+    
+    1. moved the test2 file to the source folder to remove relative path errors
+    
+    2. created a new folder, with three files that contain respective function to complete addition operations for a user that is logged in
+    
+    3. modified and added addition control flow in the main file to logically progress the program for users
+    
+    4. changed the main file code structure to class for mudularity purposes
+
+commit 33c617b7ab26ad0b1c72f8b8dcfbf0aa02ca113e
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 16:46:16 2022 -0400
+
+    corrected Amir's file
+
+commit 606333e6bbd88e088ad497c6bb01382f51de11c9
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 16:10:19 2022 -0400
+
+    moved tester 2 file to source main folder
+
+commit 195b0c5425bb4da717daa450096306f7c2ba4aaf
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 15:40:12 2022 -0400
+
+    reconfiguring files
+
+commit 01e4f2f8ab0640961680f53f45d7a9a53041bf5f
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 15:36:22 2022 -0400
+
+    made test for checking accouns limit
+
+commit 93cab4363f834d12ed1e9faa3871a2679beeed98
+Merge: 8d11c6b 84d71d6
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 15:10:55 2022 -0400
+
+    Merge branch 'main' of https://github.com/sid-ak/incollegetexas into IN-3-tester1
+
+commit 84d71d6d8c18dfbbd0e533275a341df53cb8d26f
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 14:15:33 2022 -0400
+
+    Update Signup.py
+
+commit aca94b05ae28a31c9c9cb1628414ee84374e0089
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 14:03:21 2022 -0400
+
+    Fixed commits' accidents
+
+commit 2d340e983cd558a519302b6fa7d170783e7b4dbe
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 13:47:47 2022 -0400
+
+    Tests for ShowMessage(), DisplayMenu(), and LearnNewSkill()
+
+commit 30310e6a492ce9c948fc5fa6811d1b812f3a592a
+Merge: 6303ef4 29313c4
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sat Sep 17 13:26:40 2022 -0400
+
+    Merge pull request #2 from sid-ak/database-setup
+    
+    Database setup
+
+commit 29313c45dc03a3d65e030d7d512929ba0be33363
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 13:26:16 2022 -0400
+
+    resolved change requests from Sid
+
+commit 8d11c6b1ca1465dd2e9a6dfa72898588f0e39273
+Merge: 81ee1b6 2de6e31
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 13:09:04 2022 -0400
+
+    Merge branch 'database-setup' of https://github.com/sid-ak/incollegetexas into IN-3-tester1
+    
+     Conflicts:
+    	.idea/incollegetexas.iml
+    	.idea/misc.xml
+
+commit 81ee1b6709d340d15f3e780a0a09a47ccd913024
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Sep 17 13:08:36 2022 -0400
+
+    some unversioned files
+
+commit 6303ef4d72744d0dfa5abe71071c85aa3f0d3386
+Merge: b40a5e1 5a72722
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Sat Sep 17 13:01:00 2022 -0400
+
+    Merge pull request #3 from sid-ak/tester2
+    
+    Issue IN-6
+
+commit 5a727229b31e4c2b1ab61accd8505186ee1f662b
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 12:34:32 2022 -0400
+
+    test for validatePassword()
+
+commit 2de6e312fdf1008184a377aa867bf465d4b04642
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 12:33:03 2022 -0400
+
+    Bug fix and Testing Modular Files Added
+
+commit e6ad202233752a584bd125311aaaa4c0a7619157
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 12:24:35 2022 -0400
+
+    Revert "test for validatePassword()"
+    
+    This reverts commit 5f41d67bf4b5335e227fae20a8657bda172ee4a6.
+
+commit 5f41d67bf4b5335e227fae20a8657bda172ee4a6
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sat Sep 17 11:56:14 2022 -0400
+
+    test for validatePassword()
+
+commit b40a5e1cd101c286b7e710ad967bda0e276c63c3
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Sep 17 10:21:58 2022 -0400
+
+    Update Standards.txt
+    
+    Typo
+
+commit 31bdd70d4def2258885c96a7515c97b7727b276d
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Sep 17 10:21:20 2022 -0400
+
+    Update Standards.txt
+
+commit bdafc90a4cf406125020b42c5c901db0f6c9662f
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Sep 17 00:30:00 2022 -0400
+
+    Bug fix in signup
+    
+    fixed the bug in retrieving the entries from the firebase
+
+commit 4641ed1b425f28bc2401e38a92002ef40d547cd0
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Fri Sep 16 23:59:25 2022 -0400
+
+    Revert "Revert "set up of login and sign up functions""
+    
+    This reverts commit 909cc7c1d2bcc58745a29c095dc28b88064f022e.
+
+commit 909cc7c1d2bcc58745a29c095dc28b88064f022e
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Fri Sep 16 23:55:16 2022 -0400
+
+    Revert "set up of login and sign up functions"
+    
+    This reverts commit 8f91562071d921e894690c5b5a9664ba7ad10532.
+
+commit 8f91562071d921e894690c5b5a9664ba7ad10532
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Fri Sep 16 23:41:37 2022 -0400
+
+    set up of login and sign up functions
+    
+    1. separated different functions and variables into different logical modules
+    
+    2. created a new function to complete login operation
+    
+    3. created a new function to complete signup operation
+    
+    4. copied over the validate-password function from Aoun's commit
+    
+    5. created an initial setup of control flow in main file
+
+commit d6905da7f3dcfbf24af16c1be5dd4b763733b1ab
+Author: Aoun Ashraf <aounashraf@usf.edu>
+Date:   Fri Sep 16 21:11:08 2022 -0400
+
+    function to validate the password
+
+commit 683d40d456ef471b6016528eb8ea35c268649ba1
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Fri Sep 16 18:54:50 2022 -0400
+
+    basic setup of hook to the firebase database
+    
+    Set up the hook to the firebase database.
+    
+    Note: For security purposes, the configuration details will be sent to the group separately.
+
+commit b4522887b08d9f9fd41e8ac3a9332fcb14e59bc9
+Merge: 09452fe 9c1b911
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 14 19:33:59 2022 -0400
+
+    Merge branch 'main' of https://github.com/sid-ak/incollegetexas
+
+commit 09452fe9e67bfa23bfc55232cb3fac08c44a9eff
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 14 19:30:38 2022 -0400
+
+    Moved source code.
+
+commit 21fef0f473a0b553a4a5133219f6b04c14aba969
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 14 19:30:13 2022 -0400
+
+    Added standards.
+
+commit 9c1b911b3c3171b0f47e3193bd9a839e269041cb
+Merge: 81608a0 60b7c2d
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Wed Sep 14 19:18:17 2022 -0400
+
+    Merge pull request #1 from sid-ak/ReadmeUpdate
+    
+    Update README.md
+
+commit 60b7c2d83b45bfd214de7e7087d5dc051cc85a2e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 14 19:16:12 2022 -0400
+
+    Update README.md
+
+commit 81608a03c281ce95a65a6adb99649e1aa4dbfe90
+Author: obasit7 <basitosama@gmail.com>
+Date:   Wed Sep 14 19:11:13 2022 -0400
+
+    main file for code
+
+commit ab090b182cfa6e251df1a005fe5a4dd60e9018cb
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Wed Sep 14 18:09:16 2022 -0400
+
+    Delete sample_test.py
+
+commit 1775513cd1bfbea7bacbff7d1797b9506f10961e
+Author: obasit7 <basitosama@gmail.com>
+Date:   Wed Sep 14 18:03:20 2022 -0400
+
+    sample commit
+
+commit 880da0813467ddcceafd265a988379b1831c0ed4
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Wed Sep 14 08:36:26 2022 -0400
+
+    Test commit.
+
+commit 2a56c1f5fd1f724293ed628835cc94b2b795e1dc
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Mon Sep 12 09:33:40 2022 -0400
+
+    Initial commit

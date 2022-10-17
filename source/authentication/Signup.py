@@ -22,32 +22,12 @@ def ValidatePassword(password: str) -> bool:
     else:
         return False
 
-USER_LIMIT = 10
-
-# this function will query the Firebase DB and check the current number of accounts
-# it will return False if the number exceeds 5, True otherwise
-def CheckDBSize(collection: str="Users") -> bool:
-    try:
-        # get all DB entries tp a local list
-        users = UserHelpers.GetAllUsers(collection)
-        if (users == None):
-            return True
-
-        if len(users) >= USER_LIMIT:
-            print("\nAll permitted accounts have been created, please come back later!")
-            return False
-        else:
-            return True
-    except:
-        return False
-
-
 # this function will accept username and password and return True, if the registration
 # was successful, False otherwise; it validates database size limits and uniqueness of username
 def RegisterNewUser(collection: str="Users") -> bool:
     try:        
         # first let's check that the total number of users does not exceed 5
-        if not CheckDBSize(collection=collection):
+        if UserHelpers.IsUserLimitMet(collection=collection):
             return False
         # get all DB entries to a local list
         username = input("\nPlease enter your username: ")

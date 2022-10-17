@@ -1,7 +1,7 @@
 from helpers.MenuHelpers import MenuHelpers
 from helpers.DisplayGeneralLinksHelpers import DisplayGeneralLinksHelpers
-from authentication.Signup import RegisterNewUser, CheckDBSize
-from model.User import User
+from authentication.Signup import RegisterNewUser
+from model.User import User, UserHelpers
 
 class DisplayUsefulLinksHelpers:
 
@@ -35,8 +35,8 @@ class DisplayUsefulLinksHelpers:
 
                 elif optionNo == 1:
                     print("SIGNUP SELECTED")
-                    if not CheckDBSize():
-                        print("\nFailure! We have not been able to create a new account for you.")
+                    if UserHelpers.IsUserLimitMet():
+                        print("\nError! All permitted accounts have been created, please come back later!")
                     else:
                         if RegisterNewUser():
                             print("\nSuccess! You have successfully created a new account.\n")

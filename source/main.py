@@ -1,7 +1,7 @@
 from importlib.metadata import entry_points
-from authentication.Signup import RegisterNewUser, CheckDBSize
+from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
-from model.User import User
+from model.User import User, UserHelpers
 from actions.SearchUser import SearchUser
 from actions.PlayVideo import PlayVideo
 from actions.DisplayImpLinks import DisplayImpLinks
@@ -43,7 +43,7 @@ class Main:
 
             elif decision == 2:
                 print("SIGNUP SELECTED")
-                if not CheckDBSize():
+                if UserHelpers.IsUserLimitMet():
                     print("\nFailure! We have not been able to create a new account for you.")
                 else:
                     if RegisterNewUser():
