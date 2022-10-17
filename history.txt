@@ -1,3 +1,48 @@
+commit ec5eb6f07d87d2e9a2210bfca3e588b040cfac53
+Merge: e9885cd 242ce75
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 16 22:15:40 2022 -0400
+
+    Merge pull request #51 from sid-ak/Revert-Print-Changes
+    
+    Revert Print Changes To Satisfy Frontend Tests
+
+commit 242ce753cd79c341e4edd60d69db21b880ebee95
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 22:11:32 2022 -0400
+
+    Reverted another print change to satisfy a frontend test.
+
+commit 2bba187fdedb869ed30a12c6c644677275bb73dd
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 22:09:01 2022 -0400
+
+    Fixed the issue with DisplayImpLinks when a user logs in and logs out and trys to access it.
+
+commit 89f8c34e71e26f4e3ba8cc2616b63d4958b88185
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 22:05:19 2022 -0400
+
+    Revert "Merge pull request #49 from sid-ak/Display-Format-Fixes"
+    
+    This reverts commit 30d2260149bf363e39212b88fc3a5b49280d3103, reversing
+    changes made to 03ffbc15c4253c74fc445d56c5329c1e22595aa0.
+
+commit e9885cdbd4438e326871f76a872c0b9e30d00994
+Merge: 30d2260 e7d86a1
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Oct 16 21:34:33 2022 -0400
+
+    Merge pull request #50 from sid-ak/updated-log-history-file
+    
+    updated the log history file
+
+commit e7d86a1450bb916b1a703e7052e359dd12c31c36
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 16 21:31:32 2022 -0400
+
+    updated the log history file
+
 commit 30d2260149bf363e39212b88fc3a5b49280d3103
 Merge: 03ffbc1 1ab17cc
 Author: Amir Aslamov <amiraslamov@usf.edu>
