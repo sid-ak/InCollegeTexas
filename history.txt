@@ -1,3 +1,58 @@
+commit 30d2260149bf363e39212b88fc3a5b49280d3103
+Merge: 03ffbc1 1ab17cc
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Oct 16 21:20:39 2022 -0400
+
+    Merge pull request #49 from sid-ak/Display-Format-Fixes
+    
+    Display format fixes and LoggedIn bug fix
+
+commit 1ab17cc787f64b35048590cf253227f29df759dc
+Merge: 6916a47 03ffbc1
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Oct 16 21:20:28 2022 -0400
+
+    Merge branch 'main' into Display-Format-Fixes
+
+commit 6916a472e0e6bc3bb25fa166ab8d46ba2c7453ee
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 16 21:03:01 2022 -0400
+
+    fixed type
+
+commit 03ffbc15c4253c74fc445d56c5329c1e22595aa0
+Merge: fd7e8f0 b89df5e
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 16 20:37:32 2022 -0400
+
+    Merge pull request #48 from sid-ak/IN-34-Test-Friends
+    
+    IN-34: Test Friends Mutuality
+
+commit b1ca4bd6d23e8773d27fe7f61a4e1f0374f1a91f
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 16 19:31:51 2022 -0400
+
+    Changed format of all displays and fixed the Logged in User bug
+    
+    1. Changed the format of prints to make the program more user friendly
+    
+    2. Changed the content of program messages to unite into a one style format
+    
+    3. Fixed the logged in user bug: deleted the loggedUser variable as it is not needed in main file, and it was producing a bug when a logged in user signs out but logs in as a guest
+
+commit b89df5e399f9585a187c312e18af91d0fae1c8f1
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 17:57:59 2022 -0400
+
+    IN-34: Modifed tests to verify mutuality between friends.
+
+commit fd7e8f0c7cb2daba3481e3e23bc4ed327ab97d96
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 16 17:38:26 2022 -0400
+
+    added history log
+
 commit 1ee4ee68734c1ecbab2bfd24e9d3bd6b07c56791
 Merge: ad364a0 2066734
 Author: Sid Anandkumar <sidharthak25@gmail.com>
@@ -6,6 +61,14 @@ Date:   Sun Oct 16 17:27:16 2022 -0400
     Merge pull request #43 from sid-ak/IN-34-Test-Friends
     
     IN-34: Test Friends
+
+commit 7ae50a67a85db83d226719e0685f9cf8b7600320
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 16 17:26:54 2022 -0400
+
+    printing changes
+    
+    1. Initial changes
 
 commit ad364a0cd189640d520b194e00152213eb5f57cb
 Merge: 344364a 7d0660a
