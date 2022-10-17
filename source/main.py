@@ -10,9 +10,6 @@ from helpers.MenuHelpers import MenuHelpers
 # this is the main run file
 class Main:
     
-    # The user that is currently logged in.
-    loggedUser: User = None
-
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
         + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
@@ -31,7 +28,7 @@ class Main:
             decision: int = MenuHelpers.InputOptionNo()
             
             if decision == 1:
-                loggedUser = LoginUser()
+                loggedUser: User = LoginUser()
                 if loggedUser == None:
                     print("Failure! Incorrect credentials.")
             
@@ -55,7 +52,7 @@ class Main:
             
             elif decision == 5:
                 print("\nImportant Links Selected")
-                DisplayImpLinks(loggedUser=loggedUser)
+                DisplayImpLinks()
 
             elif decision == 6:
                 print("\nUseful Links Selected")
