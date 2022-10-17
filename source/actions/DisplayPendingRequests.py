@@ -12,7 +12,7 @@ def DisplayPendingRequests(loggedUser: User = None):
         try:
             pendingRequests = UserHelpers.GetPendingRequests(loggedUser.Username) 
             if (len(pendingRequests) == 0):
-                print("You have no pending requests.\n")
+                print("\nYou have no pending requests.\n")
                 break
             
             print("Your pending requests:\n")
