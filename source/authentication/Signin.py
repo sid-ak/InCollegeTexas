@@ -12,11 +12,11 @@ from actions.SearchUsers import SearchUsers
 
 
 # this function will check if the username and password exists 
-# and returns True if so, False otherwise
-def LoginUser(collection: str= "Users") -> User:
+# if it does, the user is directed to login functionalities of the app
+def LoginUser(collection: str= "Users"):
+    # this variable will indicate if the login has been successful
+    loginSuccess: bool = False
     try:
-        print("\nLogin Selected.")
-        
         username = input("\nPlease enter your username: ")
         password = input("Please enter your password: ")
         
@@ -30,25 +30,23 @@ def LoginUser(collection: str= "Users") -> User:
             if user.Id == userId:
                 print("\nYou have successfully logged in.")
                 DisplayLoginMenu(user)
-                return user
-            else:
-                continue
+                loginSuccess = True
 
-        print("\nIncorrect username/password, please try again.")
-        return None
+        if not loginSuccess:
+            print("\nIncorrect username/password, please try again.")
     except:
         print("\nError! Something went wrong when connecting to database!")
-        return None
+
 
 def DisplayLoginMenu(loggedUser: User):
             # if the user logged in, continue with additional options
-            print(f"\nWelcome to your account, {loggedUser.Username}!")
+            print(f"\n\nWelcome to your account, {loggedUser.Username}!")
 
             # this variable will help us find out if we want to end the session of the user
             terminateSession: bool = False
 
             while True:
-                print("\nPlease enter one of the following options to continue:")
+                print("\n\nPlease enter one of the following options to continue:")
                 options = ["Search for a job or internship",
                     "Find someone that you know",
                     "Learn a new skill",
@@ -65,35 +63,35 @@ def DisplayLoginMenu(loggedUser: User):
                         decision = MenuHelpers.InputOptionNo()
 
                         if decision == 1:
-                            print("\nYou have selected to search for job or internship.")
+                            print("SEARCH FOR JOB OR INTERNSHIP SELECTED")
                             FindJobInternshipAction(loggedUser)
                             break
                         elif decision == 2:
-                            print("\nYou have selected to find someone you know.")
+                            print("FINDING SOMEONE THAT YOU KNOW SELECTED")
                             FindSomeoneAction()
                             break
                         elif decision == 3:
-                            print("\nYou have selected to learn a new skill.")
+                            print("LEARNING A NEW SKILL SELECTED")
                             PresentSkillsAction()
                             break
                         elif decision == 4:
-                            print("\nYou have selected to display important links.")
+                            print("DISPLAY OF IMPORTANT LINKS SELECTED")
                             DisplayImpLinks(loggedUser=loggedUser)
                             break
                         elif decision == 5:
-                            print("\nYou have selected to display useful links.")
+                            print("DISPLAY OF USEFUL LINKS SELECTED")
                             DisplayUsefulLinks()
                         elif decision == 6:
-                            print("\nYou have selected to search users.")
+                            print("SEARCH OF USERS SELECTED")
                             SearchUsers(loggedUser)
                         elif decision == 7:
-                            print("\nYou have selected to display pending requests.")
+                            print("DISPLAY OF PENDING REQUESTS SELECTED")
                             DisplayPendingRequests(loggedUser)
                         elif decision == 8: 
-                            print("\nYou have selected to show my network.")
+                            print("SHOW OF MY NETWORK SELECTED")
                             ShowMyNetwork(loggedUser) 
                         elif decision == -1:
-                            print("\nYou have selected to log out of your account.")
+                            print("LOG OUT SELECTED")
                             terminateSession = True
                             break
                         else:

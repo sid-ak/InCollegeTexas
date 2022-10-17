@@ -1,3 +1,4 @@
+from importlib.metadata import entry_points
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 from model.User import User, UserHelpers
@@ -10,33 +11,38 @@ from helpers.MenuHelpers import MenuHelpers
 # this is the main run file
 class Main:
     
-    # The user that is currently logged in.
-    loggedUser: User = None
+    # This variable will help us identify if the user logged out of his/her account
+    userLoggedOut: bool = False
 
-    print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
-        + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
+    entryMessage = "\n--------------------------------------------------------------------------------------------------------"
+    entryMessage += "\n\nWelcome to InCollege!\n"
+    entryMessage += "\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job."
+    entryMessage += "\nGopal, one of our users was able to get an internship with XYZ corporation using our platform."
 
-    print("Welcome!\nPlease select an option to continue:")
-    MenuHelpers.DisplayOptions(
-        ["Log In",
-        "Sign Up",
-        "Play an Informational Video",
-        "Search User",
-        "Display Important Links",
-        "Display Useful Links"]
-    ) 
+    print(entryMessage)
 
     while True:
+        if userLoggedOut:
+            print(entryMessage)
+        print("\n\nPlease select an option to continue:")
+        MenuHelpers.DisplayOptions(
+            ["Log In",
+            "Sign Up",
+            "Play an Informational Video",
+            "Search User",
+            "Display Important Links",
+            "Display Useful Links"]
+        ) 
         try:
             decision: int = MenuHelpers.InputOptionNo()
             
             if decision == 1:
-                loggedUser = LoginUser()
-                if loggedUser == None:
-                    print("Failure! Incorrect credentials.")
-            
+                print("LOGIN SELECTED")
+                LoginUser()
+                userLoggedOut = True
+
             elif decision == 2:
-                print("\nSignup Selected.")
+                print("SIGNUP SELECTED")
                 if UserHelpers.IsUserLimitMet():
                     print("\nFailure! We have not been able to create a new account for you.")
                 else:
@@ -46,23 +52,23 @@ class Main:
                         print("\nFailure! We have not been able to create a new account for you.")
             
             elif decision == 3:
-                print("\nVideo Selected")
+                print("VIDEO SELECTED")
                 PlayVideo()
 
             elif decision == 4:
-                print("\nSearch User Selected")
+                print("SEARCH USER SELECTED")
                 SearchUser()
             
             elif decision == 5:
-                print("\nImportant Links Selected")
-                DisplayImpLinks(loggedUser=loggedUser)
+                print("IMPORTANT LINKS SELECTED")
+                DisplayImpLinks()
 
             elif decision == 6:
-                print("\nUseful Links Selected")
+                print("USEFUL LINKS SELECTED")
                 DisplayUsefulLinks()
             
             elif decision == -1:
-                print("\nExit selected.\n")
+                print("EXIT SELECTED\n")
                 break
             
             else:

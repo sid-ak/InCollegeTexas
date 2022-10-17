@@ -34,9 +34,9 @@ class DisplayUsefulLinksHelpers:
                 if optionNo == -1: break
 
                 elif optionNo == 1:
-                    print("\nSignup Selected.")
+                    print("SIGNUP SELECTED")
                     if UserHelpers.IsUserLimitMet():
-                        print("\nAll permitted accounts have been created, please come back later!")
+                        print("\nError! All permitted accounts have been created, please come back later!")
                     else:
                         if RegisterNewUser():
                             print("\nSuccess! You have successfully created a new account.\n")
