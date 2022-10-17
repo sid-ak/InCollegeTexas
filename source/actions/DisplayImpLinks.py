@@ -11,7 +11,7 @@ def DisplayImpLinks(onTest: bool = False, testInput: int = -1, loggedUser: User 
     while True:
         # we display the menu selections if not on test
         if not onTest:
-            print("\n\nPlease select one of the following links to display its content:")
+            print("\nPlease select one of the following links to display its content:")
             MenuHelpers.DisplayOptions(
                 ["Copyright Notice",
                 "About",

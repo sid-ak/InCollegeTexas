@@ -10,12 +10,11 @@ from helpers.MenuHelpers import MenuHelpers
 def DisplayPendingRequests(loggedUser: User = None):
     while True:
         try:
+            print("Your pending requests:\n")
             pendingRequests = UserHelpers.GetPendingRequests(loggedUser.Username) 
             if (len(pendingRequests) == 0):
                 print("\nYou have no pending requests.\n")
                 break
-            
-            print("Your pending requests:\n")
             for i, user in enumerate(pendingRequests):
                 print("{}. {} {}\n".format(i + 1, user.FirstName, user.LastName))
             print("\nPlease select one of the following options: \n")
