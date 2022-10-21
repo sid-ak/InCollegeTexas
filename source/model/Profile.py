@@ -51,7 +51,7 @@ class Profile:
 
     def ProfileToDict(self):
         return {
-            'ProfileID': str(self.Id),
+            'Id': str(self.Id),
             'Title': str(self.Title),
             'University': str(self.University),
             'Major': str(self.Major),
