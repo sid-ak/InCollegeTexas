@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-#from firebaseSetup.Firebase import database
 import hashlib
 
 @dataclass
@@ -35,6 +34,7 @@ class Education:
 
 @dataclass
 class Profile:
+    ProfileID: str = "" # hashed value of all values
     Title: str = "" #e.g: Third year Comp Sci
     University: str = "" # to grab from User as default
     Major: str = ""  # to grab from User as default
@@ -44,6 +44,7 @@ class Profile:
 
     def ProfileToDict(self):
         return {
+            'ProfileID': str(self.ProfileID),
             'Title': str(self.Title),
             'University': str(self.University),
             'Major': str(self.Major),
@@ -55,10 +56,3 @@ class Profile:
 #Profile is of the following format
 # Profile(Title='', University='', Major='', About='',
 # ProfileEducation=Education(SchoolName='', Degree='', YearsAttended=0), ProfileExperience=Experience(PastJobs=[]))
-
-p = Profile()
-p.ProfileExperience.append(JobExperience())
-p.ProfileExperience.append(JobExperience())
-print(p.ProfileToDict())
-
-
