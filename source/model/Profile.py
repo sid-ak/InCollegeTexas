@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-from model.User import User
 
 @dataclass
 class Experience:
@@ -41,10 +40,10 @@ class Education:
 """
 @dataclass
 class Profile:
-    Id: str = User.Id # hashed value of all values
+    Id: str = "" # hashed value of all values
     Title: str = "" #e.g: Third year Comp Sci
-    University: str = User.University # to grab from User as default
-    Major: str = User.Major  # to grab from User as default
+    University: str = "" # to grab from User as default
+    Major: str = ""  # to grab from User as default
     About: str = "" # paragraph
     EducationList: list[Education] = field(default_factory=list)
     ExperienceList: list[Experience] = field(default_factory=list)
