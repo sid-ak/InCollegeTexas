@@ -25,6 +25,7 @@ class Education:
     SchoolName: str = ""
     Degree: str = ""
     YearsAttended: int = 0
+
     def EducationToDict(self):
         return {
             'SchoolName': str(self.SchoolName),
@@ -45,8 +46,8 @@ class Profile:
     University: str = User.University # to grab from User as default
     Major: str = User.Major  # to grab from User as default
     About: str = "" # paragraph
-    Education: list[Education] = field(default_factory=list)
-    Experience: list[Experience] = field(default_factory=list)
+    EducationList: list[Education] = field(default_factory=list)
+    ExperienceList: list[Experience] = field(default_factory=list)
 
     def ProfileToDict(self):
         return {
@@ -55,7 +56,7 @@ class Profile:
             'University': str(self.University),
             'Major': str(self.Major),
             'About': str(self.About),
-            'Education': {i: self.Education[i].EducationToDict() for i in range(len(self.Education))},
-            'Experience': {i: self.Experience[i].ExpToDict() for i in range(len(self.Experience))}
+            'EducationList': {i: self.EducationList[i].EducationToDict() for i in range(len(self.EducationList))},
+            'ExperienceList': {i: self.ExperienceList[i].ExpToDict() for i in range(len(self.ExperienceList))}
         }
 
