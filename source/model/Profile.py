@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
+from model.User import User, UserHelpers
 
 @dataclass
-class JobExperience:
+class Experience:
     ExperienceTitle: str = ""
     Employer: str = ""
     DateStarted: str = "" # MM/DD/YY format
@@ -28,7 +29,7 @@ class Education:
         return {
             'SchoolName': str(self.SchoolName),
             'Degree': str(self.Degree),
-            'YearsAttended': str(self.YearsAttended)
+            'YearsAttended': int(self.YearsAttended)
         }
 
 """
@@ -36,26 +37,25 @@ class Education:
     Profile(Title='', University='', Major='', About='',
         ProfileEducation=Education(SchoolName='', Degree='', YearsAttended=0), 
         ProfileExperience=Experience(PastJobs=[]))
-
 """
 @dataclass
 class Profile:
-    ProfileID: str = "" # hashed value of all values
+    Id: str = User.Id # hashed value of all values
     Title: str = "" #e.g: Third year Comp Sci
-    University: str = "" # to grab from User as default
-    Major: str = ""  # to grab from User as default
+    University: str = User.University # to grab from User as default
+    Major: str = User.Major  # to grab from User as default
     About: str = "" # paragraph
-    ProfileEducation: Education = Education()
-    ProfileExperience: list[JobExperience] = field(default_factory=list)
+    Education: list[Education] = field(default_factory=list)
+    Experience: list[Experience] = field(default_factory=list)
 
     def ProfileToDict(self):
         return {
-            'ProfileID': str(self.ProfileID),
+            'ProfileID': str(self.Id),
             'Title': str(self.Title),
             'University': str(self.University),
             'Major': str(self.Major),
             'About': str(self.About),
-            'Education': self.ProfileEducation.EducationToDict(),
-            'Experience': {i: self.ProfileExperience[i].ExpToDict() for i in range(len(self.ProfileExperience))}
+            'Education': {i: self.Education[i].EducationToDict() for i in range(len(self.Education))},
+            'Experience': {i: self.Experience[i].ExpToDict() for i in range(len(self.Experience))}
         }
 
