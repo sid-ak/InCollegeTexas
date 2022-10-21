@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from model.User import User, UserHelpers
+from model.User import User
 
 @dataclass
 class Experience:
