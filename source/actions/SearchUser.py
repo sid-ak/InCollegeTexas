@@ -1,8 +1,7 @@
-from model.User import UserHelpers
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
 from helpers.MenuHelpers import MenuHelpers
-
+from helpers.UserHelpers import UserHelpers
 
 # this function will check if the firstname and lastname of a user exists in the database
 # and returns True if so, False otherwise

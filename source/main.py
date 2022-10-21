@@ -1,11 +1,12 @@
 from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
-from model.User import User, UserHelpers
+from model.User import User
 from actions.SearchUser import SearchUser
 from actions.PlayVideo import PlayVideo
 from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
 from helpers.MenuHelpers import MenuHelpers
+from helpers.UserHelpers import UserHelpers
 
 # this is the main run file
 class Main:

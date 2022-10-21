@@ -1,6 +1,7 @@
 from helpers.MenuHelpers import MenuHelpers
-from model.User import User, UserHelpers
+from model.User import User
 from enums.LanguageEnum import LanguageEnum
+from helpers.UserPrefHelpers import UserPrefHelpers
 
 class DisplayImpLinksHelpers:
 
@@ -90,9 +91,9 @@ class DisplayImpLinksHelpers:
 
                 if decision == -1: break
                 
-                elif decision == 1: UserHelpers.ToggleEmailEnabled(loggedUser)
-                elif decision == 2: UserHelpers.ToggleSmsEnabled(loggedUser)
-                elif decision == 3: UserHelpers.ToggleTargetedAdvertEnabled(loggedUser)
+                elif decision == 1: UserPrefHelpers.ToggleEmailEnabled(loggedUser)
+                elif decision == 2: UserPrefHelpers.ToggleSmsEnabled(loggedUser)
+                elif decision == 3: UserPrefHelpers.ToggleTargetedAdvertEnabled(loggedUser)
 
                 else:
                     print("Unexpected exception ocurred, invalid input.\n"
@@ -118,8 +119,8 @@ class DisplayImpLinksHelpers:
 
                 if decision == -1: break
                 
-                elif decision == 1: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.English)
-                elif decision == 2: UserHelpers.SetLangPreference(loggedUser, LanguageEnum.Spanish)
+                elif decision == 1: UserPrefHelpers.SetLangPreference(loggedUser, LanguageEnum.English)
+                elif decision == 2: UserPrefHelpers.SetLangPreference(loggedUser, LanguageEnum.Spanish)
 
                 else:
                     print("Unexpected exception ocurred, invalid input.\n"

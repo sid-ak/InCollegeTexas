@@ -1,11 +1,12 @@
 from helpers.MenuHelpers import MenuHelpers
 from helpers.DisplayGeneralLinksHelpers import DisplayGeneralLinksHelpers
 from authentication.Signup import RegisterNewUser
-from model.User import User, UserHelpers
+from model.User import User
+from helpers.UserHelpers import UserHelpers
 
 class DisplayUsefulLinksHelpers:
 
-    def General(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
+    def General(onTest: bool = False, testInput: int = -1):
         while True:
             print("\nPlease select one of the following links to display its content:")
 

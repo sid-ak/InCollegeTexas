@@ -1,4 +1,4 @@
-from model.User import User, UserHelpers
+from model.User import User
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
 from actions.LearnNewSkill import PresentSkillsAction
@@ -9,7 +9,7 @@ from actions.DisplayUsefulLinks import DisplayUsefulLinks
 from actions.ShowMyNetwork import ShowMyNetwork
 from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.SearchUsers import SearchUsers
-
+from helpers.UserHelpers import UserHelpers
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise

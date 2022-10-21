@@ -1,12 +1,9 @@
-from dataclasses import dataclass
-import hashlib
-from firebaseSetup.Firebase import database
-from model.User import User, UserHelpers
+from model.User import User
 from helpers.MenuHelpers import MenuHelpers
-# import:SearchUsers, SendFriendRequest
+from helpers.UserHelpers import UserHelpers
+from helpers.FriendHelpers import FriendHelpers
 
 # user will be able to serach for users in the system by their last name, university, or major
-
 def SearchUsers(loggedUser: User = None):
     while True:
         try:
@@ -49,7 +46,7 @@ def FriendRequest(loggedUser: User = None , receiver: User = None):
             MenuHelpers.DisplayOptions(["Yes", "No"])
             decision = MenuHelpers.InputOptionNo()
             if decision == 1:
-                UserHelpers.SendFriendRequest(loggedUser, receiver)
+                FriendHelpers.SendFriendRequest(loggedUser, receiver)
                 break
             elif decision == 2 or decision == -1:
                 break
