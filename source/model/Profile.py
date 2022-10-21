@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-import hashlib
 
 @dataclass
 class JobExperience:
@@ -32,6 +31,13 @@ class Education:
             'YearsAttended': str(self.YearsAttended)
         }
 
+"""
+    Profile is of the following format
+    Profile(Title='', University='', Major='', About='',
+        ProfileEducation=Education(SchoolName='', Degree='', YearsAttended=0), 
+        ProfileExperience=Experience(PastJobs=[]))
+
+"""
 @dataclass
 class Profile:
     ProfileID: str = "" # hashed value of all values
@@ -53,6 +59,3 @@ class Profile:
             'Experience': {i: self.ProfileExperience[i].ExpToDict() for i in range(len(self.ProfileExperience))}
         }
 
-#Profile is of the following format
-# Profile(Title='', University='', Major='', About='',
-# ProfileEducation=Education(SchoolName='', Degree='', YearsAttended=0), ProfileExperience=Experience(PastJobs=[]))
