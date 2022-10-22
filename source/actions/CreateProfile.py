@@ -3,18 +3,36 @@ import profile
 from helpers.ProfileHelpers import ProfileHelpers
 from model.Profile import Profile, Education, Experience
 from helpers.MenuHelpers import MenuHelpers
-from firebaseSetup.Firebase import firebase
+from firebaseSetup.Firebase import database
 from model.User import User
+from helpers.UserHelpers import UserHelpers
+
 
 # this function will check the database to see if the profile for the current user already created
-def checkIfProfileAlreadyCreated(userLoggedIn: User) -> bool:
-    # try:
-    pass
-
+def CheckIfProfileAlreadyCreated(userLoggedIn: User) -> bool:
+    try:
+        users = UserHelpers.GetAllUsers()
+        for user in users:
+            if user.Id == userLoggedIn.Id:
+                # if the user does not have a Profile node with the Id child node, 
+                # the user hasn't created a profile yet
+                try:
+                    if (user.Profile['Id'] == ""):
+                        print("\nError! You have already created a profile. Please consider updating it instead.")
+                        return False
+                    else:
+                        return True
+                except:
+                    print("\nError! You have already created a profile. Please consider updating it instead.")
+                    return False
+    
+    except:
+        print("\nError! Something went wrong when connecting to the database.")
+        return False
 
 
 # this function will help format an input string to uppercase
-def helpFormat(input: str) -> str:
+def HelpFormat(input: str) -> str:
     words = input.split(" ")
     wordsFormated = []
 
@@ -25,8 +43,12 @@ def helpFormat(input: str) -> str:
 
 
 # this function will collect data relevant to create a profile
-def createProfile(userLoggedIn: User) -> bool:
+def CreateProfile(userLoggedIn: User) -> bool:
     newProfile = Profile()
+
+    if CheckIfProfileAlreadyCreated(userLoggedIn=userLoggedIn):
+        print("\nError! You cannot create a profile at this time.")
+        return False
 
     _experiencesLimit = 3
 
@@ -45,11 +67,11 @@ def createProfile(userLoggedIn: User) -> bool:
                 newProfile.Title = title
             elif decision == 2:
                 print("\nYou have selected to add a university")
-                university = helpFormat(input("Please enter your university's name: "))
+                university = HelpFormat(input("Please enter your university's name: "))
                 newProfile.University = university
             elif decision == 3:
                 print("\nYou have selected to add a major")
-                major = helpFormat(input("Please enter your major: "))
+                major = HelpFormat(input("Please enter your major: "))
                 newProfile.Major = major
             elif decision == 4:
                 print("\nYpu have selected to add about section")
@@ -59,8 +81,8 @@ def createProfile(userLoggedIn: User) -> bool:
                 print("\nYou have selected to add education")
                 try:
                     education = Education()
-                    education.SchoolName = helpFormat(input("Enter the name of your school: "))
-                    education.Degree = helpFormat(input("Enter your degree: "))
+                    education.SchoolName = HelpFormat(input("Enter the name of your school: "))
+                    education.Degree = HelpFormat(input("Enter your degree: "))
                     education.YearsAttended = int(input("Enter the years attended: "))
                     newProfile.EducationList.append(education)
                 except:
@@ -72,11 +94,11 @@ def createProfile(userLoggedIn: User) -> bool:
                         print("\nError! You already have added 3 experiences.")
                     else: 
                         experience = Experience()
-                        experience.Title = helpFormat(input("Enter title: "))
-                        experience.Employer = helpFormat(input("Enter Employer: "))
+                        experience.Title = HelpFormat(input("Enter title: "))
+                        experience.Employer = HelpFormat(input("Enter Employer: "))
                         experience.DateStarted = input("Enter date started: ")
                         experience.DateEnded = input("Enter date ended: ")
-                        experience.Location = helpFormat(input("Enter location: "))
+                        experience.Location = HelpFormat(input("Enter location: "))
                         experience.Description = input("Enter description: ")
                         newProfile.ExperienceList.append(experience)
                 except:
