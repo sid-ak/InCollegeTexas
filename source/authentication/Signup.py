@@ -1,4 +1,5 @@
-from model.User import User, UserHelpers
+from model.User import User
+from helpers.UserHelpers import UserHelpers
 
 # this function will validate the password and return True, if it is valid, False otherwise
 def ValidatePassword(password: str) -> bool:
@@ -55,7 +56,16 @@ def RegisterNewUser(collection: str="Users") -> bool:
     major = input("\nPlease enter your major: ")
     try:
         userId = UserHelpers.CreateUserId(username, password)
-        UserHelpers.UpdateUser(User(userId, username, firstName, lastName, university, major), collection=collection)
+        
+        userUpdated = UserHelpers.UpdateUser(User(
+            userId,
+            username,
+            firstName,
+            lastName,
+            university,
+            major), collection=collection)
+        if userUpdated == False: raise Exception()
+        
         return True
     except:
         print("\nError! Something went wrong when connecting to database to push a new entry!")

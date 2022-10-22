@@ -2,12 +2,13 @@ import pytest
 from io import StringIO
 import sys
 from firebaseSetup.Firebase import database
-from authentication.Signup import RegisterNewUser
 from authentication.Signin import LoginUser
-from model.User import User, UserHelpers
+from model.User import User
 from model.Job import Job, JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
+from helpers.UserHelpers import UserHelpers
+from helpers.FriendHelpers import FriendHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -168,7 +169,7 @@ def test_GetAllUsers():
 
 # Tests below worked on for EPIC 1 - 9/19/22 by Osama
 '''Test to see if account is added successfully'''
-def test_RegisterNewUser_Success(monkeypatch):
+def test_RegisterNewUser_Success():
     user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID")
     result = UserHelpers.UpdateUser(user, "TestUsers")
     assert result == True
@@ -258,7 +259,7 @@ def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
     # Act and Assert: Ensure that the friend request gets sent successfully.
     user1: User = users[0]
     user2: User = users[1]
-    assert UserHelpers.SendFriendRequest(user1, user2, testCollection) == True
+    assert FriendHelpers.SendFriendRequest(user1, user2, testCollection) == True
 
     # Act and Assert: Ensure that the friend request was received and is pending.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
@@ -282,7 +283,7 @@ def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
         if user.Username == "testUsername1": user2: User = user
     
     # Act and Assert: Ensure a user can accept a friend request successfully.
-    assert UserHelpers.AcceptFriendRequest(user2, user1, testCollection) == True
+    assert FriendHelpers.AcceptFriendRequest(user2, user1, testCollection) == True
 
     # Assert: Ensure the receiver now has the receiver as a friend.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
@@ -310,7 +311,7 @@ def test_UserFriends_RejectFriendRequest():
         if user.Username == "testUsername1": user2: User = user
     
     # Act and Assert: Ensure a user can reject a friend request successfully.
-    assert UserHelpers.RejectFriendRequest(user2, user1, testCollection) == True
+    assert FriendHelpers.RejectFriendRequest(user2, user1, testCollection) == True
 
     # Assert: Accessing a rejected friend request should result in a key error.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
@@ -339,7 +340,7 @@ def test_UserFriends_DeleteFriend():
         if user.Username == "testUsername1": user2: User = user
     
     # Act and Assert: Ensure a user can delete a friend successfully.
-    assert UserHelpers.DeleteFriend(user2, user1, testCollection) == True
+    assert FriendHelpers.DeleteFriend(user2, user1, testCollection) == True
 
     # Assert: Accessing a deleted friend should result in a key error.
     testUser2: User = UserHelpers.GetUser(user2, testCollection)
