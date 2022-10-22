@@ -56,7 +56,11 @@ def DisplayLoginMenu(loggedUser: User):
                     "Display useful links",
                     "Search Users",
                     "Display pending requests", 
-                    "Show my network"]
+                    "Show my network",
+                    "Create profile",
+                    "Update profile",
+                    "View profile",
+                    ]
 
                 while True:
                     try:
@@ -92,6 +96,13 @@ def DisplayLoginMenu(loggedUser: User):
                         elif decision == 8: 
                             print("\nYou have selected to show my network.")
                             ShowMyNetwork(loggedUser) 
+                        elif decision == 9:
+                            print("\nYou have selected to create profile.")
+                        
+                        elif decision == 10:
+                            print("\nYou have selected tp update profile.")
+                        elif decision == 11:
+                            print("\nYou have selected to view profile.")
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True
