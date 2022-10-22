@@ -100,7 +100,10 @@ def DisplayLoginMenu(loggedUser: User):
                             ShowMyNetwork(loggedUser) 
                         elif decision == 9:
                             print("\nYou have selected to create profile.")
-                            CreateProfile(userLoggedIn=loggedUser)
+                            if CreateProfile(userLoggedIn=loggedUser):
+                                print("\nSuccess! You have created a new profile.\n")
+                            else:
+                                print("\nFailure! We haven't been able to create a profile for you at this time.\n")
                         elif decision == 10:
                             print("\nYou have selected tp update profile.")
                         elif decision == 11:

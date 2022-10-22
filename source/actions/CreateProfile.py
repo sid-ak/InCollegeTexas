@@ -6,9 +6,11 @@ from helpers.MenuHelpers import MenuHelpers
 from firebaseSetup.Firebase import database
 from model.User import User
 from helpers.UserHelpers import UserHelpers
+from helpers.ProfileHelpers import ProfileHelpers
 
 
 # this function will check the database to see if the profile for the current user already created
+# True means the user already has a profile, False means the user does not have one yet
 def CheckIfProfileAlreadyCreated(userLoggedIn: User) -> bool:
     try:
         users = UserHelpers.GetAllUsers()
@@ -18,12 +20,11 @@ def CheckIfProfileAlreadyCreated(userLoggedIn: User) -> bool:
                 # the user hasn't created a profile yet
                 try:
                     if (user.Profile['Id'] == ""):
-                        print("\nError! You have already created a profile. Please consider updating it instead.")
                         return False
                     else:
+                        print("\nError! You have already created a profile. Please consider updating it instead.")
                         return True
                 except:
-                    print("\nError! You have already created a profile. Please consider updating it instead.")
                     return False
     
     except:
@@ -31,15 +32,15 @@ def CheckIfProfileAlreadyCreated(userLoggedIn: User) -> bool:
         return False
 
 
-# this function will help format an input string to uppercase
+# this function will help format an input string to title of each word
 def HelpFormat(input: str) -> str:
     words = input.split(" ")
     wordsFormated = []
 
     for word in words:
-        wordsFormated.append(word.upper())
+        wordsFormated.append(word.title())
 
-    return "".join(wordsFormated)
+    return " ".join(wordsFormated)
 
 
 # this function will collect data relevant to create a profile
@@ -47,7 +48,6 @@ def CreateProfile(userLoggedIn: User) -> bool:
     newProfile = Profile()
 
     if CheckIfProfileAlreadyCreated(userLoggedIn=userLoggedIn):
-        print("\nError! You cannot create a profile at this time.")
         return False
 
     _experiencesLimit = 3
@@ -110,4 +110,8 @@ def CreateProfile(userLoggedIn: User) -> bool:
         except:
             print("\nError! Something went wrong when trying to create a profile.")
 
-    
+    # now we try to update profile of the user
+    if ProfileHelpers.UpdateProfile(username=userLoggedIn.Username, profile=newProfile):
+        return True
+    else:
+        return False

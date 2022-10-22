@@ -42,14 +42,19 @@ class ProfileHelpers:
         )
 
     def UpdateProfile(username: str, profile: Profile) -> bool:
-        usersResponse = database.child("Users").get()
-        for u in usersResponse.each():
-            if u.val()['Username'] == username:
-                user = User.HydrateUser(u)
-                profile.Id = user.Id
-                try:
-                    database.child("Users").child(user.Id).child("Profile").set(profile.ProfileToDict())
-                    return True
-                except:
-                    print('\nCould not update profile!\n')
-                    return False
+        try:
+            usersResponse = database.child("Users").get()
+            for u in usersResponse.each():
+                if u.val()['Username'] == username:
+                    user = User.HydrateUser(u)
+                    profile.Id = user.Id
+                    try:
+                        database.child("Users").child(user.Id).child("Profile").set(profile.ProfileToDict())
+                        return True
+                    except:
+                        print('\nCould not update profile!\n')
+                        return False
+
+        except:
+            print("\nError! Something went wrong when connecting to database.")
+            return False
