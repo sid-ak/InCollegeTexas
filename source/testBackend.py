@@ -411,7 +411,7 @@ def test_UserProfile_CreateProfile(deleteTestUser: bool = True):
         UserHelpers.DeleteUserAccount(testUser, testCollection)
 
 # EPIC 5: Ensures that user can have a maximum of 3 profile experiences.
-def test_ProfileExperiencesLimit():
+def test_UserProfile_ProfileExperiencesLimit():
     testCollection: str = "TestUserProfile"
 
     # Arrange: Create a user with a profile. Contains one experience.
