@@ -68,7 +68,7 @@ class UserHelpers:
                     + "User was not updated")
                 return False
             
-            if (ProfileHelpers.IsProfileExpLimitMet(user)):
+            if (ProfileHelpers.IsProfileExpLimitMet(user.Profile)):
                 print("Maximum of number of experiences for a user profile have been met.\n"
                     + "User was not updated")
                 return False
