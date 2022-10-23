@@ -97,7 +97,7 @@ class UserHelpers:
                 return True
         return False
 
-    # Checks if the maximum number of jobs have been posted.
+    # Checks if the maximum number of users have signed up.
     def IsUserLimitMet(collection: str = "Users") -> bool:
         allUsers: list[User] = UserHelpers.GetAllUsers(collection)
         
