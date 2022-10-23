@@ -9,6 +9,7 @@ from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
+from model.Profile import Education, Experience, Profile
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -355,3 +356,158 @@ def test_UserFriends_DeleteFriend():
     # Destroy: Delete all test users after the test run.
     for user in users:
         UserHelpers.DeleteUserAccount(user, testCollection)
+
+# EPIC 5: Ensures the user can create a profile as expected.
+def test_UserProfile_CreateProfile(deleteTestUser: bool = True):
+    # Arrange: Create a user under the TestUserProfile node.
+    testCollection: str = "TestUserProfile"
+    username: str = "testUsername0"
+    password: str = "testPass0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    user: User = User(userId, username)
+    
+    # Assert: Ensure default value of a profile on construction of a user is set to None.
+    assert user.Profile == None
+    assert True == UserHelpers.UpdateUser(user, testCollection)
+
+    # Arrange: Get the user that was just created and pushed to the DB.
+    testUser: User = UserHelpers.GetUser(user, testCollection)
+    assert testUser != None
+
+    # Arrange: Instantiate a profile.
+    i: int = 1
+    profile: Profile = Profile(
+        Id = testUser.Id,
+        Title = "Test Title",
+        University = "Test University",
+        Major = "Test Major",
+        About = "Test About",
+        EducationList = [Education(
+            SchoolName = f"Test School Name {i}",
+            Degree = f"Test Degree {i}",
+            YearsAttended = 1
+        )],
+        ExperienceList = [Experience(
+            Title = f"Test Title {i}",
+            Employer = f"Employer {i}",
+            DateStarted = "10/25/2018",
+            DateEnded = "10/25/2022",
+            Location = f"Test Location {i}",
+            Description = f"Test Description {i}"
+        )]
+    )
+
+    # Arrange: Assign the newly instantiated profile to the test user and update.
+    testUser.Profile = profile
+    assert True == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Assert: Retrieve the user and confirm the profile changes match.
+    testUserUpdated: User = UserHelpers.GetUser(testUser, testCollection)
+    assert testUserUpdated != None
+    assert testUserUpdated.Profile == profile
+
+    # Destroy: Delete the test user after the test run.
+    if (deleteTestUser):
+        UserHelpers.DeleteUserAccount(testUser, testCollection)
+
+# EPIC 5: Ensures that user can have a maximum of 3 profile experiences.
+def test_UserProfile_ProfileExperiencesLimit():
+    testCollection: str = "TestUserProfile"
+
+    # Arrange: Create a user with a profile. Contains one experience.
+    test_UserProfile_CreateProfile(deleteTestUser = False)
+    username: str = "testUsername0"
+    password: str = "testPass0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    user: User = User(userId, username)
+    testUser: User = UserHelpers.GetUser(user, testCollection)
+    assert testUser != None
+    assert 1 == len(testUser.Profile.ExperienceList)
+    
+    # Arrange: Create 2 additional experiences.
+    experiences: list[Experience] = []
+    i: int = 2 # Initialized to 2 because one experience already exists. 
+    while (i < 4):
+        experience: Experience = Experience(
+            Title = f"Test Title {i}",
+            Employer = f"Test Employer {i}",
+            DateStarted = f"10/25/2018",
+            DateEnded = f"10/25/2018",
+            Location = f"Test Location {i}",
+            Description = f"Test Description {i}"
+        )
+        experiences.append(experience)
+        i += 1
+    
+    # Arrange: Update the user with 3 total experiences.
+    testUser.Profile.ExperienceList.extend(experiences)
+    assert 3 == len(testUser.Profile.ExperienceList)
+    assert True == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Arrange: Make the fourth experience.
+    i: int = 4
+    fourthExp: Experience = Experience(
+        Title = f"Test Title {i}",
+        Employer = f"Test Employer {i}",
+        DateStarted = f"10/25/2018",
+        DateEnded = f"10/25/2018",
+        Location = f"Test Location {i}",
+        Description = f"Test Description {i}"
+    )
+
+    # Assert: Updating the user with fourth profile experience should fail.
+    testUser.Profile.ExperienceList.append(fourthExp)
+    assert 4 == len(testUser.Profile.ExperienceList)
+    assert False == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Destroy: Delete the test user after the test run.
+    UserHelpers.DeleteUserAccount(testUser, testCollection)
+
+# EPIC 5: Ensures that user can edit a profile as expected.
+def test_UserProfile_EditProfile():
+    testCollection: str = "TestUserProfile"
+
+    # Arrange: Create a user with a profile. Contains one experience.
+    test_UserProfile_CreateProfile(deleteTestUser = False)
+    username: str = "testUsername0"
+    password: str = "testPass0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    user: User = User(userId, username)
+    testUser: User = UserHelpers.GetUser(user, testCollection)
+
+    # Arrange: Create some properties needed for the user profile.
+    i: int = 1
+    title: str = f"Test Title"
+    university: str = f"Test University"
+    educationList: list[Education] = [Education(
+        SchoolName = f"Test School Name {i}",
+        Degree = f"Test Degree {i}",
+        YearsAttended = 1
+    )]
+
+    # Assert: Ensure current properties are as expected.
+    assert title == testUser.Profile.Title
+    assert university == testUser.Profile.University
+    assert educationList == testUser.Profile.EducationList
+
+    # Act: Modify the current properties and update user.
+    title = f"Test Title Has Changed"
+    university = f"Test University Has Changed"
+    educationList = [Education(
+        SchoolName = f"Test School Name Has Changed {i}",
+        Degree = f"Test Degree Has Changed {i}",
+        YearsAttended = 1
+    )]
+    testUser.Profile.Title = title
+    testUser.Profile.University = university
+    testUser.Profile.EducationList = educationList
+    assert True == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Assert: Ensure the updated user profile matches with the recent changes.
+    testUser = UserHelpers.GetUser(testUser, testCollection)
+    assert title == testUser.Profile.Title
+    assert university == testUser.Profile.University
+    assert educationList == testUser.Profile.EducationList
+
+    # Destroy: Delete the test user after the test run.
+    UserHelpers.DeleteUserAccount(testUser, testCollection)
