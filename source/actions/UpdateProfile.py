@@ -1,4 +1,5 @@
 from cmath import exp
+from operator import index
 import profile
 from model.Profile import Profile, Education, Experience
 from helpers.MenuHelpers import MenuHelpers
@@ -7,8 +8,32 @@ from model.User import User
 from helpers.UserHelpers import UserHelpers
 
 
+# returns the formatted string with the displays of education
+def HelpPrintEducationList(profile: Profile) -> str:
+    if len(profile.EducationList) != 0:
+        output: str = "\n"
+        indexer: int = 1
+        for i in range(len(profile.EducationList)):
+            item = Education.EducationToDict(profile.EducationList[i])
+            output += f"\n{indexer}) \nSchool Name: {item['SchoolName']}\nDegree: {item['Degree']}\nYears Attended: {item['YearsAttended']}\n"
+            indexer += 1
+        return output
+    else:
+        return ""
 
 
+# returns the formatted string with the displays of experience
+def HelpPrintExperienceList(profile: Profile) -> str:
+    if len(profile.ExperienceList) != 0:
+        output: str = "\n"
+        indexer: int = 1
+        for i in range(len(profile.ExperienceList)):
+            item = Experience.ExpToDict(profile.ExperienceList[i])
+            output += f"\n{indexer}) \nTitle: {item['Title']}\nEmployer: {item['Employer']}\nDate Started: {item['DateStarted']}\nDate Ended: {item['DateEnded']}\nLocation: {item['Location']}\nDescription: {item['Description']}\n"
+            indexer += 1
+        return output
+    else:
+        return ""
 
 def ProfileExists(user: User) -> bool:
     try:
@@ -80,8 +105,8 @@ def EditProfile(userLoggedIn: User) -> bool:
                         "University: " + str(profile.University), 
                         "Major: " + str(profile.Major), 
                         "About: " + str(profile.About), 
-                        "Education: " + str(profile.EducationList if len(profile.EducationList) != 0 else ""), 
-                        "Experience: " + str(profile.ExperienceList if len(profile.ExperienceList) != 0 else "")]
+                        "Education: " + HelpPrintEducationList(profile=profile), 
+                        "Experience: " + HelpPrintExperienceList(profile=profile)]
 
             MenuHelpers.DisplayOptions(options=options)
             decision = MenuHelpers.InputOptionNo()
