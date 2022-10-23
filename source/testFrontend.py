@@ -398,7 +398,7 @@ def test_ViewFriendProfile():
   output = get_display_output()
   #assert output == 
 
-# Ensure that a user cannot see the profiles of their friends
+# Ensure that a user can see the profiles of their friends
 def test_ViewFriendProfileNoProfile():
   profile_own = test_UserProfile_EditProfile()
   profile_friend = test_UserProfile_EditProfile()
