@@ -135,6 +135,6 @@ def EditProfile(userLoggedIn: User) -> bool:
         except:
             print("\nError! Something went wrong when trying to create a profile.")
 
-    return ConfirmChanges(userLoggedIn=userLoggedIn, profile=profile)
 
+    return ConfirmChanges(loggedUser=userLoggedIn, profile=profile)
     
