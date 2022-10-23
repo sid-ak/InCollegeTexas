@@ -390,7 +390,8 @@ def test_TitleCaseUniversity():
 
 # Ensure that a user can add up-to three job experiences.
 def test_JobExperienceLimit():
-  test_UserProfile_CreateProfile(deleteTestUser: bool = False)
+  test_UserProfile_CreateProfile()
+  #or test_UserProfile_CreateProfile(deleteTestUser: bool = False) ????
   set_keyboard_input(["6", "Title01", "Employer01", "10/25/2018", "10/25/2022", "Location01", "Exp01"])
   EditProfile()
   set_keyboard_input(["6", "Title02", "Employer02", "10/28/2015", "10/28/2021", "Location02", "Exp02"])
@@ -405,8 +406,13 @@ def test_JobExperienceLimit():
 
 # Ensure that a user can see the profiles of their friends/networks
 #def test_ViewFriendProfile():
+  #test_UserProfile_CreateProfile()
+
+
   # there should be user -> select friend -> view profile
 
 # Ensure that a user cannot see the profiles of their friends, if friend doesn't have a profile
 #def test_ViewFriendProfileNoProfile():
+  #test_UserProfile_CreateProfile()
+  
   # there should be user -> select friend -> view profile -> no profile
