@@ -9,7 +9,6 @@ from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
-from model.Profile import Education, Experience, Profile
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
