@@ -6,7 +6,7 @@ from helpers.MenuHelpers import MenuHelpers
 from firebaseSetup.Firebase import database
 from model.User import User
 from helpers.UserHelpers import UserHelpers
-from source.helpers.ProfileHelpers import ProfileHelpers
+from helpers.ProfileHelpers import ProfileHelpers
 
 
 # returns the formatted string with the displays of education
