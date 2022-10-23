@@ -9,6 +9,7 @@ from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
+from model.Profile import Education, Experience, Profile
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -181,7 +182,7 @@ def test_LogInUser():
     loggedInUser = LoginUser()
     assert loggedInUser != None
 
-# EPIC 4: Tests that no more than 10 users can sign up.
+# EPIC 4: Tests that no more than 10 users can sign up. (Sid)
 def test_UserLimit():
     # Arrange: Set collection to insert into an user limit.
     testCollection: str = "TestUsersOverLimit"
@@ -227,7 +228,7 @@ def test_UserLimit():
     for user in users:
         UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user is initialized with a list of empty friends.
+# EPIC 4: Ensures that a user is initialized with a list of empty friends. (Sid)
 def test_UserFriends_InitializedToEmpty():
     # Arrange
     username: str = "testUsername"
@@ -238,7 +239,7 @@ def test_UserFriends_InitializedToEmpty():
     # Act and Assert
     assert testUser.Friends == {}
 
-# EPIC 4: Ensures that a user has pending requests if a friend request is sent.
+# EPIC 4: Ensures that a user has pending requests if a friend request is sent. (Sid)
 def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
     # Arrange
     testCollection: str = "TestUsers"
@@ -270,7 +271,7 @@ def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
         for user in users:
             UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user can accept a friend request as expected.
+# EPIC 4: Ensures that a user can accept a friend request as expected. (Sid)
 def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
     testCollection: str = "TestUsers"
 
@@ -298,7 +299,7 @@ def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
         for user in users:
             UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user can reject a friend request as expected.
+# EPIC 4: Ensures that a user can reject a friend request as expected. (Sid)
 def test_UserFriends_RejectFriendRequest():
     testCollection: str = "TestUsers"
 
@@ -327,7 +328,7 @@ def test_UserFriends_RejectFriendRequest():
         for user in users:
             UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user can delete a friend as expected.
+# EPIC 4: Ensures that a user can delete a friend as expected. (Sid)
 def test_UserFriends_DeleteFriend():
     testCollection: str = "TestUsers"
 
@@ -355,3 +356,56 @@ def test_UserFriends_DeleteFriend():
     # Destroy: Delete all test users after the test run.
     for user in users:
         UserHelpers.DeleteUserAccount(user, testCollection)
+
+# EPIC 5: Ensures the user can create a profile as expected. (Sid)
+def test_UserProfile_CreateProfile(deleteTestUser: bool = True):
+    # Arrange: Create a user under the TestUserProfile node.
+    testCollection: str = "TestUserProfile"
+    username: str = "testUsername0"
+    password: str = "testPass0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    user: User = User(userId, username)
+    
+    # Assert: Ensure default value of a profile on construction of a user is set to None.
+    assert user.Profile == None
+    assert True == UserHelpers.UpdateUser(user, testCollection)
+
+    # Arrange: Get the user that was just created and pushed to the DB.
+    testUser: User = UserHelpers.GetUser(user, testCollection)
+    assert testUser != None
+
+    # Arrange: Instantiate a profile.
+    i: int = 1
+    profile: Profile = Profile(
+        Id = testUser.Id,
+        Title = "Test Title",
+        University = "Test University",
+        Major = "Test Major",
+        About = "Test About",
+        EducationList = [Education(
+            SchoolName = f"Test School Name {i}",
+            Degree = f"Test Degree {i}",
+            YearsAttended = 1
+        )],
+        ExperienceList = [Experience(
+            Title = f"Test Title {i}",
+            Employer = f"Employer {i}",
+            DateStarted = "10/25/2018",
+            DateEnded = "10/25/2022",
+            Location = f"Test Location {i}",
+            Description = f"Test Description {i}"
+        )]
+    )
+
+    # Arrange: Assign the newly instantiated profile to the test user and update.
+    testUser.Profile = profile
+    assert True == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Assert: Retrieve the user and confirm the profile changes match.
+    testUserUpdated: User = UserHelpers.GetUser(testUser, testCollection)
+    assert testUserUpdated != None
+    assert testUserUpdated.Profile == profile
+
+    # Destroy: Delete the test user after the test run.
+    if (deleteTestUser):
+        UserHelpers.DeleteUserAccount(testUser, testCollection)
