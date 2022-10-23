@@ -7,6 +7,9 @@ from model.User import User
 from helpers.UserHelpers import UserHelpers
 
 
+
+
+
 def ProfileExists(user: User) -> bool:
     try:
         if (user.Profile != None and user.Profile != Profile()):
@@ -64,7 +67,7 @@ def EditProfile(userLoggedIn: User) -> bool:
 
     # if the user already has a profile, we fetch the exisitng one and update if necessary
     if ProfileExists(userLoggedIn):
-        profile = Profile.HydrateProfile(userLoggedIn.Profile)
+        profile = userLoggedIn.Profile
     else:
         profile = Profile()
     
@@ -73,9 +76,12 @@ def EditProfile(userLoggedIn: User) -> bool:
     while True:
         try:
             print("\nPlease select one of the following fields to be updated: ")
-            options = ["Title: " + str(profile.Title), "University: " + str(profile.University), 
-                "Major: " + str(profile.Major), "About: " + str(profile.About), "Education: " + 
-                str(profile.EducationList if len(profile.EducationList) != 0 else ""), "Experience: " + str(profile.ExperienceList if len(profile.ExperienceList) != 0 else "")]
+            options = ["Title: " + str(profile.Title),
+                        "University: " + str(profile.University), 
+                        "Major: " + str(profile.Major), 
+                        "About: " + str(profile.About), 
+                        "Education: " + str(profile.EducationList if len(profile.EducationList) != 0 else ""), 
+                        "Experience: " + str(profile.ExperienceList if len(profile.ExperienceList) != 0 else "")]
 
             MenuHelpers.DisplayOptions(options=options)
             decision = MenuHelpers.InputOptionNo()
