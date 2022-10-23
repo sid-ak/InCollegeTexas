@@ -20,7 +20,7 @@ class Experience:
             'Description': str(self.Description)
         }
 
-    # converts a dictionary pyrebase response to edxperience object
+    # converts a dictionary pyrebase response to experience object
     def PyreToExperience(ExperienceDict):
         return Experience(
             Title=ExperienceDict['Title'],
@@ -78,3 +78,25 @@ class Profile:
             'EducationList': {i: self.EducationList[i].EducationToDict() for i in range(len(self.EducationList))},
             'ExperienceList': {i: self.ExperienceList[i].ExpToDict() for i in range(len(self.ExperienceList))}
         }
+
+    def HydrateProfile(profile):
+        profileReturn: Profile = Profile(
+            Id = profile["Id"],
+            Title = profile["Title"],
+            University = profile["University"],
+            Major = profile["Major"],
+            About = profile["About"],
+        )
+        
+        # need to fetch EducationList and ExperienceList seperately since Firebase does not store empty lists
+        try:
+            profileReturn.EducationList = profile["EducationList"]
+        except:
+            profileReturn.EducationList = []
+        try:
+            profileReturn.ExperienceList = profile["ExperienceList"]
+        except:
+            profileReturn.ExperienceList = []
+
+
+        return profileReturn   

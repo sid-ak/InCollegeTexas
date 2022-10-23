@@ -10,7 +10,7 @@ from actions.ShowMyNetwork import ShowMyNetwork
 from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.SearchUsers import SearchUsers
 from helpers.UserHelpers import UserHelpers
-from actions.CreateProfile import CreateProfile
+from actions.UpdateProfile import UpdateProfile
 
 
 # this function will check if the username and password exists 
@@ -59,7 +59,6 @@ def DisplayLoginMenu(loggedUser: User):
                     "Search Users",
                     "Display pending requests", 
                     "Show my network",
-                    "Create profile",
                     "Update profile",
                     "View profile",
                     ]
@@ -99,15 +98,10 @@ def DisplayLoginMenu(loggedUser: User):
                             print("\nYou have selected to show my network.")
                             ShowMyNetwork(loggedUser) 
                         elif decision == 9:
-                            print("\nYou have selected to create profile.")
-                            if CreateProfile(userLoggedIn=loggedUser):
-                                print("\nSuccess! You have created a new profile.\n")
-                            else:
-                                print("\nFailure! We haven't been able to create a profile for you at this time.\n")
+                            print("\nYou have selected to update profile.")
+                            UpdateProfile(userLoggedIn=loggedUser)
                         elif decision == 10:
-                            print("\nYou have selected tp update profile.")
-                        elif decision == 11:
-                            print("\nYou have selected to view profile.")
+                            print("\nYou have selected to view profile.")    
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True
