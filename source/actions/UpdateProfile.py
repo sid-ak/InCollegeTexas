@@ -55,8 +55,10 @@ def EditProfile(userLoggedIn: User) -> bool:
                         "University: " + str(profile.University), 
                         "Major: " + str(profile.Major), 
                         "About: " + str(profile.About), 
-                        "Education (Can add more than 1): " +  ProfileHelpers.HelpPrintEducationList(profile=profile), 
-                        "Experience (Can add up to 3): " + ProfileHelpers.HelpPrintExperienceList(profile=profile)]
+                        "Education (Can add more than 1): " +  ProfileHelpers.HelpPrintEducationList(
+                            educationList = profile.EducationList), 
+                        "Experience (Can add up to 3): " + ProfileHelpers.HelpPrintExperienceList(
+                            experienceList = profile.ExperienceList)]
 
             MenuHelpers.DisplayOptions(options=options)
             decision = MenuHelpers.InputOptionNo()
@@ -82,93 +84,28 @@ def EditProfile(userLoggedIn: User) -> bool:
                 profile.About = about
 
             elif decision == 5:
-                print("\nYou have selected to update education")
-
                 try:
-                    print("Would you like to add or edit education?")
-                    MenuHelpers.DisplayOptions(["Add", "Edit"])
-                    updateDecisionEducation: int = MenuHelpers.InputOptionNo()
-
-                    if updateDecisionEducation == 1:
-                        print("You have selected to add education")
-                        try:
-                            education = Education()
-                            education.SchoolName = ProfileHelpers.ToTitleFormat(input("Enter the name of your school: "))
-                            education.Degree = ProfileHelpers.ToTitleFormat(input("Enter your degree: "))
-                            education.YearsAttended = int(input("Enter the years attended: "))
-                            if education != Education():
-                                profile.EducationList.append(education)
-                        except:
-                            print("\nError! Could not add education due to invalid input.")
-                    
-                    elif updateDecisionEducation == 2:
-                        print("You have selected to edit education")
-                        # check to see if the user has any education
-                        if len(profile.EducationList) == 0:
-                            print("\nError! Could not edit education due to empty list of education.")
-                        else:
-                            print("\nSelect the index of the education to edit: ")
-                            try:
-                                educationIndex: int = MenuHelpers.InputOptionNo()
-                                if educationIndex in range(1, len(profile.EducationList) + 1):
-                                    profile.EducationList[educationIndex-1] = ProfileHelpers.HelpEditEducationAttributes(education=profile.EducationList[educationIndex-1])
-                                    print("\nSuccess! Edited education.")
-                                else:
-                                    print("\nError! Could not edit education becuase entry is out of education list size.")
-                            except:
-                                print("\nError! Could not edit education due to invalid input on the education index.")
-                    else:
-                        print("\nError! Could not update education due to invalid input.")
-
-                except:
-                    print("\nError! Could not update education due to invalid input.")
+                    print("\nYou have selected to update education")
+                    educationList: list[Education] = ProfileHelpers.UpdateEducation(
+                        profile.EducationList)
+                    profile.EducationList = educationList
+                
+                except Exception as e:
+                    print(f"\nError! Could not update education.\n{e}")
 
             elif decision == 6:
                 print("\nYou have selected to update experience")
 
                 try:
-                    print("Would you like to add or edit experience?")
-                    MenuHelpers.DisplayOptions(["Add", "Edit"])
-                    updateDecisionExperience: int = MenuHelpers.InputOptionNo()
+                    if ProfileHelpers.IsProfileExpLimitMet(profile=userLoggedIn.Profile):
+                        raise Exception("\nError! You can only enter a maximum of 3 experiences.")
+                    
+                    experienceList: list[Experience] = ProfileHelpers.UpdateExperience(
+                        profile.ExperienceList)
+                    profile.ExperienceList = experienceList
 
-                    if updateDecisionExperience == 1:
-                        print("You have selected to add experience")
-                        try:
-                            if ProfileHelpers.IsProfileExpLimitMet(profile=userLoggedIn.Profile):
-                                print("\nError! You already have added 3 experiences.")
-                            else: 
-                                experience = Experience()
-                                experience.Title = ProfileHelpers.ToTitleFormat(input("Enter title: "))
-                                experience.Employer = ProfileHelpers.ToTitleFormat(input("Enter Employer: "))
-                                experience.DateStarted = input("Enter date started: ")
-                                experience.DateEnded = input("Enter date ended: ")
-                                experience.Location = ProfileHelpers.ToTitleFormat(input("Enter location: "))
-                                experience.Description = input("Enter description: ")
-                                profile.ExperienceList.append(experience)
-                        except:
-                            print("\nError! Could not add experience due to invalid input.")
-
-                    elif updateDecisionExperience == 2:
-                        print("You have selected to edit experience")
-                        
-                        if len(profile.ExperienceList) == 0:
-                            print("\nError! Could not edit experience due to empty list of experience.")
-                        else:
-                            print("Select the index of the experience to edit: ")
-                            try:
-                                experienceIndex: int = MenuHelpers.InputOptionNo()
-                                if experienceIndex in range(1, len(profile.ExperienceList) + 1):
-                                    profile.ExperienceList[experienceIndex-1] = ProfileHelpers.HelpEditExperienceAttributes(experience=profile.ExperienceList[experienceIndex-1])
-                                    print("\nSuccess! Edited experience.")
-                                else:
-                                    print("\nError! Could not edit experience because entry is out of experience list size.")
-                            except:
-                                print("\nError! Could not edit experience due to invalid input on the experience index.")
-                    else:
-                        print("\nError! Could not update education due to invalid input.")
-                
-                except:
-                    print("\nError! Could not update education due to invalid input.")
+                except Exception as e:
+                    print(f"\nError! Could not update experience.\n{e}")
 
             elif decision == -1:
                 print("You have selected to quit.")
@@ -176,6 +113,7 @@ def EditProfile(userLoggedIn: User) -> bool:
         
         except:
             print("\nError! Something went wrong when trying to update a profile.")
+            break
 
 
     return ConfirmChanges(loggedUser=userLoggedIn, profile=profile)
