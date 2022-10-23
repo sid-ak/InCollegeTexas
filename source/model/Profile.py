@@ -66,6 +66,7 @@ class Profile:
     About: str = "" # paragraph
     EducationList: list[Education] = field(default_factory=list)
     ExperienceList: list[Experience] = field(default_factory=list)
+    _experienceLimit = 3
 
     def HydrateProfile(profile: dict):
         return Profile(
@@ -100,6 +101,8 @@ class Profile:
             }
         except Exception as e:
             print(f"Could not convert a Profile entity to a dictionary object.\n{e}")
+        
+
 
 class ProfileHydrator:
 

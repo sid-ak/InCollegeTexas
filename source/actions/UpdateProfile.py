@@ -1,16 +1,24 @@
 from cmath import exp
 import profile
-from helpers.ProfileHelpers import ProfileHelpers
 from model.Profile import Profile, Education, Experience
 from helpers.MenuHelpers import MenuHelpers
 from firebaseSetup.Firebase import database
 from model.User import User
 from helpers.UserHelpers import UserHelpers
-from helpers.ProfileHelpers import ProfileHelpers
+
+
+def ProfileExists(user: User) -> bool:
+    try:
+        if (user.Profile != None and user.Profile != Profile()):
+            return True
+        else:
+            return False
+    except:
+        return False
 
 
 # this function will help format an input string to title of each word
-def HelpFormat(input: str) -> str:
+def ToTitleFormat(input: str) -> str:
     words = input.split(" ")
     wordsFormated = []
 
@@ -26,30 +34,11 @@ def UpdateProfile(userLoggedIn: User) -> bool:
     profileAlreadyCreated = False
 
     # if the user already has a profile, we fetch the exisitng one and update if necessary
-    try:
-        users = UserHelpers.GetAllUsers()
-        for user in users:
-            if user.Id == userLoggedIn.Id:
-                # if the user does not have a Profile node with the Id child node, 
-                # the user hasn't created a profile yet
-                try:
-                    if (user.Profile['Id'] == ""):
-                        pass
-                    else:
-                        profile = Profile.HydrateProfile(user.Profile)
-                        profileAlreadyCreated = True
-                except:
-                    pass
-    
-    except:
-        print("\nError! Something went wrong when trying to access the database.")
-        return False
-
-    if profileAlreadyCreated == False:
-        # if the user doesn't have a profile, we initialie an empty profile object
+    if ProfileExists(userLoggedIn):
+        profile = Profile.HydrateProfile(userLoggedIn.Profile)
+    else:
         profile = Profile()
-
-    _experiencesLimit = 3
+    
 
     while True:
         try:
@@ -67,11 +56,11 @@ def UpdateProfile(userLoggedIn: User) -> bool:
                 profile.Title = title
             elif decision == 2:
                 print("\nYou have selected to update a university")
-                university = HelpFormat(input("Please enter your university's name: "))
+                university = ToTitleFormat(input("Please enter your university's name: "))
                 profile.University = university
             elif decision == 3:
                 print("\nYou have selected to update a major")
-                major = HelpFormat(input("Please enter your major: "))
+                major = ToTitleFormat(input("Please enter your major: "))
                 profile.Major = major
             elif decision == 4:
                 print("\nYou have selected to update about section")
@@ -81,8 +70,8 @@ def UpdateProfile(userLoggedIn: User) -> bool:
                 print("\nYou have selected to add education")
                 try:
                     education = Education()
-                    education.SchoolName = HelpFormat(input("Enter the name of your school: "))
-                    education.Degree = HelpFormat(input("Enter your degree: "))
+                    education.SchoolName = ToTitleFormat(input("Enter the name of your school: "))
+                    education.Degree = ToTitleFormat(input("Enter your degree: "))
                     education.YearsAttended = int(input("Enter the years attended: "))
                     profile.EducationList.append(education)
                 except:
@@ -94,11 +83,11 @@ def UpdateProfile(userLoggedIn: User) -> bool:
                         print("\nError! You already have added 3 experiences.")
                     else: 
                         experience = Experience()
-                        experience.Title = HelpFormat(input("Enter title: "))
-                        experience.Employer = HelpFormat(input("Enter Employer: "))
+                        experience.Title = ToTitleFormat(input("Enter title: "))
+                        experience.Employer = ToTitleFormat(input("Enter Employer: "))
                         experience.DateStarted = input("Enter date started: ")
                         experience.DateEnded = input("Enter date ended: ")
-                        experience.Location = HelpFormat(input("Enter location: "))
+                        experience.Location = ToTitleFormat(input("Enter location: "))
                         experience.Description = input("Enter description: ")
                         profile.ExperienceList.append(experience)
                 except:
