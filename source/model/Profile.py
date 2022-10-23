@@ -100,6 +100,8 @@ class Profile:
             }
         except Exception as e:
             print(f"Could not convert a Profile entity to a dictionary object.\n{e}")
+        
+
 
 class ProfileHydrator:
 
@@ -157,25 +159,3 @@ class ProfileHydrator:
         elif propType == "list[Education]": return [Education()],
         elif propType == "list[Experience]": return [Experience()]
         else: return None
-
-    def HydrateProfile(profile):
-        profileReturn: Profile = Profile(
-            Id = profile["Id"],
-            Title = profile["Title"],
-            University = profile["University"],
-            Major = profile["Major"],
-            About = profile["About"],
-        )
-        
-        # need to fetch EducationList and ExperienceList seperately since Firebase does not store empty lists
-        try:
-            profileReturn.EducationList = profile["EducationList"]
-        except:
-            profileReturn.EducationList = []
-        try:
-            profileReturn.ExperienceList = profile["ExperienceList"]
-        except:
-            profileReturn.ExperienceList = []
-
-
-        return profileReturn   
