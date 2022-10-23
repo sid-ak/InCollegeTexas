@@ -409,3 +409,52 @@ def test_UserProfile_CreateProfile(deleteTestUser: bool = True):
     # Destroy: Delete the test user after the test run.
     if (deleteTestUser):
         UserHelpers.DeleteUserAccount(testUser, testCollection)
+
+# EPIC 5: Ensures that user can have a maximum of 3 profile experiences. (Sid)
+def test_ProfileExperiencesLimit():
+    testCollection: str = "TestUserProfile"
+
+    # Arrange: Create a user with a profile. Contains one experience.
+    test_UserProfile_CreateProfile(deleteTestUser = False)
+    username: str = "testUsername0"
+    password: str = "testPass0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    user: User = User(userId, username)
+    testUser: User = UserHelpers.GetUser(user, testCollection)
+    assert testUser != None
+    assert 1 == len(testUser.Profile.ExperienceList)
+    
+    # Arrange: Create 2 additional experiences.
+    experiences: list[Experience] = []
+    i: int = 2 # Initialized to 2 because one experience already exists. 
+    while (i < 4):
+        experience: Experience = Experience(
+            Title = f"Test Title {i}",
+            Employer = f"Test Employer {i}",
+            DateStarted = f"10/25/2018",
+            DateEnded = f"10/25/2018",
+            Location = f"Test Location {i}",
+            Description = f"Test Description {i}"
+        )
+        experiences.append(experience)
+    
+    # Arrange: Update the user with 3 total experiences.
+    testUser.Profile.ExperienceList.extend(experiences)
+    assert 3 == len(testUser.Profile.ExperienceList)
+    assert True == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Arrange: Make the fourth experience.
+    i: int = 4
+    fourthExp: Experience = Experience(
+        Title = f"Test Title {i}",
+        Employer = f"Test Employer {i}",
+        DateStarted = f"10/25/2018",
+        DateEnded = f"10/25/2018",
+        Location = f"Test Location {i}",
+        Description = f"Test Description {i}"
+    )
+
+    # Assert: Updating the user with fourth profile experience should fail.
+    testUser.Profile.EducationList.extend(fourthExp)
+    assert 4 == len(testUser.Profile.ExperienceList)
+    assert False == UserHelpers.UpdateUser(testUser, testCollection)
