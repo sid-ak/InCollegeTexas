@@ -91,7 +91,7 @@ class JobHelpers:
     def IsJobLimitMet(collection: str = "Jobs") -> bool:
         allJobs: list[User] = JobHelpers.GetAllJobs(collection)
         
-        if allJobs == ([] or None):
+        if allJobs == None or allJobs == []:
             return False
         
         return True if len(allJobs) == JobHelpers._jobLimit else False
