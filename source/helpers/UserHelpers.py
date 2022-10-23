@@ -2,6 +2,7 @@ from model.Profile import Profile
 from model.User import User
 from firebaseSetup.Firebase import database
 import hashlib
+from helpers.ProfileHelpers import ProfileHelpers
 
 class UserHelpers:
     # The maximum of User entities that can be imported into Firebase.
@@ -63,6 +64,13 @@ class UserHelpers:
     def UpdateUser(user: User, collection: str = "Users") -> bool:
         try:
             if (UserHelpers.IsUserLimitMet(collection)):
+                print("Maximum of number of users that can sign up have been met.\n"
+                    + "User was not updated")
+                return False
+            
+            if (ProfileHelpers.IsProfileExpLimitMet(user)):
+                print("Maximum of number of experiences for a user profile have been met.\n"
+                    + "User was not updated")
                 return False
 
             database.child(collection).child(
