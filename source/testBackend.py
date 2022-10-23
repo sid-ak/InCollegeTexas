@@ -1,3 +1,4 @@
+from cgi import test
 import pytest
 from io import StringIO
 import sys
@@ -459,6 +460,55 @@ def test_ProfileExperiencesLimit():
     testUser.Profile.ExperienceList.append(fourthExp)
     assert 4 == len(testUser.Profile.ExperienceList)
     assert False == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Destroy: Delete the test user after the test run.
+    UserHelpers.DeleteUserAccount(testUser, testCollection)
+
+# EPIC 5: Ensures that user can edit a profile as expected. (Sid)
+def test_UserProfile_EditProfile():
+    testCollection: str = "TestUserProfile"
+
+    # Arrange: Create a user with a profile. Contains one experience.
+    test_UserProfile_CreateProfile(deleteTestUser = False)
+    username: str = "testUsername0"
+    password: str = "testPass0"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    user: User = User(userId, username)
+    testUser: User = UserHelpers.GetUser(user, testCollection)
+
+    # Arrange: Create some properties needed for the user profile.
+    i: int = 1
+    title: str = f"Test Title"
+    university: str = f"Test University"
+    educationList: list[Education] = [Education(
+        SchoolName = f"Test School Name {i}",
+        Degree = f"Test Degree {i}",
+        YearsAttended = 1
+    )]
+
+    # Assert: Ensure current properties are as expected.
+    assert title == testUser.Profile.Title
+    assert university == testUser.Profile.University
+    assert educationList == testUser.Profile.EducationList
+
+    # Act: Modify the current properties and update user.
+    title = f"Test Title Has Changed"
+    university = f"Test University Has Changed"
+    educationList = [Education(
+        SchoolName = f"Test School Name Has Changed {i}",
+        Degree = f"Test Degree Has Changed {i}",
+        YearsAttended = 1
+    )]
+    testUser.Profile.Title = title
+    testUser.Profile.University = university
+    testUser.Profile.EducationList = educationList
+    assert True == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Assert: Ensure the updated user profile matches with the recent changes.
+    testUser = UserHelpers.GetUser(testUser, testCollection)
+    assert title == testUser.Profile.Title
+    assert university == testUser.Profile.University
+    assert educationList == testUser.Profile.EducationList
 
     # Destroy: Delete the test user after the test run.
     UserHelpers.DeleteUserAccount(testUser, testCollection)
