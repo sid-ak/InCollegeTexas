@@ -7,7 +7,7 @@ class ProfileHelpers:
 
     # Checks if the maximum number of experiences have been entered for a user profile.
     def IsProfileExpLimitMet(user: User) -> bool:
-        if user.Profile == (None or Profile()):
+        if user.Profile == None or user.Profile == Profile():
             return False
 
         experiences: list[Experience] = user.Profile.ExperienceList
