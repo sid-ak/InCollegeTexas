@@ -58,15 +58,27 @@ class UserHydrator:
         if prop not in UserHydrator._userAttributes.keys():
             raise Exception(f"Property {prop} not defined for entity: User")
         
+        propType: str = UserHydrator._userAttributes.get(prop)
         value = None
+        
         try:
-            value = user.val()[prop]
+            pyreValue = user.val()[prop]
+            value = UserHydrator.CastComplexType(pyreValue, propType)
         except:
             value = UserHydrator.GetDefaultValue(prop)
+        
         if value == None: raise Exception(f"Could not hydrate prop: {prop} for User")
         
         return value
-
+    
+    # Handles conversion to a complex type.
+    def CastComplexType(pyreValue, propType):
+        if propType == "Profile":
+            profile: Profile = Profile.HydrateProfile(pyreValue)
+            return profile
+        
+        return pyreValue
+        
     # Gets the default value for a property on the User entity based on its type.
     def GetDefaultValue(prop: str):
         propType: str = UserHydrator._userAttributes.get(prop)

@@ -1,3 +1,4 @@
+from model.Profile import Profile
 from model.User import User
 from firebaseSetup.Firebase import database
 import hashlib
@@ -19,7 +20,8 @@ class UserHelpers:
             'LanguagePreference': str(user.LanguagePreference),
             'Friends': user.Friends,
             'University': str(user.University),
-            'Major': str(user.Major)
+            'Major': str(user.Major),
+            'Profile': Profile.ProfileToDict(user.Profile)
         }
 
     # Gets a PyreResponse of all users from the DB and returns

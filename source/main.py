@@ -65,5 +65,5 @@ class Main:
             
             else:
                 print("Invalid entry! Please try again.")
-        except:
-            print("Invalid entry! Please try again.")
+        except Exception as e:
+            print(f"Invalid entry! Please try again.\n{e}")
