@@ -437,6 +437,7 @@ def test_ProfileExperiencesLimit():
             Description = f"Test Description {i}"
         )
         experiences.append(experience)
+        i += 1
     
     # Arrange: Update the user with 3 total experiences.
     testUser.Profile.ExperienceList.extend(experiences)
@@ -455,6 +456,9 @@ def test_ProfileExperiencesLimit():
     )
 
     # Assert: Updating the user with fourth profile experience should fail.
-    testUser.Profile.EducationList.extend(fourthExp)
+    testUser.Profile.ExperienceList.append(fourthExp)
     assert 4 == len(testUser.Profile.ExperienceList)
     assert False == UserHelpers.UpdateUser(testUser, testCollection)
+
+    # Destroy: Delete the test user after the test run.
+    UserHelpers.DeleteUserAccount(testUser, testCollection)
