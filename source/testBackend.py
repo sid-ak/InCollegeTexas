@@ -1,4 +1,3 @@
-from cgi import test
 import pytest
 from io import StringIO
 import sys
