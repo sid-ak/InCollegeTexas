@@ -13,6 +13,8 @@ from actions.ViewProfile import ViewProfile
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
 from helpers.UserHelpers import UserHelpers
 from helpers.ProfileHelpers import ProfileHelpers
+from model.Profile import Education, Experience
+from model.Profile import Profile
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from testBackend import test_UserProfile_EditProfile
@@ -392,11 +394,43 @@ def test_TitleCaseUniversity():
   assert output == "Computer Science"
 
 # Ensure that a user can see their own profile
-def test_ViewFriendProfile():
-  profile = test_UserProfile_EditProfile()
-  ViewProfile(profile)
+def test_ViewOwnProfile():
+  # create a dummy User object
+  userTest = User(Id="TestID", Username="TestUsername")
+  userTest.FirstName = "FirstName"
+  userTest.LastName = "LastName"
+
+  # create a dummy profile object and insert into the user object
+  profileTest = Profile()
+  profileTest.About = "A very testy test tested on thousand tests."
+  profileTest.Title = "TestTitle"
+  profileTest.Major = "TestMajor"
+  profileTest.University = "TestUniversity"
+  
+  # create a dummy education object and add to the dummy User object
+  educationTest = Education()
+  educationTest.SchoolName = "TestSchool"
+  educationTest.Degree = "TestDegree"
+  educationTest.YearsAttended = "TestYears"
+  profileTest.EducationList.append(educationTest)
+
+  # create a dummy experience object and add to the dummy User object
+  experienceTest = Experience()
+  experienceTest.Title = "TestTitleExperience"
+  experienceTest.Employer = "TestEmployer"
+  experienceTest.DateStarted = "TestStarted"
+  experienceTest.DateEnded = "TestEnded"
+  experienceTest.Location = "TestLocation"
+  experienceTest.Description = "TestDescription"
+  profileTest.ExperienceList.append(experienceTest)
+
+  userTest.Profile = profileTest
+
+  # call the ViewProfile function and capture output
+  ViewProfile(loggedUser=userTest)
   output = get_display_output()
-  #assert output == 
+  print(output)
+
 
 # Ensure that a user can see the profiles of their friends
 def test_ViewFriendProfileNoProfile():
@@ -405,3 +439,6 @@ def test_ViewFriendProfileNoProfile():
   ViewProfile(profile_own, profile_friend)
   output = get_display_output()
   #assert output == 
+
+
+test_ViewOwnProfile()
