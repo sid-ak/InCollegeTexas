@@ -109,7 +109,7 @@ class UserHelpers:
     def IsUserLimitMet(collection: str = "Users") -> bool:
         allUsers: list[User] = UserHelpers.GetAllUsers(collection)
         
-        if allUsers == ([] or None):
+        if allUsers == None or allUsers == []:
             return False
         
         return True if len(allUsers) == UserHelpers._userLimit else False
