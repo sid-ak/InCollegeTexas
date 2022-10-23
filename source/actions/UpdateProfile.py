@@ -1,6 +1,5 @@
 from cmath import exp
 from operator import index
-import profile
 from model.Profile import Profile, Education, Experience
 from helpers.MenuHelpers import MenuHelpers
 from firebaseSetup.Firebase import database
