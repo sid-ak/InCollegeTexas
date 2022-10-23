@@ -6,6 +6,7 @@ from helpers.MenuHelpers import MenuHelpers
 from firebaseSetup.Firebase import database
 from model.User import User
 from helpers.UserHelpers import UserHelpers
+from source.helpers.ProfileHelpers import ProfileHelpers
 
 
 # returns the formatted string with the displays of education
@@ -95,8 +96,6 @@ def EditProfile(userLoggedIn: User) -> bool:
         profile = userLoggedIn.Profile
     else:
         profile = Profile()
-    
-    _experiencesLimit = 3
 
     while True:
         try:
@@ -140,7 +139,7 @@ def EditProfile(userLoggedIn: User) -> bool:
             elif decision == 6:
                 print("\nYou have selected to add experience")
                 try:
-                    if len(profile.ExperienceList) == _experiencesLimit:
+                    if ProfileHelpers.IsProfileExpLimitMet(user=userLoggedIn):
                         print("\nError! You already have added 3 experiences.")
                     else: 
                         experience = Experience()
