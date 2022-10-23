@@ -8,12 +8,12 @@ from actions.DisplayUsefulLinks import DisplayUsefulLinks
 from actions.SearchUsers import SearchUsers,FriendRequest
 from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.ShowMyNetwork import ShowMyNetwork
+from actions.UpdateProfile import ToTileFormat, EditProfile
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from model.User import User, UserHelpers
-
-
+from testBackend import test_UserProfile_CreateProfile
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
@@ -378,4 +378,35 @@ def test_ShowYourNetwork():
                     "Unexpected error ocurred\n"
                     ]
 
+# Tests below worked on for EPIC 5 - 10/23/22 by Anshika
 
+# checking if university and major are displayed in title case
+def test_TitleCaseUniversity():
+  output = ToTileFormat("university of south florida")
+  assert output == "University Of South Florida"
+
+  output = ToTileFormat("computer science")
+  assert output == "Computer Science"
+
+# Ensure that a user can add up-to three job experiences.
+def test_JobExperienceLimit():
+  test_UserProfile_CreateProfile(deleteTestUser: bool = False)
+  set_keyboard_input(["6", "Title01", "Employer01", "10/25/2018", "10/25/2022", "Location01", "Exp01"])
+  EditProfile()
+  set_keyboard_input(["6", "Title02", "Employer02", "10/28/2015", "10/28/2021", "Location02", "Exp02"])
+  EditProfile()
+  set_keyboard_input(["6", "Title03", "Employer02", "10/21/2017", "10/21/2020", "Location03", "Exp03"])
+  EditProfile()
+  set_keyboard_input(["6", "Title04", "Employer02", "10/21/2017", "10/21/2020", "Location04", "Exp04"])
+  EditProfile()
+  output = get_display_output()
+  assert output == ["\nError! You already have added 3 experiences."]
+  UserHelpers.DeleteUserAccount()
+
+# Ensure that a user can see the profiles of their friends/networks
+#def test_ViewFriendProfile():
+  # there should be user -> select friend -> view profile
+
+# Ensure that a user cannot see the profiles of their friends, if friend doesn't have a profile
+#def test_ViewFriendProfileNoProfile():
+  # there should be user -> select friend -> view profile -> no profile
