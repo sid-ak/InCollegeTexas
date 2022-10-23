@@ -11,6 +11,7 @@ from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.SearchUsers import SearchUsers
 from helpers.UserHelpers import UserHelpers
 from actions.UpdateProfile import EditProfile
+from actions.ViewProfile import ViewProfile
 
 
 # this function will check if the username and password exists 
@@ -59,8 +60,8 @@ def DisplayLoginMenu(loggedUser: User):
                     "Search Users",
                     "Display pending requests", 
                     "Show my network",
-                    "Update profile",
-                    "View profile",
+                    "Update my profile",
+                    "View my profile",
                     ]
 
                 while True:
@@ -101,11 +102,14 @@ def DisplayLoginMenu(loggedUser: User):
                             print("\nYou have selected to update profile.")
                             EditProfile(userLoggedIn=loggedUser)
                         elif decision == 10:
-                            print("\nYou have selected to view profile.")    
+                            print("\nYou have selected to view profile.")
+                            ViewProfile(loggedUser)
+
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True
                             break
+
                         else:
                             print("\nError! Invalid Entry!")
                     except:
