@@ -1,3 +1,4 @@
+from tkinter import Menu
 from model.Profile import Profile, Education, Experience
 from helpers.MenuHelpers import MenuHelpers
 from model.User import User
@@ -55,6 +56,46 @@ def ToTitleFormat(input: str) -> str:
         wordsFormated.append(word.title())
 
     return " ".join(wordsFormated)
+
+
+# this function will help with the edition of each individual attribute of education
+def helpEditEducationAttributes(education: Education) -> Profile:
+    
+    while True:
+        try:
+            print("Select one of the following parts of education to edit: ")
+            options = ["Name of School: " + str(education.SchoolName),
+                        "Degree: " + str(education.Degree),
+                        "Years Attended: " + str(education.YearsAttended)]
+
+            MenuHelpers.DisplayOptions(options=options)
+            decision: int = MenuHelpers.InputOptionNo()
+
+            if decision == 1:
+                print("You have selected to edit Name of School")
+                education.SchoolName = ToTitleFormat("Enter the new name of the school: ")
+                print("Successfully updated the school name.\n")
+            
+            elif decision == 2:
+                print("You have selected to edit Degree")
+                education.Degree = ToTitleFormat("Enter the new degree: ")
+                print("Successfully updated degree.\n")
+            
+            elif decision == 3:
+                print("You have selected to edit Years Attended")
+                education.YearsAttended = ToTitleFormat("Enter the new years attended: ")
+                print("Successfully updated the years attended")
+            
+            elif decision == -1:
+                print("You have selected to quit edition of education")
+                return education
+
+            else:
+                print("\nError! Could not edit due to invalid input on attribute index.")
+        
+        except:
+            print("\nError! Could not edit due to invalid input on attribute index.")
+
 
 
 # this function will push the changes to the profile to db if the user decides
@@ -134,15 +175,43 @@ def EditProfile(userLoggedIn: User) -> bool:
                 profile.About = about
 
             elif decision == 5:
-                print("\nYou have selected to add education")
+                print("\nYou have selected to update education")
+
                 try:
-                    education = Education()
-                    education.SchoolName = ToTitleFormat(input("Enter the name of your school: "))
-                    education.Degree = ToTitleFormat(input("Enter your degree: "))
-                    education.YearsAttended = int(input("Enter the years attended: "))
-                    profile.EducationList.append(education)
+                    print("Would you like to add or edit education?")
+                    MenuHelpers.DisplayOptions(["Add", "Edit"])
+                    
+                    if decision == 1:
+                        print("You have selected to add education")
+                        try:
+                            education = Education()
+                            education.SchoolName = ToTitleFormat(input("Enter the name of your school: "))
+                            education.Degree = ToTitleFormat(input("Enter your degree: "))
+                            education.YearsAttended = int(input("Enter the years attended: "))
+                            profile.EducationList.append(education)
+                        except:
+                            print("\nError! Could not add education due to invalid input.")
+                    
+                    elif decision == 2:
+                        print("You have selected to edit education")
+                        # check to see if the user has any education
+                        if len(profile.EducationList) == 0:
+                            print("\nError! Could not edit education due to empty list of education.")
+                        else:
+                            print("\nSelect the index of the education to edit: ")
+                            try:
+                                educationIndex: int = MenuHelpers.InputOptionNo()
+                                if educationIndex in range(1, len(profile.EducationList) + 1):
+                                    profile.EducationList[educationIndex-1] = helpEditEducationAttributes(profile=profile)
+                                else:
+                                    print("\nError! Could not edit education becuase entry is out of education list size.")
+                            except:
+                                print("\nError! Could not edit education due to invalid input on the education index.")
+                    else:
+                        print("\nError! Could not update education due to invalid input.")
+
                 except:
-                    print("\nError! Could not add education due to invalid input.")
+                    print("\nError! Could not update education due to invalid input.")
 
             elif decision == 6:
                 print("\nYou have selected to add experience")
