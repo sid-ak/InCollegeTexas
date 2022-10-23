@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-from firebaseSetup.Firebase import database
 
 @dataclass
 class Experience:
@@ -20,8 +19,8 @@ class Experience:
             'Description': str(self.Description)
         }
 
-    # converts a dictionary pyrebase response to edxperience object
-    def PyreToExperience(ExperienceDict):
+    # converts a dictionary pyrebase response to experience object
+    def HydrateExperience(ExperienceDict):
         return Experience(
             Title=ExperienceDict['Title'],
             Employer=ExperienceDict['Employer'],
@@ -45,7 +44,7 @@ class Education:
         }
 
     # converts a dictionary pyrebase response to education object
-    def PyreToEducation(EducationDict):
+    def HydrateEducation(EducationDict):
         return Education(
             SchoolName=EducationDict['SchoolName'],
             Degree=EducationDict['Degree'],
@@ -68,13 +67,69 @@ class Profile:
     EducationList: list[Education] = field(default_factory=list)
     ExperienceList: list[Experience] = field(default_factory=list)
 
+    def HydrateProfile(profile):
+        return Profile(
+            Id = ProfileHydrator.HydrateProp(profile, "Id"),
+            Title = ProfileHydrator.HydrateProp(profile, "Title"),
+            University = ProfileHydrator.HydrateProp(profile, "University"),
+            Major = ProfileHydrator.HydrateProp(profile, "Major"),
+            About = ProfileHydrator.HydrateProp(profile, "About"),
+            EducationList = ProfileHydrator.HydrateProp(profile, "EducationList"),
+            ExperienceList = ProfileHydrator.HydrateProp(profile, "ExperienceList"),
+        )
+
     def ProfileToDict(self):
-        return {
-            'Id': str(self.Id),
-            'Title': str(self.Title),
-            'University': str(self.University),
-            'Major': str(self.Major),
-            'About': str(self.About),
-            'EducationList': {i: self.EducationList[i].EducationToDict() for i in range(len(self.EducationList))},
-            'ExperienceList': {i: self.ExperienceList[i].ExpToDict() for i in range(len(self.ExperienceList))}
-        }
+        try:
+            if self == None:
+                self = Profile()
+
+            return {
+                'Id': str(self.Id),
+                'Title': str(self.Title),
+                'University': str(self.University),
+                'Major': str(self.Major),
+                'About': str(self.About),
+                'EducationList': {i: self.EducationList[i].EducationToDict() for i in range(len(self.EducationList))},
+                'ExperienceList': {i: self.ExperienceList[i].ExpToDict() for i in range(len(self.ExperienceList))}
+            }
+        except Exception as e:
+            print(f"Could not convert a Profile entity to a dictionary object.\n{e}")
+
+class ProfileHydrator:
+
+    # A dictionary to maintain the Profile entity's property name (key) and its type (value).
+    _profileAttributes: dict[str, str] = {
+        "Id": "str",
+        "Title": "str",
+        "University": "str",
+        "Major": "str",
+        "About": "bool",
+        "EducationList": "list[Education]",
+        "ExperienceList": "list[Experience]"
+    }
+
+    # Hydrates an individual property for the Profile entity.
+    def HydrateProp(profile, prop: str):
+        if prop not in ProfileHydrator._profileAttributes.keys():
+            raise Exception(f"Property {prop} not defined for entity: Profile")
+        
+        value = None
+        
+        try:
+            value = profile.val()[prop]
+        except:
+            value = ProfileHydrator.GetDefaultValue(prop)
+        
+        if value == None: raise Exception(f"Could not hydrate prop: {prop} for Profile")
+        
+        return value
+    
+    # Gets the default value for a property on the Profile entity based on its type.
+    def GetDefaultValue(prop: str):
+        propType: str = ProfileHydrator._profileAttributes.get(prop)
+
+        if propType == "str": return ""
+        elif propType == "bool": return True
+        elif propType == "list[Education]": return [].append(Education()),
+        elif propType == "list[Experience]": return [].append(Experience())
+        else: return None
