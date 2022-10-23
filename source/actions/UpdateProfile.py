@@ -7,6 +7,7 @@ from helpers.ProfileHelpers import ProfileHelpers
 
 # returns the formatted string with the displays of education
 def HelpPrintEducationList(profile: Profile) -> str:
+
     if len(profile.EducationList) != 0:
         output: str = "\n"
         indexer: int = 1
@@ -15,12 +16,14 @@ def HelpPrintEducationList(profile: Profile) -> str:
             output += f"\n{indexer}) \nSchool Name: {item['SchoolName']}\nDegree: {item['Degree']}\nYears Attended: {item['YearsAttended']}\n"
             indexer += 1
         return output
+
     else:
         return ""
 
 
 # returns the formatted string with the displays of experience
 def HelpPrintExperienceList(profile: Profile) -> str:
+
     if len(profile.ExperienceList) != 0:
         output: str = "\n"
         indexer: int = 1
@@ -29,6 +32,7 @@ def HelpPrintExperienceList(profile: Profile) -> str:
             output += f"\n{indexer}) \nTitle: {item['Title']}\nEmployer: {item['Employer']}\nDate Started: {item['DateStarted']}\nDate Ended: {item['DateEnded']}\nLocation: {item['Location']}\nDescription: {item['Description']}\n"
             indexer += 1
         return output
+
     else:
         return ""
 
@@ -70,17 +74,20 @@ def ConfirmChanges(loggedUser: User, profile: Profile) -> bool:
                 else:
                     print("\nFailure! We haven't been able to update your profile at this time.\n")
                     return False
+
             elif decision == 2:
                 print("\nYour changes are successfully ignored.\n")
                 return True
+
             elif decision == -1:
                 print("\nYour changes are successfully ignored.\n")
                 return True
+
             else:
-                print("\nError! Invalid input.")
+                print("\nError! Could not confirm changes due to invalid input.")
         
         except:
-            print("\nError! Invalid input.")
+            print("\nError! Could not confirm changes due to invalid input.")
 
 
 # this function will collect data relevant to create a profile
@@ -110,18 +117,22 @@ def EditProfile(userLoggedIn: User) -> bool:
                 print("\nYou have selected to update a title")
                 title = input("Please enter your title: ")
                 profile.Title = title
+
             elif decision == 2:
                 print("\nYou have selected to update a university")
                 university = ToTitleFormat(input("Please enter your university's name: "))
                 profile.University = university
+
             elif decision == 3:
                 print("\nYou have selected to update a major")
                 major = ToTitleFormat(input("Please enter your major: "))
                 profile.Major = major
+
             elif decision == 4:
                 print("\nYou have selected to update about section")
                 about = input("Please enter about yourself: ")
                 profile.About = about
+
             elif decision == 5:
                 print("\nYou have selected to add education")
                 try:
@@ -131,11 +142,12 @@ def EditProfile(userLoggedIn: User) -> bool:
                     education.YearsAttended = int(input("Enter the years attended: "))
                     profile.EducationList.append(education)
                 except:
-                    print("\nError! Invalid input.")
+                    print("\nError! Could not add education due to invalid input.")
+
             elif decision == 6:
                 print("\nYou have selected to add experience")
                 try:
-                    if ProfileHelpers.IsProfileExpLimitMet(user=userLoggedIn):
+                    if ProfileHelpers.IsProfileExpLimitMet(profile=userLoggedIn.Profile):
                         print("\nError! You already have added 3 experiences.")
                     else: 
                         experience = Experience()
@@ -147,13 +159,14 @@ def EditProfile(userLoggedIn: User) -> bool:
                         experience.Description = input("Enter description: ")
                         profile.ExperienceList.append(experience)
                 except:
-                    print("\nError! Invalid input")
+                    print("\nError! Could not add experience due to invalid input.")
+
             elif decision == -1:
                 print("You have selected to quit.")
                 break
         
         except:
-            print("\nError! Something went wrong when trying to create a profile.")
+            print("\nError! Something went wrong when trying to update a profile.")
 
 
     return ConfirmChanges(loggedUser=userLoggedIn, profile=profile)
