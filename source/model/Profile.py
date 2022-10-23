@@ -67,7 +67,7 @@ class Profile:
     EducationList: list[Education] = field(default_factory=list)
     ExperienceList: list[Experience] = field(default_factory=list)
 
-    def HydrateProfile(profile):
+    def HydrateProfile(profile: dict):
         return Profile(
             Id = ProfileHydrator.HydrateProp(profile, "Id"),
             Title = ProfileHydrator.HydrateProp(profile, "Title"),
@@ -82,6 +82,12 @@ class Profile:
         try:
             if self == None:
                 self = Profile()
+            
+            if (self.EducationList == None):
+                self.EducationList = [Education()]
+            
+            if (self.ExperienceList == None):
+                self.ExperienceList = [Experience()]
 
             return {
                 'Id': str(self.Id),
@@ -109,14 +115,16 @@ class ProfileHydrator:
     }
 
     # Hydrates an individual property for the Profile entity.
-    def HydrateProp(profile, prop: str):
+    def HydrateProp(profile: dict, prop: str):
         if prop not in ProfileHydrator._profileAttributes.keys():
             raise Exception(f"Property {prop} not defined for entity: Profile")
         
+        propType: str = ProfileHydrator._profileAttributes.get(prop)
         value = None
         
         try:
-            value = profile.val()[prop]
+            pyreValue = profile[prop]
+            value = ProfileHydrator.CastComplexType(pyreValue, propType)
         except:
             value = ProfileHydrator.GetDefaultValue(prop)
         
@@ -124,12 +132,28 @@ class ProfileHydrator:
         
         return value
     
+    # Handles conversion to a complex type.
+    def CastComplexType(pyreValue, propType):
+        if propType == "list[Education]":
+            educationList: list[Education] = []
+            for education in pyreValue:
+                educationList.append(Education.HydrateEducation(education))
+            return educationList
+        
+        if propType == "list[Experience]":
+            educationList: list[Experience] = []
+            for experience in pyreValue:
+                educationList.append(Experience.HydrateExperience(experience))
+            return educationList
+        
+        return pyreValue
+    
     # Gets the default value for a property on the Profile entity based on its type.
     def GetDefaultValue(prop: str):
         propType: str = ProfileHydrator._profileAttributes.get(prop)
 
         if propType == "str": return ""
         elif propType == "bool": return True
-        elif propType == "list[Education]": return [].append(Education()),
-        elif propType == "list[Experience]": return [].append(Experience())
+        elif propType == "list[Education]": return [Education()],
+        elif propType == "list[Experience]": return [Experience()]
         else: return None

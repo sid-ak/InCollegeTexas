@@ -62,8 +62,8 @@ class UserHydrator:
         value = None
         
         try:
-            pyreResponse = user.val()[prop]
-            value = UserHydrator.CastComplexType(pyreResponse, propType)
+            pyreValue = user.val()[prop]
+            value = UserHydrator.CastComplexType(pyreValue, propType)
         except:
             value = UserHydrator.GetDefaultValue(prop)
         
@@ -72,12 +72,12 @@ class UserHydrator:
         return value
     
     # Handles conversion to a complex type.
-    def CastComplexType(pyreResponse, propType):
+    def CastComplexType(pyreValue, propType):
         if propType == "Profile":
-            profile: Profile = Profile.HydrateProfile(pyreResponse)
+            profile: Profile = Profile.HydrateProfile(pyreValue)
             return profile
         
-        return pyreResponse
+        return pyreValue
         
     # Gets the default value for a property on the User entity based on its type.
     def GetDefaultValue(prop: str):
