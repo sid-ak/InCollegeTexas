@@ -41,6 +41,8 @@ class ProfileHelpers:
         return " ".join(wordsFormated)
 
 
+    # Flattens a list of list of education.
+    # TODO: Investigate why we have to flatten an education list.
     def FlattenEducationList(educationList) -> list[Education]:
         try:
             educations: list[Education] = []
