@@ -1,18 +1,17 @@
 from model.Profile import Experience, Profile
-from model.User import User
 
 
 class ProfileHelpers:
     _experiencesLimit: int = 3
 
     # Checks if the maximum number of experiences have been entered for a user profile.
-    def IsProfileExpLimitMet(user: User) -> bool:
-        if user.Profile == None or user.Profile == Profile():
+    def IsProfileExpLimitMet(profile: Profile) -> bool:
+        if profile == None or profile == Profile():
             return False
 
-        experiences: list[Experience] = user.Profile.ExperienceList
+        experiences: list[Experience] = profile.ExperienceList
 
-        if  experiences == ([] or None):
+        if  experiences == None or experiences == []:
             return False
         
         return True if len(experiences) > ProfileHelpers._experiencesLimit else False
