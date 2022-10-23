@@ -15,4 +15,4 @@ class ProfileHelpers:
         if  experiences == ([] or None):
             return False
         
-        return True if len(experiences) == ProfileHelpers._experiencesLimit else False
+        return True if len(experiences) > ProfileHelpers._experiencesLimit else False
