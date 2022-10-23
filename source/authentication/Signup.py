@@ -56,14 +56,16 @@ def RegisterNewUser(collection: str="Users") -> bool:
     major = input("\nPlease enter your major: ")
     try:
         userId = UserHelpers.CreateUserId(username, password)
-        
-        userUpdated = UserHelpers.UpdateUser(User(
-            userId,
-            username,
-            firstName,
-            lastName,
-            university,
-            major), collection=collection)
+
+        userUpdated = UserHelpers.UpdateUser(
+            User(
+                Id=userId,
+                Username=username,
+                FirstName=firstName,
+                LastName=lastName,
+                University=university,
+                Major=major),
+            collection=collection)
         if userUpdated == False: raise Exception()
         
         return True
