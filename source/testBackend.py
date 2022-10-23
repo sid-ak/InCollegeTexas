@@ -182,7 +182,7 @@ def test_LogInUser():
     loggedInUser = LoginUser()
     assert loggedInUser != None
 
-# EPIC 4: Tests that no more than 10 users can sign up. (Sid)
+# EPIC 4: Tests that no more than 10 users can sign up.
 def test_UserLimit():
     # Arrange: Set collection to insert into an user limit.
     testCollection: str = "TestUsersOverLimit"
@@ -228,7 +228,7 @@ def test_UserLimit():
     for user in users:
         UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user is initialized with a list of empty friends. (Sid)
+# EPIC 4: Ensures that a user is initialized with a list of empty friends.
 def test_UserFriends_InitializedToEmpty():
     # Arrange
     username: str = "testUsername"
@@ -239,7 +239,7 @@ def test_UserFriends_InitializedToEmpty():
     # Act and Assert
     assert testUser.Friends == {}
 
-# EPIC 4: Ensures that a user has pending requests if a friend request is sent. (Sid)
+# EPIC 4: Ensures that a user has pending requests if a friend request is sent.
 def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
     # Arrange
     testCollection: str = "TestUsers"
@@ -271,7 +271,7 @@ def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
         for user in users:
             UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user can accept a friend request as expected. (Sid)
+# EPIC 4: Ensures that a user can accept a friend request as expected.
 def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
     testCollection: str = "TestUsers"
 
@@ -299,7 +299,7 @@ def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
         for user in users:
             UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user can reject a friend request as expected. (Sid)
+# EPIC 4: Ensures that a user can reject a friend request as expected.
 def test_UserFriends_RejectFriendRequest():
     testCollection: str = "TestUsers"
 
@@ -328,7 +328,7 @@ def test_UserFriends_RejectFriendRequest():
         for user in users:
             UserHelpers.DeleteUserAccount(user, testCollection)
 
-# EPIC 4: Ensures that a user can delete a friend as expected. (Sid)
+# EPIC 4: Ensures that a user can delete a friend as expected.
 def test_UserFriends_DeleteFriend():
     testCollection: str = "TestUsers"
 
