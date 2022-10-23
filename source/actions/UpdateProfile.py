@@ -105,8 +105,8 @@ def EditProfile(userLoggedIn: User) -> bool:
                         "University: " + str(profile.University), 
                         "Major: " + str(profile.Major), 
                         "About: " + str(profile.About), 
-                        "Education: " + HelpPrintEducationList(profile=profile), 
-                        "Experience: " + HelpPrintExperienceList(profile=profile)]
+                        "Education (Can add more than 1): " + HelpPrintEducationList(profile=profile), 
+                        "Experience (Can add up to 3): " + HelpPrintExperienceList(profile=profile)]
 
             MenuHelpers.DisplayOptions(options=options)
             decision = MenuHelpers.InputOptionNo()
