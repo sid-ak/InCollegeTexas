@@ -66,7 +66,6 @@ class Profile:
     About: str = "" # paragraph
     EducationList: list[Education] = field(default_factory=list)
     ExperienceList: list[Experience] = field(default_factory=list)
-    _experienceLimit = 3
 
     def HydrateProfile(profile: dict):
         return Profile(

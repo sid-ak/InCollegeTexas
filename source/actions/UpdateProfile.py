@@ -28,10 +28,39 @@ def ToTitleFormat(input: str) -> str:
     return " ".join(wordsFormated)
 
 
+# this function will push the changes to the profile to db if the user decides
+def ConfirmChanges(loggedUser: User, profile: Profile) -> bool:
+    while True:
+        try:
+            print("\nSelect if you would like to save the changes to your profile: ")
+            MenuHelpers.DisplayOptions(["Yes", "No"])
+            decision = MenuHelpers.InputOptionNo()
+
+            if decision == 1:
+                # now we try to update profile of the user
+                loggedUser.Profile = profile
+                if UserHelpers.UpdateUser(loggedUser):
+                    print("\nSuccess! You have updated your profile.\n")
+                    return True
+                else:
+                    print("\nFailure! We haven't been able to update your profile at this time.\n")
+                    return False
+            elif decision == 2:
+                print("\nYour changes are successfully ignored.\n")
+                return True
+            elif decision == -1:
+                print("\nYour changes are successfully ignored.\n")
+                return True
+            else:
+                print("\nError! Invalid input.")
+        
+        except:
+            print("\nError! Invalid input.")
+
+
 # this function will collect data relevant to create a profile
-def UpdateProfile(userLoggedIn: User) -> bool:
+def EditProfile(userLoggedIn: User) -> bool:
     profile: Profile = None
-    profileAlreadyCreated = False
 
     # if the user already has a profile, we fetch the exisitng one and update if necessary
     if ProfileExists(userLoggedIn):
@@ -39,6 +68,7 @@ def UpdateProfile(userLoggedIn: User) -> bool:
     else:
         profile = Profile()
     
+    _experiencesLimit = 3
 
     while True:
         try:
@@ -99,31 +129,6 @@ def UpdateProfile(userLoggedIn: User) -> bool:
         except:
             print("\nError! Something went wrong when trying to create a profile.")
 
-    while True:
-        try:
-            print("\nSelect if you would like to save the changes to your profile: ")
-            MenuHelpers.DisplayOptions(["Yes", "No"])
-            decision = MenuHelpers.InputOptionNo()
-
-            if decision == 1:
-                # now we try to update profile of the user
-                if ProfileHelpers.UpdateProfile(username=userLoggedIn.Username, profile=profile):
-                    print("\nSuccess! You have updated your profile.\n")
-                    return True
-                else:
-                    print("\nFailure! We haven't been able to update your profile at this time.\n")
-                    return False
-            elif decision == 2:
-                print("\nYour changes are successfully ignored.\n")
-                return True
-            elif decision == -1:
-                print("\nYour changes are successfully ignored.\n")
-                return True
-            else:
-                print("\nError! Invalid input.")
-        
-        except:
-            print("\nError! Invalid input.")
-
+    return ConfirmChanges(userLoggedIn=userLoggedIn, profile=profile)
 
     
