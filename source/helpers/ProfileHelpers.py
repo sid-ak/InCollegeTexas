@@ -16,7 +16,7 @@ class ProfileHelpers:
         if  experiences == None or experiences == []:
             return False
         
-        return True if len(experiences) == ProfileHelpers._experiencesLimit else False
+        return True if len(experiences) >= ProfileHelpers._experiencesLimit else False
 
 
     # checks if the user has a profile node
