@@ -97,9 +97,6 @@ def EditProfile(userLoggedIn: User) -> bool:
                 print("\nYou have selected to update experience")
 
                 try:
-                    if ProfileHelpers.IsProfileExpLimitMet(profile=userLoggedIn.Profile):
-                        raise Exception("\nError! You can only enter a maximum of 3 experiences.")
-                    
                     experienceList: list[Experience] = ProfileHelpers.UpdateExperience(
                         profile.ExperienceList)
                     profile.ExperienceList = experienceList
