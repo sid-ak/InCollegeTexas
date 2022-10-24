@@ -1,3 +1,641 @@
+commit ef01cb40a6c3f60436d047dfe1ff50a1906ae6ff
+Merge: e31c9da b2b6bd6
+Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
+Date:   Sun Oct 23 22:53:26 2022 -0400
+
+    Merge pull request #67 from sid-ak/IN-47-Frontend-Testing-Updated
+    
+    added title case check
+
+commit b2b6bd6d50071b37c12d108a2bf4737f2c29f930
+Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
+Date:   Sun Oct 23 22:51:42 2022 -0400
+
+    added title case check
+
+commit e31c9da686861772ceebff8e1f9c72c60813fc18
+Merge: 07be70f 6d66e2c
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 23 22:41:28 2022 -0400
+
+    Merge pull request #64 from sid-ak/IN-44-View-A-Profile
+    
+    In 44 view a profile
+
+commit 6d66e2c1485debc69f2ed144f9c450dd3c751011
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 22:40:04 2022 -0400
+
+    IN-44: Minor fixes to frontend. Tests still failing.
+
+commit efb7e42f792d8e381bcb123ae1bcd74b0df2be88
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 22:35:42 2022 -0400
+
+    fix on the print argument issues
+
+commit 07094d8a8c1361b37c68fc42681b0836a74def2b
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 22:33:37 2022 -0400
+
+    fix on the prints
+
+commit 091b8726c73d25b49c9dc2495cb603f6c23ff1d6
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 22:31:18 2022 -0400
+
+    fix on the argument users: some maybe None value
+
+commit 25e03cebce1a387887cbc77e9c8af27f65964db0
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 22:28:04 2022 -0400
+
+    refreshed the passed as argument user in the View Profile method
+
+commit 07be70f9abc16db22a4b20bf48b9b6e7172e64f8
+Merge: 94a6c89 b7b527d
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 23 21:12:24 2022 -0400
+
+    Merge pull request #65 from sid-ak/IN-43-Exp-Limit-Fix-Frontend
+    
+    IN-43: Updated the exp limit check on the frontend.
+
+commit b7b527d5f482795336b7102e5cd2a4eadac4beb8
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 21:09:14 2022 -0400
+
+    IN-43: Updated the exp limit check on the frontend.
+
+commit 0fd781bfe72d20a030c4b28a81dfda3707dcb08f
+Merge: b966180 94a6c89
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 20:35:08 2022 -0400
+
+    Merge branch 'main' into IN-44-View-A-Profile
+
+commit 94a6c89663d478abb4a5a4ef9c3a8cc1f880601e
+Merge: 6a8f12d b22b0cd
+Author: Amir Aslamov <amiraslamov@usf.edu>
+Date:   Sun Oct 23 20:31:01 2022 -0400
+
+    Merge pull request #57 from sid-ak/IN-43-Update-Profile-Experience
+    
+    In 43 update profile experience
+
+commit b22b0cd9fb71aacc6e8b972c62f28e5123263fc5
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 20:26:33 2022 -0400
+
+    IN-43: Reverted limit exp check.
+
+commit f18c905d9b4eafb3739ac8ce0905777e25ac1c39
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 20:10:31 2022 -0400
+
+    fix on the experience limit check
+
+commit dbf2cdb891759ae9c34dbc6818843b6f484731e7
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 20:00:19 2022 -0400
+
+    fix on the experiences limit check
+
+commit 5e060ccb25dcc8f19df3d45b3198e28a49b83f73
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 19:42:43 2022 -0400
+
+    IN-43: Update profile exp comments.
+
+commit 86457f8ca675406e52a47b9f2594c6c368f7d990
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 19:37:39 2022 -0400
+
+    IN-43: Moved code into ProfileHelpers from UpdateProfile, maintained an exception trace, fixed and simplified logic related adding/editing Educations/Experiences.
+
+commit 0f47662cbb806394bc943c024e1ca1be485d634c
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 19:35:57 2022 -0400
+
+    IN-43: Minor variable rename in Profile.py.
+
+commit 006644181934f1e4c312946af91f38e29790a3ff
+Merge: c82db1d 6a8f12d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 18:07:14 2022 -0400
+
+    Merge branch 'main' into IN-43-Update-Profile-Experience
+
+commit 6a8f12d5f1e3bc37979a27e9015f52c2ff66ef37
+Merge: 86d3e27 1fed530
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 23 18:05:41 2022 -0400
+
+    Merge pull request #62 from sid-ak/IN-46-Test-Profile
+    
+    IN-46: Test Profile
+
+commit b96618028702d267ca39fc61f65a275eaa9250d5
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 23 17:52:53 2022 -0400
+
+    - updated ViewProfile to work in showNetwork as well as show my profile.
+    -NOTE: buggy with a new user who doesn't have and Edu or Exp list. handled with try and except
+
+commit c82db1d0f79112483146bf40c6ed2f2422ab7f63
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 16:47:59 2022 -0400
+
+    fixed some modularity issues - feedback changes
+
+commit 1fed5300de85e30b096823d6e58bf7f8f144c461
+Merge: e26edf6 86d3e27
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 16:26:04 2022 -0400
+
+    Merge branch 'main' into IN-46-Test-Profile
+
+commit cde931149d36ff3d361ad06b1ccd0b0b9e464c97
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 16:18:57 2022 -0400
+
+    added helper functions to edit education and experience objects individually
+    
+    1. edited the logic to include addition as well as edition of education and experience on profile
+    2. created helper methods to help with individual, attribute-level updates on both operations
+
+commit 86d3e274314da4721c427fcff2db84d2570076ce
+Merge: 9404553 a99863f
+Author: obasit7 <87975115+obasit7@users.noreply.github.com>
+Date:   Sun Oct 23 15:44:16 2022 -0400
+
+    Merge pull request #63 from sid-ak/Maintenance/CreateUserFix
+    
+    Maintenance/UserCreation
+
+commit a99863f5d9a1e151558e2f6227de86cf244813b5
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sun Oct 23 15:40:57 2022 -0400
+
+    fixed user creation by assigning the correct User class values in Signup.py
+
+commit e26edf64e7d8909c0f91f1c37eb0ccc4cc61692f
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 15:34:07 2022 -0400
+
+    IN-46: More cleanup.
+
+commit ebfdf87d199d7a7268a3d77f992037a6f1010dbc
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 15:33:04 2022 -0400
+
+    IN-46: Cleanup.
+
+commit 15d098263091c5725b081acfa7fe4caa893c868c
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 15:27:15 2022 -0400
+
+    created the helper function to edit individual attributes of education
+
+commit bb1f4323009e1a0164fcc181005e699d464f2624
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 15:26:22 2022 -0400
+
+    IN-46: Removed an unused import.
+
+commit e23d24b832ac349531bbb0409c2145e8e0e1328b
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 15:24:15 2022 -0400
+
+    IN-46: Added a test to verify a user can edit a profile as expected.
+
+commit 83df2830cb67a9c7f27ffbfa59e9fd1eaf39e790
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 14:37:00 2022 -0400
+
+    some feedback fix changes
+
+commit 3b7c86ac2a4bb022bcc9413a97bc9d763fdfbf51
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 14:28:14 2022 -0400
+
+    initial set up
+
+commit c69d56a49e4ea7735305c6be2b00cb6910a1ab8e
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 14:24:06 2022 -0400
+
+    removed unnecessary imports
+
+commit 4e0c6929ca30999272dacdfe6995a110a82081c4
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 14:23:09 2022 -0400
+
+    removed the unnecessary import
+
+commit 8e5b075d325709de4900bd56b9af14b24156615f
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 14:22:41 2022 -0400
+
+    fixed the import bug
+
+commit ec2df6e4c5d02d683952808ecc3bb8836e4a4ba9
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:17:13 2022 -0400
+
+    IN-46: Somehow this branch got merged and this is to fix that.
+
+commit ebc415a27ad0c32ea75bb56db71388e485e85755
+Merge: 1e3228c 9404553
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 14:13:12 2022 -0400
+
+    Merge branch 'main' into IN-43-Update-Profile-Experience
+
+commit 94045536d9169f69714aa247396e87816c73e94d
+Merge: df9890d cd84c90
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:11:35 2022 -0400
+
+    Merge pull request #61 from sid-ak/IN-43-Exp-Limit-Changes
+    
+    IN-43 Experience Limit Changes
+
+commit cd84c90788873254c778ac9e54b53df0e713cfd0
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:10:53 2022 -0400
+
+    IN-43: Removed errnoeous changes from a test branch - Part 3: Trilogy Finale.
+
+commit 2aa17f1b6e877b608c4ac17e44f336631230e5b1
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:10:16 2022 -0400
+
+    IN-43: Removed errnoeous changes from a test branch - Part 2.
+
+commit 87aac75040622dc2fb83cfe3c46346e8dbabf8e9
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:09:33 2022 -0400
+
+    IN-43: Removed errnoeous changes from a test branch.
+
+commit 4f039ac5014a4ba89ff0b19399462fa0ee4f56d6
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:02:05 2022 -0400
+
+    IN-43: Minor fix in UpdateUser based on latest change.
+
+commit 7f78f6d938b05663a34883826c5814200e920b53
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 14:00:30 2022 -0400
+
+    IN-43: Checked max limit on the profile object instead of user based on @aslamovamir's suggestion.
+
+commit 1e3228c304eec37ead6920e1987db64aafb64d34
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 13:59:15 2022 -0400
+
+    called the isExperienceLimitMet method from ProfileHelpers
+
+commit 69413c6c2d66dcbefab366769c4b2740d18cafc6
+Merge: 854b9a7 df9890d
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 13:49:36 2022 -0400
+
+    Merge branch 'main' into IN-43-Update-Profile-Experience
+
+commit df9890de0c16897e981681b42f55dc23dc76f343
+Merge: fe00105 34c97f2
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:48:25 2022 -0400
+
+    Merge pull request #60 from sid-ak/IN-43-Experiences-Limit
+    
+    IN-43: Experiences Limit
+
+commit 427ae299bcfd89fdd1c67036d023cb3386d7a99f
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:44:01 2022 -0400
+
+    IN-46: Fixed some minor bugs in the profile exp limit check.
+
+commit 854b9a732859648c1d7ec60618f27e4dde210a2a
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 13:40:31 2022 -0400
+
+    added an explicit indication to the user that they can add more than one education and experience
+
+commit 143a9b86d3d6d393a78a9380f8d96d8688d221ea
+Merge: d59c2ea 34c97f2
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:38:43 2022 -0400
+
+    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+
+commit 34c97f2e985ab4a1f5fff166a933d22f6e41077e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:38:25 2022 -0400
+
+    IN-43: Changed the check if greated that profile experiences limit is being updated instead of equal.
+
+commit 28170fbc5ceac96f47ef6a8d3a0a9b55b0d9697c
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 13:36:25 2022 -0400
+
+    created 2 functions to help with the printing of education and experience lists
+
+commit d59c2eaeebee1869c24995eb40fda3f6beec75d1
+Merge: c9e46d4 289f66f
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:30:57 2022 -0400
+
+    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+
+commit 289f66f004a596bb0d1e5d1b8ee501752a5d03bc
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:30:39 2022 -0400
+
+    IN-43: Fixed the limit checks to look for empty lists and NoneTypes correctly.
+
+commit c9e46d417349836d899643cacf15995c83bc42de
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:28:29 2022 -0400
+
+    IN-46: Added a test to verify max profile exp limit.
+
+commit f526126af266fc1215d955ea2bf8199703ba5bd6
+Merge: 288316a 3321cde
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:02:07 2022 -0400
+
+    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+
+commit 3321cdeb32c313091e3341ed3c9a806b6afec1f1
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 13:01:30 2022 -0400
+
+    IN-43: Made the exp limit check in the UpdateUser method.
+
+commit 288316acea8013b37a314e55dac7c9ecc5939540
+Merge: 4919928 ce1542f
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 12:58:18 2022 -0400
+
+    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+
+commit ce1542fe8aa14f27fc775101b274c154301e8d8e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 12:57:46 2022 -0400
+
+    IN-43: Added a check for max profile experiences limit.
+
+commit 4919928a16686a50360e7b3e769e9ab1ff962a55
+Merge: 8602b61 fe00105
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 12:42:33 2022 -0400
+
+    Merge branch 'main' into IN-46-Test-Profile
+
+commit 47155bfbdea1d631e5879869613215f42ea395d0
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 12:38:41 2022 -0400
+
+    fix on the ConfirmChanges method call
+
+commit a91a356d8f13cf0bfe59d29494b1581d1b0dcf78
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 12:16:57 2022 -0400
+
+    more on feedback changes
+
+commit adfc74134f38eacd77374fa4d87f8b06486071fc
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 12:06:31 2022 -0400
+
+    more feedback changes
+
+commit 2614537eda7b2f85657327efac9c354d10e110e7
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 11:48:44 2022 -0400
+
+    feddback changes
+
+commit 4d16e485a30709b39ef28fb4c50cd84744dbb06e
+Merge: 0a838ab fe00105
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sun Oct 23 11:26:20 2022 -0400
+
+    Merge branch 'main' into IN-43-Update-Profile-Experience
+
+commit fe00105bea1415aec086881541c2184af0130e3e
+Merge: 3f12f17 5871cd9
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 23 11:18:00 2022 -0400
+
+    Merge pull request #58 from sid-ak/IN-42-Profile-Improvements
+    
+    IN-42: Profile Improvements
+
+commit 8602b617370a28cb560a3558653d421c6e52db97
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 04:11:46 2022 -0400
+
+    IN-46: Added a test that ensures the user can create a profile as expected.
+
+commit 5871cd9ee4341c677a137e142308dccbc923105d
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 04:02:34 2022 -0400
+
+    IN-42: Finishing touches to serialize better.
+
+commit fbb87b001f87281b260d1fb5cedf8fc7449867eb
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 23 01:07:23 2022 -0400
+
+    IN-42: Fixed and improved the serialization/derserialization of the
+    Profile entity.
+
+commit 0a838ab45ff0845de9cfb68d7ebf55daa4979991
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Oct 22 20:50:08 2022 -0400
+
+    modified the CreateProfile function to update function
+
+commit 677d04056f85c61c0820e089e659b282657500bb
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Oct 22 18:11:13 2022 -0400
+
+    completed the creation of a profile
+
+commit 2f40befdb47e69cdb96df2512a6180fb0504fdc2
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Oct 22 17:40:33 2022 -0400
+
+    added the helper method to check if the user already created a profile
+
+commit 7f2308bef7e226be2c282818856fe0a0f29253e2
+Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
+Date:   Sat Oct 22 17:09:54 2022 -0400
+
+    created a create-profile function with the necessary helpers
+
+commit 3f12f17eee2b7ca308df91d6e19d7df521776a3a
+Merge: 9edc8a3 a9d0b8f
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Oct 22 15:45:45 2022 -0400
+
+    Merge pull request #56 from sid-ak/IN-42-Circ-Dependency-Fix
+    
+    IN-42: Circular Dependency Fix
+
+commit a9d0b8f3dd6d4b93a122f7d75d22e2008bf7eeeb
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 22 15:41:07 2022 -0400
+
+    IN-42: Added the new ProfileHelpers.py file.
+
+commit 38f2ebc8b8753f359194ddcf9ad0fedc926fd029
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 22 15:40:32 2022 -0400
+
+    IN-42: Moved ProfileHelpers to its own file.
+
+commit 9edc8a3383caa687ca47f5afd1666553a573314f
+Merge: 2e18f51 bcb70dc
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Oct 22 14:59:24 2022 -0400
+
+    Merge pull request #55 from sid-ak/IN-42-User-Profile-Update
+    
+    IN-42: User Profile Update
+
+commit 2e18f5122e5223cf46527cad8c623d401bd1676a
+Merge: ea2b169 9dda7eb
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sat Oct 22 14:59:12 2022 -0400
+
+    Merge pull request #53 from sid-ak/IN-42/ProfileModel
+    
+    IN-42/ProfileModels
+
+commit bcb70dc360e0fe853fdddee31b5b729060e502ec
+Merge: a56a5cb ea2b169
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 22 10:29:10 2022 -0400
+
+    Merge branch 'main' into IN-42-User-Profile-Update
+
+commit a56a5cb80e6d4335e9074795add3dfc498d0c003
+Merge: 67fe2aa 9dda7eb
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sat Oct 22 10:28:54 2022 -0400
+
+    Merge branch 'IN-42/ProfileModel' into IN-42-User-Profile-Update
+
+commit 9dda7eb962732c30fb9b83ebfac72c325f62830a
+Author: obasit7 <basitosama@gmail.com>
+Date:   Sat Oct 22 01:06:23 2022 -0400
+
+    added GetProfile function that takes User class input and returns it's corresponding DB Profile value.
+    Also added ProfileHelper UpdateProfile that takes username and Profile object to update profile in DB.
+    Added other functions to return class objects of themselves from dictionary that is returned from Firebase response
+
+commit 67fe2aa7afa03060185fbc8a0d32e98f2376eb87
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Oct 21 00:39:50 2022 -0400
+
+    IN-42: Implemented a way to safely hydrate a user without breaking if the data model in the DB changes.
+
+commit 657a0f15edce978f390e4da790139cff931c4e2e
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Oct 21 00:38:42 2022 -0400
+
+    IN-42: Updated code with the new modularized helpers.
+
+commit 5bcaaeaed0166bf86627c89232b8454af95450bc
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Fri Oct 21 00:37:40 2022 -0400
+
+    IN-42: Modularized user helpers.
+
+commit ea2b16932d1ea08782ee048ec31241e82d2d9033
+Merge: bae10bc 46a9b23
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Thu Oct 20 23:10:52 2022 -0400
+
+    Merge pull request #54 from sid-ak/MigrationHistory
+    
+    Migration_10/20/2022
+
+commit 46a9b233cd79a087398f561651a201824d5b4c44
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 20 23:10:16 2022 -0400
+
+    Migration_10/20/2022
+
+commit 91496599fe1c05567abe13580dcfa71e7aec8e64
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Thu Oct 20 23:03:30 2022 -0400
+
+    IN-42: Removed the import of User into Profile.
+
+commit 1470414c4c4a9dbb1902bf883c9b19135bdefcc7
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 21:59:48 2022 -0400
+
+    removed UserHelpers
+
+commit 2eb163d71ab32dbe87077124d408350f9a936896
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 21:47:41 2022 -0400
+
+    out of commit captions but its a small change
+
+commit 8c6e55e5a0874d3607e0abf434d442c823feea64
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 21:37:07 2022 -0400
+
+    added list name to education and experience
+
+commit 024e189b48dbe5336c14c755294ec0c8f0f0c90a
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 21:34:28 2022 -0400
+
+    additional details added
+
+commit bb5aa4b20c59f739cd3724998cd9da4ac965747f
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 21:07:23 2022 -0400
+
+    cleanup
+
+commit 78fb25b56a1d6225926f22c4ecb6cf28e2330b9a
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 21:02:42 2022 -0400
+
+    final Profile class push
+
+commit 224b1790d9fd0840e3f1c5e5c74feaf26fd60908
+Author: obasit7 <basitosama@gmail.com>
+Date:   Thu Oct 20 20:38:18 2022 -0400
+
+    added Profile class and useful methods
+
+commit bae10bcd0236709ed34461af87a785c076303b62
+Merge: ec5eb6f b3dbcc2
+Author: Sid Anandkumar <sidharthak25@gmail.com>
+Date:   Sun Oct 16 22:22:27 2022 -0400
+
+    Merge pull request #52 from sid-ak/Update-History
+    
+    Updated history.txt 10/16/2022
+
+commit b3dbcc26d623882db596370b1c90946b36258e55
+Author: sid-ak <sidharthak25@gmail.com>
+Date:   Sun Oct 16 22:20:27 2022 -0400
+
+    Updated history.txt 10/16/2022
+
 commit ec5eb6f07d87d2e9a2210bfca3e588b040cfac53
 Merge: e9885cd 242ce75
 Author: Sid Anandkumar <sidharthak25@gmail.com>
