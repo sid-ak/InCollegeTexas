@@ -100,6 +100,8 @@ class Profile:
             }
         except Exception as e:
             print(f"Could not convert a Profile entity to a dictionary object.\n{e}")
+        
+
 
 class ProfileHydrator:
 
@@ -141,10 +143,10 @@ class ProfileHydrator:
             return educationList
         
         if propType == "list[Experience]":
-            educationList: list[Experience] = []
+            experienceList: list[Experience] = []
             for experience in pyreValue:
-                educationList.append(Experience.HydrateExperience(experience))
-            return educationList
+                experienceList.append(Experience.HydrateExperience(experience))
+            return experienceList
         
         return pyreValue
     
