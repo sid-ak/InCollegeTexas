@@ -1,5 +1,3 @@
-from io import StringIO
-import sys
 from authentication.Signup import ValidatePassword
 from actions.LearnNewSkill import DisplaySkills
 from actions.FindSomeone import FindSomeoneAction
@@ -11,9 +9,7 @@ from actions.ShowMyNetwork import ShowMyNetwork
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
-from model.User import User, UserHelpers
-
-
+from helpers.UserHelpers import UserHelpers
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
