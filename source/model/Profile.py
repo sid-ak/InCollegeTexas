@@ -143,10 +143,10 @@ class ProfileHydrator:
             return educationList
         
         if propType == "list[Experience]":
-            educationList: list[Experience] = []
+            experienceList: list[Experience] = []
             for experience in pyreValue:
-                educationList.append(Experience.HydrateExperience(experience))
-            return educationList
+                experienceList.append(Experience.HydrateExperience(experience))
+            return experienceList
         
         return pyreValue
     
