@@ -7,6 +7,7 @@ from actions.SearchUsers import SearchUsers,FriendRequest
 from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.ShowMyNetwork import ShowMyNetwork
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
+from helpers.ProfileHelpers import ProfileHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
@@ -374,4 +375,10 @@ def test_ShowYourNetwork():
                     "Unexpected error ocurred\n"
                     ]
 
+# checking if university and major are displayed in title case
+def test_TitleCaseUniversity():
+  output = ProfileHelpers.ToTitleFormat("university of south florida")
+  assert output == "University Of South Florida"
 
+  output = ProfileHelpers.ToTitleFormat("computer science")
+  assert output == "Computer Science"
