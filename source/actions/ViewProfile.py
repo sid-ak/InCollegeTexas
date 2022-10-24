@@ -31,7 +31,7 @@ def printProfile(user: User):
     print(f"\n{user.FirstName} {user.LastName}")
     print("Title: ", user.Profile.Title)
     print("University: ", user.Profile.University)
-    print("Major: ", user.Profile.University)
+    print("Major: ", user.Profile.Major)
     print("About: ", user.Profile.About)
     try:
         index = 1
