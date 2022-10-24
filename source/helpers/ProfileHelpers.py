@@ -287,6 +287,9 @@ class ProfileHelpers:
     # Adds an experience to the specified experience list using user input.
     def AddExperience(experienceList: list[Experience]) -> list[Experience]:
         try:
+            if len(experienceList) == 3:
+                raise Exception("\nError! You can only enter a maximum of 3 experiences.")
+            
             experience = Experience()
             experience.Title = ProfileHelpers.ToTitleFormat(input("Enter title: "))
             experience.Employer = ProfileHelpers.ToTitleFormat(input("Enter Employer: "))
