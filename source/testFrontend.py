@@ -431,14 +431,73 @@ def test_ViewOwnProfile():
   output = get_display_output()
   print(output)
 
-
 # Ensure that a user can see the profiles of their friends
-def test_ViewFriendProfileNoProfile():
-  profile_own = test_UserProfile_EditProfile()
-  profile_friend = test_UserProfile_EditProfile()
-  ViewProfile(profile_own, profile_friend)
+def test_ViewFriendProfile():
+  # create a dummy User object
+  userTest = User(Id="TestID", Username="TestUsername")
+  userTest.FirstName = "FirstName"
+  userTest.LastName = "LastName"
+
+  # create a dummy profile object and insert into the user object
+  profileTest = Profile()
+  profileTest.About = "A very testy test tested on thousand tests."
+  profileTest.Title = "TestTitle"
+  profileTest.Major = "TestMajor"
+  profileTest.University = "TestUniversity"
+  
+  # create a dummy education object and add to the dummy User object
+  educationTest = Education()
+  educationTest.SchoolName = "TestSchool"
+  educationTest.Degree = "TestDegree"
+  educationTest.YearsAttended = "TestYears"
+  profileTest.EducationList.append(educationTest)
+
+  # create a dummy experience object and add to the dummy User object
+  experienceTest = Experience()
+  experienceTest.Title = "TestTitleExperience"
+  experienceTest.Employer = "TestEmployer"
+  experienceTest.DateStarted = "TestStarted"
+  experienceTest.DateEnded = "TestEnded"
+  experienceTest.Location = "TestLocation"
+  experienceTest.Description = "TestDescription"
+  profileTest.ExperienceList.append(experienceTest)
+
+  userTest.Profile = profileTest
+
+
+
+  # create a dummy Friend object
+  userTestFriend = User(Id="TestID2", Username="TestUsername2")
+  userTestFriend.FirstName = "FirstName"
+  userTestFriend.LastName = "LastName"
+
+  # create a dummy profile object and insert into the user object
+  profileTest = Profile()
+  profileTest.About = "A very testy test tested on thousand tests."
+  profileTest.Title = "TestTitle"
+  profileTest.Major = "TestMajor"
+  profileTest.University = "TestUniversity"
+  
+  # create a dummy education object and add to the dummy User object
+  educationTest = Education()
+  educationTest.SchoolName = "TestSchool"
+  educationTest.Degree = "TestDegree"
+  educationTest.YearsAttended = "TestYears"
+  profileTest.EducationList.append(educationTest)
+
+  # create a dummy experience object and add to the dummy User object
+  experienceTest = Experience()
+  experienceTest.Title = "TestTitleExperience"
+  experienceTest.Employer = "TestEmployer"
+  experienceTest.DateStarted = "TestStarted"
+  experienceTest.DateEnded = "TestEnded"
+  experienceTest.Location = "TestLocation"
+  experienceTest.Description = "TestDescription"
+  profileTest.ExperienceList.append(experienceTest)
+
+  userTestFriend.Profile = profileTest
+
+  # call the ViewProfile function and capture output
+  ViewProfile(loggedUser=userTest, userToSearch=userTestFriend)
   output = get_display_output()
-  #assert output == 
-
-
-test_ViewOwnProfile()
+  print(output)
