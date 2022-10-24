@@ -1,12 +1,36 @@
 from model.User import User, Profile
+from firebaseSetup.Firebase import database
+from helpers.UserHelpers import UserHelpers
+
+
+# this function will help with refreshing the passed User object with the updated DB User node
+def HelpRefreshUser(userPassed: User) -> User:
+    try:
+        allUsers: list[User] = UserHelpers.GetAllUsers(collection="Users")
+        for user in allUsers:
+            if userPassed.Id == user.Id:
+                return user
+    except:
+        return None
 
 
 # non-return function to print the profile of a user
 def ViewProfile(loggedUser: User, userToSearch: User = None):
+    # we can safely assume that only the username and password if the passed user objects will remain the same
+    # during the program execution, while some other nodes may be updated in Firebase
+    refreshedLoggedUser = HelpRefreshUser(userPassed=loggedUser)
+    if refreshedLoggedUser == None:
+        refreshedLoggedUser = loggedUser
+    
+    refreshedUserToSearch = HelpRefreshUser(userPassed=userToSearch)
+    if refreshedUserToSearch == None:
+        refreshedUserToSearch = userToSearch
+
     if not userToSearch:
-        printProfile(loggedUser)
+        printProfile(refreshedLoggedUser)
     else:
-        printProfile(userToSearch)
+        printProfile(refreshedUserToSearch)
+
 
 def printProfile(user: User):
     print(f"\n{user.FirstName} {user.LastName}")
