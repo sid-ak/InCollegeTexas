@@ -406,30 +406,24 @@ def test_ViewOwnProfile():
   profileTest.Title = "TestTitle"
   profileTest.Major = "TestMajor"
   profileTest.University = "TestUniversity"
-  
-  # create a dummy education object and add to the dummy User object
-  educationTest = Education()
-  educationTest.SchoolName = "TestSchool"
-  educationTest.Degree = "TestDegree"
-  educationTest.YearsAttended = "TestYears"
-  profileTest.EducationList.append(educationTest)
-
-  # create a dummy experience object and add to the dummy User object
-  experienceTest = Experience()
-  experienceTest.Title = "TestTitleExperience"
-  experienceTest.Employer = "TestEmployer"
-  experienceTest.DateStarted = "TestStarted"
-  experienceTest.DateEnded = "TestEnded"
-  experienceTest.Location = "TestLocation"
-  experienceTest.Description = "TestDescription"
-  profileTest.ExperienceList.append(experienceTest)
 
   userTest.Profile = profileTest
 
   # call the ViewProfile function and capture output
+  set_keyboard_input(["10"])
   ViewProfile(loggedUser=userTest)
   output = get_display_output()
-  print(output)
+  #print(output)
+  if output == ['\nFirstName LastName',
+                'Title: TestTitle',
+                'University: TestUniversity',
+                'Major: TestMajor',
+                'About: A very testy test tested on thousand tests.',
+                'Education: No education to show',
+                'Experience #1:'
+                'Title: N/A', 'Employer: N/A', 'Start Date: N/A', 'End Date: N/A', 'Description: N/A']:
+    assert True
+
 
 # Ensure that a user can see the profiles of their friends
 def test_ViewFriendProfile():
@@ -444,26 +438,8 @@ def test_ViewFriendProfile():
   profileTest.Title = "TestTitle"
   profileTest.Major = "TestMajor"
   profileTest.University = "TestUniversity"
-  
-  # create a dummy education object and add to the dummy User object
-  educationTest = Education()
-  educationTest.SchoolName = "TestSchool"
-  educationTest.Degree = "TestDegree"
-  educationTest.YearsAttended = "TestYears"
-  profileTest.EducationList.append(educationTest)
-
-  # create a dummy experience object and add to the dummy User object
-  experienceTest = Experience()
-  experienceTest.Title = "TestTitleExperience"
-  experienceTest.Employer = "TestEmployer"
-  experienceTest.DateStarted = "TestStarted"
-  experienceTest.DateEnded = "TestEnded"
-  experienceTest.Location = "TestLocation"
-  experienceTest.Description = "TestDescription"
-  profileTest.ExperienceList.append(experienceTest)
 
   userTest.Profile = profileTest
-
 
 
   # create a dummy Friend object
@@ -477,27 +453,20 @@ def test_ViewFriendProfile():
   profileTest.Title = "TestTitle"
   profileTest.Major = "TestMajor"
   profileTest.University = "TestUniversity"
-  
-  # create a dummy education object and add to the dummy User object
-  educationTest = Education()
-  educationTest.SchoolName = "TestSchool"
-  educationTest.Degree = "TestDegree"
-  educationTest.YearsAttended = "TestYears"
-  profileTest.EducationList.append(educationTest)
-
-  # create a dummy experience object and add to the dummy User object
-  experienceTest = Experience()
-  experienceTest.Title = "TestTitleExperience"
-  experienceTest.Employer = "TestEmployer"
-  experienceTest.DateStarted = "TestStarted"
-  experienceTest.DateEnded = "TestEnded"
-  experienceTest.Location = "TestLocation"
-  experienceTest.Description = "TestDescription"
-  profileTest.ExperienceList.append(experienceTest)
 
   userTestFriend.Profile = profileTest
 
   # call the ViewProfile function and capture output
+  set_keyboard_input(["8", "1"])
   ViewProfile(loggedUser=userTest, userToSearch=userTestFriend)
   output = get_display_output()
-  print(output)
+  #print(output)
+  if output == ['\nFirstName LastName',
+                'Title: TestTitle',
+                'University: TestUniversity',
+                'Major: TestMajor',
+                'About: A very testy test tested on thousand tests.',
+                'Education: No education to show',
+                'Experience #1:'
+                'Title: N/A', 'Employer: N/A', 'Start Date: N/A', 'End Date: N/A', 'Description: N/A']:
+    assert True
