@@ -29,10 +29,10 @@ def ViewProfile(loggedUser: User, userToSearch: User = None):
 
 def printProfile(user: User):
     print(f"\n{user.FirstName} {user.LastName}")
-    print("Title: ", user.Profile.Title)
-    print("University: ", user.Profile.University)
-    print("Major: ", user.Profile.Major)
-    print("About: ", user.Profile.About)
+    print("Title: " + user.Profile.Title)
+    print("University: " + user.Profile.University)
+    print("Major: " + user.Profile.Major)
+    print("About: " + user.Profile.About)
     try:
         index = 1
         for education in user.Profile.EducationList:
