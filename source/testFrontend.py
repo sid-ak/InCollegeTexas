@@ -109,8 +109,8 @@ def test_UsefulLinksDisplay():
                      "\nEnter (-1 to exit current menu): "]
 
 def test_GeneralSetting():
-    set_keyboard_input(["1", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 1, None)
+    set_keyboard_input(["1", "o", "o", "-1"])
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
     assert output == ["\nPlease select one of the following links to display its content:",
                         "1 - Sign Up",
@@ -120,15 +120,25 @@ def test_GeneralSetting():
                         "5 - Blog",
                         "6 - Careers",
                         "7 - Developers",
+                        "\nEnter (-1 to exit current menu): ",
                         "\nSignup Selected.",
                         "\nPlease enter your username: ",
                         "\nPlease enter your password: ",
                         "\nError! Your password does not meet one or some of the standards!",
-                        "\nFailure! We have not been able to create a new account for you."
+                        "\nFailure! We have not been able to create a new account for you.",
+                        "\nPlease select one of the following links to display its content:",
+                        "1 - Sign Up",
+                        "2 - Help Center",
+                        "3 - About",
+                        "4 - Press",
+                        "5 - Blog",
+                        "6 - Careers",
+                        "7 - Developers",
+                        "\nEnter (-1 to exit current menu): "
                       ]
 
     set_keyboard_input(["2", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 2, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
     assert output == ["\nPlease select one of the following links to display its content:",
                         "1 - Sign Up",
@@ -138,77 +148,142 @@ def test_GeneralSetting():
                         "5 - Blog",
                         "6 - Careers",
                         "7 - Developers",
-                        "\nWe're here to help"
+                        "\nEnter (-1 to exit current menu): ",
+                        "\nWe're here to help",
+                        "\nPlease select one of the following links to display its content:",
+                        "1 - Sign Up",
+                        "2 - Help Center",
+                        "3 - About",
+                        "4 - Press",
+                        "5 - Blog",
+                        "6 - Careers",
+                        "7 - Developers",
+                        "\nEnter (-1 to exit current menu): "
                       ]
 
     set_keyboard_input(["3", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 3, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "\nIn College:\nWelcome to In College, the world's largest college student network\nwith many users in many countries and territories worldwide"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\n'
+                         'In College:\n'
+                         "Welcome to In College, the world's largest college student network\n"
+                         'with many users in many countries and territories worldwide',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["4", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 4, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "\nIn College Pressroom:\nStay on top of the latest news, updates, and reports"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\n'
+                         'In College Pressroom:\n'
+                         'Stay on top of the latest news, updates, and reports',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["5", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 5, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "under construction"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         'under construction',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["6", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 6, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "under construction"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         'under construction',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["7", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 7, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "under construction"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         'under construction',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
 def test_SearchUsersLastName():
