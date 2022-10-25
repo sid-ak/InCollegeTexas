@@ -28,7 +28,7 @@ class Job:
             )
 
 class JobHelpers:
-    _jobLimit: int = 5
+    _jobLimit: int = 10
 
     # Converts this entity into a dictionary.
     def JobToDict(job: Job) -> dict:
