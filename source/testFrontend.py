@@ -19,7 +19,6 @@ def test_PlayVideo(capfd):
     out, err = capfd.readouterr()
     assert out == "Video is now playing!\n"
 
-
 # Tests below worked on for EPIC 1 - 9/19/22 by Anshika
 def test_ValidatePassword():
     good_pwd = ["Test123@", "Testing1234@"]
@@ -30,13 +29,11 @@ def test_ValidatePassword():
     for pwd in bad_pwd:
         assert ValidatePassword(pwd) == False
 
-
 def test_DisplaySkills(capfd):
     skills = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
     DisplaySkills(skills)
     out, err = capfd.readouterr()
     assert out == "1. Communication\n2. Marketing\n3. Python Programming\n4. Web Development\n5. Public Speaking\n"
-
 
 def test_FindSomeone(capfd):
     FindSomeoneAction()
@@ -298,7 +295,8 @@ def test_SearchUsersLastName():
                     "\nEnter (-1 to exit current menu): ",
                     "You have selected to search by last name.\nEnter the last name of the user you want to search for: ",
                     "Unexpected error ocurred\n",
-                  ]
+                    ]
+
 def test_SearchUsersLastName2():
   set_keyboard_input(["1", "Bhowmick"])
   SearchUsers()
@@ -391,7 +389,6 @@ def test_SearchUsersMajor():
                     "Unexpected error ocurred\n"
                   ]
   UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
-
 
 def test_sendFriendRequest():
   set_keyboard_input(["1", "-1"])
