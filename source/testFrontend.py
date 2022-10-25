@@ -314,7 +314,6 @@ def test_SearchUsersLastName2():
                     "\nEnter (-1 to exit current menu): ",
                     "Unexpected error ocurred\n"
                   ]
-  
 
 def test_SearchUsersUniversity():
   set_keyboard_input(["2"])
@@ -416,42 +415,43 @@ def test_sendFriendRequest():
 
 def test_DisplayPendingRequest():
   set_keyboard_input(["1"])
-  users = UserHelpers.GetAllUsers()
+  testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+  users = UserHelpers.GetAllUsers(collection="TestUsers")
+
   for user in users:
-    if user.Username == "Sid":
-      DisplayPendingRequests(user)
+    if user.Username == "testUsername":
+      DisplayPendingRequests(user, collection="TestUsers")
   output = get_display_output()
   assert output == ["Your pending requests:\n",
-                    "You have no pending requests.\n",
-                    ]
+                    "You have no pending requests.\n"]
 
   set_keyboard_input(["2", "-1"])
-  users = UserHelpers.GetAllUsers()
+  users = UserHelpers.GetAllUsers(collection="TestUsers")
   for user in users:
-    if user.Username == "Sid":
-      DisplayPendingRequests(user)
+      if user.Username == "testUsername":
+          DisplayPendingRequests(user, collection="TestUsers")
   output = get_display_output()
   assert output == ["Your pending requests:\n",
-                    "You have no pending requests.\n",
-                    ]
+                    "You have no pending requests.\n"]
 
+  UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
 
 def test_ShowYourNetwork():
   set_keyboard_input([])
-  users = UserHelpers.GetAllUsers()
+  testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+  users = UserHelpers.GetAllUsers(collection="TestUsers")
+
   for user in users:
-    if user.Username == "Sid":
+    if user.Username == "testUsername":
       ShowMyNetwork(user)
   output = get_display_output()
-  assert output == ["Your network:\n",
-                    "1. Anshika Bhowmick\n",
-                    "2. Prerna Yarehalli\n",
-                    "3. Osama Basit\n",
-                    "\nPlease select one of the following options:\n",
-                    "1 - Do you want to disconnect with a friend?",
-                    "\nEnter (-1 to exit current menu): ",
-                    "Unexpected error ocurred\n"
-                    ]
+  assert output == ['\nYour network:\n', 'You have no friends yet.\n']
+
+  UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
 
 # checking if university and major are displayed in title case
 def test_TitleCaseUniversity():
