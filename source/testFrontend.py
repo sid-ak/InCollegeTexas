@@ -11,6 +11,7 @@ from helpers.ProfileHelpers import ProfileHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
+from model.User import User
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
@@ -328,28 +329,30 @@ def test_SearchUsersUniversity():
                     "Unexpected error ocurred\n",
                   ]
   
-  set_keyboard_input(["2","University of South Florida" , "-1"])
+  set_keyboard_input(["2","TestUniversity", "-1"])
+  testUser = User(Id='testId',Username='testUsername',FirstName='TestFirstName',LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser( testUser, collection="Users")
   SearchUsers()
   output = get_display_output()
-  assert output == ["\nPlease select one of the following options:\n",
-                    "1 - Search by last name",
-                    "2 - Search by university",
-                    "3 - Search by major",
-                    "\nEnter (-1 to exit current menu): ",
-                    "You have selected to search by university.\nEnter the university of the user you want to search for: ",
-                    "1. Osama Basit\n",
-                    "2. Prerna Yarehalli\n",
-                    "3. Sidharth Anandkumar\n",
-                    "4. Anshika Bhowmick\n",
-                    "Enter the option number of the user you want to send a friend request to: ",
-                    "\nEnter (-1 to exit current menu): ",
-                    "\nPlease select one of the following options:\n",
-                    "1 - Search by last name",
-                    "2 - Search by university",
-                    "3 - Search by major",
-                    "\nEnter (-1 to exit current menu): ",
-                    "Unexpected error ocurred\n"
+  assert output == ['\nPlease select one of the following options:\n',
+                     '1 - Search by last name',
+                     '2 - Search by university',
+                     '3 - Search by major',
+                     '\nEnter (-1 to exit current menu): ',
+                     'You have selected to search by university.\n'
+                     'Enter the university of the user you want to search for: ',
+                     '1. TestFirstName TestLastName\n',
+                     'Enter the option number of the user you want to send a friend request to: ',
+                     '\nEnter (-1 to exit current menu): ',
+                     '\nPlease select one of the following options:\n',
+                     '1 - Search by last name',
+                     '2 - Search by university',
+                     '3 - Search by major',
+                     '\nEnter (-1 to exit current menu): ',
+                     'Unexpected error ocurred\n'
                   ]
+  UserHelpers.DeleteUserAccount(testUser)
 
 def test_SearchUsersMajor():
   set_keyboard_input(["3", "-1"])
