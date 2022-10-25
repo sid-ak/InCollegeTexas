@@ -46,17 +46,16 @@ def test_FindSomeone(capfd):
 
 # Test to see if all Useful link works below
 def test_UsefulLinksDisplay():
-    set_keyboard_input(["1", "-1"])
-    DisplayUsefulLinks(True, 1, None)
+    set_keyboard_input(["-1"])
+    DisplayUsefulLinks()
     output = get_display_output()
     assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers"]
+                        "1 - General",
+                        "2 - Browse InCollege",
+                        "3 - Business Solutions",
+                        "4 - Directories",
+                        "\nEnter (-1 to exit current menu): "
+                      ]
 
     set_keyboard_input(["2", "-1"])
     DisplayUsefulLinks()
