@@ -4,11 +4,11 @@ from helpers.FriendHelpers import FriendHelpers
 
 # we will be showing the pending requests the logged in user has
 # and display an option to accept or reject the requests at the end
-def DisplayPendingRequests(loggedUser: User = None):
+def DisplayPendingRequests(loggedUser: User = None, collection: str = "Users"):
     while True:
         try:
             print("Your pending requests:\n")
-            pendingRequests = FriendHelpers.GetPendingRequests(loggedUser.Username) 
+            pendingRequests = FriendHelpers.GetPendingRequests(loggedUser.Username, collection=collection)
             if (len(pendingRequests) == 0):
                 print("You have no pending requests.\n")
                 break
