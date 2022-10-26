@@ -4,7 +4,7 @@ from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
 
 # user will be able to serach for users in the system by their last name, university, or major
-def SearchUsers(loggedUser: User = None):
+def SearchUsers(loggedUser: User = None, collection: str = "Users"):
     while True:
         try:
             print("\nPlease select one of the following options:\n")
@@ -13,13 +13,13 @@ def SearchUsers(loggedUser: User = None):
             searchedUsers = []
             if decision == 1:
                 lastName = input("You have selected to search by last name.\nEnter the last name of the user you want to search for: ")
-                searchedUsers = UserHelpers.SearchByAttribute('LastName', lastName)
+                searchedUsers = UserHelpers.SearchByAttribute('LastName', lastName, collection=collection)
             elif decision == 2:
                 university = input("You have selected to search by university.\nEnter the university of the user you want to search for: ")
-                searchedUsers = UserHelpers.SearchByAttribute('University', university)
+                searchedUsers = UserHelpers.SearchByAttribute('University', university, collection=collection)
             elif decision == 3:
                 major = input("You have selected to search by major.\nEnter the major of the user you want to search for: ")
-                searchedUsers = UserHelpers.SearchByAttribute('Major', major)
+                searchedUsers = UserHelpers.SearchByAttribute('Major', major,collection=collection)
             elif decision == -1:
                 break
             else:
