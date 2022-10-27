@@ -72,8 +72,9 @@ def PrintExperienceList(experienceList: list[Experience]):
                 print(f"Experience #{expIndex}:"
                     + f"\n\tTitle: {experience.Title}"
                     + f"\n\tEmployer: {experience.Employer}"
-                    + f"\n\tLocation: {experience.Location}"
                     + f"\n\tDate Started: {experience.DateStarted}"
+                    + f"\n\tDate Ended: {experience.DateEnded}"
+                    + f"\n\tLocation: {experience.Location}"
                     + f"\n\tDescription: {experience.Description}\n")
                 expIndex += 1
         except Exception as e:
