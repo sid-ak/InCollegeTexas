@@ -139,12 +139,10 @@ def test_CreateJob():
     poster = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
     job_id = JobHelpers.CreateJobId("Test Software Engineer", "Aramark", "coding", "Atlanta", "60000")
     first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster)
-
-    if JobHelpers.IsJobLimitMet():
-        assert JobHelpers.CreateJob(first_job, "TestJobs") == False
-    else:
-        assert JobHelpers.CreateJob(first_job, "TestJobs") == True
-        JobHelpers.DeleteJob(first_job, "TestJobs")
+    
+    assert True == JobHelpers.CreateJob(first_job, "TestJobs")
+    
+    JobHelpers.DeleteJob(first_job, "TestJobs")
 
 def test_JobLimit():
     if len(JobHelpers.GetAllJobs()) >= JobHelpers._jobLimit:
