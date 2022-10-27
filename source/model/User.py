@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from enums.LanguageEnum import LanguageEnum
 from model.Profile import Profile
-from model.Job import Job
 
 # A User entity.
 @dataclass

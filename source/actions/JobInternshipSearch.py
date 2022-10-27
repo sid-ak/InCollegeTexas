@@ -1,12 +1,13 @@
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
+from actions.ApplyForJob import ApplyForJob
 
 # Allows a logged in user to create a job posting.
 def FindJobInternshipAction(loggedUser: User):
     while True:
         print("\nPlease enter one of the following options to continue:\n"
-            + "1 - Post a job")
+            + "1 - Post a job" + "\n2 - Apply for a job")
                 
         try:
             optionNo: int = MenuHelpers.InputOptionNo()
@@ -27,6 +28,9 @@ def FindJobInternshipAction(loggedUser: User):
                     print(f"\n{job.Title} created successfully.")
                 else:
                     raise Exception("CreateJob failed.")
+            
+            elif optionNo == 2:
+                ApplyForJob(loggedUser=loggedUser)
 
         except:
             print("Exception: \nJob could not be created.")
