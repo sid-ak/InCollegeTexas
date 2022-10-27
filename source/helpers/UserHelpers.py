@@ -57,6 +57,21 @@ class UserHelpers:
             return user
         except:
             print(f"Could not get the specified user with username: {user.Username}")
+    
+    # Gets a specific User from the database based on the User ID provided.
+    def GetUserById(userId: str, collection: str = "Users") -> User:
+        try:
+            user: User = User.HydrateUser(
+                database.child(collection).child(userId).get())
+            
+            if user == None:
+                raise Exception(
+                    f"Could not get the specified user with user ID: {userId}")
+            
+            return user
+        except:
+            print(f"Could not get the specified user with user ID: {userId}")
+
 
     # Creates the specified user in the DB.
     # Takes an optional argument for the child node in the DB.
@@ -76,7 +91,8 @@ class UserHelpers:
             database.child(collection).child(
                 user.Id).set(UserHelpers.UserToDict(user))
             return True
-        except:
+        except Exception as e:
+            print(e)
             return False
 
     # Creates a sha256 hash using the username and password.
