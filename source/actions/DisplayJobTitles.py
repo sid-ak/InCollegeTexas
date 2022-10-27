@@ -12,10 +12,10 @@ def DisplayJobTitle():
             if optionNo == -1: break
             
             elif optionNo == 1:
-                JobTitleHelper.FilterJobtitles()
+                JobTitleHelper.FilterJobTitles()
             
             elif optionNo == 2:
-                JobTitleHelper.GetAllTitles()
+                JobTitleHelper.GetAllJobTitles()
 
             else:
                 print("Invalid entry! Please try again.\n")
