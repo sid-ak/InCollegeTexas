@@ -28,7 +28,7 @@ def ShowMyNetwork(loggedUser: User = None):
                 if len(friends) == 1:
                     ViewProfile(loggedUser, friends[0])
                 else:
-                    print("Select the frient number you want to view the profile of: ")
+                    print("Select the friend number you want to view the profile of: ")
                     option = MenuHelpers.InputOptionNo()
                     if option in range(1, len(friends) + 1):
                         ViewProfile(loggedUser, friends[option - 1])
