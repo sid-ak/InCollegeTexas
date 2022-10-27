@@ -84,10 +84,10 @@ class Profile:
                 self = Profile()
             
             if (self.EducationList == None):
-                self.EducationList = [Education()]
+                self.EducationList = []
             
             if (self.ExperienceList == None):
-                self.ExperienceList = [Experience()]
+                self.ExperienceList = []
 
             return {
                 'Id': str(self.Id),
@@ -100,7 +100,6 @@ class Profile:
             }
         except Exception as e:
             print(f"Could not convert a Profile entity to a dictionary object.\n{e}")
-        
 
 
 class ProfileHydrator:
@@ -147,7 +146,7 @@ class ProfileHydrator:
             for experience in pyreValue:
                 experienceList.append(Experience.HydrateExperience(experience))
             return experienceList
-        
+
         return pyreValue
     
     # Gets the default value for a property on the Profile entity based on its type.
@@ -156,6 +155,6 @@ class ProfileHydrator:
 
         if propType == "str": return ""
         elif propType == "bool": return True
-        elif propType == "list[Education]": return [Education()],
-        elif propType == "list[Experience]": return [Experience()]
+        elif propType == "list[Education]": return []
+        elif propType == "list[Experience]": return []
         else: return None
