@@ -3,7 +3,7 @@ from helpers.MenuHelpers import MenuHelpers
 
 class JobTitleHelper:
 
-    def GetAllTitles(collection: str = "Jobs"):
+    def GetAllJobTitles(collection: str = "Jobs"):
         while True:
 
             jobList = JobHelpers.GetAllJobs()
@@ -61,7 +61,7 @@ class JobTitleHelper:
             except:
                 print("Invalid entry! Please try again.\n")
 
-    def FilterJobtitles():
+    def FilterJobTitles():
         while True:
             print("\nPlease Select one of the following options\n")
             MenuHelpers.DisplayOptions(["Show applied jobs", "Show unapplied jobs", "Show saved Jobs"])

@@ -7,7 +7,7 @@ from actions.DisplayJobTitles import DisplayJobTitle
 def FindJobInternshipAction(loggedUser: User):
     while True:
         print("\nPlease select one of the following options:\n")
-        MenuHelpers.DisplayOptions(["Post a Job", "All Jobs"])
+        MenuHelpers.DisplayOptions(["Post a Job", "Find a Job"])
                 
         try:
             optionNo: int = MenuHelpers.InputOptionNo()
