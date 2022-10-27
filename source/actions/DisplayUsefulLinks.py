@@ -6,33 +6,28 @@ from model.User import User
 # A General option (which leads to “Sign Up”, “Help Center”, “About”, “Press”, “Blog”, “Careers”, and “Developers”)
 # Browse InCollege, Business Solutions, and Directories
 
-def DisplayUsefulLinks(onTest: bool = False, testInput: int = -1, loggedUser: User = None):
+def DisplayUsefulLinks(loggedUser: User = None):
     while True:
 
-        if not onTest:
-            print("\nPlease select one of the following links to display its content:")
-            MenuHelpers.DisplayOptions(
-                [
-                    "General",
-                    "Browse InCollege",
-                    "Business Solutions",
-                    "Directories"
-                ]
-            )
+        print("\nPlease select one of the following links to display its content:")
+        MenuHelpers.DisplayOptions(
+            [
+                "General",
+                "Browse InCollege",
+                "Business Solutions",
+                "Directories"
+            ]
+        )
 
         try:
             optNo: int = -1
 
-            if not onTest:
-                optNo = MenuHelpers.InputOptionNo()
-            
-            else:
-                optNo = testInput
+            optNo = MenuHelpers.InputOptionNo()
 
             if optNo == -1: break
 
             elif optNo == 1:
-                DisplayUsefulLinksHelpers.General(onTest=onTest,loggedUser=loggedUser) # will lead to more options
+                DisplayUsefulLinksHelpers.General() # will lead to more options
 
             elif optNo == 2:
                 DisplayUsefulLinksHelpers.BrowseInCollege()
@@ -50,6 +45,4 @@ def DisplayUsefulLinks(onTest: bool = False, testInput: int = -1, loggedUser: Us
         except:
             print("Unexpected error ocurred\n")
 
-        if onTest:
-            break
                 
