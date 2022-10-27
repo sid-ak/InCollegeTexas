@@ -42,7 +42,7 @@ class JobTitleHelper:
     def selectJobOptions(job: Job):
         while True:
             print("\nPlease Select one of the following options\n")
-            MenuHelpers.DisplayOptions(["Apply for the job", "Save job"])
+            MenuHelpers.DisplayOptions(["Apply for the job", "Save job", "Delete job"])
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
@@ -54,6 +54,9 @@ class JobTitleHelper:
                 
                 elif(optionNo == 2):
                     print("Saved job") #function to save the selected job
+                
+                elif(optionNo == 3):
+                    print("Delete Job") #function to delete a job
 
                 else:
                     print("Invalid entry! Please try again.\n")
