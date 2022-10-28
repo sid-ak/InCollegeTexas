@@ -101,6 +101,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
 
         if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob):
             print("\nSuccess! You have applied for the job!\n")
+            return True
         else:
             raise Exception("Create Applied Job failed.")
 

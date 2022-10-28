@@ -1,7 +1,9 @@
-from enum import Flag
 from model.Job import Job
 from model.User import User
 from model.AppliedJob import AppliedJobHelpers
+from model.AppliedJob import AppliedJob
+from model.SavedJob import SavedJob
+from model.SavedJob import SavedJobHelpers
 
 
 class JobsHelpers:
@@ -13,16 +15,27 @@ class JobsHelpers:
 
     # helps find if the user already applied for the job provided
     def HelpFindIfApplied(loggedUser: User, jobInterested: Job) -> bool:
-        allApplied = AppliedJobHelpers.GetAllAppliedJobs()
+        allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobs()
 
         for applied in allApplied:
             # the combination of user id and job id is equal to id of applied - means it is not unique
             if (loggedUser.Id + jobInterested.Id) == (applied.UserId + applied.JobId):
                 return True
             
-            return False
+        return False
 
     
+    # helps find if the user already saved the job provided
+    def HelpFindIfSaved(loggedUser: User, jobInterested: Job) -> bool:
+        allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobs()
+
+        for saved in allSaved:
+            if (loggedUser.Id == saved.UserId) and (jobInterested.Id == saved.JobId):
+                return True
+            
+        return False
+
+
     # helps find out if the provided input corresponds to date within pattern mm/dd/yyyy
     def HelpValidateDate(input: str) -> bool:
         try:

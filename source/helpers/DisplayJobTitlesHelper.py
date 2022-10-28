@@ -80,7 +80,10 @@ class JobTitleHelper:
 
                 elif(optionNo == 1):
                     print("You have selected to apply for job.")
-                    ApplyForJob(loggedUser=loggedUser, selectedJob=job)
+                    if ApplyForJob(loggedUser=loggedUser, selectedJob=job):
+                        print("\nOperation successfully completed!\n")
+                    else:
+                        print("\nFailure! Operation not completed!\n")
                 
                 elif(optionNo == 2):
                     print("Saved job") #function to save the selected job
