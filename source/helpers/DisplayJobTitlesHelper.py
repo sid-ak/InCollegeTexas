@@ -3,6 +3,8 @@ from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
 from actions.ApplyForJob import ApplyForJob
+from actions.SaveJob import SaveJob
+
 
 class JobTitleHelper:
 
@@ -86,7 +88,10 @@ class JobTitleHelper:
                         print("\nFailure! Operation not completed!\n")
                 
                 elif(optionNo == 2):
-                    print("Saved job") #function to save the selected job
+                    if SaveJob(loggedUser=loggedUser, selectedJob=job):
+                        print("\nOperation successfully completed!\n")
+                    else:
+                        print("\nFailure! Operation not completed!\n")
 
                 else:
                     print("Invalid entry! Please try again.\n")

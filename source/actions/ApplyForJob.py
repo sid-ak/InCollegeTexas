@@ -106,5 +106,6 @@ def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
             raise Exception("Create Applied Job failed.")
 
     except:
+        print("\nError! Operation failed for some reason.\n")
         return False
         
