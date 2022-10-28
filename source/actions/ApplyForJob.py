@@ -7,10 +7,13 @@ from model.Job import Job
 from helpers.UserHelpers import UserHelpers
 from helpers.MenuHelpers import MenuHelpers
 from helpers.JobsHelpers import JobsHelpers
+from model.AppliedJob import AppliedJob
+from model.AppliedJob import AppliedJobHelpers
 
 
 
 def ApplyForJob(loggedUser: User) -> bool:
+    selectedJob = Job(Id="Test12332", Title="Engineer", Employer="HashiCorp", Description="Very nice job!", Location="SF, USA", Salary="$10000", Poster=loggedUser)
     # first check if the user did not post this job    
     # if JobsHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
     #     print("\nFailure! You cannot apply for a job you posted.")
@@ -83,9 +86,19 @@ def ApplyForJob(loggedUser: User) -> bool:
                     else:
                         break
 
-        # print("HERE IS YOUR GRADUATION DATE: ", graduationDate)
-        # print("HERE IS YOUR START DATE: ", startDate)
-        # print("HERE IS YOUR WHY A GOOD FIT: ", goodFitReasoning)
+
+        appliedJob: AppliedJob = AppliedJob(
+            UserId=loggedUser.Id, 
+            JobId=selectedJob.Id,
+            GraduationDate=graduationDate,
+            StartDate=startDate,
+            GoodFitReasoning=goodFitReasoning
+            )
+
+        if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob):
+            print("\nSuccess! You have applied for the job!\n")
+        else:
+            raise Exception("Create Applied Job failed.")
 
     except:
         return False
