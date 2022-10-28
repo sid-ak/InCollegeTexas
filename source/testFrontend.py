@@ -12,8 +12,6 @@ from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
 from model.User import User
-from model.Job import Job, JobHelpers
-from helpers.DisplayJobTitlesHelper import JobTitleHelper
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
@@ -459,86 +457,3 @@ def test_TitleCaseUniversity():
 
   output = ProfileHelpers.ToTitleFormat("computer science")
   assert output == "Computer Science"
-
-# EPIC 6 - Test for displaying jobs - by Osama Basit
-def test_DisplayJobTitle():
-    testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
-                    University='TestUniversity', Major='major')
-    title = "testTitle"
-    employer = "testEmployer"
-    desc = "testDecsription"
-    loc = "testLocation"
-    salary = "100000"
-    job_id = JobHelpers.CreateJobId(title, employer, desc, loc, salary)
-    test_job = Job(job_id, title, employer, desc, loc, salary, testUser)
-    JobHelpers.CreateJob(test_job, collection="testJobs")
-
-    # testing view all jobs titles option inside display job menu
-    set_keyboard_input(["2", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle("testJobs")
-    output = get_display_output()
-
-    assert output == ['\nPlease select if you want to filter the Job:\n',
-                      '1 - Yes',
-                      '2 - No',
-                      '\nEnter (-1 to exit current menu): ',
-                      '\nPlease Select one of the following jobs\n',
-                      '1 - testTitle',
-                      '\nEnter (-1 to exit current menu): ',
-                      '\nPlease select if you want to filter the Job:\n',
-                      '1 - Yes',
-                      '2 - No',
-                      '\nEnter (-1 to exit current menu): '
-                    ]
-
-    # testing select a job option (apply, save and delete) menu inside Display Job Titles
-    set_keyboard_input(["2", "1", "-1", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle("testJobs")
-    output = get_display_output()
-    assert output == ['\nPlease select if you want to filter the Job:\n',
-                         '1 - Yes',
-                         '2 - No',
-                         '\nEnter (-1 to exit current menu): ',
-                         '\nPlease Select one of the following jobs\n',
-                         '1 - testTitle',
-                         '\nEnter (-1 to exit current menu): ',
-                         'Job Title: testTitle',
-                         'Job Description: testDecsription',
-                         'Employer: testEmployer',
-                         'Job Location: testLocation',
-                         'Job Salary: 100000',
-                         '\nPlease Select one of the following options\n',
-                         '1 - Apply for the job',
-                         '2 - Save job',
-                         '3 - Delete job',
-                         '\nEnter (-1 to exit current menu): ',
-                         '\nPlease Select one of the following jobs\n',
-                         '1 - testTitle',
-                         '\nEnter (-1 to exit current menu): ',
-                         '\nPlease select if you want to filter the Job:\n',
-                         '1 - Yes',
-                         '2 - No',
-                         '\nEnter (-1 to exit current menu): '
-                      ]
-
-    # testing filter option inside Dsiplay job menu
-    set_keyboard_input(["1", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle()
-    output = get_display_output()
-
-    assert output == ['\nPlease select if you want to filter the Job:\n',
-                         '1 - Yes',
-                         '2 - No',
-                         '\nEnter (-1 to exit current menu): ',
-                         '\nPlease Select one of the following options\n',
-                         '1 - Show applied jobs',
-                         '2 - Show unapplied jobs',
-                         '3 - Show saved Jobs',
-                         '\nEnter (-1 to exit current menu): ',
-                         '\nPlease select if you want to filter the Job:\n',
-                         '1 - Yes',
-                         '2 - No',
-                         '\nEnter (-1 to exit current menu): '
-                      ]
-
-    JobHelpers.DeleteJob(test_job, collection="testJobs")

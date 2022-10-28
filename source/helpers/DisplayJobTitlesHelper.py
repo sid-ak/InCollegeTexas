@@ -4,7 +4,7 @@ from helpers.MenuHelpers import MenuHelpers
 class JobTitleHelper:
 
     #Gives an option to a logged in user to either filter the jobs or view them all
-    def DisplayJobTitle(collection: str = "Jobs"):
+    def DisplayJobTitle():
         while True:
             print("\nPlease select if you want to filter the Job:\n")
             MenuHelpers.DisplayOptions(["Yes", "No"])
@@ -18,7 +18,7 @@ class JobTitleHelper:
                     JobTitleHelper.FilterJobTitles()
                 
                 elif optionNo == 2:
-                    JobTitleHelper.GetAllJobTitles(collection=collection)
+                    JobTitleHelper.GetAllJobTitles()
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -31,16 +31,18 @@ class JobTitleHelper:
     def GetAllJobTitles(collection: str = "Jobs"):
         while True:
 
-            jobList = JobHelpers.GetAllJobs(collection=collection)
+            jobList = JobHelpers.GetAllJobs()
             jobTitleList = []
 
             for job in jobList:
                 jobTitleList.append(job.Title)
-
+            
             print("\nPlease Select one of the following jobs\n")
             MenuHelpers.DisplayOptions(jobTitleList)
+
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
+
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(jobList) + 1):
@@ -55,11 +57,11 @@ class JobTitleHelper:
 
     #Print the deatils of the job after the logged in user has selected the job
     def PrintDetails(job: Job):
-        print(f"Job Title: {job.Title}")
-        print(f"Job Description: {job.Description}")
-        print(f"Employer: {job.Employer}")
-        print(f"Job Location: {job.Location}")
-        print(f"Job Salary: {job.Salary}")
+        print("Job Title: ", job.Title)
+        print("Job Description: ", job.Description)
+        print("Employer: ", job.Employer)
+        print("Job Location: ", job.Location)
+        print("Job Salary: ", job.Salary)
         JobTitleHelper.SelectJobOptions(job)
     
     #This Function gives the option to either apply or to save the job
