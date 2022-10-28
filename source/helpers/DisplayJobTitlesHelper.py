@@ -7,7 +7,7 @@ from model.User import User
 class JobTitleHelper:
 
     #Gives an option to a logged in user to either filter the jobs or view them all
-    def DisplayJobTitle(canDeleteJob):
+    def DisplayJobTitle(loggedUserUsername):
         while True:
             print("\nPlease select if you want to filter the Job:\n")
             MenuHelpers.DisplayOptions(["Yes", "No"])
@@ -18,10 +18,10 @@ class JobTitleHelper:
                 if optionNo == -1: break
                 
                 elif optionNo == 1:
-                    JobTitleHelper.FilterJobTitles(canDeleteJob = canDeleteJob)
+                    JobTitleHelper.FilterJobTitles(loggedUserUsername = loggedUserUsername)
                 
                 elif optionNo == 2:
-                    JobTitleHelper.GetAllJobTitles(canDeleteJob = canDeleteJob)
+                    JobTitleHelper.GetAllJobTitles(loggedUserUsername = loggedUserUsername)
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -30,7 +30,7 @@ class JobTitleHelper:
               raise Exception(f"Something went wrong while selecting job option.\n{e}")
 
     #This functiones give the title of all the jobs in the database and gives an ption to select the job 
-    def GetAllJobTitles(collection: str = "Jobs", canDeleteJob = None):
+    def GetAllJobTitles(collection: str = "Jobs", loggedUserUsername = None):
         while True:
 
             jobList = JobHelpers.GetAllJobs()
@@ -49,7 +49,7 @@ class JobTitleHelper:
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(jobList) + 1):
-                    if(jobList[optionNo-1].Poster['Username'] == canDeleteJob): flag = True
+                    if(jobList[optionNo-1].Poster['Username'] == loggedUserUsername): flag = True
                     JobTitleHelper.PrintDetails(jobList[optionNo-1], flag)
 
                 else:

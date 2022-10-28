@@ -9,7 +9,7 @@ def FindJobInternshipAction(loggedUser: User):
         print("\nPlease select one of the following options:\n")
         MenuHelpers.DisplayOptions(["Post a Job", "Find a Job"])
 
-        canDeleteJob = loggedUser.Username
+        loggedUserUsername = loggedUser.Username
                 
         try:
             optionNo: int = MenuHelpers.InputOptionNo()
@@ -32,7 +32,7 @@ def FindJobInternshipAction(loggedUser: User):
                     raise Exception("CreateJob failed.")
 
             elif optionNo == 2:
-                JobTitleHelper.DisplayJobTitle(canDeleteJob)
+                JobTitleHelper.DisplayJobTitle(loggedUserUsername)
 
         except Exception as e:
               raise Exception(f"Something went wrong while selecting job option.\n{e}")
