@@ -42,12 +42,14 @@ class JobTitleHelper:
             MenuHelpers.DisplayOptions(jobTitleList)
 
             try:
+                canDeleteJob = False
                 optionNo: int = MenuHelpers.InputOptionNo()
 
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(jobList) + 1):
-                    JobTitleHelper.PrintDetails(jobList[optionNo-1], loggedUser)
+                    if(jobList[optionNo-1].Poster['Username'] == loggedUser.Username): canDeleteJob = True
+                    JobTitleHelper.PrintDetails(jobList[optionNo-1], canDeleteJob)
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -57,28 +59,25 @@ class JobTitleHelper:
                 break
 
     #Print the deatils of the job after the logged in user has selected the job
-    def PrintDetails(job: Job, loggedUser: User):
+    def PrintDetails(job: Job, canDeleteJob):
         print("Job Title: ", job.Title)
         print("Job Description: ", job.Description)
         print("Employer: ", job.Employer)
         print("Job Location: ", job.Location)
         print("Job Salary: ", job.Salary)
-        JobTitleHelper.SelectJobOptions(job, loggedUser)
+        JobTitleHelper.SelectJobOptions(job, canDeleteJob)
     
     #This Function gives the option to either apply or to save the job
-    def SelectJobOptions(job: Job, loggedUser: User = None):
+    def SelectJobOptions(job: Job, canDeleteJon):
         while True:
-            flag = False
 
-            if(job.Poster['Username'] == loggedUser.Username): flag = True
+            print("\nPlease Select one of the following options\n")
+            optionList = ["Apply for the job", "Save job"]
 
-            if flag:
-                print("\nPlease Select one of the following options\n")
-                MenuHelpers.DisplayOptions(["Apply for the job", "Save job", "Delete job"])
+            if canDeleteJon:
+                optionList.append("Delete")
 
-            else:
-                print("\nPlease Select one of the following options\n")
-                MenuHelpers.DisplayOptions(["Apply for the job", "Save job"])
+            MenuHelpers.DisplayOptions(optionList)
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
@@ -91,7 +90,7 @@ class JobTitleHelper:
                 elif(optionNo == 2):
                     print("Saved job") #function to save the selected job
                 
-                elif(optionNo == 3 and flag):
+                elif(optionNo == 3 and canDeleteJon):
                     print("The selected job is deleted")
                     JobHelpers.DeleteJob(job)
                     break

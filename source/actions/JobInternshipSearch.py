@@ -4,7 +4,7 @@ from helpers.MenuHelpers import MenuHelpers
 from helpers.DisplayJobTitlesHelper import JobTitleHelper
 
 # Allows a logged in user to create a job posting or view all the jobs.
-def FindJobInternshipAction(loggedUser: User = None):
+def FindJobInternshipAction(loggedUser: User):
     while True:
         print("\nPlease select one of the following options:\n")
         MenuHelpers.DisplayOptions(["Post a Job", "Find a Job"])
