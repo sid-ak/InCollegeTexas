@@ -1,12 +1,27 @@
 from enum import Flag
 from model.Job import Job
 from model.User import User
+from model.AppliedJob import AppliedJobHelpers
+
 
 class JobsHelpers:
 
     # helps find if the user did not post the job provided
     def HelpFindUserPosted(loggedUser: User, jobInterested: Job) -> bool:
-        return loggedUser.Id == jobInterested.Poster.Id
+        return loggedUser.Id == jobInterested.Poster["Id"]
+
+
+    # helps find if the user already applied for the job provided
+    def HelpFindIfApplied(loggedUser: User, jobInterested: Job) -> bool:
+        allApplied = AppliedJobHelpers.GetAllAppliedJobs()
+        print(allApplied)
+
+        for applied in allApplied:
+            # if the combination of user id and job id is equal to id of applied - means it is not unique
+            if (loggedUser.Id + jobInterested.Id) == (applied.UserId + applied.JobId):
+                return True
+            
+            return False
 
     
     # helps find out if the provided input corresponds to date within pattern mm/dd/yyyy

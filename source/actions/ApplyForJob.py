@@ -12,13 +12,17 @@ from model.AppliedJob import AppliedJobHelpers
 
 
 
-def ApplyForJob(loggedUser: User) -> bool:
-    selectedJob = Job(Id="Test12332", Title="Engineer", Employer="HashiCorp", Description="Very nice job!", Location="SF, USA", Salary="$10000", Poster=loggedUser)
-    # first check if the user did not post this job    
-    # if JobsHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
-    #     print("\nFailure! You cannot apply for a job you posted.")
-    #     return False
-    
+def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
+    # first check if the user did not post this job  
+    if JobsHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
+        print("\nFailure! You cannot apply for a job you posted.\n")
+        return False
+
+    # now check if the user has already applied for this job
+    if JobsHelpers.HelpFindIfApplied(loggedUser=loggedUser, jobInterested=selectedJob):
+        print("\nFailure! You have already applied for this job.\n")
+        return False
+
     # now let's proceed with collecting the relevant information on the job to be applied
     try:
         terminateOperation: bool = False

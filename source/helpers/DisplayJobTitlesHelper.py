@@ -1,6 +1,8 @@
+from cmath import log
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
+from actions.ApplyForJob import ApplyForJob
 
 class JobTitleHelper:
 
@@ -77,7 +79,8 @@ class JobTitleHelper:
                 if optionNo == -1: break
 
                 elif(optionNo == 1):
-                    print("applied for the job") #function to apply for the selected job
+                    print("You have selected to apply for job.")
+                    ApplyForJob(loggedUser=loggedUser, selectedJob=job)
                 
                 elif(optionNo == 2):
                     print("Saved job") #function to save the selected job
