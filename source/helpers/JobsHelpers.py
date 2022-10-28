@@ -20,7 +20,7 @@ class JobsHelpers:
             if (loggedUser.Id + jobInterested.Id) == (applied.UserId + applied.JobId):
                 return True
             
-            return False
+        return False
 
     
     # helps find out if the provided input corresponds to date within pattern mm/dd/yyyy
