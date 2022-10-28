@@ -6,7 +6,7 @@ from helpers.UserHelpers import UserHelpers
 
 class DisplayUsefulLinksHelpers:
 
-    def General(onTest: bool = False, testInput: int = -1):
+    def General():
         while True:
             print("\nPlease select one of the following links to display its content:")
 
@@ -26,11 +26,8 @@ class DisplayUsefulLinksHelpers:
         
                 optionNo: int = -1
 
-                if not onTest:
-                    optionNo = MenuHelpers.InputOptionNo()
-                
-                else:
-                    optionNo = testInput
+
+                optionNo = MenuHelpers.InputOptionNo()
 
                 if optionNo == -1: break
 
@@ -71,8 +68,6 @@ class DisplayUsefulLinksHelpers:
                 print("Unexpected exception ocurred, invalid input.\n"
                 + "Please enter a number between 1 and 7.\n")
 
-            if onTest:
-                break
 
     def BrowseInCollege():
         MenuHelpers.PrintUnderConstruction()
