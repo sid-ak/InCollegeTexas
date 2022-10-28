@@ -41,20 +41,6 @@ class ProfileHelpers:
         return " ".join(wordsFormated)
 
 
-    # Flattens a list of list of education.
-    # TODO: Investigate why we have to flatten an education list.
-    def FlattenEducationList(educationList) -> list[Education]:
-        try:
-            educations: list[Education] = []
-            for eduList in educationList:
-                for education in eduList:
-                    educations.append(education)
-            
-            return educations
-        
-        except:
-            return educationList
-
     # returns the formatted string with the displays of education
     def HelpPrintEducationList(educationList: list[Education]) -> str:
         try:
@@ -64,7 +50,7 @@ class ProfileHelpers:
             output: str = "\n"
             indexer: int = 1
 
-            for education in ProfileHelpers.FlattenEducationList(educationList):
+            for education in educationList:
                 output += f"\n{indexer})"
                 output += f"\nSchool Name: {education.SchoolName}\n" 
                 output += f"Degree: {education.Degree}\n"
@@ -252,7 +238,7 @@ class ProfileHelpers:
             try:
                 education = educationList[educationIndex]
                 education = ProfileHelpers.HelpEditEducationAttributes(education)
-                educationList.append(education)
+                educationList[educationIndex] = education
                 return educationList
 
             except Exception as e:
