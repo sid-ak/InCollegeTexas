@@ -26,9 +26,8 @@ class JobTitleHelper:
                 else:
                     print("Invalid entry! Please try again.\n")
 
-            except:
-                print("Invalid entry! Please try again.\n")
-                break
+            except Exception as e:
+              raise Exception(f"Something went wrong while selecting job option.\n{e}")
 
     #This functiones give the title of all the jobs in the database and gives an ption to select the job 
     def GetAllJobTitles(collection: str = "Jobs", canDeleteJob = None):
@@ -56,9 +55,8 @@ class JobTitleHelper:
                 else:
                     print("Invalid entry! Please try again.\n")
             
-            except:
-                print("Invalid entry! Please try again.\n")
-                break
+            except Exception as e:
+              raise Exception(f"Something went wrong while selecting job option.\n{e}")
 
     #Print the deatils of the job after the logged in user has selected the job
     def PrintDetails(job: Job, flag):
@@ -102,8 +100,8 @@ class JobTitleHelper:
                 else:
                     print("Invalid entry! Please try again.\n")
             
-            except:
-                print("Invalid entry! Please try again.\n")
+            except Exception as e:
+              raise Exception(f"Something went wrong while selecting job option.\n{e}")
 
     def FilterJobTitles():
         while True:

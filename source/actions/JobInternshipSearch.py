@@ -34,8 +34,8 @@ def FindJobInternshipAction(loggedUser: User):
             elif optionNo == 2:
                 JobTitleHelper.DisplayJobTitle(canDeleteJob)
 
-        except:
-            print("Exception: \nJob could not be created.")
+        except Exception as e:
+              raise Exception(f"Something went wrong while selecting job option.\n{e}")
     
 
 # Constructs the job by taking user input and returns it.
