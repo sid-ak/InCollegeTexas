@@ -1,10 +1,11 @@
 from model.Job import Job, JobHelpers
 from helpers.MenuHelpers import MenuHelpers
+from model.User import User
 
 class JobTitleHelper:
 
     #Gives an option to a logged in user to either filter the jobs or view them all
-    def DisplayJobTitle():
+    def DisplayJobTitle(loggedUser: User = None):
         while True:
             print("\nPlease select if you want to filter the Job:\n")
             MenuHelpers.DisplayOptions(["Yes", "No"])
@@ -15,10 +16,10 @@ class JobTitleHelper:
                 if optionNo == -1: break
                 
                 elif optionNo == 1:
-                    JobTitleHelper.FilterJobTitles()
+                    JobTitleHelper.FilterJobTitles(loggedUser = loggedUser)
                 
                 elif optionNo == 2:
-                    JobTitleHelper.GetAllJobTitles()
+                    JobTitleHelper.GetAllJobTitles(loggedUser = loggedUser)
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -28,7 +29,7 @@ class JobTitleHelper:
                 break
 
     #This functiones give the title of all the jobs in the database and gives an ption to select the job 
-    def GetAllJobTitles(collection: str = "Jobs"):
+    def GetAllJobTitles(collection: str = "Jobs", loggedUser: User = None):
         while True:
 
             jobList = JobHelpers.GetAllJobs()
@@ -46,7 +47,7 @@ class JobTitleHelper:
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(jobList) + 1):
-                    JobTitleHelper.PrintDetails(jobList[optionNo-1])
+                    JobTitleHelper.PrintDetails(jobList[optionNo-1], loggedUser)
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -56,19 +57,28 @@ class JobTitleHelper:
                 break
 
     #Print the deatils of the job after the logged in user has selected the job
-    def PrintDetails(job: Job):
+    def PrintDetails(job: Job, loggedUser: User):
         print("Job Title: ", job.Title)
         print("Job Description: ", job.Description)
         print("Employer: ", job.Employer)
         print("Job Location: ", job.Location)
         print("Job Salary: ", job.Salary)
-        JobTitleHelper.SelectJobOptions(job)
+        JobTitleHelper.SelectJobOptions(job, loggedUser)
     
     #This Function gives the option to either apply or to save the job
-    def SelectJobOptions(job: Job):
+    def SelectJobOptions(job: Job, loggedUser: User = None):
         while True:
-            print("\nPlease Select one of the following options\n")
-            MenuHelpers.DisplayOptions(["Apply for the job", "Save job", "Delete job"])
+            flag = False
+
+            if(job.Poster['Username'] == loggedUser.Username): flag = True
+
+            if flag:
+                print("\nPlease Select one of the following options\n")
+                MenuHelpers.DisplayOptions(["Apply for the job", "Save job", "Delete job"])
+
+            else:
+                print("\nPlease Select one of the following options\n")
+                MenuHelpers.DisplayOptions(["Apply for the job", "Save job"])
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
@@ -80,6 +90,11 @@ class JobTitleHelper:
                 
                 elif(optionNo == 2):
                     print("Saved job") #function to save the selected job
+                
+                elif(optionNo == 3 and flag):
+                    print("The selected job is deleted")
+                    JobHelpers.DeleteJob(job)
+                    break
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -110,3 +125,4 @@ class JobTitleHelper:
                     print("Invalid entry! Please try again.\n")
             except:
                 print("Invalid entry! Please try again.\n")
+
