@@ -1,7 +1,6 @@
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
-from actions.ApplyForJob import ApplyForJob
 from helpers.DisplayJobTitlesHelper import JobTitleHelper
 
 
@@ -32,7 +31,7 @@ def FindJobInternshipAction(loggedUser: User):
                     raise Exception("CreateJob failed.")
 
             elif optionNo == 2:
-                JobTitleHelper.DisplayJobTitle()
+                JobTitleHelper.DisplayJobTitle(loggedUser=loggedUser)
 
         except:
             print("Exception: \nJob could not be created.")
