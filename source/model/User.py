@@ -17,7 +17,6 @@ class User:
     University: str = ""
     Major: str = ""
     Profile: Profile = None
-    JobsInterested: dict[str, bool] = field(default_factory=dict)
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
@@ -34,7 +33,6 @@ class User:
                 University = UserHydrator.HydrateProp(user, "University"),
                 Major = UserHydrator.HydrateProp(user, "Major"),
                 Profile = UserHydrator.HydrateProp(user, "Profile"),
-                JobsInterested = UserHydrator.HydrateProp(user, "JobsInterested")
             )
 
 class UserHydrator:
@@ -53,7 +51,6 @@ class UserHydrator:
         "University": "str",
         "Major": "str",
         "Profile": "Profile",
-        "JobsInterested": "JobsInterested"
     }
     
     # Hydrates an individual property for the User entity.
