@@ -14,10 +14,9 @@ class JobsHelpers:
     # helps find if the user already applied for the job provided
     def HelpFindIfApplied(loggedUser: User, jobInterested: Job) -> bool:
         allApplied = AppliedJobHelpers.GetAllAppliedJobs()
-        print(allApplied)
 
         for applied in allApplied:
-            # if the combination of user id and job id is equal to id of applied - means it is not unique
+            # the combination of user id and job id is equal to id of applied - means it is not unique
             if (loggedUser.Id + jobInterested.Id) == (applied.UserId + applied.JobId):
                 return True
             

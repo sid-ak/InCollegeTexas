@@ -17,7 +17,7 @@ class AppliedJob:
             JobId = appliedJob.val()["JobId"],
             GraduationDate = appliedJob.val()["GraduationDate"],
             StartDate = appliedJob.val()["StartDate"],
-            GoodFitReasoning = appliedJob.val()["GoodFirReasoning"]
+            GoodFitReasoning = appliedJob.val()["GoodFitReasoning"]
         )
     
 
@@ -46,7 +46,8 @@ class AppliedJobHelpers:
             appliedJobs: list[AppliedJob] = []
             for appliedJob in appliedJobsResponse.each():
                 if appliedJob == None: continue
-                else: appliedJobs.append(AppliedJob.HydrateAppliedJob(appliedJob))
+                else:
+                    appliedJobs.append(AppliedJob.HydrateAppliedJob(appliedJob))
             
             return appliedJobs
 
