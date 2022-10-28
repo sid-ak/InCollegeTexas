@@ -46,8 +46,7 @@ class AppliedJobHelpers:
             appliedJobs: list[AppliedJob] = []
             for appliedJob in appliedJobsResponse.each():
                 if appliedJob == None: continue
-                else:
-                    appliedJobs.append(AppliedJob.HydrateAppliedJob(appliedJob))
+                else: appliedJobs.append(AppliedJob.HydrateAppliedJob(appliedJob))
             
             return appliedJobs
 
