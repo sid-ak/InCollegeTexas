@@ -55,10 +55,12 @@ def EditProfile(userLoggedIn: User) -> bool:
                         "University: " + str(profile.University), 
                         "Major: " + str(profile.Major), 
                         "About: " + str(profile.About), 
-                        "Education (Can add more than 1): " +  ProfileHelpers.HelpPrintEducationList(
-                            educationList = profile.EducationList), 
-                        "Experience (Can add up to 3): " + ProfileHelpers.HelpPrintExperienceList(
-                            experienceList = profile.ExperienceList)]
+                        "Education (Can add more than 1): "
+                            + ProfileHelpers.HelpPrintEducationList(
+                                educationList = profile.EducationList), 
+                        "Experience (Can add up to 3): " 
+                            + ProfileHelpers.HelpPrintExperienceList(
+                                experienceList = profile.ExperienceList)]
 
             MenuHelpers.DisplayOptions(options=options)
             decision = MenuHelpers.InputOptionNo()
@@ -108,8 +110,8 @@ def EditProfile(userLoggedIn: User) -> bool:
                 print("You have selected to quit.")
                 break
         
-        except:
-            print("\nError! Something went wrong when trying to update a profile.")
+        except Exception as e:
+            print(f"\nError! Something went wrong when trying to update a profile.\n{e}")
             break
 
 
