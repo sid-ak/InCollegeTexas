@@ -91,8 +91,11 @@ class JobTitleHelper:
                     print("Saved job") #function to save the selected job
                 
                 elif(optionNo == 3 and canDeleteJon):
-                    print("The selected job is deleted")
-                    JobHelpers.DeleteJob(job)
+                    
+                    if(JobHelpers.DeleteJob(job)):
+                        print("The selected job is deleted")
+                    else:
+                        raise Exception("The selected job could not be deleted")
                     break
 
                 else:
