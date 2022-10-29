@@ -1,9 +1,6 @@
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
-from actions.ApplyForJob import ApplyForJob
-from actions.SaveJob import SaveJob
-from model.User import User
 
 class JobTitleHelper:
 
