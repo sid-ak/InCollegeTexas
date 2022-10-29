@@ -11,8 +11,12 @@ from actions.ApplyForJob import ApplyForJob
 from actions.SaveJob import SaveJob
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
+from helpers.AppliedJobHelpers import AppliedJobHelpers
+from helpers.SavedJobHelpers import SavedJobHelpers
 from model.Profile import Education, Experience, Profile
 from model.Job import Job, JobHelpers
+from model.AppliedJob import AppliedJob
+from model.SavedJob import SavedJob
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -522,48 +526,33 @@ def test_DeleteJob():
     
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
 
-    #then delete it
-    assert True == JobHelpers.DeleteJob(first_job, "TestJobs")
-
-    #delete test user
-    UserHelpers.DeleteUserAccount(poster, "TestUsers")
-
 # EPIC 6: Ensures that user can save a job as expected.
 def test_SaveJobs(): 
     #create a job - poster will be different from the user who saves the job
     poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
-    to_save_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
-
-    #create a user - who saves the job
-    user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2")
+    #to_save_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+    user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2") #user saving the job
+    to_save_job = SavedJob(id, job_id, user)
 
     #save the job to the user - function call (assert)
-    assert True == SaveJob(user, to_save_job)
+    assert True == SavedJobHelpers.CreateSavedJob(to_save_job, "TestSavedJobs")
+    assert False == SavedJobHelpers.CreateSavedJob(to_save_job, "TestSavedJobs")
 
-    #delete test job
-    JobHelpers.DeleteJob(to_save_job, "TestJobs")
+    #delete the saved job node
+    #DeleteSavedJob(user, to_save_job) #yet to be added
 
-    #delete test user and the test poster
-    UserHelpers.DeleteUserAccount(poster, "TestUsers")
-    UserHelpers.DeleteUserAccount(user, "TestUsers")
-
-# EPIC 6: Ensures that user can apply to a job as expected.
+#EPIC 6: Ensures that user can apply to a job as expected.
 def test_ApplyForJob():
     #create a job 
     poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
-    to_apply_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
-
-    #create a user - who applies for the job
-    user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2")
+    user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2") #user applying
+    to_apply_job = AppliedJob(user, job_id, "12/11/22", "01/11/23", "love to work")
 
     #apply for job - function call (assert)
-    assert True == ApplyForJob(user, to_apply_job)
+    assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, "TestAppliedJobs") #first time applied
+    assert False == AppliedJobHelpers.CreateAppliedJob(to_apply_job, "TestAppliedJobs") #second time applied
 
-    #delete test job
-    JobHelpers.DeleteJob(to_apply_job, "TestJobs")
-
-    #delete test user and the test poster
-    UserHelpers.DeleteUserAccount(poster, "TestUsers")
-    UserHelpers.DeleteUserAccount(user, "TestUsers")
+    #delete the applied job node
+    #DeleteAppliedJob(user, to_apply_job) #yet to be added
