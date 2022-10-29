@@ -3,7 +3,6 @@ from model.User import User
 from helpers.MenuHelpers import MenuHelpers
 from actions.ApplyForJob import ApplyForJob
 from actions.SaveJob import SaveJob
-
 from model.User import User
 
 class JobTitleHelper:
@@ -97,7 +96,6 @@ class JobTitleHelper:
                         print("\nFailure! Operation not completed!\n")
                 
                 elif(optionNo == 3 and flag):
-
                     if JobHelpers.DeleteJob(job) == True:
                         print(f"\n{job.Title} created successfully.")
                     else:
