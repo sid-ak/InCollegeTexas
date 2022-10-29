@@ -509,3 +509,46 @@ def test_UserProfile_EditProfile():
 
     # Destroy: Delete the test user after the test run.
     UserHelpers.DeleteUserAccount(testUser, testCollection)
+
+# EPIC 6: Ensures that user can delete a profile as expected.
+def test_DeleteJob():
+    #create a job
+    poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
+    job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
+    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+    
+    assert True == JobHelpers.CreateJob(first_job, "TestJobs")
+
+    #then delete it
+    assert True == JobHelpers.DeleteJob(first_job, "TestJobs")
+
+    #delete test user
+    UserHelpers.DeleteUserAccount(poster, "TestUsers")
+
+# NOT YET DONE BY AMIR
+# def test_SaveJobs(): 
+    #create a job - poster will be different from the user who saves the job
+    #create a user - who saves the job
+    #save the job to the user - function call
+    #assert that the job is saved to the user
+
+def test_ApplyForJob():
+    #create a job 
+    poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
+    job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
+    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+
+    #create a user - who applies for the job
+    user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2")
+
+    #apply for job - function call
+    assert True == JobHelpers.ApplyForJob(user)
+
+    # ^^ assert that the job is in the user's applied jobs/ user did apply! ^^
+
+    #delete test job
+    JobHelpers.DeleteJob(first_job, "TestJobs")
+
+    #delete test user and the test poster
+    UserHelpers.DeleteUserAccount(poster, "TestUsers")
+    UserHelpers.DeleteUserAccount(user, "TestUsers")
