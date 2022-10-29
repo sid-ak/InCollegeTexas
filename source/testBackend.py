@@ -526,18 +526,19 @@ def test_DeleteJob():
     
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
 
+    #delete the job
+    assert True == JobHelpers.DeleteJob(first_job, "TestJobs")
+
 # EPIC 6: Ensures that user can save a job as expected.
 def test_SaveJobs(): 
     #create a job - poster will be different from the user who saves the job
-    poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
-    #to_save_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
     user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2") #user saving the job
-    to_save_job = SavedJob(SavedJobHelpers.CreateSaveJobId("Test IT Intern", "testUserID"), "Test IT Intern", "testUserID")
+    to_save_job = SavedJob(SavedJobHelpers.CreateSaveJobId(job_id, user.Id), job_id, user.Id)
 
     #save the job to the user - function call (assert)
     assert True == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs")
-    #assert False == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs")
+    assert False == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs")
 
     #delete the saved job node
     #DeleteSavedJob(user, to_save_job) #yet to be added
