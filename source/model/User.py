@@ -50,7 +50,7 @@ class UserHydrator:
         "Friends": "dict[str, bool]",
         "University": "str",
         "Major": "str",
-        "Profile": "Profile",
+        "Profile": "Profile"
     }
     
     # Hydrates an individual property for the User entity.
