@@ -542,7 +542,7 @@ def test_ApplyForJob():
     user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2")
 
     #apply for job - function call
-    assert True == JobHelpers.ApplyForJob(user)
+    assert True == JobHelpers.ApplyForJob(user, first_job)
 
     # ^^ assert that the job is in the user's applied jobs/ user did apply! ^^
 
