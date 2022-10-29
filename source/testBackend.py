@@ -179,7 +179,7 @@ def test_RegisterNewUser_Success():
     user = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID")
     result = UserHelpers.UpdateUser(user, "TestUsers")
     assert result == True
-    UserHelpers.DeleteUserAccount(user, "TestUsers")
+    assert True == UserHelpers.DeleteUserAccount(user, "TestUsers")
 
 '''Test to test if Log In works'''
 def test_LogInUser():
@@ -231,7 +231,7 @@ def test_UserLimit():
 
     # Destroy: Delete all test users after the test run.
     for user in users:
-        UserHelpers.DeleteUserAccount(user, testCollection)
+        assert True == UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 4: Ensures that a user is initialized with a list of empty friends.
 def test_UserFriends_InitializedToEmpty():
@@ -274,7 +274,7 @@ def test_UserFriends_SendFriendRequest(deleteTestUsers: bool = True):
     # Destroy: Delete all test users after the test run.
     if deleteTestUsers:
         for user in users:
-            UserHelpers.DeleteUserAccount(user, testCollection)
+            assert True == UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 4: Ensures that a user can accept a friend request as expected.
 def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
@@ -302,7 +302,7 @@ def test_UserFriends_AcceptFriendRequest(deleteTestUsers: bool = True):
     # Destroy: Delete all test users after the test run.
     if deleteTestUsers:
         for user in users:
-            UserHelpers.DeleteUserAccount(user, testCollection)
+            assert True == UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 4: Ensures that a user can reject a friend request as expected.
 def test_UserFriends_RejectFriendRequest():
@@ -331,7 +331,7 @@ def test_UserFriends_RejectFriendRequest():
 
     # Destroy: Delete all test users after the test run.
         for user in users:
-            UserHelpers.DeleteUserAccount(user, testCollection)
+            assert True == UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 4: Ensures that a user can delete a friend as expected.
 def test_UserFriends_DeleteFriend():
@@ -360,7 +360,7 @@ def test_UserFriends_DeleteFriend():
 
     # Destroy: Delete all test users after the test run.
     for user in users:
-        UserHelpers.DeleteUserAccount(user, testCollection)
+        assert True == UserHelpers.DeleteUserAccount(user, testCollection)
 
 # EPIC 5: Ensures the user can create a profile as expected.
 def test_UserProfile_CreateProfile(deleteTestUser: bool = True):
@@ -413,7 +413,7 @@ def test_UserProfile_CreateProfile(deleteTestUser: bool = True):
 
     # Destroy: Delete the test user after the test run.
     if (deleteTestUser):
-        UserHelpers.DeleteUserAccount(testUser, testCollection)
+        assert True == UserHelpers.DeleteUserAccount(testUser, testCollection)
 
 # EPIC 5: Ensures that user can have a maximum of 3 profile experiences.
 def test_UserProfile_ProfileExperiencesLimit():
@@ -466,7 +466,7 @@ def test_UserProfile_ProfileExperiencesLimit():
     assert False == UserHelpers.UpdateUser(testUser, testCollection)
 
     # Destroy: Delete the test user after the test run.
-    UserHelpers.DeleteUserAccount(testUser, testCollection)
+    assert True == UserHelpers.DeleteUserAccount(testUser, testCollection)
 
 # EPIC 5: Ensures that user can edit a profile as expected.
 def test_UserProfile_EditProfile():
@@ -515,7 +515,7 @@ def test_UserProfile_EditProfile():
     assert educationList == testUser.Profile.EducationList
 
     # Destroy: Delete the test user after the test run.
-    UserHelpers.DeleteUserAccount(testUser, testCollection)
+    assert True == UserHelpers.DeleteUserAccount(testUser, testCollection)
 
 # EPIC 6: Ensures that user can delete a profile as expected.
 def test_DeleteJob():
@@ -537,23 +537,22 @@ def test_SaveJobs():
     to_save_job = SavedJob(SavedJobHelpers.CreateSaveJobId(job_id, user.Id), job_id, user.Id)
 
     #save the job to the user - function call (assert)
-    assert True == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs")
-    assert False == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs")
+    assert True == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs") #first time saving a job
+    assert False == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs") #saving the job for the second time
 
     #delete the saved job node
-    #DeleteSavedJob(user, to_save_job) #yet to be added
+    assert True == SavedJobHelpers.DeleteSavedJob(to_save_job, "TestSavedJobs")
 
 #EPIC 6: Ensures that user can apply to a job as expected.
 def test_ApplyForJob():
     #create a job 
-    poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
     user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2") #user applying
-    to_apply_job = AppliedJob(user, job_id, "12/11/22", "01/11/23", "love to work")
+    to_apply_job = AppliedJob(user.Id, job_id, "12/11/22", "01/11/23", "love to work")
 
     #apply for job - function call (assert)
-    #assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user, "TestAppliedJobs") #first time applied
-    assert False == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user, "TestAppliedJobs") #second time applied
+    assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user, "TestAppliedJobs") #first time applying for the job
+    assert False == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user, "TestAppliedJobs") #second time applying for the same job
 
     #delete the applied job node
-    AppliedJobHelpers.DeleteAppliedJob(to_apply_job, "TestAppliedJobs")
+    assert True == AppliedJobHelpers.DeleteAppliedJob(to_apply_job, "TestAppliedJobs")

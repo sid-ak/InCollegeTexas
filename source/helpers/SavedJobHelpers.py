@@ -82,7 +82,7 @@ class SavedJobHelpers:
             if (allSavedJobs != None):
                 for dbSavedJob in allSavedJobs:
                     if savedJob.JobId == dbSavedJob.JobId and savedJob.UserId == dbSavedJob.UserId:
-                        database.child(collection).child(savedJob.UserId+savedJob.JobId).remove()
+                        database.child(collection).child(savedJob.Id).remove()
                         return True
                     
             else:
