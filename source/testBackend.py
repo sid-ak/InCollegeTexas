@@ -7,9 +7,12 @@ from model.User import User
 from model.Job import Job, JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
+from actions.ApplyForJob import ApplyForJob
+from actions.SaveJob import SaveJob
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
 from model.Profile import Education, Experience, Profile
+from model.Job import Job, JobHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -525,29 +528,43 @@ def test_DeleteJob():
     #delete test user
     UserHelpers.DeleteUserAccount(poster, "TestUsers")
 
-# NOT YET DONE BY AMIR
 # def test_SaveJobs(): 
     #create a job - poster will be different from the user who saves the job
+    poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
+    job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
+    to_save_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+
     #create a user - who saves the job
+    user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2")
+
     #save the job to the user - function call
-    #assert that the job is saved to the user
+    assert True == SaveJob(user, to_save_job)
+
+    #^^ assert that the job is saved to the user ^^
+
+    #delete test job
+    JobHelpers.DeleteJob(to_save_job, "TestJobs")
+
+    #delete test user and the test poster
+    UserHelpers.DeleteUserAccount(poster, "TestUsers")
+    UserHelpers.DeleteUserAccount(user, "TestUsers")
 
 def test_ApplyForJob():
     #create a job 
     poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
-    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+    to_apply_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
 
     #create a user - who applies for the job
     user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2")
 
     #apply for job - function call
-    assert True == JobHelpers.ApplyForJob(user, first_job)
+    assert True == ApplyForJob(user, to_apply_job)
 
     # ^^ assert that the job is in the user's applied jobs/ user did apply! ^^
 
     #delete test job
-    JobHelpers.DeleteJob(first_job, "TestJobs")
+    JobHelpers.DeleteJob(to_apply_job, "TestJobs")
 
     #delete test user and the test poster
     UserHelpers.DeleteUserAccount(poster, "TestUsers")
