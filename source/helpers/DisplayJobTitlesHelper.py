@@ -1,5 +1,3 @@
-from cmath import e
-from curses import can_change_color
 from model.Job import Job, JobHelpers
 from helpers.MenuHelpers import MenuHelpers
 from model.User import User
@@ -57,13 +55,13 @@ class JobTitleHelper:
               raise Exception(f"Something went wrong,  could not select one of the jobs.\n{e}")
 
     #Print the deatils of the job after the logged in user has selected the job
-    def PrintDetails(job: Job):
+    def PrintDetails(job: Job, flag:bool):
         print(f"Job Title: {job.Title}")
         print(f"Job Description: {job.Description}")
         print(f"Employer: {job.Employer}")
         print(f"Job Location: {job.Location}")
         print(f"Job Salary: {job.Salary}")
-        JobTitleHelper.SelectJobOptions(job)
+        JobTitleHelper.SelectJobOptions(job, flag)
     
     #This Function gives the option to either apply or to save the job
     def SelectJobOptions(job: Job, flag):

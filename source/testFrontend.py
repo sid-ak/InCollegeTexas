@@ -475,7 +475,7 @@ def test_DisplayJobTitle():
 
     # testing view all jobs titles option inside display job menu
     set_keyboard_input(["2", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle("testJobs")
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
     output = get_display_output()
 
     assert output == ['\nPlease select if you want to filter the Job:\n',
@@ -493,7 +493,7 @@ def test_DisplayJobTitle():
 
     # testing select a job option (apply, save and delete) menu inside Display Job Titles
     set_keyboard_input(["2", "1", "-1", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle("testJobs")
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
     output = get_display_output()
     assert output == ['\nPlease select if you want to filter the Job:\n',
                          '1 - Yes',
@@ -510,7 +510,6 @@ def test_DisplayJobTitle():
                          '\nPlease Select one of the following options\n',
                          '1 - Apply for the job',
                          '2 - Save job',
-                         '3 - Delete job',
                          '\nEnter (-1 to exit current menu): ',
                          '\nPlease Select one of the following jobs\n',
                          '1 - testTitle',
@@ -523,7 +522,7 @@ def test_DisplayJobTitle():
 
     # testing filter option inside Dsiplay job menu
     set_keyboard_input(["1", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle()
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
     output = get_display_output()
 
     assert output == ['\nPlease select if you want to filter the Job:\n',
