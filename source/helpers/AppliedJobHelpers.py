@@ -10,6 +10,8 @@ class AppliedJobHelpers:
         return {
             'UserId': str(appliedJob.UserId),
             'JobId': str(appliedJob.JobId),
+            'JobTitle': str(appliedJob.JobTitle),
+            'JobEmployer': str(appliedJob.JobEmployer),
             'GraduationDate': str(appliedJob.GraduationDate),
             'StartDate': str(appliedJob.StartDate),
             'GoodFitReasoning': str(appliedJob.GoodFitReasoning)
