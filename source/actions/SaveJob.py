@@ -6,7 +6,7 @@ from helpers.SavedJobHelpers import SavedJobHelpers
 
 
 # saves the specified job for the specified user
-def SaveJob(loggedUser: User, selectedJob: Job) -> bool:
+def SaveJob(loggedUser: User, selectedJob: Job, collection: str = "SavedJobs") -> bool:
     try:
         # first check if the user already saved the job
         if JobsHelpers.HelpFindIfSaved(loggedUser=loggedUser, jobInterested=selectedJob):
@@ -20,12 +20,12 @@ def SaveJob(loggedUser: User, selectedJob: Job) -> bool:
         )
         savedJob: SavedJob = SavedJob(Id=id, JobId=selectedJob.Id, UserId=loggedUser.Id)
 
-        if SavedJobHelpers.CreateSavedJob(savedJob=savedJob):
+        if SavedJobHelpers.CreateSavedJob(savedJob=savedJob, loggedUser=loggedUser, collection=collection):
             print("\nSuccess! You have saved the job!\n")
             return True
         else:
             raise Exception("Create Saved Job failed.")
 
-    except:
-        print("\nError! Operation failed for some reason.\n")
+    except Exception as e:
+        print(f"\nError! Operation failed for some reason.{e}\n")
         return False

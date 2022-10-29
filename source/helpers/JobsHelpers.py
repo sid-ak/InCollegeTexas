@@ -1,9 +1,9 @@
 from model.Job import Job
 from model.User import User
-from model.AppliedJob import AppliedJobHelpers
 from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
-from model.SavedJob import SavedJobHelpers
+from helpers.AppliedJobHelpers import AppliedJobHelpers
+from helpers.SavedJobHelpers import SavedJobHelpers
 
 
 class JobsHelpers:

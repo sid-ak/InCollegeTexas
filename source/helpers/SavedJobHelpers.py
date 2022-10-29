@@ -31,14 +31,15 @@ class SavedJobHelpers:
             
             return savedJobs
         
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not get all saved jobs for some reason.{e}\n")
             return None
 
     
     # queries all saved jobs for a specified user from the DB
     def GetAllSavedJobsOfUser(loggedUser: User, collection: str = "SavedJobs") -> list[SavedJob]:
         try:
-            allSavedJobs = SavedJobHelpers.GetAllSavedJobs()
+            allSavedJobs = SavedJobHelpers.GetAllSavedJobs(collection=collection)
             if allSavedJobs == None or allSavedJobs == []: return None
 
             savedJobsUser: list[SavedJob] = []
@@ -47,18 +48,27 @@ class SavedJobHelpers:
                     savedJobsUser.append(saved)
             
             return savedJobsUser
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not get all saved jobs of the user for some reason.{e}\n")
             return None
 
 
     # creates the specified saved job in the DB
-    def CreateSavedJob(savedJob: SavedJob, collection: str = "SavedJobs") -> bool:
+    def CreateSavedJob(savedJob: SavedJob, loggedUser: User, collection: str = "SavedJobs") -> bool:
         try:
+            # first check if the user has already saved
+            allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobsOfUser(loggedUser=loggedUser, collection=collection)
+            for saved in allSaved:
+                if saved.JobId == savedJob.JobId:
+                    print("\nFailure! You have already saved this job.\n")
+                    return False
+
             # primary key of node is user id
             database.child(collection).child(savedJob.Id).set(
                 SavedJobHelpers.SavedJobToDict(savedJob))
             return True
-        except:
+        except Exception as e:
+            print("\nFailure! Could not create an instance of saved job for some reason.{e}\n")
             return False
 
 
