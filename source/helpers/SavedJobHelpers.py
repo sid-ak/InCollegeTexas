@@ -74,14 +74,14 @@ class SavedJobHelpers:
             print("\nFailure! Could not create an instance of saved job for some reason.{e}\n")
             return False
     
-        # deletes the specified saved job from the DB
+    # deletes the specified saved job from the DB
     def DeleteSavedJob(savedJob: SavedJob, collection: str = "SavedJobs") -> bool:
         allSavedJobs = SavedJobHelpers.GetAllSavedJobs(collection=collection)
 
         try:
             if (allSavedJobs != None):
                 for dbSavedJob in allSavedJobs:
-                    if SavedJob.JobId == dbSavedJob.JobId and savedJob.UserId == dbSavedJob.UserId:
+                    if savedJob.JobId == dbSavedJob.JobId and savedJob.UserId == dbSavedJob.UserId:
                         database.child(collection).child(savedJob.UserId+savedJob.JobId).remove()
                         return True
                     
