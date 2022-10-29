@@ -5,11 +5,11 @@ from model.Job import Job
 from model.Job import JobHelpers
 
 
-def NotifyIfAppliedJobsDeleted(loggedUser: User, collection: str = "AppliedJobs"):
+def NotifyIfAppliedJobsDeleted(loggedUser: User, appliedJobsCollection: str = "AppliedJobs", allJobsCollection: str = "Jobs"):
     # first get the list of all applied jobs by the user
-    allAppliedByUser: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=collection)
+    allAppliedByUser: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=appliedJobsCollection)
     # now get the list of all existing jobs in the DB
-    allExistingJobs: list[Job] = JobHelpers.GetAllJobs()
+    allExistingJobs: list[Job] = JobHelpers.GetAllJobs(collection=allJobsCollection)
 
 
     # distinct list of job id's of all existing jobs
@@ -24,17 +24,18 @@ def NotifyIfAppliedJobsDeleted(loggedUser: User, collection: str = "AppliedJobs"
 
     # notify the user by listing the jobs deleted
     if len(appliedJobsDeleted) != 0:
+        # now try to delete these jobs
+        for job in appliedJobsDeleted:
+            try:
+                AppliedJobHelpers.DeleteAppliedJob(appliedJob=job, collection=appliedJobsCollection)
+            except Exception as e:
+                print("\nFailure! Could not delete the applied job for some reason. {e}\n")
+
+        # now let the user know which applied jobs got deleted
         print("\nAttention! Among the jobs you have applied for some have been deleted.")
         print("\nHere they are: \n")
         for i in range(len(appliedJobsDeleted)):
             print(f"{i+1}. {appliedJobsDeleted[i].JobTitle} from {appliedJobsDeleted[i].JobEmployer}")
-        
-        # now try to delete these jobs
-        for job in appliedJobsDeleted:
-            try:
-                AppliedJobHelpers.DeleteAppliedJob(appliedJob=job)
-            except Exception as e:
-                print("\nFailure! Could not delete the applied job for some reason. {e}\n")
         
         print("\nYour applications for these jobs are revoked.\n")
             
