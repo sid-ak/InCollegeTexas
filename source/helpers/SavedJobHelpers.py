@@ -57,11 +57,14 @@ class SavedJobHelpers:
     def CreateSavedJob(savedJob: SavedJob, loggedUser: User, collection: str = "SavedJobs") -> bool:
         try:
             # first check if the user has already saved
-            allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobsOfUser(loggedUser=loggedUser, collection=collection)
-            for saved in allSaved:
-                if saved.JobId == savedJob.JobId:
-                    print("\nFailure! You have already saved this job.\n")
-                    return False
+            allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobsOfUser(
+                loggedUser=loggedUser, collection=collection)
+
+            if allSaved != None:
+                for saved in allSaved:
+                    if saved.JobId == savedJob.JobId:
+                        print("\nFailure! You have already saved this job.\n")
+                        return False
 
             # primary key of node is user id
             database.child(collection).child(savedJob.Id).set(
@@ -69,6 +72,24 @@ class SavedJobHelpers:
             return True
         except Exception as e:
             print("\nFailure! Could not create an instance of saved job for some reason.{e}\n")
+            return False
+    
+    # deletes the specified saved job from the DB
+    def DeleteSavedJob(savedJob: SavedJob, collection: str = "SavedJobs") -> bool:
+        allSavedJobs = SavedJobHelpers.GetAllSavedJobs(collection=collection)
+
+        try:
+            if (allSavedJobs != None):
+                for dbSavedJob in allSavedJobs:
+                    if savedJob.JobId == dbSavedJob.JobId and savedJob.UserId == dbSavedJob.UserId:
+                        database.child(collection).child(savedJob.Id).remove()
+                        return True
+                    
+            else:
+                return False
+        
+        except Exception as e:
+            print(f"\nFailure! Could not delete the instance of saved job for some reason.{e}\n")
             return False
 
 

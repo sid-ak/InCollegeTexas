@@ -61,10 +61,12 @@ class AppliedJobHelpers:
         try:
             # first check if the user already applied
             allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=collection)
-            for applied in allApplied:
-                if applied.JobId == appliedJob.JobId:
-                    print("\nError! You have already applied for this job.\n")
-                    return False
+            
+            if allApplied != None:
+                for applied in allApplied:
+                    if applied.JobId == appliedJob.JobId:
+                        print("\nError! You have already applied for this job.\n")
+                        return False
 
             # the id of the applied job entry is the combination of user id and job id
             database.child(collection).child(appliedJob.UserId + appliedJob.JobId).set(
