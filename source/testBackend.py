@@ -533,7 +533,7 @@ def test_SaveJobs():
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
     #to_save_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
     user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2") #user saving the job
-    to_save_job = SavedJob(id, job_id, user)
+    to_save_job = SavedJob(SavedJobHelpers.CreateSaveJobId("Test IT Intern", "testUserID"), "Test IT Intern", "testUserID")
 
     #save the job to the user - function call (assert)
     assert True == SavedJobHelpers.CreateSavedJob(to_save_job, user, "TestSavedJobs")
