@@ -31,7 +31,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
             if not JobsHelpers.HelpValidateDate(graduationDate):
                 print("\nError! Invalid graduation date, try again.")
                 while True:
-                    graduationDate = input("\nPlease enter graduation date (-1 to Exit): ")
+                    graduationDate = input("\nPlease enter graduation date (mm/dd/yyyy) (-1 to Exit): ")
                     if graduationDate == "-1":
                         terminateOperation = True
                         break
@@ -44,7 +44,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
                     return True
 
         # get and validate start date
-        startDate: str = input("\nPlease enter start date (-1 to Exit): ")
+        startDate: str = input("\nPlease enter start date (mm/dd/yyyy) (-1 to Exit): ")
         if startDate == "-1":
             print("\nYou have selected to quit\n")
             return True
