@@ -18,7 +18,7 @@ class JobTitleHelper:
                 if optionNo == -1: break
                 
                 elif optionNo == 1:
-                    JobTitleHelper.FilterJobTitles(loggedUserUsername = loggedUserUsername)
+                    JobTitleHelper.FilterJobTitles()
                 
                 elif optionNo == 2:
                     JobTitleHelper.GetAllJobTitles(loggedUserUsername = loggedUserUsername)
@@ -27,7 +27,7 @@ class JobTitleHelper:
                     print("Invalid entry! Please try again.\n")
 
             except Exception as e:
-              raise Exception(f"Something went wrong while selecting job option.\n{e}")
+              raise Exception(f"Something went wrong, could not filter the jobs.\n{e}")
 
     #This functiones give the title of all the jobs in the database and gives an ption to select the job 
     def GetAllJobTitles(collection: str = "Jobs", loggedUserUsername = None):
@@ -56,7 +56,7 @@ class JobTitleHelper:
                     print("Invalid entry! Please try again.\n")
             
             except Exception as e:
-              raise Exception(f"Something went wrong while selecting job option.\n{e}")
+              raise Exception(f"Something went wrong,  could not select one of the jobs.\n{e}")
 
     #Print the deatils of the job after the logged in user has selected the job
     def PrintDetails(job: Job, flag):
@@ -101,7 +101,7 @@ class JobTitleHelper:
                     print("Invalid entry! Please try again.\n")
             
             except Exception as e:
-              raise Exception(f"Something went wrong while selecting job option.\n{e}")
+              raise Exception(f"Something went wrong, could not show the job options.\n{e}")
 
     def FilterJobTitles():
         while True:
@@ -125,5 +125,5 @@ class JobTitleHelper:
                 else:
                     print("Invalid entry! Please try again.\n")
             except Exception as e:
-              raise Exception(f"Something went wrong while selecting job option.\n{e}")
+              raise Exception(f"Something went wrong, could filter the jobs by the options.\n{e}")
 
