@@ -510,6 +510,7 @@ def test_DisplayJobTitle():
                          '\nPlease Select one of the following options\n',
                          '1 - Apply for the job',
                          '2 - Save job',
+                         '3 - Delete job',
                          '\nEnter (-1 to exit current menu): ',
                          '\nPlease Select one of the following jobs\n',
                          '1 - testTitle',
