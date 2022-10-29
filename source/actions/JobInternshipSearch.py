@@ -3,14 +3,13 @@ from model.User import User
 from helpers.MenuHelpers import MenuHelpers
 from helpers.DisplayJobTitlesHelper import JobTitleHelper
 
+
 # Allows a logged in user to create a job posting or view all the jobs.
 def FindJobInternshipAction(loggedUser: User):
     while True:
         print("\nPlease select one of the following options:\n")
         MenuHelpers.DisplayOptions(["Post a Job", "Find a Job"])
 
-        loggedUserUsername = loggedUser.Username
-                
         try:
             optionNo: int = MenuHelpers.InputOptionNo()
             
@@ -32,7 +31,7 @@ def FindJobInternshipAction(loggedUser: User):
                     raise Exception("CreateJob failed.")
 
             elif optionNo == 2:
-                JobTitleHelper.DisplayJobTitle(loggedUserUsername)
+                JobTitleHelper.DisplayJobTitle(loggedUser)
 
         except Exception as e:
               raise Exception(f"Something went wrong while selecting job option.\n{e}")
