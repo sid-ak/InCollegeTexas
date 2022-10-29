@@ -39,13 +39,11 @@ class JobTitleHelper:
 
             for job in jobList:
                 jobTitleList.append(job.Title)
-            
+
             print("\nPlease Select one of the following jobs\n")
             MenuHelpers.DisplayOptions(jobTitleList)
-
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
-
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(jobList) + 1):
@@ -59,13 +57,13 @@ class JobTitleHelper:
               raise Exception(f"Something went wrong,  could not select one of the jobs.\n{e}")
 
     #Print the deatils of the job after the logged in user has selected the job
-    def PrintDetails(job: Job, flag):
-        print("Job Title: ", job.Title)
-        print("Job Description: ", job.Description)
-        print("Employer: ", job.Employer)
-        print("Job Location: ", job.Location)
-        print("Job Salary: ", job.Salary)
-        JobTitleHelper.SelectJobOptions(job, flag)
+    def PrintDetails(job: Job):
+        print(f"Job Title: {job.Title}")
+        print(f"Job Description: {job.Description}")
+        print(f"Employer: {job.Employer}")
+        print(f"Job Location: {job.Location}")
+        print(f"Job Salary: {job.Salary}")
+        JobTitleHelper.SelectJobOptions(job)
     
     #This Function gives the option to either apply or to save the job
     def SelectJobOptions(job: Job, flag):
