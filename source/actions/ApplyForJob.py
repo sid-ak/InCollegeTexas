@@ -93,7 +93,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
             GoodFitReasoning=goodFitReasoning
             )
 
-        if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob, collection=collection):
+        if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob, loggedUser=loggedUser, collection=collection):
             print("\nSuccess! You have applied for the job!\n")
             return True
         else:

@@ -55,8 +55,15 @@ class AppliedJobHelpers:
 
 
     # creates the specifid applied job in the DB
-    def CreateAppliedJob(appliedJob: AppliedJob, collection: str = "AppliedJobs") -> bool:
+    def CreateAppliedJob(appliedJob: AppliedJob, loggedUser: User, collection: str = "AppliedJobs") -> bool:
         try:
+            # first check if the user already applied
+            allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=collection)
+            for applied in allApplied:
+                if applied.JobId == appliedJob.JobId:
+                    print("\nError! You have already applied for this job.\n")
+                    return False
+
             # the id of the applied job entry is the combination of user id and job id
             database.child(collection).child(appliedJob.UserId + appliedJob.JobId).set(
                 AppliedJobHelpers.AppliedJobToDict(appliedJob))

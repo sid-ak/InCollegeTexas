@@ -54,8 +54,15 @@ class SavedJobHelpers:
 
 
     # creates the specified saved job in the DB
-    def CreateSavedJob(savedJob: SavedJob, collection: str = "SavedJobs") -> bool:
+    def CreateSavedJob(savedJob: SavedJob, loggedUser: User, collection: str = "SavedJobs") -> bool:
         try:
+            # first check if the user has already saved
+            allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobsOfUser(loggedUser=loggedUser, collection=collection)
+            for saved in allSaved:
+                if saved.JobId == savedJob.JobId:
+                    print("\nFailure! You have already saved this job.\n")
+                    return False
+
             # primary key of node is user id
             database.child(collection).child(savedJob.Id).set(
                 SavedJobHelpers.SavedJobToDict(savedJob))

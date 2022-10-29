@@ -20,12 +20,12 @@ def SaveJob(loggedUser: User, selectedJob: Job, collection: str = "SavedJobs") -
         )
         savedJob: SavedJob = SavedJob(Id=id, JobId=selectedJob.Id, UserId=loggedUser.Id)
 
-        if SavedJobHelpers.CreateSavedJob(savedJob=savedJob, collection=collection):
+        if SavedJobHelpers.CreateSavedJob(savedJob=savedJob, loggedUser=loggedUser, collection=collection):
             print("\nSuccess! You have saved the job!\n")
             return True
         else:
             raise Exception("Create Saved Job failed.")
 
-    except:
-        print("\nError! Operation failed for some reason.\n")
+    except Exception as e:
+        print(f"\nError! Operation failed for some reason.{e}\n")
         return False
