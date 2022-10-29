@@ -7,7 +7,7 @@ from model.User import User
 class JobTitleHelper:
 
     #Gives an option to a logged in user to either filter the jobs or view them all
-    def DisplayJobTitle(loggedUserUsername):
+    def DisplayJobTitle(loggedUserUsername, collection: str = "Jobs"):
         while True:
             print("\nPlease select if you want to filter the Job:\n")
             MenuHelpers.DisplayOptions(["Yes", "No"])
@@ -21,7 +21,7 @@ class JobTitleHelper:
                     JobTitleHelper.FilterJobTitles()
                 
                 elif optionNo == 2:
-                    JobTitleHelper.GetAllJobTitles(loggedUserUsername = loggedUserUsername)
+                    JobTitleHelper.GetAllJobTitles(loggedUserUsername, collection)
 
                 else:
                     print("Invalid entry! Please try again.\n")
