@@ -100,9 +100,9 @@ class JobTitleHelper:
                 
                 elif(optionNo == 3 and flag):
                     if JobHelpers.DeleteJob(job) == True:
-                        print(f"\n{job.Title} created successfully.")
+                        print(f"\n{job.Title} deleted successfully.")
                     else:
-                        raise Exception("CreateJob failed.")
+                        raise Exception("DeleteJob failed.")
 
                 else:
                     print("Invalid entry! Please try again.\n")
