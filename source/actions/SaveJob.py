@@ -2,7 +2,7 @@ from model.SavedJob import SavedJob
 from model.User import User
 from model.Job import Job
 from helpers.JobsHelpers import JobsHelpers
-from model.SavedJob import SavedJobHelpers
+from helpers.SavedJobHelpers import SavedJobHelpers
 
 
 # saves the specified job for the specified user

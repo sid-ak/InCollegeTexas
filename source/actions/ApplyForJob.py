@@ -2,7 +2,7 @@ from model.User import User
 from model.Job import Job
 from helpers.JobsHelpers import JobsHelpers
 from model.AppliedJob import AppliedJob
-from model.AppliedJob import AppliedJobHelpers
+from helpers.AppliedJobHelpers import AppliedJobHelpers
 
 
 
