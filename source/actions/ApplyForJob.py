@@ -6,7 +6,7 @@ from helpers.AppliedJobHelpers import AppliedJobHelpers
 
 
 
-def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
+def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJobs") -> bool:
     # first check if the user did not post this job  
     if JobsHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
         print("\nFailure! You cannot apply for a job you posted.\n")
@@ -93,7 +93,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job) -> bool:
             GoodFitReasoning=goodFitReasoning
             )
 
-        if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob):
+        if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob, collection=collection):
             print("\nSuccess! You have applied for the job!\n")
             return True
         else:

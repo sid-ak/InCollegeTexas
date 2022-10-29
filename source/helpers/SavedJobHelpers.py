@@ -38,7 +38,7 @@ class SavedJobHelpers:
     # queries all saved jobs for a specified user from the DB
     def GetAllSavedJobsOfUser(loggedUser: User, collection: str = "SavedJobs") -> list[SavedJob]:
         try:
-            allSavedJobs = SavedJobHelpers.GetAllSavedJobs()
+            allSavedJobs = SavedJobHelpers.GetAllSavedJobs(collection=collection)
             if allSavedJobs == None or allSavedJobs == []: return None
 
             savedJobsUser: list[SavedJob] = []

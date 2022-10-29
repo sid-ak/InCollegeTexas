@@ -39,7 +39,7 @@ class AppliedJobHelpers:
     # queries all applied jobs nodes for a specified user from the DB
     def GetAllAppliedJobsOfUser(loggedUser: User, collection: str = "AppliedJobs") -> list[AppliedJob]:
         try:
-            allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs()
+            allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
             if allAppliedJobs == None or allAppliedJobs == []: return None
 
             appliedJobsUser: list[AppliedJob] = []
