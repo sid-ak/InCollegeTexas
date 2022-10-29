@@ -72,7 +72,7 @@ def DisplayLoginMenu(loggedUser: User):
 
                         if decision == 1:
                             print("\nYou have selected to search for job or internship.")
-                            FindJobInternshipAction(loggedUser)
+                            FindJobInternshipAction(loggedUser = loggedUser)
                             break
                         elif decision == 2:
                             print("\nYou have selected to find someone you know.")
