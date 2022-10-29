@@ -30,10 +30,10 @@ class JobTitleHelper:
               raise Exception(f"Something went wrong, could not filter the jobs.\n{e}")
 
     #This functiones give the title of all the jobs in the database and gives an ption to select the job 
-    def GetAllJobTitles(collection: str = "Jobs", loggedUserUsername = None):
+    def GetAllJobTitles(loggedUserUsername, collection: str = "Jobs"):
         while True:
 
-            jobList = JobHelpers.GetAllJobs()
+            jobList = JobHelpers.GetAllJobs(collection)
             jobTitleList = []
             flag = False
 
@@ -75,7 +75,7 @@ class JobTitleHelper:
             optionList = ["Apply for the job", "Save job"]
 
             if flag:
-                optionList.append("Delete")
+                optionList.append("Delete job")
 
             MenuHelpers.DisplayOptions(optionList)
 
@@ -125,5 +125,5 @@ class JobTitleHelper:
                 else:
                     print("Invalid entry! Please try again.\n")
             except Exception as e:
-              raise Exception(f"Something went wrong, could filter the jobs by the options.\n{e}")
+              raise Exception(f"Something went wrong, could not filter the jobs by the options.\n{e}")
 
