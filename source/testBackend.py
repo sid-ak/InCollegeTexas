@@ -555,4 +555,4 @@ def test_ApplyForJob():
     assert False == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user, "TestAppliedJobs") #second time applied
 
     #delete the applied job node
-    #DeleteAppliedJob(user, to_apply_job) #yet to be added
+    AppliedJobHelpers.DeleteAppliedJob(to_apply_job, "TestAppliedJobs")
