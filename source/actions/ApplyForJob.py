@@ -99,7 +99,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
         else:
             raise Exception("Create Applied Job failed.")
 
-    except:
-        print("\nError! Operation failed for some reason.\n")
+    except Exception as e:
+        print(f"\nError! Operation failed for some reason.{e}\n")
         return False
         

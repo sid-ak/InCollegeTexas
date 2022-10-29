@@ -31,7 +31,8 @@ class SavedJobHelpers:
             
             return savedJobs
         
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not get all saved jobs for some reason.{e}\n")
             return None
 
     
@@ -47,7 +48,8 @@ class SavedJobHelpers:
                     savedJobsUser.append(saved)
             
             return savedJobsUser
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not get all saved jobs of the user for some reason.{e}\n")
             return None
 
 
@@ -58,7 +60,8 @@ class SavedJobHelpers:
             database.child(collection).child(savedJob.Id).set(
                 SavedJobHelpers.SavedJobToDict(savedJob))
             return True
-        except:
+        except Exception as e:
+            print("\nFailure! Could not create an instance of saved job for some reason.{e}\n")
             return False
 
 

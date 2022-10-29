@@ -32,7 +32,8 @@ class AppliedJobHelpers:
             
             return appliedJobs
 
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not fetch all applied jobs for some reason.{e}\n")
             return None
 
 
@@ -48,7 +49,8 @@ class AppliedJobHelpers:
                     appliedJobsUser.append(applied)
             
             return appliedJobsUser
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not fetch all applied jobs for the user for some reason.{e}\n")
             return None
 
 
@@ -59,7 +61,8 @@ class AppliedJobHelpers:
             database.child(collection).child(appliedJob.UserId + appliedJob.JobId).set(
                 AppliedJobHelpers.AppliedJobToDict(appliedJob))
             return True
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not create an instance of applied job for some reason.{e}\n")
             return False
     
 
@@ -67,11 +70,16 @@ class AppliedJobHelpers:
     def DeleteAppliedJob(appliedJob: AppliedJob, collection: str = "AppliedJobs") -> bool:
         allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
 
-        if (allAppliedJobs != None):
-            for dbAppliedJob in allAppliedJobs:
-                if appliedJob.JobId == dbAppliedJob.JobId and appliedJob.UserId == dbAppliedJob.UserId:
-                    database.child(collection).child(appliedJob.UserId+appliedJob.JobId).remove()
-                    return True
-                
-        else:
+        try:
+            if (allAppliedJobs != None):
+                for dbAppliedJob in allAppliedJobs:
+                    if appliedJob.JobId == dbAppliedJob.JobId and appliedJob.UserId == dbAppliedJob.UserId:
+                        database.child(collection).child(appliedJob.UserId+appliedJob.JobId).remove()
+                        return True
+                    
+            else:
+                return False
+        
+        except Exception as e:
+            print(f"\nFailure! Could not delete the instance of applied job for some reason.{e}\n")
             return False
