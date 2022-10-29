@@ -1,5 +1,6 @@
 from model.AppliedJob import AppliedJob
 from firebaseSetup.Firebase import database
+from model.User import User
 
 
 class AppliedJobHelpers:
@@ -31,6 +32,22 @@ class AppliedJobHelpers:
             
             return appliedJobs
 
+        except:
+            return None
+
+
+    # queries all applied jobs nodes for a specified user from the DB
+    def GetAllAppliedJobsOfUser(loggedUser: User, collection: str = "AppliedJobs") -> list[AppliedJob]:
+        try:
+            allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs()
+            if allAppliedJobs == None or allAppliedJobs == []: return None
+
+            appliedJobsUser: list[AppliedJob] = []
+            for applied in allAppliedJobs:
+                if applied.UserId == loggedUser.Id:
+                    appliedJobsUser.append(applied)
+            
+            return appliedJobsUser
         except:
             return None
 

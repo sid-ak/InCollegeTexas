@@ -1,5 +1,6 @@
 from model.SavedJob import SavedJob
 from firebaseSetup.Firebase import database
+from model.User import User
 import hashlib
 
 
@@ -34,6 +35,22 @@ class SavedJobHelpers:
             return None
 
     
+    # queries all saved jobs for a specified user from the DB
+    def GetAllSavedJobsOfUser(loggedUser: User, collection: str = "SavedJobs") -> list[SavedJob]:
+        try:
+            allSavedJobs = SavedJobHelpers.GetAllSavedJobs()
+            if allSavedJobs == None or allSavedJobs == []: return None
+
+            savedJobsUser: list[SavedJob] = []
+            for saved in allSavedJobs:
+                if saved.UserId == loggedUser.Id:
+                    savedJobsUser.append(saved)
+            
+            return savedJobsUser
+        except:
+            return None
+
+
     # creates the specified saved job in the DB
     def CreateSavedJob(savedJob: SavedJob, collection: str = "SavedJobs") -> bool:
         try:
