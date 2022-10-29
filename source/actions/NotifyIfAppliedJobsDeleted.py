@@ -5,7 +5,7 @@ from model.Job import Job
 from model.Job import JobHelpers
 
 
-def NotifyIfAppliedJobDeleted(loggedUser: User, collection: str = "AppliedJobs"):
+def NotifyIfAppliedJobsDeleted(loggedUser: User, collection: str = "AppliedJobs"):
     # first get the list of all applied jobs by the user
     allAppliedByUser: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=collection)
     # now get the list of all existing jobs in the DB
