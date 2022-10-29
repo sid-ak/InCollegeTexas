@@ -32,7 +32,7 @@ class User:
                 Friends = UserHydrator.HydrateProp(user, "Friends"),
                 University = UserHydrator.HydrateProp(user, "University"),
                 Major = UserHydrator.HydrateProp(user, "Major"),
-                Profile = UserHydrator.HydrateProp(user, "Profile"),
+                Profile = UserHydrator.HydrateProp(user, "Profile")
             )
 
 class UserHydrator:
