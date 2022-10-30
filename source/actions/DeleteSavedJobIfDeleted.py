@@ -28,3 +28,6 @@ def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJ
             except Exception as e:
                 print("\nFailure! Could not delete the saved job for some reason. {e}\n")
         
+        # let the user know that some of their saved jobs have been deleted and therefore will be unsaved
+        print("\nAttention! Among the jobs you have saved some have been deleted.")
+        print("They have been removed from your list of saved jobs.\n")
