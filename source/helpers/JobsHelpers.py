@@ -14,9 +14,8 @@ class JobsHelpers:
 
 
     # helps find if the user already applied for the job provided
-    def HelpFindIfApplied(loggedUser: User, jobInterested: Job, collection = "AppliedJobs") -> bool:
-        allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobs(collection)
-        if allApplied == None or allApplied == []: return False
+    def HelpFindIfApplied(loggedUser: User, jobInterested: Job) -> bool:
+        allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobs()
 
         for applied in allApplied:
             # the combination of user id and job id is equal to id of applied - means it is not unique
@@ -27,9 +26,8 @@ class JobsHelpers:
 
     
     # helps find if the user already saved the job provided
-    def HelpFindIfSaved(loggedUser: User, jobInterested: Job, collection = "SavedJobs") -> bool:
-        allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobs(collection)
-        if allSaved == None or allSaved == []: return False
+    def HelpFindIfSaved(loggedUser: User, jobInterested: Job) -> bool:
+        allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobs()
 
         for saved in allSaved:
             if (loggedUser.Id == saved.UserId) and (jobInterested.Id == saved.JobId):

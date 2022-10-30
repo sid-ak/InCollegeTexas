@@ -5,6 +5,7 @@ from model.AppliedJob import AppliedJob
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 
 
+
 def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJobs") -> bool:
     # first check if the user did not post this job  
     if JobsHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
@@ -46,7 +47,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
         startDate: str = input("\nPlease enter start date (mm/dd/yyyy) (-1 to Exit): ")
         if startDate == "-1":
             print("\nYou have selected to quit\n")
-            return False
+            return True
         else:
             # validate that the input is within the pattern mm/dd/yyyy
             if not JobsHelpers.HelpValidateDate(startDate):
@@ -62,18 +63,18 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
                         break
                 if terminateOperation:
                     print("\nYou have selected to quit\n")
-                    return False
+                    return True
         
         # get a paragraph why they are a good fit for the role
-        goodFitReasoning = input("\nPlease explain why you think you would be a good fit for this role (-1 To Exit): ")
+        goodFitReasoning = input("Please explain why you think you would be a good fit for this role (-1 To Exit): ")
         if goodFitReasoning == "-1":
             print("\nYou have selected to quit\n")
-            return False
+            return True
         else:
             if len(goodFitReasoning) == 0:
                 print("\nError! Empty text provided, try again")
                 while True:
-                    goodFitReasoning = input("\nPlease explain why you think you would be a good fit for this role (-1 To Exit): ")
+                    goodFitReasoning = input("Please explain why you think you would be a good fit for this role (-1 To Exit): ")
                     if goodFitReasoning == "-1":
                         print("\nYou have selected to quit\n")
                         terminateOperation = True
@@ -82,9 +83,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
                         print("\nError! Empty text provided, try again")
                     else:
                         break
-                if terminateOperation:
-                    print("\nYou have selected to quit\n")
-                    return False
+
 
         appliedJob: AppliedJob = AppliedJob(
             UserId=loggedUser.Id, 
@@ -94,7 +93,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
             GraduationDate=graduationDate,
             StartDate=startDate,
             GoodFitReasoning=goodFitReasoning
-        )
+            )
 
         if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob, loggedUser=loggedUser, collection=collection):
             print("\nSuccess! You have applied for the job!\n")
