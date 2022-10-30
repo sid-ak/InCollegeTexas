@@ -158,20 +158,15 @@ class JobTitleHelper:
                             collectionJob : str = "Jobs"):
         try:
             appliedJobNode = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser, collectionApplied)
-            appliedJobNodeID = []
 
             if appliedJobNode == None:
                 raise Exception(
                     f"There are no jobs remaining to be applied by the user: {loggedUser.Username}")
-
-            for job in appliedJobNode:
-                appliedJobNodeID.append(job.JobId)
+            
+            appliedJobNodeID = list(map(lambda x: x.JobId, appliedJobNode))
         
             jobNode = JobHelpers.GetAllJobs(collectionJob)
-            jobNodeID = []
-
-            for job in jobNode:
-                jobNodeID.append(job.Id)
+            jobNodeID = list(map(lambda x: x.Id, jobNode))
 
             displayUnappliedJobs = list(set(jobNodeID) - set(appliedJobNodeID))
             displayJob = []
