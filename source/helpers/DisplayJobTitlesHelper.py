@@ -1,4 +1,3 @@
-from typing import Collection
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
