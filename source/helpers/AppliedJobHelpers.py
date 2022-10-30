@@ -32,14 +32,15 @@ class AppliedJobHelpers:
             
             return appliedJobs
 
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not fetch all applied jobs for some reason.{e}\n")
             return None
 
 
     # queries all applied jobs nodes for a specified user from the DB
     def GetAllAppliedJobsOfUser(loggedUser: User, collection: str = "AppliedJobs") -> list[AppliedJob]:
         try:
-            allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs()
+            allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
             if allAppliedJobs == None or allAppliedJobs == []: return None
 
             appliedJobsUser: list[AppliedJob] = []
@@ -48,18 +49,29 @@ class AppliedJobHelpers:
                     appliedJobsUser.append(applied)
             
             return appliedJobsUser
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not fetch all applied jobs for the user for some reason.{e}\n")
             return None
 
 
     # creates the specifid applied job in the DB
-    def CreateAppliedJob(appliedJob: AppliedJob, collection: str = "AppliedJobs") -> bool:
+    def CreateAppliedJob(appliedJob: AppliedJob, loggedUser: User, collection: str = "AppliedJobs") -> bool:
         try:
+            # first check if the user already applied
+            allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=collection)
+            
+            if allApplied != None:
+                for applied in allApplied:
+                    if applied.JobId == appliedJob.JobId:
+                        print("\nError! You have already applied for this job.\n")
+                        return False
+
             # the id of the applied job entry is the combination of user id and job id
             database.child(collection).child(appliedJob.UserId + appliedJob.JobId).set(
                 AppliedJobHelpers.AppliedJobToDict(appliedJob))
             return True
-        except:
+        except Exception as e:
+            print(f"\nFailure! Could not create an instance of applied job for some reason.{e}\n")
             return False
     
 
@@ -67,11 +79,16 @@ class AppliedJobHelpers:
     def DeleteAppliedJob(appliedJob: AppliedJob, collection: str = "AppliedJobs") -> bool:
         allAppliedJobs = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
 
-        if (allAppliedJobs != None):
-            for dbAppliedJob in allAppliedJobs:
-                if appliedJob.JobId == dbAppliedJob.JobId and appliedJob.UserId == dbAppliedJob.UserId:
-                    database.child(collection).child(appliedJob.UserId+appliedJob.JobId).remove()
-                    return True
-                
-        else:
+        try:
+            if (allAppliedJobs != None):
+                for dbAppliedJob in allAppliedJobs:
+                    if appliedJob.JobId == dbAppliedJob.JobId and appliedJob.UserId == dbAppliedJob.UserId:
+                        database.child(collection).child(appliedJob.UserId+appliedJob.JobId).remove()
+                        return True
+                    
+            else:
+                return False
+        
+        except Exception as e:
+            print(f"\nFailure! Could not delete the instance of applied job for some reason.{e}\n")
             return False
