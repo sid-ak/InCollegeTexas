@@ -25,6 +25,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
         graduationDate: str = input("\nPlease enter graduation date (mm/dd/yyyy) (-1 to Exit): ")
         if graduationDate == "-1":
             print("\nYou have selected to quit\n")
+            print("\nIncomplete application ignored.\n")
             return True
         else:
             # validate that the input is within the pattern mm/dd/yyyy
@@ -41,12 +42,14 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
                         break
                 if terminateOperation:
                     print("\nYou have selected to quit\n")
+                    print("\nIncomplete application ignored.\n")
                     return True
 
         # get and validate start date
         startDate: str = input("\nPlease enter start date (mm/dd/yyyy) (-1 to Exit): ")
         if startDate == "-1":
             print("\nYou have selected to quit\n")
+            print("\nIncomplete application ignored.\n")
             return True
         else:
             # validate that the input is within the pattern mm/dd/yyyy
@@ -63,12 +66,14 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
                         break
                 if terminateOperation:
                     print("\nYou have selected to quit\n")
+                    print("\nIncomplete application ignored.\n")
                     return True
         
         # get a paragraph why they are a good fit for the role
         goodFitReasoning = input("Please explain why you think you would be a good fit for this role (-1 To Exit): ")
         if goodFitReasoning == "-1":
             print("\nYou have selected to quit\n")
+            print("\nIncomplete application ignored.\n")
             return True
         else:
             if len(goodFitReasoning) == 0:
@@ -76,14 +81,16 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
                 while True:
                     goodFitReasoning = input("Please explain why you think you would be a good fit for this role (-1 To Exit): ")
                     if goodFitReasoning == "-1":
-                        print("\nYou have selected to quit\n")
                         terminateOperation = True
                         break
                     if len(goodFitReasoning) == 0:
                         print("\nError! Empty text provided, try again")
                     else:
                         break
-
+                if terminateOperation:
+                    print("\nYou have selected to quit\n")
+                    print("\nIncomplete application ignored.\n")
+                    return True
 
         appliedJob: AppliedJob = AppliedJob(
             UserId=loggedUser.Id, 
