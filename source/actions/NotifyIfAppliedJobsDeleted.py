@@ -10,6 +10,7 @@ def NotifyIfAppliedJobsDeleted(loggedUser: User, appliedJobsCollection: str = "A
     allAppliedByUser: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser=loggedUser, collection=appliedJobsCollection)
     # now get the list of all existing jobs in the DB
     allExistingJobs: list[Job] = JobHelpers.GetAllJobs(collection=allJobsCollection)
+
     if allAppliedByUser != None and allAppliedByUser != [] and allExistingJobs != None and allExistingJobs != []:
         # distinct list of job id's of all existing jobs
         idsExisting: list[str] = [allExistingJobs[i].Id for i in range(len(allExistingJobs))]
@@ -37,7 +38,4 @@ def NotifyIfAppliedJobsDeleted(loggedUser: User, appliedJobsCollection: str = "A
                 for i in range(len(appliedJobsDeleted)):
                     print(f"{i+1}. {appliedJobsDeleted[i].JobTitle} from {appliedJobsDeleted[i].JobEmployer}")
                 
-                print("\nYour applications for these jobs are revoked.\n")
-                    
-            
-        
+                print("\nYour applications for these jobs are revoked.\n")  
