@@ -548,7 +548,7 @@ def test_ApplyForJob():
     #create a job 
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
     user = User(UserHelpers.CreateUserId("testUserID", "testPass2!"), "testUserID", "Test2", "Account2") #user applying
-    to_apply_job = AppliedJob(user.Id, job_id, "12/11/22", "01/11/23", "love to work")
+    to_apply_job = AppliedJob(user.Id, job_id, "Test IT Intern", "Cummins", "12/11/22", "01/11/23", "love to work")
 
     #apply for job - function call (assert)
     assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user, "TestAppliedJobs") #first time applying for the job
