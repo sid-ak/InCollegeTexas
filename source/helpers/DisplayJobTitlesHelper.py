@@ -142,7 +142,7 @@ class JobTitleHelper:
 
             if appliedJobNode == None:
                 raise Exception(
-                    f"Could not get any applied job by the user: {loggedUser}")
+                    f"Could not get any applied job by the user: {loggedUser.Username}")
 
             for job in appliedJobNode:
                 jobNode = JobHelpers.GetJobByID(job.JobId)
@@ -152,9 +152,9 @@ class JobTitleHelper:
             MenuHelpers.DisplayOptions(displayJob)
             
         except:
-            print(f"Could not get any applied job by the user: {loggedUser}")
+            print(f"Could not get any applied job by the user: {loggedUser.Username}")
 
-    def DisplayUnappliedJobs(loggedUser, collectionApplied: str = "AppliedJobs", 
+    def DisplayUnappliedJobs(loggedUser: User, collectionApplied: str = "AppliedJobs", 
                             collectionJob : str = "Jobs"):
         try:
             appliedJobNode = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser, collectionApplied)
@@ -162,7 +162,7 @@ class JobTitleHelper:
 
             if appliedJobNode == None:
                 raise Exception(
-                    f"There are no jobs remaining to be applied by the user: {loggedUser}")
+                    f"There are no jobs remaining to be applied by the user: {loggedUser.Username}")
 
             for job in appliedJobNode:
                 appliedJobNodeID.append(job.JobId)
@@ -185,16 +185,16 @@ class JobTitleHelper:
             
 
         except:
-            print(f"There are no jobs remaining to be applied by the user: {loggedUser}")
+            print(f"There are no jobs remaining to be applied by the user: {loggedUser.Username}")
 
-    def DisplaySavedJobs(loggedUser, collection: str = "SavedJobs"):
+    def DisplaySavedJobs(loggedUser: User, collection: str = "SavedJobs"):
         try:
             savedJobNode = SavedJobHelpers.GetAllSavedJobsOfUser(loggedUser, collection)
             displayJob = []
 
             if savedJobNode == None:
                 raise Exception(
-                    f"Could not get any Saved job by the user: {loggedUser}")
+                    f"Could not get any Saved job by the user: {loggedUser.Username}")
 
             for job in savedJobNode:
                 jobNode = JobHelpers.GetJobByID(job.JobId)
@@ -204,6 +204,6 @@ class JobTitleHelper:
             MenuHelpers.DisplayOptions(displayJob)
 
         except:
-            print(f"Could not get any Saved job by the user: {loggedUser}")
+            print(f"Could not get any Saved job by the user: {loggedUser.Username}")
             
         

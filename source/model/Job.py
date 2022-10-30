@@ -112,11 +112,11 @@ class JobHelpers:
 
             if jobs == None:
                 raise Exception(
-                    f"Could not get the specified job with user ID: {jobID}")
+                    f"Could not get the specified job with Job ID: {jobID}")
 
             for job in jobs:
                 if(job.Id == jobID): 
                     return job
         
         except:
-            print(f"Could not get the specified job with user ID: {jobID}")
+            print(f"Could not get the specified job with Job ID: {jobID}")
