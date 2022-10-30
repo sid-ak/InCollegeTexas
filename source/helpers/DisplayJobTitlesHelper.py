@@ -73,7 +73,7 @@ class JobTitleHelper:
         while True:
 
             print("\nPlease Select one of the following options\n")
-            optionList = ["Apply for the job", "Save job", "Unsave job"]
+            optionList = ["Apply for the job", "Save the job", "Unsave the job"]
 
             flag: bool = job.Poster["Username"] == loggedUser.Username
             if flag:
