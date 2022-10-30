@@ -6,6 +6,8 @@ from actions.SaveJob import SaveJob
 from model.User import User
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.SavedJobHelpers import SavedJobHelpers
+from actions.UnsaveJob import UnsaveJob
+
 
 class JobTitleHelper:
 
@@ -71,7 +73,7 @@ class JobTitleHelper:
         while True:
 
             print("\nPlease Select one of the following options\n")
-            optionList = ["Apply for the job", "Save job"]
+            optionList = ["Apply for the job", "Save job", "Unsave job"]
 
             flag: bool = job.Poster["Username"] == loggedUser.Username
             if flag:
@@ -96,8 +98,14 @@ class JobTitleHelper:
                         print("\nOperation successfully completed!\n")
                     else:
                         print("\nFailure! Operation not completed!\n")
-                
-                elif(optionNo == 3 and flag):
+
+                elif (optionNo == 3):
+                    if UnsaveJob(loggedUser=loggedUser, selectedJob=job):
+                        print("\nOperation successfully completed!\n")
+                    else:
+                        print("\nFailure! Operation not completed!\n")
+
+                elif(optionNo == 4 and flag):
                     if JobHelpers.DeleteJob(job) == True:
                         print(f"\n{job.Title} deleted successfully.")
                     else:
