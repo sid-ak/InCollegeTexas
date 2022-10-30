@@ -1,4 +1,3 @@
-from re import L
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
@@ -11,7 +10,6 @@ from actions.DeleteSavedJobIfDeleted import DeleteSavedJobIfDeleted
 def FindJobInternshipAction(loggedUser: User):
     # first we notify the user if a job or jobs they applied for has or have been deleted from the DB
     NotifyIfAppliedJobsDeleted(loggedUser=loggedUser)
-    
     # now we check if a job or jobs they saved has or have been deleted from the DB
     DeleteSavedJobIfDeleted(loggedUser=loggedUser)
 
