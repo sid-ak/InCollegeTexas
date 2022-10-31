@@ -1,3 +1,4 @@
+from helpers.JobsHelpers import JobsHelpers
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
@@ -23,10 +24,11 @@ class JobTitleHelper:
                 if optionNo == -1: break
                 
                 elif optionNo == 1:
-                    JobTitleHelper.FilterJobTitles(loggedUser)
+                    JobTitleHelper.FilterJobs(loggedUser)
                 
                 elif optionNo == 2:
-                    JobTitleHelper.GetAllJobTitles(loggedUser, collection)
+                    JobTitleHelper.DisplayJobs(
+                        JobHelpers.GetAllJobs(collection), loggedUser)
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -34,31 +36,7 @@ class JobTitleHelper:
             except Exception as e:
               raise Exception(f"Something went wrong, could not filter the jobs.\n{e}")
 
-    #This functiones give the title of all the jobs in the database and gives an ption to select the job 
-    def GetAllJobTitles(loggedUser: User, collection: str = "Jobs"):
-        while True:
-
-            jobList = JobHelpers.GetAllJobs(collection)
-            jobTitleList = []
-
-            for job in jobList:
-                jobTitleList.append(job.Title)
-
-            print("\nPlease Select one of the following jobs\n")
-            MenuHelpers.DisplayOptions(jobTitleList)
-            try:
-                optionNo: int = MenuHelpers.InputOptionNo()
-                if optionNo == -1: break
-
-                elif optionNo in range(1, len(jobList) + 1):
-                    JobTitleHelper.PrintDetails(loggedUser=loggedUser, job=jobList[optionNo-1])
-
-                else:
-                    print("Invalid entry! Please try again.\n")
-            
-            except Exception as e:
-              raise Exception(f"Something went wrong,  could not select one of the jobs.\n{e}")
-
+    
     #Print the details of the job after the logged in user has selected the job
     def PrintDetails(loggedUser: User, job: Job):
         print(f"Job Title: {job.Title}")
@@ -68,11 +46,12 @@ class JobTitleHelper:
         print(f"Job Salary: {job.Salary}")
         JobTitleHelper.SelectJobOptions(loggedUser=loggedUser, job=job)
     
+    
     #This Function gives the option to either apply or to save the job
     def SelectJobOptions(loggedUser: User, job: Job):
         while True:
 
-            print("\nPlease Select one of the following options\n")
+            print("\nPlease select one of the following options:\n")
             optionList = ["Apply for the job", "Save the job", "Unsave the job"]
 
             flag: bool = job.Poster["Username"] == loggedUser.Username
@@ -117,95 +96,69 @@ class JobTitleHelper:
             except Exception as e:
               raise Exception(f"Something went wrong, could not show the job options.\n{e}")
 
-    def FilterJobTitles(loggedUser: User, collectionApplied: str = "AppliedJobs", 
-                        collectionSaved: str = "SavedJobs"):
+    
+    # Filters jobs into applied, saved and unsaved.
+    def FilterJobs(
+        loggedUser: User,
+        collectionApplied: str = "AppliedJobs",
+        collectionSaved: str = "SavedJobs"):
+        
         while True:
-            print("\nPlease Select one of the following options\n")
+            print("\nPlease select one of the following options:\n")
             MenuHelpers.DisplayOptions(["Show applied jobs", "Show unapplied jobs", "Show saved Jobs"])
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
+                filteredJobs: list[Job] = []
 
                 if optionNo == -1: break
 
                 elif(optionNo == 1):
-                    JobTitleHelper.DisplayAppliedJobs(loggedUser, collectionApplied)
+                    filteredJobs = JobsHelpers.GetAppliedJobs(
+                        loggedUser, collectionApplied)
+                    if filteredJobs != []:
+                        print("\nApplied jobs found.")
 
                 elif(optionNo == 2):
-                    JobTitleHelper.DisplayUnappliedJobs(loggedUser, collectionApplied)
+                    filteredJobs = JobsHelpers.GetUnappliedJobs(
+                        loggedUser, collectionApplied)
+                    if filteredJobs != []:
+                        print("\nUnapplied jobs found.")
 
                 elif(optionNo == 3):
-                    JobTitleHelper.DisplaySavedJobs(loggedUser, collectionSaved)
+                    filteredJobs = JobsHelpers.GetSavedJobs(
+                        loggedUser, collectionSaved)
+                    if filteredJobs != []:
+                        print("\nSaved jobs found.")
 
                 else:
                     print("Invalid entry! Please try again.\n")
+                
+                if filteredJobs != []:
+                    JobTitleHelper.DisplayJobs(filteredJobs, loggedUser)
+                else:
+                    print("\nNo filtered jobs found.")
+
             except Exception as e:
               raise Exception(f"Something went wrong, could not filter the jobs by the options.\n{e}")
 
-    def DisplayAppliedJobs(loggedUser: User, collection: str = "AppliedJobs"):
+    
+    # Helper method to display the given list of jobs.
+    def DisplayJobs(jobList: list[Job], loggedUser: User):
         try:
-            appliedJobNode = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser, collection)
-            displayJob = []
+            while True:
+                jobTitleList: list[str] = list(map(lambda job: job.Title, jobList))
 
-            if appliedJobNode == None:
-                raise Exception(
-                    f"Could not get any applied job by the user: {loggedUser.Username}")
+                print("\nSelect one of the following jobs to continue:\n")
+                MenuHelpers.DisplayOptions(jobTitleList)
+                optionNo: int = MenuHelpers.InputOptionNo()
 
-            for job in appliedJobNode:
-                jobNode = JobHelpers.GetJobByID(job.JobId)
-                displayJob.append(jobNode.Title)
+                if optionNo == -1: break
 
-            print("\nThe jobs that you have applied to are:\n")
-            MenuHelpers.DisplayOptions(displayJob)
-            
-        except:
-            print(f"Could not get any applied job by the user: {loggedUser.Username}")
+                elif optionNo in range(1, len(jobTitleList) + 1):
+                    JobTitleHelper.PrintDetails(loggedUser, jobList[optionNo - 1])
 
-    def DisplayUnappliedJobs(loggedUser: User, collectionApplied: str = "AppliedJobs", 
-                            collectionJob : str = "Jobs"):
-        try:
-            appliedJobNode = AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser, collectionApplied)
+                else: print("Invalid entry! Please try again.\n")
 
-            if appliedJobNode == None:
-                raise Exception(
-                    f"There are no jobs remaining to be applied by the user: {loggedUser.Username}")
-            
-            appliedJobNodeID = list(map(lambda x: x.JobId, appliedJobNode))
-        
-            jobNode = JobHelpers.GetAllJobs(collectionJob)
-            jobNodeID = list(map(lambda x: x.Id, jobNode))
-
-            displayUnappliedJobs = list(set(jobNodeID) - set(appliedJobNodeID))
-            displayJob = []
-
-            for job in displayUnappliedJobs:
-                jobNode = JobHelpers.GetJobByID(job)
-                displayJob.append(jobNode.Title)
-
-            print("\nThe jobs that you have not applied to are:\n")
-            MenuHelpers.DisplayOptions(displayJob)
-            
-
-        except:
-            print(f"There are no jobs remaining to be applied by the user: {loggedUser.Username}")
-
-    def DisplaySavedJobs(loggedUser: User, collection: str = "SavedJobs"):
-        try:
-            savedJobNode = SavedJobHelpers.GetAllSavedJobsOfUser(loggedUser, collection)
-            displayJob = []
-
-            if savedJobNode == None:
-                raise Exception(
-                    f"Could not get any Saved job by the user: {loggedUser.Username}")
-
-            for job in savedJobNode:
-                jobNode = JobHelpers.GetJobByID(job.JobId)
-                displayJob.append(jobNode.Title)
-
-            print("\nThe jobs that you have saved are:\n")
-            MenuHelpers.DisplayOptions(displayJob)
-
-        except:
-            print(f"Could not get any Saved job by the user: {loggedUser.Username}")
-            
-        
+        except Exception as e:
+            raise Exception(f"Something went wrong, could not select one of the jobs.\n{e}")
