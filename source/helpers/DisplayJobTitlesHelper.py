@@ -130,12 +130,15 @@ class JobTitleHelper:
 
                 elif(optionNo == 1):
                     JobTitleHelper.DisplayAppliedJobs(loggedUser, collectionApplied)
+                    break
 
                 elif(optionNo == 2):
                     JobTitleHelper.DisplayUnappliedJobs(loggedUser, collectionApplied)
+                    break
 
                 elif(optionNo == 3):
                     JobTitleHelper.DisplaySavedJobs(loggedUser, collectionSaved)
+                    break
 
                 else:
                     print("Invalid entry! Please try again.\n")
