@@ -28,7 +28,7 @@ class Job:
             )
 
 class JobHelpers:
-    _jobLimit: int = 5
+    _jobLimit: int = 10
 
     # Converts this entity into a dictionary.
     def JobToDict(job: Job) -> dict:
@@ -105,3 +105,18 @@ class JobHelpers:
                     return True
         else:
             return False
+    
+    def GetJobByID(jobID: str, collection: str = "Jobs") -> Job:
+        try:
+            jobs = JobHelpers.GetAllJobs(collection=collection) 
+
+            if jobs == None:
+                raise Exception(
+                    f"Could not get the specified job with Job ID: {jobID}")
+
+            for job in jobs:
+                if(job.Id == jobID): 
+                    return job
+        
+        except:
+            print(f"Could not get the specified job with Job ID: {jobID}")

@@ -11,13 +11,15 @@ from helpers.ProfileHelpers import ProfileHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
+from model.User import User
+from model.Job import Job, JobHelpers
+from helpers.DisplayJobTitlesHelper import JobTitleHelper
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
     PlayVideo()
     out, err = capfd.readouterr()
     assert out == "Video is now playing!\n"
-
 
 # Tests below worked on for EPIC 1 - 9/19/22 by Anshika
 def test_ValidatePassword():
@@ -29,13 +31,11 @@ def test_ValidatePassword():
     for pwd in bad_pwd:
         assert ValidatePassword(pwd) == False
 
-
 def test_DisplaySkills(capfd):
     skills = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
     DisplaySkills(skills)
     out, err = capfd.readouterr()
     assert out == "1. Communication\n2. Marketing\n3. Python Programming\n4. Web Development\n5. Public Speaking\n"
-
 
 def test_FindSomeone(capfd):
     FindSomeoneAction()
@@ -46,17 +46,16 @@ def test_FindSomeone(capfd):
 
 # Test to see if all Useful link works below
 def test_UsefulLinksDisplay():
-    set_keyboard_input(["1", "-1"])
-    DisplayUsefulLinks(True, 1, None)
+    set_keyboard_input(["-1"])
+    DisplayUsefulLinks()
     output = get_display_output()
     assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers"]
+                        "1 - General",
+                        "2 - Browse InCollege",
+                        "3 - Business Solutions",
+                        "4 - Directories",
+                        "\nEnter (-1 to exit current menu): "
+                      ]
 
     set_keyboard_input(["2", "-1"])
     DisplayUsefulLinks()
@@ -110,8 +109,8 @@ def test_UsefulLinksDisplay():
                      "\nEnter (-1 to exit current menu): "]
 
 def test_GeneralSetting():
-    set_keyboard_input(["1", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 1, None)
+    set_keyboard_input(["1", "o", "o", "-1"])
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
     assert output == ["\nPlease select one of the following links to display its content:",
                         "1 - Sign Up",
@@ -121,15 +120,25 @@ def test_GeneralSetting():
                         "5 - Blog",
                         "6 - Careers",
                         "7 - Developers",
+                        "\nEnter (-1 to exit current menu): ",
                         "\nSignup Selected.",
                         "\nPlease enter your username: ",
                         "\nPlease enter your password: ",
                         "\nError! Your password does not meet one or some of the standards!",
-                        "\nFailure! We have not been able to create a new account for you."
+                        "\nFailure! We have not been able to create a new account for you.",
+                        "\nPlease select one of the following links to display its content:",
+                        "1 - Sign Up",
+                        "2 - Help Center",
+                        "3 - About",
+                        "4 - Press",
+                        "5 - Blog",
+                        "6 - Careers",
+                        "7 - Developers",
+                        "\nEnter (-1 to exit current menu): "
                       ]
 
     set_keyboard_input(["2", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 2, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
     assert output == ["\nPlease select one of the following links to display its content:",
                         "1 - Sign Up",
@@ -139,77 +148,142 @@ def test_GeneralSetting():
                         "5 - Blog",
                         "6 - Careers",
                         "7 - Developers",
-                        "\nWe're here to help"
+                        "\nEnter (-1 to exit current menu): ",
+                        "\nWe're here to help",
+                        "\nPlease select one of the following links to display its content:",
+                        "1 - Sign Up",
+                        "2 - Help Center",
+                        "3 - About",
+                        "4 - Press",
+                        "5 - Blog",
+                        "6 - Careers",
+                        "7 - Developers",
+                        "\nEnter (-1 to exit current menu): "
                       ]
 
     set_keyboard_input(["3", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 3, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "\nIn College:\nWelcome to In College, the world's largest college student network\nwith many users in many countries and territories worldwide"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\n'
+                         'In College:\n'
+                         "Welcome to In College, the world's largest college student network\n"
+                         'with many users in many countries and territories worldwide',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["4", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 4, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "\nIn College Pressroom:\nStay on top of the latest news, updates, and reports"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\n'
+                         'In College Pressroom:\n'
+                         'Stay on top of the latest news, updates, and reports',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["5", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 5, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "under construction"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         'under construction',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["6", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 6, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "under construction"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         'under construction',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
     set_keyboard_input(["7", "-1"])
-    DisplayUsefulLinksHelpers.General(True, 7, None)
+    DisplayUsefulLinksHelpers.General()
     output = get_display_output()
-    assert output == ["\nPlease select one of the following links to display its content:",
-                        "1 - Sign Up",
-                        "2 - Help Center",
-                        "3 - About",
-                        "4 - Press",
-                        "5 - Blog",
-                        "6 - Careers",
-                        "7 - Developers",
-                        "under construction"
+    assert output == ['\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): ',
+                         'under construction',
+                         '\nPlease select one of the following links to display its content:',
+                         '1 - Sign Up',
+                         '2 - Help Center',
+                         '3 - About',
+                         '4 - Press',
+                         '5 - Blog',
+                         '6 - Careers',
+                         '7 - Developers',
+                         '\nEnter (-1 to exit current menu): '
                       ]
 
 def test_SearchUsersLastName():
@@ -223,7 +297,8 @@ def test_SearchUsersLastName():
                     "\nEnter (-1 to exit current menu): ",
                     "You have selected to search by last name.\nEnter the last name of the user you want to search for: ",
                     "Unexpected error ocurred\n",
-                  ]
+                    ]
+
 def test_SearchUsersLastName2():
   set_keyboard_input(["1", "Bhowmick"])
   SearchUsers()
@@ -239,7 +314,6 @@ def test_SearchUsersLastName2():
                     "\nEnter (-1 to exit current menu): ",
                     "Unexpected error ocurred\n"
                   ]
-  
 
 def test_SearchUsersUniversity():
   set_keyboard_input(["2"])
@@ -254,28 +328,30 @@ def test_SearchUsersUniversity():
                     "Unexpected error ocurred\n",
                   ]
   
-  set_keyboard_input(["2","University of South Florida" , "-1"])
-  SearchUsers()
+  set_keyboard_input(["2","TestUniversity", "-1"])
+  testUser = User(Id='testId',Username='testUsername',FirstName='TestFirstName',LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+  SearchUsers(collection="TestUsers")
   output = get_display_output()
-  assert output == ["\nPlease select one of the following options:\n",
-                    "1 - Search by last name",
-                    "2 - Search by university",
-                    "3 - Search by major",
-                    "\nEnter (-1 to exit current menu): ",
-                    "You have selected to search by university.\nEnter the university of the user you want to search for: ",
-                    "1. Osama Basit\n",
-                    "2. Prerna Yarehalli\n",
-                    "3. Sidharth Anandkumar\n",
-                    "4. Anshika Bhowmick\n",
-                    "Enter the option number of the user you want to send a friend request to: ",
-                    "\nEnter (-1 to exit current menu): ",
-                    "\nPlease select one of the following options:\n",
-                    "1 - Search by last name",
-                    "2 - Search by university",
-                    "3 - Search by major",
-                    "\nEnter (-1 to exit current menu): ",
-                    "Unexpected error ocurred\n"
+  assert output == ['\nPlease select one of the following options:\n',
+                     '1 - Search by last name',
+                     '2 - Search by university',
+                     '3 - Search by major',
+                     '\nEnter (-1 to exit current menu): ',
+                     'You have selected to search by university.\n'
+                     'Enter the university of the user you want to search for: ',
+                     '1. TestFirstName TestLastName\n',
+                     'Enter the option number of the user you want to send a friend request to: ',
+                     '\nEnter (-1 to exit current menu): ',
+                     '\nPlease select one of the following options:\n',
+                     '1 - Search by last name',
+                     '2 - Search by university',
+                     '3 - Search by major',
+                     '\nEnter (-1 to exit current menu): ',
+                     'Unexpected error ocurred\n'
                   ]
+  UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
 
 def test_SearchUsersMajor():
   set_keyboard_input(["3", "-1"])
@@ -292,8 +368,11 @@ def test_SearchUsersMajor():
                     "Unexpected error ocurred\n",
                   ]
   
-  set_keyboard_input(["3", "Computer Science" , "-1"])
-  SearchUsers()
+  set_keyboard_input(["3", "major", "-1"])
+  testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+  SearchUsers(collection="TestUsers")
   output = get_display_output()
   assert output == ["\nPlease select one of the following options:\n",
                     "1 - Search by last name",
@@ -301,10 +380,7 @@ def test_SearchUsersMajor():
                     "3 - Search by major",
                     "\nEnter (-1 to exit current menu): ",
                     "You have selected to search by major.\nEnter the major of the user you want to search for: ",
-                    "1. Osama Basit\n",
-                    "2. Prerna Yarehalli\n",
-                    "3. Sidharth Anandkumar\n",
-                    "4. Anshika Bhowmick\n",
+                    '1. TestFirstName TestLastName\n',
                     "Enter the option number of the user you want to send a friend request to: ",
                     "\nEnter (-1 to exit current menu): ",
                     "\nPlease select one of the following options:\n",
@@ -314,7 +390,7 @@ def test_SearchUsersMajor():
                     "\nEnter (-1 to exit current menu): ",
                     "Unexpected error ocurred\n"
                   ]
-
+  UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
 
 def test_sendFriendRequest():
   set_keyboard_input(["1", "-1"])
@@ -338,42 +414,43 @@ def test_sendFriendRequest():
 
 def test_DisplayPendingRequest():
   set_keyboard_input(["1"])
-  users = UserHelpers.GetAllUsers()
+  testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+  users = UserHelpers.GetAllUsers(collection="TestUsers")
+
   for user in users:
-    if user.Username == "Sid":
-      DisplayPendingRequests(user)
+    if user.Username == "testUsername":
+      DisplayPendingRequests(user, collection="TestUsers")
   output = get_display_output()
   assert output == ["Your pending requests:\n",
-                    "You have no pending requests.\n",
-                    ]
+                    "You have no pending requests.\n"]
 
   set_keyboard_input(["2", "-1"])
-  users = UserHelpers.GetAllUsers()
+  users = UserHelpers.GetAllUsers(collection="TestUsers")
   for user in users:
-    if user.Username == "Sid":
-      DisplayPendingRequests(user)
+      if user.Username == "testUsername":
+          DisplayPendingRequests(user, collection="TestUsers")
   output = get_display_output()
   assert output == ["Your pending requests:\n",
-                    "You have no pending requests.\n",
-                    ]
+                    "You have no pending requests.\n"]
 
+  UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
 
 def test_ShowYourNetwork():
   set_keyboard_input([])
-  users = UserHelpers.GetAllUsers()
+  testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
+                  University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+  users = UserHelpers.GetAllUsers(collection="TestUsers")
+
   for user in users:
-    if user.Username == "Sid":
+    if user.Username == "testUsername":
       ShowMyNetwork(user)
   output = get_display_output()
-  assert output == ["Your network:\n",
-                    "1. Anshika Bhowmick\n",
-                    "2. Prerna Yarehalli\n",
-                    "3. Osama Basit\n",
-                    "\nPlease select one of the following options:\n",
-                    "1 - Do you want to disconnect with a friend?",
-                    "\nEnter (-1 to exit current menu): ",
-                    "Unexpected error ocurred\n"
-                    ]
+  assert output == ['\nYour network:\n', 'You have no friends yet.\n']
+
+  UserHelpers.DeleteUserAccount(testUser, collection="TestUsers")
 
 # checking if university and major are displayed in title case
 def test_TitleCaseUniversity():
@@ -382,3 +459,87 @@ def test_TitleCaseUniversity():
 
   output = ProfileHelpers.ToTitleFormat("computer science")
   assert output == "Computer Science"
+
+# EPIC 6 - Test for displaying jobs - by Osama Basit
+def test_DisplayJobTitle():
+    testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+    title = "testTitle"
+    employer = "testEmployer"
+    desc = "testDecsription"
+    loc = "testLocation"
+    salary = "100000"
+    job_id = JobHelpers.CreateJobId(title, employer, desc, loc, salary)
+    test_job = Job(job_id, title, employer, desc, loc, salary, testUser)
+    JobHelpers.CreateJob(test_job, collection="testJobs")
+
+    # testing view all jobs titles option inside display job menu
+    set_keyboard_input(["2", "-1", "-1"])
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
+    output = get_display_output()
+
+    assert output == ['\nPlease select if you want to filter the Job:\n',
+                      '1 - Yes',
+                      '2 - No',
+                      '\nEnter (-1 to exit current menu): ',
+                      '\nPlease Select one of the following jobs\n',
+                      '1 - testTitle',
+                      '\nEnter (-1 to exit current menu): ',
+                      '\nPlease select if you want to filter the Job:\n',
+                      '1 - Yes',
+                      '2 - No',
+                      '\nEnter (-1 to exit current menu): '
+                    ]
+
+    # testing select a job option (apply, save and delete) menu inside Display Job Titles
+    set_keyboard_input(["2", "1", "-1", "-1", "-1"])
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
+    output = get_display_output()
+    assert output == ['\nPlease select if you want to filter the Job:\n',
+                         '1 - Yes',
+                         '2 - No',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\nPlease Select one of the following jobs\n',
+                         '1 - testTitle',
+                         '\nEnter (-1 to exit current menu): ',
+                         'Job Title: testTitle',
+                         'Job Description: testDecsription',
+                         'Employer: testEmployer',
+                         'Job Location: testLocation',
+                         'Job Salary: 100000',
+                         '\nPlease Select one of the following options\n',
+                         '1 - Apply for the job',
+                         '2 - Save the job',
+                         '3 - Unsave the job',
+                         '4 - Delete job',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\nPlease Select one of the following jobs\n',
+                         '1 - testTitle',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\nPlease select if you want to filter the Job:\n',
+                         '1 - Yes',
+                         '2 - No',
+                         '\nEnter (-1 to exit current menu): '
+                      ]
+
+    # testing filter option inside Dsiplay job menu
+    set_keyboard_input(["1", "-1", "-1"])
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
+    output = get_display_output()
+
+    assert output == ['\nPlease select if you want to filter the Job:\n',
+                         '1 - Yes',
+                         '2 - No',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\nPlease Select one of the following options\n',
+                         '1 - Show applied jobs',
+                         '2 - Show unapplied jobs',
+                         '3 - Show saved Jobs',
+                         '\nEnter (-1 to exit current menu): ',
+                         '\nPlease select if you want to filter the Job:\n',
+                         '1 - Yes',
+                         '2 - No',
+                         '\nEnter (-1 to exit current menu): '
+                      ]
+
+    JobHelpers.DeleteJob(test_job, collection="testJobs")
