@@ -5,8 +5,6 @@ from helpers.MenuHelpers import MenuHelpers
 from actions.ApplyForJob import ApplyForJob
 from actions.SaveJob import SaveJob
 from model.User import User
-from helpers.AppliedJobHelpers import AppliedJobHelpers
-from helpers.SavedJobHelpers import SavedJobHelpers
 from actions.UnsaveJob import UnsaveJob
 
 
@@ -97,7 +95,7 @@ class JobTitleHelper:
               raise Exception(f"Something went wrong, could not show the job options.\n{e}")
 
     
-    # Filters jobs into applied, saved and unsaved.
+    # Filters jobs into applied, unapplied and saved.
     def FilterJobs(
         loggedUser: User,
         collectionApplied: str = "AppliedJobs",

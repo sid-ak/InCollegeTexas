@@ -13,7 +13,7 @@ from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
 from model.User import User
 from model.Job import Job, JobHelpers
-from helpers.DisplayJobTitlesHelper import JobTitleHelper
+from helpers.JobTitleHelper import JobTitleHelper
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):

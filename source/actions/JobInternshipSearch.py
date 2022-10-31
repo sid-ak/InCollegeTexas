@@ -1,7 +1,7 @@
 from model.Job import Job, JobHelpers
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
-from helpers.DisplayJobTitlesHelper import JobTitleHelper
+from helpers.JobTitleHelper import JobTitleHelper
 from actions.NotifyIfAppliedJobsDeleted import NotifyIfAppliedJobsDeleted
 from actions.DeleteSavedJobIfDeleted import DeleteSavedJobIfDeleted
 
