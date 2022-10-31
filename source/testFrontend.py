@@ -471,7 +471,6 @@ def test_DisplayJobTitle():
     salary = "100000"
     job_id = JobHelpers.CreateJobId(title, employer, desc, loc, salary)
     test_job = Job(job_id, title, employer, desc, loc, salary, testUser)
-    JobHelpers.CreateJob(test_job, collection="testJobs")
 
     # testing view all jobs titles option inside display job menu
     set_keyboard_input(["2", "-1", "-1"])
@@ -541,5 +540,3 @@ def test_DisplayJobTitle():
                          '2 - No',
                          '\nEnter (-1 to exit current menu): '
                       ]
-
-    JobHelpers.DeleteJob(test_job, collection="testJobs")
