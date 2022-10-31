@@ -1,2463 +1,975 @@
-commit ef01cb40a6c3f60436d047dfe1ff50a1906ae6ff
-Merge: e31c9da b2b6bd6
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Sun Oct 23 22:53:26 2022 -0400
-
-    Merge pull request #67 from sid-ak/IN-47-Frontend-Testing-Updated
-    
-    added title case check
-
-commit b2b6bd6d50071b37c12d108a2bf4737f2c29f930
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sun Oct 23 22:51:42 2022 -0400
-
-    added title case check
-
-commit e31c9da686861772ceebff8e1f9c72c60813fc18
-Merge: 07be70f 6d66e2c
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 23 22:41:28 2022 -0400
-
-    Merge pull request #64 from sid-ak/IN-44-View-A-Profile
-    
-    In 44 view a profile
-
-commit 6d66e2c1485debc69f2ed144f9c450dd3c751011
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 22:40:04 2022 -0400
-
-    IN-44: Minor fixes to frontend. Tests still failing.
-
-commit efb7e42f792d8e381bcb123ae1bcd74b0df2be88
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 22:35:42 2022 -0400
-
-    fix on the print argument issues
-
-commit 07094d8a8c1361b37c68fc42681b0836a74def2b
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 22:33:37 2022 -0400
-
-    fix on the prints
-
-commit 091b8726c73d25b49c9dc2495cb603f6c23ff1d6
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 22:31:18 2022 -0400
-
-    fix on the argument users: some maybe None value
-
-commit 25e03cebce1a387887cbc77e9c8af27f65964db0
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 22:28:04 2022 -0400
-
-    refreshed the passed as argument user in the View Profile method
-
-commit 07be70f9abc16db22a4b20bf48b9b6e7172e64f8
-Merge: 94a6c89 b7b527d
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 23 21:12:24 2022 -0400
-
-    Merge pull request #65 from sid-ak/IN-43-Exp-Limit-Fix-Frontend
-    
-    IN-43: Updated the exp limit check on the frontend.
-
-commit b7b527d5f482795336b7102e5cd2a4eadac4beb8
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 21:09:14 2022 -0400
-
-    IN-43: Updated the exp limit check on the frontend.
-
-commit 0fd781bfe72d20a030c4b28a81dfda3707dcb08f
-Merge: b966180 94a6c89
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 20:35:08 2022 -0400
-
-    Merge branch 'main' into IN-44-View-A-Profile
-
-commit 94a6c89663d478abb4a5a4ef9c3a8cc1f880601e
-Merge: 6a8f12d b22b0cd
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Oct 23 20:31:01 2022 -0400
-
-    Merge pull request #57 from sid-ak/IN-43-Update-Profile-Experience
-    
-    In 43 update profile experience
-
-commit b22b0cd9fb71aacc6e8b972c62f28e5123263fc5
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 20:26:33 2022 -0400
-
-    IN-43: Reverted limit exp check.
-
-commit f18c905d9b4eafb3739ac8ce0905777e25ac1c39
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 20:10:31 2022 -0400
-
-    fix on the experience limit check
-
-commit dbf2cdb891759ae9c34dbc6818843b6f484731e7
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 20:00:19 2022 -0400
-
-    fix on the experiences limit check
-
-commit 5e060ccb25dcc8f19df3d45b3198e28a49b83f73
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 19:42:43 2022 -0400
-
-    IN-43: Update profile exp comments.
-
-commit 86457f8ca675406e52a47b9f2594c6c368f7d990
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 19:37:39 2022 -0400
-
-    IN-43: Moved code into ProfileHelpers from UpdateProfile, maintained an exception trace, fixed and simplified logic related adding/editing Educations/Experiences.
-
-commit 0f47662cbb806394bc943c024e1ca1be485d634c
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 19:35:57 2022 -0400
-
-    IN-43: Minor variable rename in Profile.py.
-
-commit 006644181934f1e4c312946af91f38e29790a3ff
-Merge: c82db1d 6a8f12d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 18:07:14 2022 -0400
-
-    Merge branch 'main' into IN-43-Update-Profile-Experience
-
-commit 6a8f12d5f1e3bc37979a27e9015f52c2ff66ef37
-Merge: 86d3e27 1fed530
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 23 18:05:41 2022 -0400
-
-    Merge pull request #62 from sid-ak/IN-46-Test-Profile
-    
-    IN-46: Test Profile
-
-commit b96618028702d267ca39fc61f65a275eaa9250d5
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 23 17:52:53 2022 -0400
-
-    - updated ViewProfile to work in showNetwork as well as show my profile.
-    -NOTE: buggy with a new user who doesn't have and Edu or Exp list. handled with try and except
-
-commit c82db1d0f79112483146bf40c6ed2f2422ab7f63
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 16:47:59 2022 -0400
-
-    fixed some modularity issues - feedback changes
-
-commit 1fed5300de85e30b096823d6e58bf7f8f144c461
-Merge: e26edf6 86d3e27
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 16:26:04 2022 -0400
-
-    Merge branch 'main' into IN-46-Test-Profile
-
-commit cde931149d36ff3d361ad06b1ccd0b0b9e464c97
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 16:18:57 2022 -0400
-
-    added helper functions to edit education and experience objects individually
-    
-    1. edited the logic to include addition as well as edition of education and experience on profile
-    2. created helper methods to help with individual, attribute-level updates on both operations
-
-commit 86d3e274314da4721c427fcff2db84d2570076ce
-Merge: 9404553 a99863f
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Sun Oct 23 15:44:16 2022 -0400
-
-    Merge pull request #63 from sid-ak/Maintenance/CreateUserFix
-    
-    Maintenance/UserCreation
-
-commit a99863f5d9a1e151558e2f6227de86cf244813b5
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 23 15:40:57 2022 -0400
-
-    fixed user creation by assigning the correct User class values in Signup.py
-
-commit e26edf64e7d8909c0f91f1c37eb0ccc4cc61692f
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 15:34:07 2022 -0400
-
-    IN-46: More cleanup.
-
-commit ebfdf87d199d7a7268a3d77f992037a6f1010dbc
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 15:33:04 2022 -0400
-
-    IN-46: Cleanup.
-
-commit 15d098263091c5725b081acfa7fe4caa893c868c
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 15:27:15 2022 -0400
-
-    created the helper function to edit individual attributes of education
-
-commit bb1f4323009e1a0164fcc181005e699d464f2624
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 15:26:22 2022 -0400
-
-    IN-46: Removed an unused import.
-
-commit e23d24b832ac349531bbb0409c2145e8e0e1328b
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 15:24:15 2022 -0400
-
-    IN-46: Added a test to verify a user can edit a profile as expected.
-
-commit 83df2830cb67a9c7f27ffbfa59e9fd1eaf39e790
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 14:37:00 2022 -0400
-
-    some feedback fix changes
-
-commit 3b7c86ac2a4bb022bcc9413a97bc9d763fdfbf51
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 14:28:14 2022 -0400
-
-    initial set up
-
-commit c69d56a49e4ea7735305c6be2b00cb6910a1ab8e
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 14:24:06 2022 -0400
-
-    removed unnecessary imports
-
-commit 4e0c6929ca30999272dacdfe6995a110a82081c4
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 14:23:09 2022 -0400
-
-    removed the unnecessary import
-
-commit 8e5b075d325709de4900bd56b9af14b24156615f
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 14:22:41 2022 -0400
-
-    fixed the import bug
-
-commit ec2df6e4c5d02d683952808ecc3bb8836e4a4ba9
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:17:13 2022 -0400
-
-    IN-46: Somehow this branch got merged and this is to fix that.
-
-commit ebc415a27ad0c32ea75bb56db71388e485e85755
-Merge: 1e3228c 9404553
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 14:13:12 2022 -0400
-
-    Merge branch 'main' into IN-43-Update-Profile-Experience
-
-commit 94045536d9169f69714aa247396e87816c73e94d
-Merge: df9890d cd84c90
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:11:35 2022 -0400
-
-    Merge pull request #61 from sid-ak/IN-43-Exp-Limit-Changes
-    
-    IN-43 Experience Limit Changes
-
-commit cd84c90788873254c778ac9e54b53df0e713cfd0
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:10:53 2022 -0400
-
-    IN-43: Removed errnoeous changes from a test branch - Part 3: Trilogy Finale.
-
-commit 2aa17f1b6e877b608c4ac17e44f336631230e5b1
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:10:16 2022 -0400
-
-    IN-43: Removed errnoeous changes from a test branch - Part 2.
-
-commit 87aac75040622dc2fb83cfe3c46346e8dbabf8e9
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:09:33 2022 -0400
-
-    IN-43: Removed errnoeous changes from a test branch.
-
-commit 4f039ac5014a4ba89ff0b19399462fa0ee4f56d6
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:02:05 2022 -0400
-
-    IN-43: Minor fix in UpdateUser based on latest change.
-
-commit 7f78f6d938b05663a34883826c5814200e920b53
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 14:00:30 2022 -0400
-
-    IN-43: Checked max limit on the profile object instead of user based on @aslamovamir's suggestion.
-
-commit 1e3228c304eec37ead6920e1987db64aafb64d34
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 13:59:15 2022 -0400
-
-    called the isExperienceLimitMet method from ProfileHelpers
-
-commit 69413c6c2d66dcbefab366769c4b2740d18cafc6
-Merge: 854b9a7 df9890d
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 13:49:36 2022 -0400
-
-    Merge branch 'main' into IN-43-Update-Profile-Experience
-
-commit df9890de0c16897e981681b42f55dc23dc76f343
-Merge: fe00105 34c97f2
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:48:25 2022 -0400
-
-    Merge pull request #60 from sid-ak/IN-43-Experiences-Limit
-    
-    IN-43: Experiences Limit
-
-commit 427ae299bcfd89fdd1c67036d023cb3386d7a99f
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:44:01 2022 -0400
-
-    IN-46: Fixed some minor bugs in the profile exp limit check.
-
-commit 854b9a732859648c1d7ec60618f27e4dde210a2a
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 13:40:31 2022 -0400
-
-    added an explicit indication to the user that they can add more than one education and experience
-
-commit 143a9b86d3d6d393a78a9380f8d96d8688d221ea
-Merge: d59c2ea 34c97f2
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:38:43 2022 -0400
-
-    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
-
-commit 34c97f2e985ab4a1f5fff166a933d22f6e41077e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:38:25 2022 -0400
-
-    IN-43: Changed the check if greated that profile experiences limit is being updated instead of equal.
-
-commit 28170fbc5ceac96f47ef6a8d3a0a9b55b0d9697c
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 13:36:25 2022 -0400
-
-    created 2 functions to help with the printing of education and experience lists
-
-commit d59c2eaeebee1869c24995eb40fda3f6beec75d1
-Merge: c9e46d4 289f66f
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:30:57 2022 -0400
-
-    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
-
-commit 289f66f004a596bb0d1e5d1b8ee501752a5d03bc
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:30:39 2022 -0400
-
-    IN-43: Fixed the limit checks to look for empty lists and NoneTypes correctly.
-
-commit c9e46d417349836d899643cacf15995c83bc42de
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:28:29 2022 -0400
-
-    IN-46: Added a test to verify max profile exp limit.
-
-commit f526126af266fc1215d955ea2bf8199703ba5bd6
-Merge: 288316a 3321cde
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:02:07 2022 -0400
-
-    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
-
-commit 3321cdeb32c313091e3341ed3c9a806b6afec1f1
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 13:01:30 2022 -0400
-
-    IN-43: Made the exp limit check in the UpdateUser method.
-
-commit 288316acea8013b37a314e55dac7c9ecc5939540
-Merge: 4919928 ce1542f
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 12:58:18 2022 -0400
-
-    Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
-
-commit ce1542fe8aa14f27fc775101b274c154301e8d8e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 12:57:46 2022 -0400
-
-    IN-43: Added a check for max profile experiences limit.
-
-commit 4919928a16686a50360e7b3e769e9ab1ff962a55
-Merge: 8602b61 fe00105
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 12:42:33 2022 -0400
-
-    Merge branch 'main' into IN-46-Test-Profile
-
-commit 47155bfbdea1d631e5879869613215f42ea395d0
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 12:38:41 2022 -0400
-
-    fix on the ConfirmChanges method call
-
-commit a91a356d8f13cf0bfe59d29494b1581d1b0dcf78
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 12:16:57 2022 -0400
-
-    more on feedback changes
-
-commit adfc74134f38eacd77374fa4d87f8b06486071fc
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 12:06:31 2022 -0400
-
-    more feedback changes
-
-commit 2614537eda7b2f85657327efac9c354d10e110e7
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 11:48:44 2022 -0400
-
-    feddback changes
-
-commit 4d16e485a30709b39ef28fb4c50cd84744dbb06e
-Merge: 0a838ab fe00105
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 23 11:26:20 2022 -0400
-
-    Merge branch 'main' into IN-43-Update-Profile-Experience
-
-commit fe00105bea1415aec086881541c2184af0130e3e
-Merge: 3f12f17 5871cd9
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 23 11:18:00 2022 -0400
-
-    Merge pull request #58 from sid-ak/IN-42-Profile-Improvements
-    
-    IN-42: Profile Improvements
-
-commit 8602b617370a28cb560a3558653d421c6e52db97
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 04:11:46 2022 -0400
-
-    IN-46: Added a test that ensures the user can create a profile as expected.
-
-commit 5871cd9ee4341c677a137e142308dccbc923105d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 04:02:34 2022 -0400
-
-    IN-42: Finishing touches to serialize better.
-
-commit fbb87b001f87281b260d1fb5cedf8fc7449867eb
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 23 01:07:23 2022 -0400
-
-    IN-42: Fixed and improved the serialization/derserialization of the
-    Profile entity.
-
-commit 0a838ab45ff0845de9cfb68d7ebf55daa4979991
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Oct 22 20:50:08 2022 -0400
-
-    modified the CreateProfile function to update function
-
-commit 677d04056f85c61c0820e089e659b282657500bb
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Oct 22 18:11:13 2022 -0400
-
-    completed the creation of a profile
-
-commit 2f40befdb47e69cdb96df2512a6180fb0504fdc2
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Oct 22 17:40:33 2022 -0400
-
-    added the helper method to check if the user already created a profile
-
-commit 7f2308bef7e226be2c282818856fe0a0f29253e2
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Oct 22 17:09:54 2022 -0400
-
-    created a create-profile function with the necessary helpers
-
-commit 3f12f17eee2b7ca308df91d6e19d7df521776a3a
-Merge: 9edc8a3 a9d0b8f
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Oct 22 15:45:45 2022 -0400
-
-    Merge pull request #56 from sid-ak/IN-42-Circ-Dependency-Fix
-    
-    IN-42: Circular Dependency Fix
-
-commit a9d0b8f3dd6d4b93a122f7d75d22e2008bf7eeeb
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 22 15:41:07 2022 -0400
-
-    IN-42: Added the new ProfileHelpers.py file.
-
-commit 38f2ebc8b8753f359194ddcf9ad0fedc926fd029
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 22 15:40:32 2022 -0400
-
-    IN-42: Moved ProfileHelpers to its own file.
-
-commit 9edc8a3383caa687ca47f5afd1666553a573314f
-Merge: 2e18f51 bcb70dc
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Oct 22 14:59:24 2022 -0400
-
-    Merge pull request #55 from sid-ak/IN-42-User-Profile-Update
-    
-    IN-42: User Profile Update
-
-commit 2e18f5122e5223cf46527cad8c623d401bd1676a
-Merge: ea2b169 9dda7eb
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Oct 22 14:59:12 2022 -0400
-
-    Merge pull request #53 from sid-ak/IN-42/ProfileModel
-    
-    IN-42/ProfileModels
-
-commit bcb70dc360e0fe853fdddee31b5b729060e502ec
-Merge: a56a5cb ea2b169
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 22 10:29:10 2022 -0400
-
-    Merge branch 'main' into IN-42-User-Profile-Update
-
-commit a56a5cb80e6d4335e9074795add3dfc498d0c003
-Merge: 67fe2aa 9dda7eb
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 22 10:28:54 2022 -0400
-
-    Merge branch 'IN-42/ProfileModel' into IN-42-User-Profile-Update
-
-commit 9dda7eb962732c30fb9b83ebfac72c325f62830a
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Oct 22 01:06:23 2022 -0400
-
-    added GetProfile function that takes User class input and returns it's corresponding DB Profile value.
-    Also added ProfileHelper UpdateProfile that takes username and Profile object to update profile in DB.
-    Added other functions to return class objects of themselves from dictionary that is returned from Firebase response
-
-commit 67fe2aa7afa03060185fbc8a0d32e98f2376eb87
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Oct 21 00:39:50 2022 -0400
-
-    IN-42: Implemented a way to safely hydrate a user without breaking if the data model in the DB changes.
-
-commit 657a0f15edce978f390e4da790139cff931c4e2e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Oct 21 00:38:42 2022 -0400
-
-    IN-42: Updated code with the new modularized helpers.
-
-commit 5bcaaeaed0166bf86627c89232b8454af95450bc
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Oct 21 00:37:40 2022 -0400
-
-    IN-42: Modularized user helpers.
-
-commit ea2b16932d1ea08782ee048ec31241e82d2d9033
-Merge: bae10bc 46a9b23
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Thu Oct 20 23:10:52 2022 -0400
-
-    Merge pull request #54 from sid-ak/MigrationHistory
-    
-    Migration_10/20/2022
-
-commit 46a9b233cd79a087398f561651a201824d5b4c44
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 20 23:10:16 2022 -0400
-
-    Migration_10/20/2022
-
-commit 91496599fe1c05567abe13580dcfa71e7aec8e64
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 20 23:03:30 2022 -0400
-
-    IN-42: Removed the import of User into Profile.
-
-commit 1470414c4c4a9dbb1902bf883c9b19135bdefcc7
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 21:59:48 2022 -0400
-
-    removed UserHelpers
-
-commit 2eb163d71ab32dbe87077124d408350f9a936896
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 21:47:41 2022 -0400
-
-    out of commit captions but its a small change
-
-commit 8c6e55e5a0874d3607e0abf434d442c823feea64
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 21:37:07 2022 -0400
-
-    added list name to education and experience
-
-commit 024e189b48dbe5336c14c755294ec0c8f0f0c90a
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 21:34:28 2022 -0400
-
-    additional details added
-
-commit bb5aa4b20c59f739cd3724998cd9da4ac965747f
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 21:07:23 2022 -0400
-
-    cleanup
-
-commit 78fb25b56a1d6225926f22c4ecb6cf28e2330b9a
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 21:02:42 2022 -0400
-
-    final Profile class push
-
-commit 224b1790d9fd0840e3f1c5e5c74feaf26fd60908
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 20 20:38:18 2022 -0400
-
-    added Profile class and useful methods
-
-commit bae10bcd0236709ed34461af87a785c076303b62
-Merge: ec5eb6f b3dbcc2
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 16 22:22:27 2022 -0400
-
-    Merge pull request #52 from sid-ak/Update-History
-    
-    Updated history.txt 10/16/2022
-
-commit b3dbcc26d623882db596370b1c90946b36258e55
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 22:20:27 2022 -0400
-
-    Updated history.txt 10/16/2022
-
-commit ec5eb6f07d87d2e9a2210bfca3e588b040cfac53
-Merge: e9885cd 242ce75
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 16 22:15:40 2022 -0400
-
-    Merge pull request #51 from sid-ak/Revert-Print-Changes
-    
-    Revert Print Changes To Satisfy Frontend Tests
-
-commit 242ce753cd79c341e4edd60d69db21b880ebee95
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 22:11:32 2022 -0400
-
-    Reverted another print change to satisfy a frontend test.
-
-commit 2bba187fdedb869ed30a12c6c644677275bb73dd
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 22:09:01 2022 -0400
-
-    Fixed the issue with DisplayImpLinks when a user logs in and logs out and trys to access it.
-
-commit 89f8c34e71e26f4e3ba8cc2616b63d4958b88185
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 22:05:19 2022 -0400
-
-    Revert "Merge pull request #49 from sid-ak/Display-Format-Fixes"
-    
-    This reverts commit 30d2260149bf363e39212b88fc3a5b49280d3103, reversing
-    changes made to 03ffbc15c4253c74fc445d56c5329c1e22595aa0.
-
-commit e9885cdbd4438e326871f76a872c0b9e30d00994
-Merge: 30d2260 e7d86a1
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Oct 16 21:34:33 2022 -0400
-
-    Merge pull request #50 from sid-ak/updated-log-history-file
-    
-    updated the log history file
-
-commit e7d86a1450bb916b1a703e7052e359dd12c31c36
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 16 21:31:32 2022 -0400
-
-    updated the log history file
-
-commit 30d2260149bf363e39212b88fc3a5b49280d3103
-Merge: 03ffbc1 1ab17cc
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Oct 16 21:20:39 2022 -0400
-
-    Merge pull request #49 from sid-ak/Display-Format-Fixes
-    
-    Display format fixes and LoggedIn bug fix
-
-commit 1ab17cc787f64b35048590cf253227f29df759dc
-Merge: 6916a47 03ffbc1
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Oct 16 21:20:28 2022 -0400
-
-    Merge branch 'main' into Display-Format-Fixes
-
-commit 6916a472e0e6bc3bb25fa166ab8d46ba2c7453ee
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 16 21:03:01 2022 -0400
-
-    fixed type
-
-commit 03ffbc15c4253c74fc445d56c5329c1e22595aa0
-Merge: fd7e8f0 b89df5e
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 16 20:37:32 2022 -0400
-
-    Merge pull request #48 from sid-ak/IN-34-Test-Friends
-    
-    IN-34: Test Friends Mutuality
-
-commit b1ca4bd6d23e8773d27fe7f61a4e1f0374f1a91f
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 16 19:31:51 2022 -0400
-
-    Changed format of all displays and fixed the Logged in User bug
-    
-    1. Changed the format of prints to make the program more user friendly
-    
-    2. Changed the content of program messages to unite into a one style format
-    
-    3. Fixed the logged in user bug: deleted the loggedUser variable as it is not needed in main file, and it was producing a bug when a logged in user signs out but logs in as a guest
-
-commit b89df5e399f9585a187c312e18af91d0fae1c8f1
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 17:57:59 2022 -0400
-
-    IN-34: Modifed tests to verify mutuality between friends.
-
-commit fd7e8f0c7cb2daba3481e3e23bc4ed327ab97d96
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 16 17:38:26 2022 -0400
-
-    added history log
-
-commit 1ee4ee68734c1ecbab2bfd24e9d3bd6b07c56791
-Merge: ad364a0 2066734
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Oct 16 17:27:16 2022 -0400
-
-    Merge pull request #43 from sid-ak/IN-34-Test-Friends
-    
-    IN-34: Test Friends
-
-commit 7ae50a67a85db83d226719e0685f9cf8b7600320
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sun Oct 16 17:26:54 2022 -0400
-
-    printing changes
-    
-    1. Initial changes
-
-commit ad364a0cd189640d520b194e00152213eb5f57cb
-Merge: 344364a 7d0660a
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Oct 16 15:00:39 2022 -0400
-
-    Merge pull request #47 from sid-ak/IN-35-TEST-Console-Modifications
-    
-    IN-35-TEST-Console-Modifications - added all the function in test fro…
-
-commit 344364aac4180f8c682c2381bc9cdf350460d08c
-Merge: 9cc5fe0 9d43d8d
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Oct 16 14:59:42 2022 -0400
-
-    Merge pull request #45 from sid-ak/IN-30/FriendsLogic
-    
-    IN-30/UserFriends - added checks to see if friends exist in DB
-
-commit 2066734d5a4524022a8bc4fcc1c6010b62964cff
-Merge: 5a09e94 9d43d8d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 12:51:47 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
-
-commit 5a09e9465d02760da11e55036ce521614befae8d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 12:44:09 2022 -0400
-
-    IN-34: Added a test to verify that deleting a friend works as expected.
-
-commit 7d0660a2db0f8fec59a193cb493823e3cff35d18
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sun Oct 16 12:32:20 2022 -0400
-
-    IN-35-TEST-Console-Modifications - change the name of the file shoeMyNetwork due to a typo
-
-commit 0b63088806e3b8c69328c2ae0930e15d8e1d824c
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sun Oct 16 12:24:17 2022 -0400
-
-    IN-35-TEST-Console-Modifications - added all the function in test frontend to tes all the new functionality and their outputs
-
-commit 9d43d8d1ccfb42b8e43a0d5e709b10b334449444
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 16 12:18:18 2022 -0400
-
-    fixed print statement
-
-commit 3682fd08d50fcc187787cd004580a9f86a0416d7
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 12:13:11 2022 -0400
-
-    IN-34: Added a test to verify that rejecting a friend request works as expected.
-
-commit 951785c737c3b36506fe5bc72f50626fbc252b01
-Merge: 94ddc3c 9253fc3
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 11:54:13 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
-
-commit 9253fc360644d687f80c62febabd4e72fbb506d0
-Merge: 4cd4c10 33871cc
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 11:39:01 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' of https://github.com/sid-ak/incollegetexas into IN-30/FriendsLogic
-
-commit 4cd4c102538e36e452d4aaff3b80868952c96fac
-Merge: 726019a 9cc5fe0
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 11:36:58 2022 -0400
-
-    Merge branch 'main' into IN-30/FriendsLogic
-
-commit 33871cc895e62a42f2d17419fb1de9ca30f68dc7
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 16 11:28:31 2022 -0400
-
-    fixed print statement
-
-commit 94ddc3c51d10c02c7806f0c193199da03399f32d
-Merge: 8075aaf 726019a
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Oct 16 11:07:18 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
-
-commit 726019a4987e666cd28013c2f19502149884a03d
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 16 02:40:03 2022 -0400
-
-    updated with major and university model
-
-commit d0354e39dc4cb2d1acee8e1d759ee1250f473b04
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 16 02:31:06 2022 -0400
-
-    added checks to see if friends exist in DB. Fixes errors occurred in tests
-
-commit 8075aaf89e78279477765192f358495953a305e8
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 22:41:22 2022 -0400
-
-    IN-34: Fixed a failing register new user test.
-
-commit 2be3bb6a420eb7630bb970f7deb23610f38abb28
-Merge: 4e7f1a8 fa6e832
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 22:35:49 2022 -0400
-
-    Merge branch 'main' into IN-34-Test-Friends
-
-commit 9cc5fe0a3deeb6786596613f1f5b3d148461c312
-Merge: fa6e832 b3eabfd
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Oct 15 22:33:37 2022 -0400
-
-    Merge pull request #44 from sid-ak/MigrationHistory
-    
-    Migration_10/15/22_Updated
-
-commit b3eabfd643e1680e0f102724fc45a6b00a271d54
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 22:33:00 2022 -0400
-
-    Migration_10/15/22_Updated
-
-commit fa6e832e69ef94eec9382193380367123b8cfcab
-Merge: b0494a5 1c3b596
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Sat Oct 15 19:54:16 2022 -0400
-
-    Merge pull request #40 from sid-ak/IN-32-frontend
-    
-    Frontend functionalities
-
-commit 4e7f1a8164db0e97b50469f0aa71bbc32f3b28e2
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 19:45:34 2022 -0400
-
-    IN-34: Added a test to verify that the user can accept a friend request as expected.
-
-commit e3aaf436bff7d0c3e4c1f4de7dc7c627c2a10f0b
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 19:09:23 2022 -0400
-
-    IN-34: Added a test to verify that sending a friend requests works as expected and ensured that it is considered pending.
-
-commit 1c3b5960450878090af60fe61ccd2c1b025ea3fc
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 17:06:26 2022 -0400
-
-    asked for user's uni & major (Signup.py)
-
-commit b59a78c139cb00447984db6cd477ac76d1e41eed
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 16:02:34 2022 -0400
-
-    IN-34: Added a test to verify that the user is initialized with an empty dictionary of friends.
-
-commit d446378b06d0bd48966451da259f3318ddcc60e3
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:57:48 2022 -0400
-
-    IN-34: DRY'd the limit constants.
-
-commit 6b34343cce0716b53ed9d64de36d7db3f6728914
-Merge: 40c12ce b0494a5
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:54:00 2022 -0400
-
-    Merge branch 'main' into IN-34-Test-Friends
-
-commit b0494a558cf675f75aa97d6e86aef05fb31cb4f9
-Merge: da1aa2b 27fea65
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:40:10 2022 -0400
-
-    Merge pull request #42 from sid-ak/MigrationHistory
-    
-    Migration_10/15/22
-
-commit 27fea65150eb4131ed3d863674c82d2a57f9f3f3
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:39:18 2022 -0400
-
-    Migration_10/15/22
-
-commit 40c12cea45a1c051827aa42858f9480da31ac988
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:35:52 2022 -0400
-
-    IN-34: Separated the test node in the DB that verifies user limit.
-
-commit 10d7529e0309e1064d00afce707440cb6b95a092
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:33:21 2022 -0400
-
-    IN-34: Deleted all test users after the user limit test run.
-
-commit 46f767f3d498ba3380730a6730cca4e5d46b1a39
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:21:39 2022 -0400
-
-    IN-34: Simplified the user and job limit implementations so they actually work.
-
-commit e665472ff8bcb746ad753bac1db8717850b21a60
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 15:11:30 2022 -0400
-
-    IN-34: Added a test to verify user limit and improved the implementation of the limit check.
-
-commit ff05acfde6ea6c4fa73356db447c2074a4c05dbe
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 15 13:41:58 2022 -0400
-
-    IN-34: Fixed a failing log in test.
-
-commit a0a8cb736039725ecd0bc1da6a6161a7fb7aeb40
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 13:22:20 2022 -0400
-
-    made the asked changes + debugged some frontened functionalities
-
-commit 55e44e27826c37a3c8d2f098840a0502dc3b0f5f
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 12:38:31 2022 -0400
-
-    added a check for SearchUsers
-
-commit 659c9047df17a87f694746991b8ab9c4f5c070e9
-Merge: 28e68f2 e995eed
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 11:39:39 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
-
-commit e995eed77747945d8616cd5f27704dfc93eada30
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Oct 15 11:35:53 2022 -0400
-
-    added try and excepts
-
-commit 28e68f283e0180808de28d84d3bea5b3ce32510c
-Merge: 90346b9 c6f68b2
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 11:29:52 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
-
-commit c6f68b2ebb98ada7f63cf1a54116179beffb2ce3
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Oct 15 11:17:01 2022 -0400
-
-    added try and excepts
-
-commit 90346b95d4ad1e776eb8d41108dbdc1a2e47069a
-Merge: 7023229 31c0ce6
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 02:47:20 2022 -0400
-
-    Merge branch 'IN-30/UpdateUserClass' into IN-32-frontend
-
-commit 7023229cff67f5c43666ef9a589bb5132efa374c
-Merge: 98946e1 0db13f3
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 15 02:46:34 2022 -0400
-
-    Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
-
-commit 31c0ce67182b84a95f0ca1a7adbf72441ab2ef4e
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Oct 15 00:18:12 2022 -0400
-
-    updated User class with Major and University
-
-commit 0db13f3764bcf97be184e7d48d8bf0323462fe4b
-Author: obasit7 <basitosama@gmail.com>
-Date:   Fri Oct 14 23:56:02 2022 -0400
-
-    fixed pendingReq function... hopefully
-
-commit 98946e1e4219fad58b614ea048989cbd4364eb32
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 23:24:43 2022 -0400
-
-    reverted a change in SendFriendRequest
-
-commit 6b1e4c990eef9f2fca3de90fa902f5792850f6d6
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 23:05:25 2022 -0400
-
-    removed placeholder comments
-
-commit 4f7e0bdf1ed2db3e2fdee8ef330e7ccba1cb0fb8
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 23:03:11 2022 -0400
-
-    added frontend functionality + debugged backend
-
-commit c8d15add28f81f61467d8d1013aec6a3bbbeda66
-Author: obasit7 <basitosama@gmail.com>
-Date:   Fri Oct 14 22:42:51 2022 -0400
-
-    updated get friends function to check if friends
-
-commit 89d61988fc42cdf15a23e64864b8478c62f82cdf
-Merge: a3f7891 da1aa2b
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 18:59:52 2022 -0400
-
-    Merge branch 'main' into IN-32-frontend
-
-commit a3f78913b9ae3b7f7f45c50a28a3446ef0dee579
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 18:59:23 2022 -0400
-
-    rectified mistakes
-
-commit da1aa2bfb400ac5ca3938bb480f9bf33d1d4708d
-Merge: b10854e 0b5aeed
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Fri Oct 14 18:58:08 2022 -0400
-
-    Merge pull request #38 from sid-ak/IN-30/FriendsLogic
-    
-    IN-30/GetPendingFriends - get pending requests of a user
-
-commit 0b5aeedb420d441aa92a10a3acf3c6f8bc851b6e
-Author: obasit7 <basitosama@gmail.com>
-Date:   Fri Oct 14 18:23:02 2022 -0400
-
-    get pending requests of a user
-
-commit 4a2a331660b3ce48b6c68d65ef506797308adcab
-Merge: 08aff2f b10854e
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 17:19:55 2022 -0400
-
-    Merge branch 'main' into IN-32-frontend
-
-commit 08aff2fb872cbe7f13594ce87fcbb511597f2986
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 14 17:19:11 2022 -0400
-
-    made changes to the options
-
-commit b10854e84a0b4353ba0b42668abe8ce45ba5fd93
-Merge: 34479e1 dc8b123
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Fri Oct 14 15:43:30 2022 -0400
-
-    Merge pull request #37 from sid-ak/IN-30/FriendsLogic
-    
-    IN-30/FriendAcceptRejectLogic - added additional logic for friends
-
-commit dc8b123336ed955ff913bd69a8116e92d1db3e95
-Author: obasit7 <basitosama@gmail.com>
-Date:   Fri Oct 14 15:42:05 2022 -0400
-
-    added return statement in try
-
-commit d26f3902f7a9d7ed03f27ac0573482dfaa1a5091
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 23:54:54 2022 -0400
-
-    removed trailing (unreachable) return statement from DeleteFriend
-
-commit 17ea97356349889ce71575eb1184d619a64b74b9
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 23:51:04 2022 -0400
-
-    changed variable name to avoid errors
-
-commit 8bc483eaecb6e0496aef5a1096ba066772b23ce7
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 23:49:00 2022 -0400
-
-    forgot to add 2 way functionality to deleteFriend. Added now
-
-commit f0dd35cf17a7ca35e5f348ef050ef1f1995cada7
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 23:45:48 2022 -0400
-
-    added additional logic for accepting, rejecting and removing a user from friend list
-
-commit e7d764906e76d5946c22a96aa907f7ae11c49117
-Merge: c1be293 34479e1
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 13 18:53:03 2022 -0400
-
-    Merge branch 'main' into IN-32-frontend
-
-commit c1be29300ce957214c1bfc33aeaf4ed9dfe8166d
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 13 18:52:09 2022 -0400
-
-    added all the frontend requirements
-
-commit 34479e1484a094166ac2f94d6e01dec320f51b54
-Merge: 24f8149 14bb1ce
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Thu Oct 13 18:22:37 2022 -0400
-
-    Merge pull request #36 from sid-ak/IN-30/FriendsLogic
-    
-    IN-30 added Friends logic and GetFriends logic
-
-commit 14bb1cefc4bf79bbcb913ac8af1c8371a934f6a8
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 12:40:24 2022 -0400
-
-    added return types
-
-commit 97e9083e4edfdeda46ad11169c98a5e24c3a53f9
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 00:24:02 2022 -0400
-
-    check to see if receiver is present in database for SendFriendRequest
-
-commit 3e791d7b2d3e543fe21f49837bbd26b124ead806
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Oct 13 00:18:10 2022 -0400
-
-    added functionality for a user to send friend request to another user
-
-commit fa24f6a9bb8fabdfd75b0c36d260d211701f9e3e
-Author: obasit7 <basitosama@gmail.com>
-Date:   Wed Oct 12 23:34:58 2022 -0400
-
-    updated userToFind to str
-
-commit 74401b91680c635d24f11f815ed0660e8a14d11e
-Author: obasit7 <basitosama@gmail.com>
-Date:   Wed Oct 12 23:26:50 2022 -0400
-
-    1- added Friends attribute to the user class
-    2- added GetFriends function that returns a list of a users friends the users Username
-
-commit 24f814957fd36937c58b369aca4730f2898aa80a
-Merge: 4730408 573655c
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Tue Oct 11 14:02:19 2022 -0400
-
-    Merge pull request #35 from sid-ak/EPIC4/User_Limit_Increase
-    
-    USER LIMIT INCREASE - changed user limit from 5 to 10
-
-commit 573655ce6244a146848870a02744120c6b1b8198
-Author: obasit7 <basitosama@gmail.com>
-Date:   Mon Oct 10 23:16:58 2022 -0400
-
-    changed user limit from 5 to 10
-
-commit 4730408faa8e20bcca70d52ecd5500eab4a3fcb6
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Oct 9 11:10:56 2022 -0400
-
-    formatting changes - brought latest created tests to the top
-
-commit 5d05b13a881edf2684083ccd653caf71a45da327
-Merge: 3ea8c87 040bd53
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Sat Oct 8 22:17:52 2022 -0400
-
-    Merge pull request #33 from sid-ak/IN-27-TEST-Useful-Links
-    
-    IN-27- Added the test cases for the DisplayUsefulLink Functions and m…
-
-commit 3ea8c87ef833c8138f877cc8754bafaeeeab7764
-Merge: aefe8c2 c4deb40
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Oct 8 21:22:26 2022 -0400
-
-    Merge pull request #32 from sid-ak/DisplayImpLinksFix
-    
-    Display Important Links Fix
-
-commit 040bd5320766c22c9ebf8b7d1198a0eead2b6699
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sat Oct 8 18:42:56 2022 -0400
-
-    IN-27-Removed Comments
-
-commit 0f246b4fdeac8d624258692ade7e78ecf8718c83
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sat Oct 8 18:36:01 2022 -0400
-
-    IN-27-made changes to the test file according to the standards
-
-commit aefe8c291a2a8b772125e0b66d6b4ba436ff4a2f
-Merge: 2f00ad5 5cd4c6a
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Sat Oct 8 16:24:18 2022 -0400
-
-    Merge pull request #34 from sid-ak/IN-20-useful-links
-    
-    Deleted the logout option (from Signin.py)
-
-commit 9a0f3527f58e555417cf68c2fb38ea5cbd32d328
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sat Oct 8 16:23:59 2022 -0400
-
-    IN-27- Removed loggedUser from DisplayUSefulLinksHelper.py as suggested by Sidharth
-
-commit 2f00ad51ace7d25f2f938281470f5a8ea2c9028f
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Oct 8 16:13:13 2022 -0400
-
-    fixed log in test
-
-commit 5cd4c6a6e8b42be6ac0fefa2025ce9050756521c
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Oct 8 16:04:19 2022 -0400
-
-    Deleted the logout option (from Signin.py)
-
-commit 627fb49c80a4d253d426c9b75599fe46cb11d512
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sat Oct 8 15:57:46 2022 -0400
-
-    IN-27- Added the test cases for the DisplayUsefulLink Functions and made some changes to DisplayUsefulLink.py and DisplayUsefulLinkHelpers.py for easier testing
-
-commit c4deb40cf763e36733dbe5d35bfe43cb7460fcd3
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Oct 8 15:50:41 2022 -0400
-
-    Fixed an incorrect parameter being passed to the DisplayImpLinks method due to recent changes.
-
-commit c424c05853f92a23181fc237d03399881d2a28da
-Merge: e11065b befb938
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sat Oct 8 15:02:34 2022 -0400
-
-    Merge pull request #31 from sid-ak/IN-28-TEST-ImportantInCollegeLinks
-    
-    In 28 test important in college links
-
-commit befb938aad4b47e7319d49f7f67788427135cb3d
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Oct 8 15:00:18 2022 -0400
-
-    Added Epic description for the tests
-
-commit 9211e659e6edcca790cdaa3d135141116a7aaff0
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Oct 8 14:55:35 2022 -0400
-
-    Removed the duplicate file
-
-commit 83f1927e3f5aefc39b6e789c025596184b7af579
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Fri Oct 7 22:10:10 2022 -0400
-
-    completed the ticket IN-28 with all the tests
-    
-    1. added relevant tests to cover all items of the ticket
-    
-    2. Some parts of the original code ("DisplayImpLinks.py" and "DisplayImpLinksHelpers") have been modified - there has been an addition of 1 or 2 parameters necessary to implement tests on the functions. Otherwise, these functions cal "input" function that prevents functional testing to be done on them.
-
-commit 9d10ebb8cf26c6620ef7e99e319f4684541f4dc5
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Fri Oct 7 21:05:43 2022 -0400
-
-    initial set up
-
-commit e11065b645cadcc54a92399540602f59f8ed1354
-Merge: c2847f5 af2a4a9
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Fri Oct 7 19:44:01 2022 -0400
-
-    Merge pull request #30 from sid-ak/IN-20-useful-links
-    
-    changed function names for better understanding
-
-commit af2a4a9208d856c0ec23f264b8959aca1078b0f8
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Fri Oct 7 19:40:13 2022 -0400
-
-    changed function names for better understanding
-
-commit c2847f53ede6c34b453a3b381cc729a724e6cd49
-Merge: 2c98f2a a2f7d04
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Thu Oct 6 23:57:02 2022 -0400
-
-    Merge pull request #29 from sid-ak/IN-20-useful-links
-    
-    IN-20: added useful & general links functionality
-
-commit a2f7d04157cba0d37b303fe7f12976655bfa9168
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 6 23:38:44 2022 -0400
-
-    addressed the requested changes
-
-commit d4a98a36ffe1263d792ea075009f766bc6bfcc47
-Merge: eed302a 2c98f2a
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 6 23:28:13 2022 -0400
-
-    Merge branch 'main' into IN-20-useful-links
-
-commit eed302ac30ab01b5001c51d37f6ee5cecea915b2
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 6 23:26:45 2022 -0400
-
-    changed name of the help function
-
-commit 2c98f2aaf2a47a71a812ee4405cf0ab29b79a4ce
-Merge: 5f4180c a76c855
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Thu Oct 6 23:19:32 2022 -0400
-
-    Merge pull request #28 from sid-ak/IN-24-Important-Links-Extension
-    
-    IN-24: Important Links Extension
-
-commit a76c855f53de62513b5039fdd5b78ce59196f31b
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 6 23:16:02 2022 -0400
-
-    IN-24: Addressed review, fixed copy error.
-
-commit 20643a665baa4daee0cd5e4ea43c1f769dba8b0f
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 6 17:05:46 2022 -0400
-
-    IN-20-modified catch message
-
-commit 398e8d3ecab43471cee0e36be0e945d06de5257b
-Merge: 6d3abea 883201f
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 6 17:02:23 2022 -0400
-
-    Merge branch 'IN-24-Important-Links-Extension' into IN-20-useful-links + made necessary changes
-
-commit 6d3abeae8a6ff5395a90db59fb4cf554abce964c
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Thu Oct 6 16:13:20 2022 -0400
-
-    IN-20: added useful & general links functionality
-
-commit 883201f67efe419c1bf4d157465a3a91ceb9a90e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 6 01:46:10 2022 -0400
-
-    IN-24: Fixed a minor frontend test.
-
-commit 14bd7077f8575663f87d08e3a9afced7102e6492
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 6 01:43:12 2022 -0400
-
-    IN-24: Implemented the language preference functionality using the LanguageEnum as required.
-
-commit a2ae0a3e227c8cddeb013540d9f03beb6a70bebf
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 6 01:42:29 2022 -0400
-
-    IN-24: Introduced a LanguageEnum.
-
-commit 7c341e29bde935fa079f75be205b914c1fbae8ca
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 6 01:09:51 2022 -0400
-
-    IN-24: Implemented functionality required to toggle email, sms and advertising preferences for a user.
-
-commit 755e60bd968363f7ab517d58aab0b98fa325c097
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Oct 6 01:07:48 2022 -0400
-
-    IN-24: DRY'd by adding a helper method to display options and cleaned up.
-
-commit 5f4180c49872af294895c1e0e3c441c786f5c937
-Merge: 7e799bc cd1921f
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Wed Oct 5 23:17:02 2022 -0400
-
-    Merge pull request #27 from sid-ak/IN-21-Important-Links
-    
-    IN-21: Important Links
-
-commit 7e799bcc0824231a782fb240c70dc62f9f49befa
-Merge: ecc07b4 c3e2b0e
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Wed Oct 5 21:31:35 2022 -0400
-
-    Merge pull request #26 from sid-ak/DeleteTestFrontend
-    
-    Deleted test_JobInternshipSearch
-
-commit cd1921f8d014bd3c1b47cd7315775bdfc1d16b3b
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Oct 5 10:00:30 2022 -0400
-
-    IN-21: Introduced the imp links and their content.
-
-commit e8187143a2341eb12fdc5212765f71adf6b380fb
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Oct 5 09:57:34 2022 -0400
-
-    DRY'd the menu option selection and printing the under construction message.
-
-commit c3e2b0ebf868315b3f935657a4c9519221644cfd
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Oct 5 08:23:52 2022 -0400
-
-    Deleted test_JobInternshipSearch
-
-commit ecc07b489ccd8daf57e5fd85298e628686b6549a
-Merge: 292cfa3 30c9cde
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Wed Oct 5 08:18:53 2022 -0400
-
-    Merge pull request #25 from sid-ak/MigrationHistory
-    
-    Migration_10/05/22
-
-commit 30c9cde22a351409d91d3de11b3208d5edbd4d98
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Oct 5 08:14:09 2022 -0400
-
-    Migration_10/05/22
-
-commit 292cfa3b6a87bdfbe510fbbf8d024f593ce4dd7a
-Merge: c9315da 6bf32c0
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Wed Oct 5 08:16:06 2022 -0400
-
-    Merge pull request #24 from sid-ak/MigrationHistory
-    
-    Added snapshot for 10/05/22
-
-commit 6bf32c0d946e2fa079f4a91c883b0acd13a313f6
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Oct 5 08:14:09 2022 -0400
-
-    Added snapshot for 10/05/22
-
-commit c9315da20bc0c37cda585802f89b99d92293eb54
-Merge: 015f748 fab6345
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Sun Sep 25 23:22:24 2022 -0400
-
-    Merge pull request #23 from sid-ak/FixTestFrontend
-    
-    Commented out test_JobInternshipSearch
-
-commit fab63451bbf57cea4e4cd088720a96ad495e104a
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sun Sep 25 23:20:40 2022 -0400
-
-    Commented out test_JobInternshipSearch
-
-commit 015f748d501fe55937dc996ef2f350e3e63b51cb
-Merge: 47730df eb9c22f
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sun Sep 25 18:31:55 2022 -0400
-
-    Merge pull request #22 from sid-ak/IN17/JobModelTests
-    
-    IN17/JobModelTests
-
-commit eb9c22fc6ec362a486260d5e0f24311399d29f2a
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Sep 25 14:19:43 2022 -0400
-
-    1- added deleteJob feature in JobHelpers
-    2- added test to check for CreateJobs, JobLimit, GetAllJobs
-
-commit 47730df3203a2e5cf2f4e782c59a9cd7457ffa3f
-Merge: a7e012d 3677095
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Sun Sep 25 13:25:04 2022 -0400
-
-    Merge pull request #21 from sid-ak/IN-12-Go-Back
-    
-    IN-12-Added a feature to go back to the previous options.
-
-commit 367709592239c91387649fb3b0951f7e4db78461
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Sun Sep 25 12:59:44 2022 -0400
-
-    IN-12-Added a feature to go back to the previous options.
-
-commit a7e012dd4558e78fecb957b192abb26992177f21
-Merge: 4e01be2 acf8f80
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Sep 25 12:42:35 2022 -0400
-
-    Merge pull request #18 from sid-ak/IN-17-Job-Model
-    
-    IN-17: Job Model
-
-commit acf8f80586026a1940bf742ac8310a66abb065b9
-Merge: e068b13 4e01be2
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Sep 24 17:52:52 2022 -0400
-
-    Merge branch 'main' into IN-17-Job-Model
-
-commit 4e01be2c2ddcc75800f91547bd3a1803879cc321
-Merge: 47b99eb aff5625
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Sat Sep 24 17:48:29 2022 -0400
-
-    Merge pull request #20 from sid-ak/IN-11/TestingUsers
-    
-    In 11/testingUsers - added functionality in LogIn and SignUp to address both Users and TestUsers nodes in firebase. Added testUsers to Firebase as well
-
-commit aff5625e91dffa8a1175d800fd813bbea76d9e27
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 24 17:38:12 2022 -0400
-
-    set userlimit as a constant
-
-commit e068b139bb326b61ef116d812463627dcb93a283
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 15:48:58 2022 -0400
-
-    IN-17: Removed the reference to an object which was outside its scope.
-
-commit d0055ef495a7a57ab2860bc0800dbcb9d1d79e5b
-Merge: d071546 47b99eb
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Sat Sep 24 14:10:08 2022 -0400
-
-    Merge branch 'main' into IN-17-Job-Model
-
-commit 7cbc96294e29233564c68da9bbd440ba367d68e5
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 24 14:05:09 2022 -0400
-
-    1- set userID type to str from int
-    2- modified login test according to new logic
-    3- Passed collection name to signin functions to enable functionality for both Users and TestUsers DBs
-
-commit c755c29bc7ed0a45dddd0cd93340b163b4203b1b
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 24 13:48:54 2022 -0400
-
-    1- added test for RegisterNewUser using existing functions
-    2- modified User class to support adding users for both Users and TestUsers DBs
-    3- added a DeleteUserAccount in UserHelpers
-
-commit d071546ee815096f011412ddeba57e420b092de8
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 13:00:56 2022 -0400
-
-    IN-17: Included the optionNo input inside the try block.
-
-commit 4d258331b0d0856704335610e21e8deb81af5da2
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 24 12:54:36 2022 -0400
-
-    added tests to for checkDBSize and GetAllUsers
-
-commit 47b99eb1930758f3d3390de6f5ebc2b055671457
-Merge: a89a2c3 ffc45a7
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Sep 24 12:47:45 2022 -0400
-
-    Merge pull request #19 from sid-ak/MigrationHistory
-    
-    Migration_09/24/22
-
-commit ffc45a75b69dde7116396e8f1d83e0bb642c3a99
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 12:46:11 2022 -0400
-
-    Migration_09/24/22
-
-commit fa8cea920e029d76157b8c2569867628a8aef14d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 09:33:40 2022 -0400
-
-    IN-17: Typo.
-
-commit 7a2923d409cb3f802ed12aae387962a99cd3617e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 09:26:23 2022 -0400
-
-    IN-17: Finished the FindJobInternshipAction to post a job.
-
-commit 60a3f41e507ec38c1af081bbebb3406b4dee8aa6
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 08:20:09 2022 -0400
-
-    IN-17: Updated the change tracker.
-
-commit f8c2cedd1786ac826333c51a3f0e4d12f05841ac
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 08:18:28 2022 -0400
-
-    IN-17: Updated gitignore to ignore additional cache files and deleted existing cache.
-
-commit d2b719ca58b37c6e3e78257a89dc8415cfdd21e2
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 08:14:06 2022 -0400
-
-    IN-17: Updated gitignore
-
-commit 15c4ca96930c58eca64552745c2e572bffc528a4
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 24 08:13:27 2022 -0400
-
-    IN-17: Comment change.
-
-commit 1e3b5ec876f44eaade824862aea1e182b701b337
-Merge: 7c35862 a89a2c3
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Sep 23 23:22:23 2022 -0400
-
-    Merge branch 'main' into IN-17-Job-Model
-
-commit a89a2c39e08432e21b52a25190d5776ac9a629e5
-Merge: 2f1d86b d0955ba
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Fri Sep 23 20:40:23 2022 -0400
-
-    Merge pull request #17 from sid-ak/IN-12-search-user
-    
-    IN-12: Bad Merge Fix Part 2
-
-commit d0955ba5db89931c527cb36129fdc88deee9a2fd
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Sep 23 20:38:28 2022 -0400
-
-    Re-added previous commits.
-
-commit 2f1d86b5331bda8e4e0b9d0106f7fb6e37b683b7
-Merge: 12007e8 2c1d9f0
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Fri Sep 23 20:16:39 2022 -0400
-
-    Merge pull request #16 from sid-ak/IN-11-BadMergeFix
-    
-    IN-11: Bad Merge Fix
-
-commit 2c1d9f0c8231f03de5ccda3ef8b1f4ad2ce951f4
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Sep 23 20:13:16 2022 -0400
-
-    IN-11: Re-added other changes using the GetAllUsers method.
-
-commit 6548ef4845c0d54bd9f7031c0557b4195a02f184
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Sep 23 20:10:05 2022 -0400
-
-    IN-11: Re-added the User model.
-
-commit 7c35862fedc53d6a53ad0d664daa94e9c737f69c
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Fri Sep 23 19:39:54 2022 -0400
-
-    IN-17: Introduced a Job model.
-
-commit 12007e890be3ce4a09fdf980f6624c8e27401b1e
-Merge: 05181ec 378c454
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Fri Sep 23 19:25:46 2022 -0400
-
-    Merge pull request #13 from sid-ak/IN-11-User-Model
-    
-    IN-11: User Model
-
-commit 378c45482a43efe459e2939ca6563672aeaec963
-Merge: bac5a61 05181ec
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Fri Sep 23 19:24:42 2022 -0400
-
-    Merge branch 'main' into IN-11-User-Model
-
-commit 05181ec3ea33bfef070c9acfed00aad185ce1d8f
-Merge: a4bbe3a 6368920
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Fri Sep 23 18:52:48 2022 -0400
-
-    Merge pull request #15 from sid-ak/IN9-Video
-    
-    added test for PlayVideo and added new week update comments in test f…
-
-commit 1b958add86ffb9f5d6686cf92ca66aac5144fbde
-Merge: 3346874 a4bbe3a
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 22:55:35 2022 -0400
-
-    Merge branch 'main' into IN-17-Job-Model
-
-commit a4bbe3a7f9f37f908a661950e690c859f3ba7733
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 22:48:14 2022 -0400
-
-    Revert "Merge pull request #14 from sid-ak/IN-12-search-user"
-    
-    This reverts commit 05413da92651e21e20e7b164afde83c53e19083f, reversing
-    changes made to 540d9d537af4d3a29c4e8ced28074038871fec39.
-
-commit 33468741ed5602402260276aba41e2f24955723f
-Merge: 9e43766 05413da
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 22:43:58 2022 -0400
-
-    Merge branch 'main' into IN-17-Job-Model
-
-commit 05413da92651e21e20e7b164afde83c53e19083f
-Merge: 540d9d5 20b92f9
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Thu Sep 22 22:32:10 2022 -0400
-
-    Merge pull request #14 from sid-ak/IN-12-search-user
-    
-    In 12 search user
-
-commit 6368920624f85dd35f1f345f502422c0aae9285d
-Author: obasit7 <basitosama@gmail.com>
-Date:   Thu Sep 22 22:29:55 2022 -0400
-
-    added test for PlayVideo and added new week update comments in test files
-
-commit bac5a61e4fd0cd4bf1d7be00106b335593238192
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 21:15:17 2022 -0400
-
-    Revert "Merge branch 'IN-12-search-user' into IN-11-User-Model"
-    
-    This reverts commit cc7853fdca34480cc5ea956a544a8c4a3032a246, reversing
-    changes made to 9e437662651f7b5cfe6c04dbde1ccfc1d6089bef.
-
-commit cc7853fdca34480cc5ea956a544a8c4a3032a246
-Merge: 9e43766 20b92f9
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 21:13:18 2022 -0400
-
-    Merge branch 'IN-12-search-user' into IN-11-User-Model
-
-commit 9e437662651f7b5cfe6c04dbde1ccfc1d6089bef
-Merge: 73adea1 540d9d5
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 21:10:54 2022 -0400
-
-    Merge branch 'main' into IN-11-User-Model
-
-commit 20b92f90d0d3ed246d6b13596274baaecdd9bd2d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 20:38:40 2022 -0400
-
-    IN-12: Iplmented authentication beyond search user and tidied up.
-
-commit 5c31bb4eaf709da4fd13687a169261e8e8f35357
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Thu Sep 22 20:03:56 2022 -0400
-
-    IN-12: Added a search user method and cleaned up the main file.
-
-commit cb7eaf7fca931286d255b572b5a52d4ab29fb2dc
-Merge: ce84ea6 73adea1
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Thu Sep 22 19:15:33 2022 -0400
-
-    Merge branch 'IN-11-User-Model' into IN-12-search-user
-
-commit 73adea1caeda70c60b9628dfc25f1d11634debfc
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 19:14:21 2022 -0400
-
-    IN-11: Used the User model in the main file.
-
-commit 5dbec7b49bcf60de2a1d2b79022e8ac8dc537680
-Merge: efccef8 56c939e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 19:06:52 2022 -0400
-
-    Merge branch 'IN-10-success-story' into IN-11-User-Model
-
-commit ce84ea6f09575e0f1f54862d4495fa4fb1a3a2ee
-Merge: ebd4c09 efccef8
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Thu Sep 22 19:00:56 2022 -0400
-
-    Merge remote-tracking branch 'origin/IN-11-User-Model' into IN-12-search-user
-
-commit 540d9d537af4d3a29c4e8ced28074038871fec39
-Merge: e936c59 56c939e
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Thu Sep 22 09:25:13 2022 -0400
-
-    Merge pull request #12 from sid-ak/IN-10-success-story
-    
-    IN-10: Added Video Option, in the main file and created a function to…
-
-commit efccef8562427a4a9f42fdf1d6a4b166003a7a22
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 02:24:59 2022 -0400
-
-    IN-11: Took first name and last name as input from the user.
-
-commit 24faab4edc169b9ee91fba585626ff05d4824f72
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 02:12:13 2022 -0400
-
-    IN-11: Separated user helpers into its own class.
-
-commit 08f3a50a122a01b050469dda3de5ee9106afdc54
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 02:00:39 2022 -0400
-
-    IN-11: Comments and cleanup.
-
-commit 5e26f1a6a720066d5cfa47b5d0c3e55309ba8946
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 01:39:12 2022 -0400
-
-    IN-11: Added a hashing implementation using the unique username and password of a user so we don't have to store passwords in plain text while also being able to authenticate users.
-
-commit 6fc377c0f25cdd07835a0909be66617fd6281d4d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 01:37:21 2022 -0400
-
-    IN-11: Used the GetAllUsers method where possible.
-
-commit 2228eb0c79c6246a2d1ab9f905b68070f4cb7816
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Thu Sep 22 01:33:35 2022 -0400
-
-    IN-11: Typo
-
-commit 56c939e39a41003126521acb1be5968240e6c0d6
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Wed Sep 21 23:29:29 2022 -0400
-
-    IN-10: made changed the file name LoggedInActions to Actions and added the PlayVideo.py file  to it. Also made changes to the success story
-
-commit 56cd819b99910183ecb197626b79ac21edef9d14
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:56:32 2022 -0400
-
-    IN-11: Removed unused import.
-
-commit f18b07c1702b8e22fe48fb59e1b48f649122ec8d
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:55:24 2022 -0400
-
-    IN-11: Removed unused file.
-
-commit 5287f678dcc2855dae6f8068a72a4ff161bff1f2
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:54:26 2022 -0400
-
-    IN-11: More cleanup.
-
-commit 1b25ff92103ad0b2b9249bd8c2e1c8a979082353
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:53:36 2022 -0400
-
-    IN-11: Cleanup.
-
-commit 3a3dea3ded7e807e6586568bdc7820dbcc20869b
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:45:12 2022 -0400
-
-    IN-11: Simplified the code a little.
-
-commit 3a557ea95b1b07dffeba0233d3b0974486700127
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:21:31 2022 -0400
-
-    Removed whitespace.
-
-commit 2cd00f721f116746951c5d67922a3bd3671b6003
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 21 21:03:41 2022 -0400
-
-    Introduced a User entity and implemented a GetAllUsers method with it.
-
-commit ebd4c095aae4bfa7367db9991f081d1c9e465408
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Wed Sep 21 18:48:33 2022 -0400
-
-    IN-12: Changed firstname and lastname to firstName and lastName
-
-commit e7bea36b6e42739ec3b2e7ca905a5a6328273c03
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Tue Sep 20 13:09:45 2022 -0400
-
-    IN-12: Updated the comment
-
-commit 47b419e3d987b1e9ae7688885e7b74634cd996b8
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Tue Sep 20 12:52:11 2022 -0400
-
-    IN-12: added a function to search the user using their first and last name
-
-commit b6f46fe7c9f40aaea7eb7eef80e86b2fb049a33d
-Author: Aoun1207 <81834802+Aoun1207@users.noreply.github.com>
-Date:   Tue Sep 20 11:10:48 2022 -0400
-
-    IN-10: Added Video Option, in the main file and created a function to play the video
-
-commit e936c592bbb0326645f04c7503072f70ce6f8eb6
-Merge: 1f5f965 e73ec9f
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:35:54 2022 -0400
-
-    Merge pull request #11 from sid-ak/Cleanup
-    
-    Cleanup.
-
-commit e73ec9f8e8a12e6954efe9a2d4ba3a1b360d9557
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:34:21 2022 -0400
-
-    Cleanup.
-
-commit 1f5f9652d52119f88024e8b17ebadf274b94fe43
-Merge: c509708 3de5add
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:31:38 2022 -0400
-
-    Merge pull request #10 from sid-ak/Cleanup
-    
-    Updated README to include testing instructions.
-
-commit 3de5addfa13475ec798f36363e19fe7951c185ea
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:30:33 2022 -0400
-
-    Updated README to include testing instructions.
-
-commit c509708960134e510dfd390a5a6e701a0a5f3bb2
-Merge: 652884c 255cd47
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:24:32 2022 -0400
-
-    Merge pull request #9 from sid-ak/Readme-GettingStarted
-    
-    Added getting started steps
-
-commit 255cd4725fbaa0f339a9cef4ad6adc474ab7316e
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:24:19 2022 -0400
-
-    Added getting started steps
-
-commit 652884ce24fa2b4825006ce7a1f05b9a98e2ef79
-Merge: 319cc05 c8f5d8c
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:10:06 2022 -0400
-
-    Merge pull request #8 from sid-ak/IN-3-tester1
-    
-    IN3-FinalUpdate
-
-commit c8f5d8c5918e2cea4bff302150bf7d527ac8643a
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:08:59 2022 -0400
-
-    Added comment for frontend tests
-
-commit 3c2bb6c6b8467d40b83cb196b0b96d04e5dbd46f
-Merge: 013da71 319cc05
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sun Sep 18 20:07:32 2022 -0400
-
-    Merge branch 'main' into IN-3-tester1
-
-commit 013da711579dfcaae4ee04aebde8a3bd130c82c0
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Sep 18 20:00:44 2022 -0400
-
-    changed tester 1 file name
-
-commit 92beac2b8c5438a0e13023480f1120b14421fc19
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sun Sep 18 19:56:25 2022 -0400
-
-    added comments for test file last updated
-
-commit 319cc052d36abaf379388da44305a0f3836ae244
-Merge: c6a6307 962dbfa
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Sep 17 21:10:31 2022 -0400
-
-    Merge pull request #7 from sid-ak/IN-8-test-frontend
-    
-    Testing the menu options (IN-5)
-
-commit 962dbfa31eea1a4f321e88384f1f7b43670801c7
-Merge: 56f8462 c6a6307
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 21:06:05 2022 -0400
-
-    Merge branch 'main' into IN-8-test-frontend
-
-commit 56f8462039e3bc9ae1b3323960f1698c98692b80
-Merge: 78825e4 d8d643c
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 21:02:54 2022 -0400
-
-    Merge branch 'main' into IN-8-test-menu
-
-commit 78825e409dcf9fa0b46cf4ae132c85698b2c0f9a
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 21:00:31 2022 -0400
-
-    Cleanup
-
-commit b5dacf3c757fc24acdd2e89026b8a1d1e738cd7c
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 20:58:15 2022 -0400
-
-    Minor rename
-
-commit c6a63077e4aea004f7468eb146c5f660df64f782
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 20:57:06 2022 -0400
-
-    bug fix: fixed the loop in the learnNewSkill function to allow break out of loop when -1 selected
-
-commit 911b1dabd011549629fea87e388598daaa5a1157
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 20:39:50 2022 -0400
-
-    Renamed test file and reorganized.
-
-commit f89ea9fae9d4df09f5b768f1878edc10ba8e69d9
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 20:33:36 2022 -0400
-
-    seperating the tests
-
-commit d8d643c198a64a700e568e5897bd286f0ba30729
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 19:58:02 2022 -0400
-
-    put the connection to db operation block in CheckDBSize in a try block to make it safe
-
-commit 01f7b631a8ecacb8331aba5fedc3e9f5b25eec4b
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 19:50:02 2022 -0400
-
-    fixed the call to CheckDBSize call, was missing parentheses
-
-commit 764fd3eaaec9d3bd0e7e29e57fba477474a92632
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 19:17:48 2022 -0400
-
-    created test cases for LearnNewSkills(), JobInternshipSearch(), and FindSomeone().
-    Also, fixed typo & refactored the skills menu
-
-commit 7d53d13be0fb89617e2341670c7ae1d6384f5111
-Merge: 281d9b4 96ecf31
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 19:01:50 2022 -0400
-
-    Merge branch 'main' into IN-8-test-menu
-
-commit 281d9b4d1e9c164cf2cc3d1fbe6861b5cb330378
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 18:53:12 2022 -0400
-
-    testing new code
-
-commit 96ecf3185d82ebd6f14498b454753a68ccda92ca
-Merge: 51bdd17 8145ba2
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 18:41:55 2022 -0400
-
-    Merge branch 'main' of https://github.com/sid-ak/incollegetexas
-
-commit 51bdd17d54c6c6444e3c046cd7eea57abae05c7e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Sat Sep 17 18:41:51 2022 -0400
-
-    Create .gitignore
-
-commit 8145ba218eec1f533604e0639a73226e3af6ff5b
-Merge: c0a15ab 74fefa2
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Sep 17 18:39:20 2022 -0400
-
-    Merge pull request #5 from sid-ak/IN-5-AdditionaOptions
-    
-    added addition options for a user that successfully logged in
-
-commit 74fefa25af74b0eb4bc8001aadc0b8765252d381
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 18:33:16 2022 -0400
-
-    finalizing last commit
-
-commit 174b80340bac9e5181bfd1a50f174972c53ca7b3
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 18:29:13 2022 -0400
-
-    tests for LearnNEwSkill(), JobInternshipSearch(), and FindSomeone()
-
-commit 5734e9c48ea170096d1879914fde9222b434b52b
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 18:27:14 2022 -0400
-
-    fixed LearnNewSkills function to keep asking skills
-    
-    1. fixed Sid's change request on LearnNewSkills function
-    
-    2. changed the return type of LearnNewSkill function to list to track all the skills selected by the user
-
-commit 51f293df9ffe6b4e5eeaea8f48c2a11dafca3c40
-Merge: 2d340e9 e487362
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 18:17:29 2022 -0400
-
-    Merge branch 'IN-5-AdditionaOptions' into IN-8-test-menu
-
-commit d1ea1ddb461ec92523da79bfeb576ece7bdcedd6
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 18:08:27 2022 -0400
-
-    testfor user log in added
-
-commit e4873628bd22f938e806a0e05d21e7c68a2ae037
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 18:05:21 2022 -0400
-
-    PR change request handled
-    
-    Fixed issues of PR request change made by Sid
-
-commit c0a15abc5b0ef41675c1f94ec045021cc4c401f6
-Merge: 84d71d6 5ffab0f
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Sat Sep 17 17:58:18 2022 -0400
-
-    Merge pull request #4 from sid-ak/IN-3-tester1
-    
-    In-3/tester1-corrected filepaths and added Osamas test file
-
-commit 5ffab0fcc8018d1f34c75b54c6d1c0f69494ed61
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 17:55:27 2022 -0400
-
-    added test to check success for registering new user
-
-commit 14cb82d884b55b9b8e4aadf4624ddbd1b35f71b1
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 17:32:29 2022 -0400
-
-    added addition options for a user that successfully logged in
-    
-    1. moved the test2 file to the source folder to remove relative path errors
-    
-    2. created a new folder, with three files that contain respective function to complete addition operations for a user that is logged in
-    
-    3. modified and added addition control flow in the main file to logically progress the program for users
-    
-    4. changed the main file code structure to class for mudularity purposes
-
-commit 33c617b7ab26ad0b1c72f8b8dcfbf0aa02ca113e
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 16:46:16 2022 -0400
-
-    corrected Amir's file
-
-commit 606333e6bbd88e088ad497c6bb01382f51de11c9
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 16:10:19 2022 -0400
-
-    moved tester 2 file to source main folder
-
-commit 195b0c5425bb4da717daa450096306f7c2ba4aaf
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 15:40:12 2022 -0400
-
-    reconfiguring files
-
-commit 01e4f2f8ab0640961680f53f45d7a9a53041bf5f
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 15:36:22 2022 -0400
-
-    made test for checking accouns limit
-
-commit 93cab4363f834d12ed1e9faa3871a2679beeed98
-Merge: 8d11c6b 84d71d6
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 15:10:55 2022 -0400
-
-    Merge branch 'main' of https://github.com/sid-ak/incollegetexas into IN-3-tester1
-
-commit 84d71d6d8c18dfbbd0e533275a341df53cb8d26f
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 14:15:33 2022 -0400
-
-    Update Signup.py
-
-commit aca94b05ae28a31c9c9cb1628414ee84374e0089
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 14:03:21 2022 -0400
-
-    Fixed commits' accidents
-
-commit 2d340e983cd558a519302b6fa7d170783e7b4dbe
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 13:47:47 2022 -0400
-
-    Tests for ShowMessage(), DisplayMenu(), and LearnNewSkill()
-
-commit 30310e6a492ce9c948fc5fa6811d1b812f3a592a
-Merge: 6303ef4 29313c4
-Author: Amir Aslamov <amiraslamov@usf.edu>
-Date:   Sat Sep 17 13:26:40 2022 -0400
-
-    Merge pull request #2 from sid-ak/database-setup
-    
-    Database setup
-
-commit 29313c45dc03a3d65e030d7d512929ba0be33363
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 13:26:16 2022 -0400
-
-    resolved change requests from Sid
-
-commit 8d11c6b1ca1465dd2e9a6dfa72898588f0e39273
-Merge: 81ee1b6 2de6e31
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 13:09:04 2022 -0400
-
-    Merge branch 'database-setup' of https://github.com/sid-ak/incollegetexas into IN-3-tester1
-    
-     Conflicts:
-    	.idea/incollegetexas.iml
-    	.idea/misc.xml
-
-commit 81ee1b6709d340d15f3e780a0a09a47ccd913024
-Author: obasit7 <basitosama@gmail.com>
-Date:   Sat Sep 17 13:08:36 2022 -0400
-
-    some unversioned files
-
-commit 6303ef4d72744d0dfa5abe71071c85aa3f0d3386
-Merge: b40a5e1 5a72722
-Author: anshika-bhowmick <110699096+anshika-bhowmick@users.noreply.github.com>
-Date:   Sat Sep 17 13:01:00 2022 -0400
-
-    Merge pull request #3 from sid-ak/tester2
-    
-    Issue IN-6
-
-commit 5a727229b31e4c2b1ab61accd8505186ee1f662b
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 12:34:32 2022 -0400
-
-    test for validatePassword()
-
-commit 2de6e312fdf1008184a377aa867bf465d4b04642
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 12:33:03 2022 -0400
-
-    Bug fix and Testing Modular Files Added
-
-commit e6ad202233752a584bd125311aaaa4c0a7619157
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 12:24:35 2022 -0400
-
-    Revert "test for validatePassword()"
-    
-    This reverts commit 5f41d67bf4b5335e227fae20a8657bda172ee4a6.
-
-commit 5f41d67bf4b5335e227fae20a8657bda172ee4a6
-Author: anshika-bhowmick <anshikabhowmick5@gmail.com>
-Date:   Sat Sep 17 11:56:14 2022 -0400
-
-    test for validatePassword()
-
-commit b40a5e1cd101c286b7e710ad967bda0e276c63c3
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Sep 17 10:21:58 2022 -0400
-
-    Update Standards.txt
-    
-    Typo
-
-commit 31bdd70d4def2258885c96a7515c97b7727b276d
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Sat Sep 17 10:21:20 2022 -0400
-
-    Update Standards.txt
-
-commit bdafc90a4cf406125020b42c5c901db0f6c9662f
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Sat Sep 17 00:30:00 2022 -0400
-
-    Bug fix in signup
-    
-    fixed the bug in retrieving the entries from the firebase
-
-commit 4641ed1b425f28bc2401e38a92002ef40d547cd0
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Fri Sep 16 23:59:25 2022 -0400
-
-    Revert "Revert "set up of login and sign up functions""
-    
-    This reverts commit 909cc7c1d2bcc58745a29c095dc28b88064f022e.
-
-commit 909cc7c1d2bcc58745a29c095dc28b88064f022e
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Fri Sep 16 23:55:16 2022 -0400
-
-    Revert "set up of login and sign up functions"
-    
-    This reverts commit 8f91562071d921e894690c5b5a9664ba7ad10532.
-
-commit 8f91562071d921e894690c5b5a9664ba7ad10532
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Fri Sep 16 23:41:37 2022 -0400
-
-    set up of login and sign up functions
-    
-    1. separated different functions and variables into different logical modules
-    
-    2. created a new function to complete login operation
-    
-    3. created a new function to complete signup operation
-    
-    4. copied over the validate-password function from Aoun's commit
-    
-    5. created an initial setup of control flow in main file
-
-commit d6905da7f3dcfbf24af16c1be5dd4b763733b1ab
-Author: Aoun Ashraf <aounashraf@usf.edu>
-Date:   Fri Sep 16 21:11:08 2022 -0400
-
-    function to validate the password
-
-commit 683d40d456ef471b6016528eb8ea35c268649ba1
-Author: aslamovamir <90361791+aslamovamir@users.noreply.github.com>
-Date:   Fri Sep 16 18:54:50 2022 -0400
-
-    basic setup of hook to the firebase database
-    
-    Set up the hook to the firebase database.
-    
-    Note: For security purposes, the configuration details will be sent to the group separately.
-
-commit b4522887b08d9f9fd41e8ac3a9332fcb14e59bc9
-Merge: 09452fe 9c1b911
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 14 19:33:59 2022 -0400
-
-    Merge branch 'main' of https://github.com/sid-ak/incollegetexas
-
-commit 09452fe9e67bfa23bfc55232cb3fac08c44a9eff
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 14 19:30:38 2022 -0400
-
-    Moved source code.
-
-commit 21fef0f473a0b553a4a5133219f6b04c14aba969
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 14 19:30:13 2022 -0400
-
-    Added standards.
-
-commit 9c1b911b3c3171b0f47e3193bd9a839e269041cb
-Merge: 81608a0 60b7c2d
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Wed Sep 14 19:18:17 2022 -0400
-
-    Merge pull request #1 from sid-ak/ReadmeUpdate
-    
-    Update README.md
-
-commit 60b7c2d83b45bfd214de7e7087d5dc051cc85a2e
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 14 19:16:12 2022 -0400
-
-    Update README.md
-
-commit 81608a03c281ce95a65a6adb99649e1aa4dbfe90
-Author: obasit7 <basitosama@gmail.com>
-Date:   Wed Sep 14 19:11:13 2022 -0400
-
-    main file for code
-
-commit ab090b182cfa6e251df1a005fe5a4dd60e9018cb
-Author: obasit7 <87975115+obasit7@users.noreply.github.com>
-Date:   Wed Sep 14 18:09:16 2022 -0400
-
-    Delete sample_test.py
-
-commit 1775513cd1bfbea7bacbff7d1797b9506f10961e
-Author: obasit7 <basitosama@gmail.com>
-Date:   Wed Sep 14 18:03:20 2022 -0400
-
-    sample commit
-
-commit 880da0813467ddcceafd265a988379b1831c0ed4
-Author: sid-ak <sidharthak25@gmail.com>
-Date:   Wed Sep 14 08:36:26 2022 -0400
-
-    Test commit.
-
-commit 2a56c1f5fd1f724293ed628835cc94b2b795e1dc
-Author: Sid Anandkumar <sidharthak25@gmail.com>
-Date:   Mon Sep 12 09:33:40 2022 -0400
-
-    Initial commit
+*   5ec284d (HEAD -> Update-History, origin/main, origin/Update-History, main) Merge pull request #95 from sid-ak/main-Epic6-10/24/22
+|\  
+| | *   17d3fd2 (origin/IN-52-Filtered-Jobs-Interaction) Merge branch 'main-Epic6-10/24/22' into IN-52-Filtered-Jobs-Interaction
+| | |\  
+| | |/  
+| |/|   
+| * |   e66b59b (origin/main-Epic6-10/24/22, origin/HEAD, main-Epic6-10/24/22) Merge pull request #94 from sid-ak/MigrationHistory
+| |\ \  
+| | * | 29ba79a (origin/MigrationHistory, MigrationHistory) Migration_10/30/2022
+| |/ /  
+| * | 6b88ec7 Revert "Merge pull request #93 from sid-ak/IN-55-Remove-Unnecessary-TestJob-Creation"
+| | *   00a5912 (IN-52-Filtered-Jobs-Interaction) Merge branch 'main-Epic6-10/24/22' into IN-52-Filtered-Jobs-Interaction
+| | |\  
+| | |/  
+| |/|   
+| * |   2dd71c3 Merge pull request #93 from sid-ak/IN-55-Remove-Unnecessary-TestJob-Creation
+| |\ \  
+| | * | a19ca9e IN-55: Removed creating a test job in the frontend because it was not needed and importantly it was self destructing after the test run.
+| |/ /  
+| | *   50739a4 Merge branch 'main-Epic6-10/24/22' into IN-52-Filtered-Jobs-Interaction
+| | |\  
+| | |/  
+| |/|   
+| * |   6fa70d6 Merge pull request #92 from sid-ak/IN-52-Exit-Filter-When-Done
+| |\ \  
+| | * | 85fd16e IN-52: Exit filter after job titles have been displayed.
+| |/ /  
+| | * 641055c IN-52: Modified filter methods to return the filtered list of jobs and moved them into JobsHelpers.
+| | * 560491c IN-52: Implemented a generic display jobs method.
+| |/  
+| *   ece28b0 Merge pull request #90 from sid-ak/IN-55-test_DisplayJobTitle-Fix
+| |\  
+| | * 683ff07 IN-55: Updated test_DisplayJobTitle to work with new changes for unsaving a job.
+| |/  
+| *   4f5e876 Merge pull request #89 from sid-ak/IN-50-IN-57-Feedback-Changes
+| |\  
+| | * 9f79427 None and Empty list checks implemented
+| |/  
+| *   2b62856 Merge pull request #86 from sid-ak/Maintainance
+| |\  
+| | * ccaaef4 Added messaging for incomplete application and re-added none checks.
+| | * d51c444 Revert "IN-51_IN-53: Maintainance - Added None checks where appropriate and cleaned up a little."
+| | *   99166e2 Merge branch 'main-Epic6-10/24/22' into Maintainance
+| | |\  
+| | |/  
+| |/|   
+| * |   0ea8a2a Merge pull request #84 from sid-ak/IN-54-Test-Backend
+| |\ \  
+| | * | 1eda31e IN-54: Removed an unused import and line break.
+| | * |   82a856f Merge branch 'main-Epic6-10/24/22' into IN-54-Test-Backend
+| | |\ \  
+| | |/ /  
+| |/| |   
+| * | |   da6cb96 Merge pull request #83 from sid-ak/IN-50-Delete-Job-Backend
+| |\ \ \  
+| | * | | 8fa85d4 Check on None's - Feedback changes
+| | * | | fb876b9 added some helpful prints
+| | * | | d577ea9 added a new action function to check if any of the saved jobs have been deleted
+| | * | | 3d0e242 fix on the option namings
+| | * | | 6da3ea5 created a new action function UnsaveJob to unsave a job if it is saved by the user
+| | * | |   36885e2 Merge branch 'main-Epic6-10/24/22' into IN-50-Delete-Job-Backend
+| | |\ \ \  
+| | |/ / /  
+| |/| | |   
+| | | * |   297d1bc Merge branch 'main-Epic6-10/24/22' into IN-54-Test-Backend
+| | | |\ \  
+| | |_|/ /  
+| |/| | |   
+| | | * | cf837f3 added required paramateres to AppliedJob()
+| | |/ /  
+| | * | 835f090 added collection arguments and replaced the deletion block
+| | * |   d2665aa Merge branch 'main-Epic6-10/24/22' into IN-50-Delete-Job-Backend
+| | |\ \  
+| | * \ \   0f6d76c Merge branch 'IN-50-Delete-Job-Backend' of https://github.com/sid-ak/InCollegeTexas into IN-50-Delete-Job-Backend
+| | |\ \ \  
+| | | * \ \   8457fa5 Merge branch 'main-Epic6-10/24/22' into IN-50-Delete-Job-Backend
+| | | |\ \ \  
+| | * | | | | 691197a notify function name fix
+| | |/ / / /  
+| | * | | | 1e9bb93 renamed the notify function for more meaningful name
+| | * | | | 5497e53 added the Notify function in Job section
+| | * | | | 027573b created a new action function to notify logged user if the job applied has been deleted, and added 2 more attributes for AppliedJob class to help with identifying the applied jobs that were deleted
+| | | | | *   5a8f60f Merge branch 'main-Epic6-10/24/22' into Maintainance
+| | | | | |\  
+| | |_|_|_|/  
+| |/| | | |   
+| * | | | |   eff6dba Merge pull request #82 from sid-ak/IN-52-Filter-Jobs
+| |\ \ \ \ \  
+| | * \ \ \ \   75e3990 Merge branch 'IN-52-Filter-Jobs' of https://github.com/sid-ak/incollegetexas into IN-52-Filter-Jobs
+| | |\ \ \ \ \  
+| | | * \ \ \ \   cac04f9 Merge branch 'main-Epic6-10/24/22' into IN-52-Filter-Jobs
+| | | |\ \ \ \ \  
+| | |_|/ / / / /  
+| |/| | | | | |   
+| | * | | | | | dbb7a98 IN 50: Removed an unused import
+| | |/ / / / /  
+| | * | | | | a6e4bfd IN 52: cleaned some code in DisplayUnappliedJobs
+| | * | | | |   beb924b Merge branch 'IN-52-Filter-Jobs' of https://github.com/sid-ak/incollegetexas into IN-52-Filter-Jobs
+| | |\ \ \ \ \  
+| | | * \ \ \ \   03d18cc Merge branch 'main-Epic6-10/24/22' into IN-52-Filter-Jobs
+| | | |\ \ \ \ \  
+| | | | | |_|/ /  
+| | | | |/| | |   
+| | | * | | | |   d78dffa Merge branch 'main-Epic6-10/24/22' into IN-52-Filter-Jobs
+| | | |\ \ \ \ \  
+| | | | | |_|/ /  
+| | | | |/| | |   
+| | * | / | | | 90db4e2 In 52: corrected Typos
+| | |/ / / / /  
+| | * | | | | 6f9ae4b IN 52: added all the functionalities to filterJob function. Added GetJobByTitle in job file
+| | | | | | * c4a326e IN-51_IN-53: Maintainance - Added None checks where appropriate and cleaned up a little.
+| | |_|_|_|/  
+| |/| | | |   
+| * | | | |   d28a581 Merge pull request #85 from sid-ak/MigrationHistory
+| |\ \ \ \ \  
+| | |_|_|/ /  
+| |/| | | |   
+| | * | | | dd2a21b Migration_10/29/2022
+| |/ / / /  
+| * | | |   42cd01d Merge pull request #79 from sid-ak/IN-55-2/TestDisplayJobs
+| |\ \ \ \  
+| | * | | | 515b08c IN-55: Added 3 - Delete job option back to the available options to make the frontend tests pass.
+| | * | | |   7e19285 Merge branch 'main-Epic6-10/24/22' into IN-55-2/TestDisplayJobs
+| | |\ \ \ \  
+| | | | |/ /  
+| | | |/| |   
+| | * | | |   68b03f2 Merge branch 'main-Epic6-10/24/22' into IN-55-2/TestDisplayJobs
+| | |\ \ \ \  
+| | * | | | | b367795 fixed front end tests for new changes to main. Also fixed flag code inconsistencies in DisplayJobTitlesHelper and main
+| * | | | | |   f69936d Merge pull request #81 from sid-ak/IN-54-Backend
+| |\ \ \ \ \ \  
+| | |_|_|/ / /  
+| |/| | | | |   
+| | * | | | |   3fa37a8 Merge branch 'main-Epic6-10/24/22' into IN-54-Backend
+| | |\ \ \ \ \  
+| | |/ / / / /  
+| |/| | | | |   
+| * | | | | |   6e7bf0d Merge pull request #77 from sid-ak/IN-53-Save-Jobs
+| |\ \ \ \ \ \  
+| | |_|_|/ / /  
+| |/| | | | |   
+| | | * | | | e2f2c6d fixed the tests + added assert to previous tests
+| | | * | | | 65dd338 IN-50: Fixed typo in DeleteSavedJob.
+| | | * | | | 611f6cf IN-50: Added a helper method to delete a saved job.
+| | | * | | |   90e58e5 Merge branch 'IN-54-Backend' of https://github.com/sid-ak/incollegetexas into IN-54-Backend
+| | | |\ \ \ \  
+| | | | * | | | 732474a corrected test_DeleteJob() and test_SavedJobs()
+| | | | * | | |   1e94862 Merge branch 'IN-54-Backend' of https://github.com/sid-ak/incollegetexas into IN-54-Backend
+| | | | |\ \ \ \  
+| | | | * \ \ \ \   253bec3 Merge branch 'IN-53-Save-Jobs' into IN-54-Backend
+| | | | |\ \ \ \ \  
+| | | |_|/ / / / /  
+| | |/| | | | | |   
+| | * | | | | | | c164d82 fixed the print bug in delete option selection
+| | | |_|_|_|_|/  
+| | |/| | | | |   
+| | | * | | | | f46a8cd IN-50: Null check for applied jobs as well.
+| | | | |/ / /  
+| | | |/| | |   
+| | | * | | | defb21f IN-54: Fixed the check in CreateSavedJob to make sure that the returned list is not None and only then iterate throught the list.
+| | | |/ / /  
+| | | * | | 41c19f7 corrected test_SaveJobs()
+| | | * | | 01d351d added a line to delete the test applied job
+| | | * | | 9966713 made changes according to the new commit in branch IN-53-Save-Job
+| | | * | | c78460e merging
+| | | * | |   a5ecefb Merge branch 'IN-53-Save-Jobs' into IN-54-Backend
+| | | |\ \ \  
+| | | |/ / /  
+| | |/| | |   
+| | * | | | 85044fd added checks on createAppliedJob and CreateSavedJob methods
+| | * | | | f3a2f23 added propagation of exceptions in print statements
+| | * | | | e192be7 added the passing of optional parameters of collection in ApplyForJob and SaveJob methods and all the rest this they call
+| | | |_|/  
+| | |/| |   
+| | * | | c787182 removed unnecessary comma
+| | * | | bec4f25 removed unnecessary comma from User Model
+| | * | | e9b47c0 removed Helper class from AppliedJob and SavedJob classes
+| | * | |   7e9ce86 Merge branch 'main-Epic6-10/24/22' into IN-53-Save-Jobs
+| | |\ \ \  
+| | |/ / /  
+| |/| | |   
+| | | * | 8e5ab03 testing
+| | | * | 71a84c2 called AppliedJob and SavedJob instead of Job
+| | | * |   7384208 Merge branch 'main-Epic6-10/24/22' into IN-54-Backend
+| | | |\ \  
+| | |_|/ /  
+| |/| | |   
+| * | | |   f4f7530 Merge pull request #80 from sid-ak/Maintainance
+| |\ \ \ \  
+| | |_|_|/  
+| |/| | |   
+| | | | * 654680f added comments
+| | | | * f3efd5a added test_SaveJobs()
+| | | | *   dee3257 Merge branch 'IN-53-Save-Jobs' into IN-54-Backend
+| | | | |\  
+| | | | |/  
+| | | |/|   
+| | | * | 02d79e8 print statement fixes
+| | | * | bcd6152 added methods to query all saved/applied jobs for a logged user in AppliedJobHelpers and SavedJobHelpers respectively
+| | | * | d51d410 extracted AppliedJobHelpers and SavedJobHelpers into distinct modules
+| | | * |   795e72c Merge branch 'IN-53-Save-Jobs' of https://github.com/sid-ak/InCollegeTexas into IN-53-Save-Jobs
+| | | |\ \  
+| | | | * | 7eff6e1 IN-53: Cleanup.
+| | | | * |   c09412f Merge branch 'IN-51-Apply-for-a-Job' into IN-53-Save-Jobs
+| | | | |\ \  
+| | | | | * \   1f70168 Merge branch 'main-Epic6-10/24/22' into IN-51-Apply-for-a-Job
+| | | | | |\ \  
+| | |_|_|_|/ /  
+| |/| | | | |   
+| | | | | * | 6a39ac1 removed unnecessary imports
+| | | | | * | ccf3528 bug fix: return statement placement correction
+| | | * | | | f55095f added specification on the date format for the user
+| | | |/ / /  
+| | | * | | f9c652c removed unnecessary imports
+| | | * | | 98599fb added create saved job id for the id of saved job nodes
+| | | * | | 581ea64 created helper methods for saving a job
+| | | * | | ad1f61c created a new class for SavedJob's
+| | | |/ /  
+| | | * | 698b936 final touches on the HelpFindIfApplied method
+| | | * | ff0b5e4 bug fix in HelpFindUserPosted method
+| | | * | 4b02474 added loggedUser parameter to JobTitleMethods to pass the logged user object
+| | | * |   5431134 Merge branch 'main-Epic6-10/24/22' into IN-51-Apply-for-a-Job
+| | | |\ \  
+| | | * | | e599301 added the AppliedJob class to the function
+| | | * | | f0d708b Created a new class to manage AppliedJob entities
+| | | * | | 559473d complete collection of information on apply for job function, complete date check function
+| | | * | | b726926 added function to validate date
+| | | * | | 99474aa initial-setup
+| |_|/ / /  
+|/| | | |   
+| | | | * 759b1a2 rectified parameters being sent
+| | | | *   856da8d Merge branch 'main-Epic6-10/24/22' into IN-54-Backend
+| | | | |\  
+| | |_|_|/  
+| |/| | |   
+| | | | * 4df10c2 added tests for delete and apply jobs
+| | | |/  
+| | | | * ebf7dff (refs/stash) WIP on Maintainance: bc61fce Removed unused import to fix an error in DisplayJobTitlesHelper.
+| | | |/| 
+| | |/| | 
+| | | | * 60dfcce index on Maintainance: bc61fce Removed unused import to fix an error in DisplayJobTitlesHelper.
+| | | |/  
+| | |/|   
+| | * | bc61fce Removed unused import to fix an error in DisplayJobTitlesHelper.
+| |/ /  
+| * |   dbe6360 Merge pull request #78 from sid-ak/IN-55/TestDisplayJobOptions
+| |\ \  
+| | * \   066cfc2 Merge branch 'main-Epic6-10/24/22' into IN-55/TestDisplayJobOptions
+| | |\ \  
+| | |/ /  
+| |/| |   
+| * | |   4d1110e Merge pull request #75 from sid-ak/IN-50-Delete-A-Job
+| |\ \ \  
+| | | * \   7f65292 Merge branch 'IN-50-Delete-A-Job' into IN-55/TestDisplayJobOptions
+| | | |\ \  
+| | | |/ /  
+| | |/| |   
+| | * | | d9b1b4a IN-50: Added optional arg collection to DisplayJobTitle.
+| | * | | bbf78d4 In 50: Minor bug fixes
+| | * | | 5c3f22e IN 50: changed the exceptions
+| | * | | 10ee14a IN 50: changed a variable name form canDeleteJob to loggedUserUsername
+| | * | | bf4137d In 50: changes the exception blocks to catch the exceptions
+| | * | | 6594b2e IN 50: passed the username into functions.
+| | * | | cfbaf05 In 52: raised an exception if the job couldn't be deleted
+| | * | | 5d6c583 IN 50: Instead passing the loggedUser in each function , I passed a flag
+| | * | | db50605 IN 50: When a job is selected, the User also gets an option to delete the Job
+| | | |/  
+| | |/|   
+| | | * e9733df IN-55: PR changes: https://github.com/sid-ak/InCollegeTexas/pull/74
+| | |/  
+| |/|   
+| * | 0c93280 Revert "Merge pull request #74 from sid-ak/IN-52/TestDisplayJobOptions"
+| * |   9e6e281 Merge pull request #74 from sid-ak/IN-52/TestDisplayJobOptions
+| |\ \  
+| | |/  
+| |/|   
+| | *   4913e57 Merge branch 'main-Epic6-10/24/22' into IN-52/TestDisplayJobOptions
+| | |\  
+| | |/  
+| |/|   
+| * |   b34ad3f Merge pull request #72 from sid-ak/IN-52-Display-Jobs
+| |\ \  
+| * | | 54ad368 Migration_10/27/2022
+| * | |   df752f9 Merge pull request #73 from sid-ak/Maintenance/UpdateViewProfile
+| |\ \ \  
+| | * | | 7a527b6 Added date ended that was missing in view profile.
+| | * | | 25657bc Cleaned up ViewProfile.
+| | * | | 65dfd62 Fixed failing backend test test_CreateJob.
+| | * | | 9fecb18 Removed the FlattenEducationList method from ProfileHelpers that was no longer needed and fixed a buf where an education would get added to the list on editing a single education in the EditEducation method.
+| | * | | 279820a Returned empty lists as default values for for education and experience.
+| | * | | 5ef328a Added a method to get user by ID in UserHelpers and added error messaging for the UpdateUser method.
+| | * | | 46549c7 Caught exception and included error message for the EditProfile method. Cleaned up as well.
+| | * | | 76bf8ec updated view profile to handle empty lists of education and experience.
+| * | | |   2ea4811 Merge pull request #71 from sid-ak/IN-48-Increase-Job-Limits
+| |\ \ \ \  
+| | |/ / /  
+| |/| | |   
+| | * | |   39589ec Merge branch 'main-Epic6-10/24/22' into IN-48-Increase-Job-Limits
+| | |\ \ \  
+| | |/ / /  
+| |/| | |   
+| | * | | a8b396b IN-48: Increased number of Jobs from 5 to 10
+| |/ / /  
+|/| | |   
+| | | * 62f2fbb IN-52/TestDisplayJobOptions - !merge Aoun's first!
+| | |/  
+| | *   c5d91df Merge branch 'IN-52-Display-Jobs' of https://github.com/sid-ak/incollegetexas into IN-52-Display-Jobs
+| | |\  
+| | | *   5abaccd Merge branch 'IN-52-Display-Jobs' of https://github.com/sid-ak/incollegetexas into IN-52-Display-Jobs
+| | | |\  
+| | | * \   b49b8eb Merge branch 'main-Epic6-10/24/22' into IN-52-Display-Jobs
+| | | |\ \  
+| | |_|/ /  
+| |/| | |   
+| * | | | 7c6f9ad Merge pull request #70 from sid-ak/IN-56/FrontEndTestsFix
+|/| | | | 
+| * | | | 6460fc3 IN-56: Front End Tests Fix - fixed indentation and spacing
+| * | | | 65b9e73 IN-56: Front End Tests Fix - fixed all front end test errors
+| * | | | 1f1c838 IN-56: Front End Tests Fix - fixed test_SearchUserUniversity and test_SearchUsersMajor by creating temp user profiles
+| * | | | cb36034 IN-56: Front End Tests Fix - fixed test_SearchUserUniversity
+| * | | | b3d7abe IN-56: Front End Tests Fix - test_GeneralSetting
+| * | | | 80061e9 IN-56: Front End Tests Fix
+|/ / / /  
+| * | / d68a63a In 52: Deleted DisplayJobTitles and moved it to DisplayJobTitlesHelper. Added comment to all the functions. Changed the name of 2 function. removed the option to delete the job
+| | |/  
+| |/|   
+| * | ce07d71 IN 52: added a third option of deleting a job when a job title is selected(Amir will work on this function)
+| * | bec409c IN 52: changed function names
+| |/  
+| * 23727cb Create DisplayJobTitlesHelper.py
+| * 4a4ffeb IN-52: Added option 2 in JobIntershipSearch.py file to show  all the job titles stored in the database. DisplayJobTitles.py contanis the option to filter the job and then display all the jobs. JobTitleHelper.py currently helps us in showing all the jobs, when one of the jobs is selected it shows the description of the job to save or to apply
+|/  
+*   24da884 Merge pull request #69 from sid-ak/Update-History
+|\  
+| * b9f257e History_10/23/2022
+* |   158cb94 Merge pull request #68 from sid-ak/MigrationHistory
+|\ \  
+| |/  
+|/|   
+| * bf7fbe0 Migration_10/23/2022
+* |   ef01cb4 Merge pull request #67 from sid-ak/IN-47-Frontend-Testing-Updated
+|\ \  
+| * | b2b6bd6 added title case check
+|/ /  
+* |   e31c9da Merge pull request #64 from sid-ak/IN-44-View-A-Profile
+|\ \  
+| * | 6d66e2c IN-44: Minor fixes to frontend. Tests still failing.
+| * | efb7e42 fix on the print argument issues
+| * | 07094d8 fix on the prints
+| * | 091b872 fix on the argument users: some maybe None value
+| * | 25e03ce refreshed the passed as argument user in the View Profile method
+| * |   0fd781b Merge branch 'main' into IN-44-View-A-Profile
+| |\ \  
+| * | | b966180 - updated ViewProfile to work in showNetwork as well as show my profile. -NOTE: buggy with a new user who doesn't have and Edu or Exp list. handled with try and except
+| * | | 3b7c86a initial set up
+* | | |   07be70f Merge pull request #65 from sid-ak/IN-43-Exp-Limit-Fix-Frontend
+|\ \ \ \  
+| |_|/ /  
+|/| | |   
+| * | | b7b527d IN-43: Updated the exp limit check on the frontend.
+|/ / /  
+* | |   94a6c89 Merge pull request #57 from sid-ak/IN-43-Update-Profile-Experience
+|\ \ \  
+| * | | b22b0cd IN-43: Reverted limit exp check.
+| * | | f18c905 fix on the experience limit check
+| * | | dbf2cdb fix on the experiences limit check
+| * | | 5e060cc IN-43: Update profile exp comments.
+| * | | 86457f8 IN-43: Moved code into ProfileHelpers from UpdateProfile, maintained an exception trace, fixed and simplified logic related adding/editing Educations/Experiences.
+| * | | 0f47662 IN-43: Minor variable rename in Profile.py.
+| * | |   0066441 Merge branch 'main' into IN-43-Update-Profile-Experience
+| |\ \ \  
+| |/ / /  
+|/| | |   
+* | | |   6a8f12d Merge pull request #62 from sid-ak/IN-46-Test-Profile
+|\ \ \ \  
+| * \ \ \   1fed530 Merge branch 'main' into IN-46-Test-Profile
+| |\ \ \ \  
+| |/ / / /  
+|/| | | |   
+* | | | |   86d3e27 Merge pull request #63 from sid-ak/Maintenance/CreateUserFix
+|\ \ \ \ \  
+| * | | | | a99863f fixed user creation by assigning the correct User class values in Signup.py
+|/ / / / /  
+| * | | | e26edf6 IN-46: More cleanup.
+| * | | | ebfdf87 IN-46: Cleanup.
+| * | | | bb1f432 IN-46: Removed an unused import.
+| * | | | e23d24b IN-46: Added a test to verify a user can edit a profile as expected.
+| * | | | ec2df6e IN-46: Somehow this branch got merged and this is to fix that.
+|/ / / /  
+| * | | c82db1d fixed some modularity issues - feedback changes
+| * | | cde9311 added helper functions to edit education and experience objects individually
+| * | | 15d0982 created the helper function to edit individual attributes of education
+| * | | 83df283 some feedback fix changes
+| * | | c69d56a removed unnecessary imports
+| * | | 4e0c692 removed the unnecessary import
+| * | | 8e5b075 fixed the import bug
+| |/ /  
+| * |   ebc415a Merge branch 'main' into IN-43-Update-Profile-Experience
+| |\ \  
+| |/ /  
+|/| |   
+* | |   9404553 Merge pull request #61 from sid-ak/IN-43-Exp-Limit-Changes
+|\ \ \  
+| * | | cd84c90 IN-43: Removed errnoeous changes from a test branch - Part 3: Trilogy Finale.
+| * | | 2aa17f1 IN-43: Removed errnoeous changes from a test branch - Part 2.
+| * | | 87aac75 IN-43: Removed errnoeous changes from a test branch.
+| * | | 4f039ac IN-43: Minor fix in UpdateUser based on latest change.
+| * | | 7f78f6d IN-43: Checked max limit on the profile object instead of user based on @aslamovamir's suggestion.
+| * | | 427ae29 IN-46: Fixed some minor bugs in the profile exp limit check.
+| * | |   143a9b8 Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+| |\ \ \  
+| * \ \ \   d59c2ea Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+| |\ \ \ \  
+| * | | | | c9e46d4 IN-46: Added a test to verify max profile exp limit.
+| * | | | |   f526126 Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+| |\ \ \ \ \  
+| * \ \ \ \ \   288316a Merge branch 'IN-43-Experiences-Limit' into IN-46-Test-Profile
+| |\ \ \ \ \ \  
+| * \ \ \ \ \ \   4919928 Merge branch 'main' into IN-46-Test-Profile
+| |\ \ \ \ \ \ \  
+| * | | | | | | | 8602b61 IN-46: Added a test that ensures the user can create a profile as expected.
+| | | | | | | * | 1e3228c called the isExperienceLimitMet method from ProfileHelpers
+| | | | | | | * |   69413c6 Merge branch 'main' into IN-43-Update-Profile-Experience
+| | | | | | | |\ \  
+| |_|_|_|_|_|_|/ /  
+|/| | | | | | | |   
+* | | | | | | | |   df9890d Merge pull request #60 from sid-ak/IN-43-Experiences-Limit
+|\ \ \ \ \ \ \ \ \  
+| |_|/ / / / / / /  
+|/| | | | | / / /   
+| | |_|_|_|/ / /    
+| |/| | | | | |     
+| * | | | | | | 34c97f2 IN-43: Changed the check if greated that profile experiences limit is being updated instead of equal.
+| | |_|_|/ / /  
+| |/| | | | |   
+| * | | | | | 289f66f IN-43: Fixed the limit checks to look for empty lists and NoneTypes correctly.
+| | |_|/ / /  
+| |/| | | |   
+| * | | | | 3321cde IN-43: Made the exp limit check in the UpdateUser method.
+| | |/ / /  
+| |/| | |   
+| * | | | ce1542f IN-43: Added a check for max profile experiences limit.
+|/ / / /  
+| | * | 854b9a7 added an explicit indication to the user that they can add more than one education and experience
+| | * | 28170fb created 2 functions to help with the printing of education and experience lists
+| | * | 47155bf fix on the ConfirmChanges method call
+| | * | a91a356 more on feedback changes
+| | * | adfc741 more feedback changes
+| | * | 2614537 feddback changes
+| | * |   4d16e48 Merge branch 'main' into IN-43-Update-Profile-Experience
+| | |\ \  
+| |_|/ /  
+|/| | |   
+* | | | fe00105 Merge pull request #58 from sid-ak/IN-42-Profile-Improvements
+|\| | | 
+| * | | 5871cd9 IN-42: Finishing touches to serialize better.
+| * | | fbb87b0 IN-42: Fixed and improved the serialization/derserialization of the Profile entity.
+|/ / /  
+| * | 0a838ab modified the CreateProfile function to update function
+| * | 677d040 completed the creation of a profile
+| * | 2f40bef added the helper method to check if the user already created a profile
+| * | 7f2308b created a create-profile function with the necessary helpers
+|/ /  
+* |   3f12f17 Merge pull request #56 from sid-ak/IN-42-Circ-Dependency-Fix
+|\ \  
+| * | a9d0b8f IN-42: Added the new ProfileHelpers.py file.
+| * | 38f2ebc IN-42: Moved ProfileHelpers to its own file.
+|/ /  
+* |   9edc8a3 Merge pull request #55 from sid-ak/IN-42-User-Profile-Update
+|\ \  
+| * \   bcb70dc Merge branch 'main' into IN-42-User-Profile-Update
+| |\ \  
+| * \ \   a56a5cb Merge branch 'IN-42/ProfileModel' into IN-42-User-Profile-Update
+| |\ \ \  
+| * | | | 67fe2aa IN-42: Implemented a way to safely hydrate a user without breaking if the data model in the DB changes.
+| * | | | 657a0f1 IN-42: Updated code with the new modularized helpers.
+| * | | | 5bcaaea IN-42: Modularized user helpers.
+* | | | |   2e18f51 Merge pull request #53 from sid-ak/IN-42/ProfileModel
+|\ \ \ \ \  
+| | |/ / /  
+| |/| / /   
+| |_|/ /    
+|/| | |     
+| * | | 9dda7eb added GetProfile function that takes User class input and returns it's corresponding DB Profile value. Also added ProfileHelper UpdateProfile that takes username and Profile object to update profile in DB. Added other functions to return class objects of themselves from dictionary that is returned from Firebase response
+| |/ /  
+| * | 9149659 IN-42: Removed the import of User into Profile.
+| * | 1470414 removed UserHelpers
+| * | 2eb163d out of commit captions but its a small change
+| * | 8c6e55e added list name to education and experience
+| * | 024e189 additional details added
+| * | bb5aa4b cleanup
+| * | 78fb25b final Profile class push
+| * | 224b179 added Profile class and useful methods
+* | |   ea2b169 Merge pull request #54 from sid-ak/MigrationHistory
+|\ \ \  
+| |/ /  
+|/| /   
+| |/    
+| * 46a9b23 Migration_10/20/2022
+|/  
+*   bae10bc Merge pull request #52 from sid-ak/Update-History
+|\  
+| * b3dbcc2 Updated history.txt 10/16/2022
+|/  
+*   ec5eb6f Merge pull request #51 from sid-ak/Revert-Print-Changes
+|\  
+| * 242ce75 Reverted another print change to satisfy a frontend test.
+| * 2bba187 Fixed the issue with DisplayImpLinks when a user logs in and logs out and trys to access it.
+| * 89f8c34 Revert "Merge pull request #49 from sid-ak/Display-Format-Fixes"
+|/  
+*   e9885cd Merge pull request #50 from sid-ak/updated-log-history-file
+|\  
+| * e7d86a1 updated the log history file
+|/  
+*   30d2260 Merge pull request #49 from sid-ak/Display-Format-Fixes
+|\  
+| *   1ab17cc Merge branch 'main' into Display-Format-Fixes
+| |\  
+| |/  
+|/|   
+* |   03ffbc1 Merge pull request #48 from sid-ak/IN-34-Test-Friends
+|\ \  
+| * | b89df5e IN-34: Modifed tests to verify mutuality between friends.
+* | | fd7e8f0 added history log
+|/ /  
+* |   1ee4ee6 Merge pull request #43 from sid-ak/IN-34-Test-Friends
+|\ \  
+| * \   2066734 Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
+| |\ \  
+| * | | 5a09e94 IN-34: Added a test to verify that deleting a friend works as expected.
+| * | | 3682fd0 IN-34: Added a test to verify that rejecting a friend request works as expected.
+| * | |   951785c Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
+| |\ \ \  
+| * \ \ \   94ddc3c Merge branch 'IN-30/FriendsLogic' into IN-34-Test-Friends
+| |\ \ \ \  
+| * | | | | 8075aaf IN-34: Fixed a failing register new user test.
+| * | | | |   2be3bb6 Merge branch 'main' into IN-34-Test-Friends
+| |\ \ \ \ \  
+| * | | | | | 4e7f1a8 IN-34: Added a test to verify that the user can accept a friend request as expected.
+| * | | | | | e3aaf43 IN-34: Added a test to verify that sending a friend requests works as expected and ensured that it is considered pending.
+| * | | | | | b59a78c IN-34: Added a test to verify that the user is initialized with an empty dictionary of friends.
+| * | | | | | d446378 IN-34: DRY'd the limit constants.
+| * | | | | |   6b34343 Merge branch 'main' into IN-34-Test-Friends
+| |\ \ \ \ \ \  
+| * | | | | | | 40c12ce IN-34: Separated the test node in the DB that verifies user limit.
+| * | | | | | | 10d7529 IN-34: Deleted all test users after the user limit test run.
+| * | | | | | | 46f767f IN-34: Simplified the user and job limit implementations so they actually work.
+| * | | | | | | e665472 IN-34: Added a test to verify user limit and improved the implementation of the limit check.
+| * | | | | | | ff05acf IN-34: Fixed a failing log in test.
+| | | | | | | * 6916a47 fixed type
+| | | | | | | * b1ca4bd Changed format of all displays and fixed the Logged in User bug
+| | | | | | | * 7ae50a6 printing changes
+| |_|_|_|_|_|/  
+|/| | | | | |   
+* | | | | | |   ad364a0 Merge pull request #47 from sid-ak/IN-35-TEST-Console-Modifications
+|\ \ \ \ \ \ \  
+| * | | | | | | 7d0660a IN-35-TEST-Console-Modifications - change the name of the file shoeMyNetwork due to a typo
+| * | | | | | | 0b63088 IN-35-TEST-Console-Modifications - added all the function in test frontend to tes all the new functionality and their outputs
+* | | | | | | |   344364a Merge pull request #45 from sid-ak/IN-30/FriendsLogic
+|\ \ \ \ \ \ \ \  
+| |/ / / / / / /  
+|/| | | | | | /   
+| | |_|_|_|_|/    
+| |/| | | | |     
+| * | | | | | 9d43d8d fixed print statement
+| | |_|_|_|/  
+| |/| | | |   
+| * | | | |   9253fc3 Merge branch 'IN-30/FriendsLogic' of https://github.com/sid-ak/incollegetexas into IN-30/FriendsLogic
+| |\ \ \ \ \  
+| | * | | | | 33871cc fixed print statement
+| | | |_|_|/  
+| | |/| | |   
+| * | | | |   4cd4c10 Merge branch 'main' into IN-30/FriendsLogic
+| |\ \ \ \ \  
+| |/ / / / /  
+|/| / / / /   
+| |/ / / /    
+* | | | |   9cc5fe0 Merge pull request #44 from sid-ak/MigrationHistory
+|\ \ \ \ \  
+| |_|_|_|/  
+|/| | | |   
+| * | | | b3eabfd Migration_10/15/22_Updated
+|/ / / /  
+* | | |   fa6e832 Merge pull request #40 from sid-ak/IN-32-frontend
+|\ \ \ \  
+| |_|_|/  
+|/| | |   
+| * | | 1c3b596 asked for user's uni & major (Signup.py)
+| * | | a0a8cb7 made the asked changes + debugged some frontened functionalities
+| * | | 55e44e2 added a check for SearchUsers
+| * | |   659c904 Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
+| |\ \ \  
+| * \ \ \   28e68f2 Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
+| |\ \ \ \  
+| * \ \ \ \   90346b9 Merge branch 'IN-30/UpdateUserClass' into IN-32-frontend
+| |\ \ \ \ \  
+| | * | | | | 31c0ce6 updated User class with Major and University
+| * | | | | | 7023229 Merge branch 'IN-30/FriendsLogic' into IN-32-frontend
+| |\| | | | | 
+| * | | | | | 98946e1 reverted a change in SendFriendRequest
+| * | | | | | 6b1e4c9 removed placeholder comments
+| * | | | | | 4f7e0bd added frontend functionality + debugged backend
+| * | | | | |   89d6198 Merge branch 'main' into IN-32-frontend
+| |\ \ \ \ \ \  
+| | | |_|_|_|/  
+| | |/| | | |   
+| * | | | | | a3f7891 rectified mistakes
+| * | | | | |   4a2a331 Merge branch 'main' into IN-32-frontend
+| |\ \ \ \ \ \  
+| * | | | | | | 08aff2f made changes to the options
+| * | | | | | |   e7d7649 Merge branch 'main' into IN-32-frontend
+| |\ \ \ \ \ \ \  
+| * | | | | | | | c1be293 added all the frontend requirements
+* | | | | | | | |   b0494a5 Merge pull request #42 from sid-ak/MigrationHistory
+|\ \ \ \ \ \ \ \ \  
+| |_|_|_|/ / / / /  
+|/| | | | | | | |   
+| * | | | | | | | 27fea65 Migration_10/15/22
+|/ / / / / / / /  
+* | | | | | | |   da1aa2b Merge pull request #38 from sid-ak/IN-30/FriendsLogic
+|\ \ \ \ \ \ \ \  
+| |_|_|/ / / / /  
+|/| | | | | | |   
+* | | | | | | |   b10854e Merge pull request #37 from sid-ak/IN-30/FriendsLogic
+|\ \ \ \ \ \ \ \  
+| |_|_|/ / / / /  
+|/| | | | | | |   
+* | | | | | | |   34479e1 Merge pull request #36 from sid-ak/IN-30/FriendsLogic
+|\ \ \ \ \ \ \ \  
+| |_|_|/ / / / /  
+|/| | | | | | |   
+* | | | | | | |   24f8149 Merge pull request #35 from sid-ak/EPIC4/User_Limit_Increase
+|\ \ \ \ \ \ \ \  
+| * | | | | | | | 573655c changed user limit from 5 to 10
+|/ / / / / / / /  
+| | | | | | | * 726019a updated with major and university model
+| | | | | | | * d0354e3 added checks to see if friends exist in DB. Fixes errors occurred in tests
+| | | | | | |/  
+| | | | | | * e995eed added try and excepts
+| | | | | |/  
+| | | | | * c6f68b2 added try and excepts
+| | | | |/  
+| | | | * 0db13f3 fixed pendingReq function... hopefully
+| | | | * c8d15ad updated get friends function to check if friends
+| | | |/  
+| | | * 0b5aeed get pending requests of a user
+| | |/  
+| | * dc8b123 added return statement in try
+| | * d26f390 removed trailing (unreachable) return statement from DeleteFriend
+| | * 17ea973 changed variable name to avoid errors
+| | * 8bc483e forgot to add 2 way functionality to deleteFriend. Added now
+| | * f0dd35c added additional logic for accepting, rejecting and removing a user from friend list
+| |/  
+| * 14bb1ce added return types
+| * 97e9083 check to see if receiver is present in database for SendFriendRequest
+| * 3e791d7 added functionality for a user to send friend request to another user
+| * fa24f6a updated userToFind to str
+| * 74401b9 1- added Friends attribute to the user class 2- added GetFriends function that returns a list of a users friends the users Username
+|/  
+* 4730408 formatting changes - brought latest created tests to the top
+*   5d05b13 Merge pull request #33 from sid-ak/IN-27-TEST-Useful-Links
+|\  
+| * 040bd53 IN-27-Removed Comments
+| * 0f246b4 IN-27-made changes to the test file according to the standards
+| * 9a0f352 IN-27- Removed loggedUser from DisplayUSefulLinksHelper.py as suggested by Sidharth
+| * 627fb49 IN-27- Added the test cases for the DisplayUsefulLink Functions and made some changes to DisplayUsefulLink.py and DisplayUsefulLinkHelpers.py for easier testing
+* |   3ea8c87 Merge pull request #32 from sid-ak/DisplayImpLinksFix
+|\ \  
+| * | c4deb40 Fixed an incorrect parameter being passed to the DisplayImpLinks method due to recent changes.
+* | |   aefe8c2 Merge pull request #34 from sid-ak/IN-20-useful-links
+|\ \ \  
+| * | | 5cd4c6a Deleted the logout option (from Signin.py)
+| |/ /  
+* / / 2f00ad5 fixed log in test
+|/ /  
+* |   c424c05 Merge pull request #31 from sid-ak/IN-28-TEST-ImportantInCollegeLinks
+|\ \  
+| |/  
+|/|   
+| * befb938 Added Epic description for the tests
+| * 9211e65 Removed the duplicate file
+| * 83f1927 completed the ticket IN-28 with all the tests
+| * 9d10ebb initial set up
+* |   e11065b Merge pull request #30 from sid-ak/IN-20-useful-links
+|\ \  
+| |/  
+|/|   
+| * af2a4a9 changed function names for better understanding
+|/  
+*   c2847f5 Merge pull request #29 from sid-ak/IN-20-useful-links
+|\  
+| * a2f7d04 addressed the requested changes
+| *   d4a98a3 Merge branch 'main' into IN-20-useful-links
+| |\  
+| |/  
+|/|   
+* |   2c98f2a Merge pull request #28 from sid-ak/IN-24-Important-Links-Extension
+|\ \  
+| * | a76c855 IN-24: Addressed review, fixed copy error.
+| | * eed302a changed name of the help function
+| | * 20643a6 IN-20-modified catch message
+| | *   398e8d3 Merge branch 'IN-24-Important-Links-Extension' into IN-20-useful-links + made necessary changes
+| | |\  
+| | |/  
+| |/|   
+| * | 883201f IN-24: Fixed a minor frontend test.
+| * | 14bd707 IN-24: Implemented the language preference functionality using the LanguageEnum as required.
+| * | a2ae0a3 IN-24: Introduced a LanguageEnum.
+| * | 7c341e2 IN-24: Implemented functionality required to toggle email, sms and advertising preferences for a user.
+| * | 755e60b IN-24: DRY'd by adding a helper method to display options and cleaned up.
+|/ /  
+| * 6d3abea IN-20: added useful & general links functionality
+|/  
+*   5f4180c Merge pull request #27 from sid-ak/IN-21-Important-Links
+|\  
+| * cd1921f IN-21: Introduced the imp links and their content.
+| * e818714 DRY'd the menu option selection and printing the under construction message.
+* |   7e799bc Merge pull request #26 from sid-ak/DeleteTestFrontend
+|\ \  
+| |/  
+|/|   
+| * c3e2b0e Deleted test_JobInternshipSearch
+|/  
+*   ecc07b4 Merge pull request #25 from sid-ak/MigrationHistory
+|\  
+| * 30c9cde Migration_10/05/22
+* |   292cfa3 Merge pull request #24 from sid-ak/MigrationHistory
+|\ \  
+| * | 6bf32c0 Added snapshot for 10/05/22
+| |/  
+* |   c9315da Merge pull request #23 from sid-ak/FixTestFrontend
+|\ \  
+| * | fab6345 Commented out test_JobInternshipSearch
+|/ /  
+* |   015f748 Merge pull request #22 from sid-ak/IN17/JobModelTests
+|\ \  
+| * | eb9c22f 1- added deleteJob feature in JobHelpers 2- added test to check for CreateJobs, JobLimit, GetAllJobs
+* | |   47730df Merge pull request #21 from sid-ak/IN-12-Go-Back
+|\ \ \  
+| |/ /  
+|/| |   
+| * | 3677095 IN-12-Added a feature to go back to the previous options.
+| |/  
+* |   a7e012d Merge pull request #18 from sid-ak/IN-17-Job-Model
+|\ \  
+| |/  
+|/|   
+| *   acf8f80 Merge branch 'main' into IN-17-Job-Model
+| |\  
+| |/  
+|/|   
+* |   4e01be2 Merge pull request #20 from sid-ak/IN-11/TestingUsers
+|\ \  
+| * | aff5625 set userlimit as a constant
+| * | 7cbc962 1- set userID type to str from int 2- modified login test according to new logic 3- Passed collection name to signin functions to enable functionality for both Users and TestUsers DBs
+| * | c755c29 1- added test for RegisterNewUser using existing functions 2- modified User class to support adding users for both Users and TestUsers DBs 3- added a DeleteUserAccount in UserHelpers
+| * | 4d25833 added tests to for checkDBSize and GetAllUsers
+| | * e068b13 IN-17: Removed the reference to an object which was outside its scope.
+| | *   d0055ef Merge branch 'main' into IN-17-Job-Model
+| | |\  
+| |_|/  
+|/| |   
+* | |   47b99eb Merge pull request #19 from sid-ak/MigrationHistory
+|\ \ \  
+| |/ /  
+|/| |   
+| * | ffc45a7 Migration_09/24/22
+|/ /  
+| * d071546 IN-17: Included the optionNo input inside the try block.
+| * fa8cea9 IN-17: Typo.
+| * 7a2923d IN-17: Finished the FindJobInternshipAction to post a job.
+| * 60a3f41 IN-17: Updated the change tracker.
+| * f8c2ced IN-17: Updated gitignore to ignore additional cache files and deleted existing cache.
+| * d2b719c IN-17: Updated gitignore
+| * 15c4ca9 IN-17: Comment change.
+| *   1e3b5ec Merge branch 'main' into IN-17-Job-Model
+| |\  
+| |/  
+|/|   
+* |   a89a2c3 Merge pull request #17 from sid-ak/IN-12-search-user
+|\ \  
+| * | d0955ba Re-added previous commits.
+|/ /  
+* |   2f1d86b Merge pull request #16 from sid-ak/IN-11-BadMergeFix
+|\ \  
+| * | 2c1d9f0 IN-11: Re-added other changes using the GetAllUsers method.
+| * | 6548ef4 IN-11: Re-added the User model.
+|/ /  
+* |   12007e8 Merge pull request #13 from sid-ak/IN-11-User-Model
+|\ \  
+| * \   378c454 Merge branch 'main' into IN-11-User-Model
+| |\ \  
+| |/ /  
+|/| |   
+* | |   05181ec Merge pull request #15 from sid-ak/IN9-Video
+|\ \ \  
+| * | | 6368920 added test for PlayVideo and added new week update comments in test files
+| | * | bac5a61 Revert "Merge branch 'IN-12-search-user' into IN-11-User-Model"
+| | * |   cc7853f Merge branch 'IN-12-search-user' into IN-11-User-Model
+| | |\ \  
+| | | | * 7c35862 IN-17: Introduced a Job model.
+| | | | *   1b958ad Merge branch 'main' into IN-17-Job-Model
+| | | | |\  
+| |_|_|_|/  
+|/| | | |   
+* | | | | a4bbe3a Revert "Merge pull request #14 from sid-ak/IN-12-search-user"
+| | | | * 3346874 Merge branch 'main' into IN-17-Job-Model
+| | | |/| 
+| | |/|/  
+| |_|/|   
+|/| | |   
+* | | |   05413da Merge pull request #14 from sid-ak/IN-12-search-user
+|\ \ \ \  
+| |/ / /  
+|/| | /   
+| | |/    
+| |/|     
+| * | 20b92f9 IN-12: Iplmented authentication beyond search user and tidied up.
+| * | 5c31bb4 IN-12: Added a search user method and cleaned up the main file.
+| * |   cb7eaf7 Merge branch 'IN-11-User-Model' into IN-12-search-user
+| |\ \  
+| * \ \   ce84ea6 Merge remote-tracking branch 'origin/IN-11-User-Model' into IN-12-search-user
+| |\ \ \  
+| * | | | ebd4c09 IN-12: Changed firstname and lastname to firstName and lastName
+| * | | | e7bea36 IN-12: Updated the comment
+| * | | | 47b419e IN-12: added a function to search the user using their first and last name
+| | | | * 9e43766 Merge branch 'main' into IN-11-User-Model
+| | | |/| 
+| |_|_|/  
+|/| | |   
+* | | |   540d9d5 Merge pull request #12 from sid-ak/IN-10-success-story
+|\ \ \ \  
+| |/ / /  
+|/| | |   
+| | | * 73adea1 IN-11: Used the User model in the main file.
+| | | * 5dbec7b Merge branch 'IN-10-success-story' into IN-11-User-Model
+| | |/| 
+| | |/  
+| |/|   
+| * | 56c939e IN-10: made changed the file name LoggedInActions to Actions and added the PlayVideo.py file  to it. Also made changes to the success story
+| * | b6f46fe IN-10: Added Video Option, in the main file and created a function to play the video
+|/ /  
+| * efccef8 IN-11: Took first name and last name as input from the user.
+| * 24faab4 IN-11: Separated user helpers into its own class.
+| * 08f3a50 IN-11: Comments and cleanup.
+| * 5e26f1a IN-11: Added a hashing implementation using the unique username and password of a user so we don't have to store passwords in plain text while also being able to authenticate users.
+| * 6fc377c IN-11: Used the GetAllUsers method where possible.
+| * 2228eb0 IN-11: Typo
+| * 56cd819 IN-11: Removed unused import.
+| * f18b07c IN-11: Removed unused file.
+| * 5287f67 IN-11: More cleanup.
+| * 1b25ff9 IN-11: Cleanup.
+| * 3a3dea3 IN-11: Simplified the code a little.
+| * 3a557ea Removed whitespace.
+| * 2cd00f7 Introduced a User entity and implemented a GetAllUsers method with it.
+|/  
+*   e936c59 Merge pull request #11 from sid-ak/Cleanup
+|\  
+| * e73ec9f Cleanup.
+* | 1f5f965 Merge pull request #10 from sid-ak/Cleanup
+|\| 
+| * 3de5add Updated README to include testing instructions.
+|/  
+*   c509708 Merge pull request #9 from sid-ak/Readme-GettingStarted
+|\  
+| * 255cd47 Added getting started steps
+|/  
+*   652884c Merge pull request #8 from sid-ak/IN-3-tester1
+|\  
+| * c8f5d8c Added comment for frontend tests
+| *   3c2bb6c Merge branch 'main' into IN-3-tester1
+| |\  
+| |/  
+|/|   
+* |   319cc05 Merge pull request #7 from sid-ak/IN-8-test-frontend
+|\ \  
+| * \   962dbfa Merge branch 'main' into IN-8-test-frontend
+| |\ \  
+| |/ /  
+|/| |   
+* | | c6a6307 bug fix: fixed the loop in the learnNewSkill function to allow break out of loop when -1 selected
+| * |   56f8462 Merge branch 'main' into IN-8-test-menu
+| |\ \  
+| |/ /  
+|/| |   
+* | | d8d643c put the connection to db operation block in CheckDBSize in a try block to make it safe
+* | | 01f7b63 fixed the call to CheckDBSize call, was missing parentheses
+| * | 78825e4 Cleanup
+| * | b5dacf3 Minor rename
+| * | 911b1da Renamed test file and reorganized.
+| * | f89ea9f seperating the tests
+| * | 764fd3e created test cases for LearnNewSkills(), JobInternshipSearch(), and FindSomeone(). Also, fixed typo & refactored the skills menu
+| * |   7d53d13 Merge branch 'main' into IN-8-test-menu
+| |\ \  
+| |/ /  
+|/| |   
+* | |   96ecf31 Merge branch 'main' of https://github.com/sid-ak/incollegetexas
+|\ \ \  
+| * \ \   8145ba2 Merge pull request #5 from sid-ak/IN-5-AdditionaOptions
+| |\ \ \  
+| | * | | 74fefa2 finalizing last commit
+| | * | | 5734e9c fixed LearnNewSkills function to keep asking skills
+| * | | |   c0a15ab Merge pull request #4 from sid-ak/IN-3-tester1
+| |\ \ \ \  
+* | | | | | 51bdd17 Create .gitignore
+| | | | * | 281d9b4 testing new code
+| | | | * | 174b803 tests for LearnNEwSkill(), JobInternshipSearch(), and FindSomeone()
+| | | | * |   51f293d Merge branch 'IN-5-AdditionaOptions' into IN-8-test-menu
+| | | | |\ \  
+| | | | |/ /  
+| | | |/| |   
+| | | * | | e487362 PR change request handled
+| | | * | | 14cb82d added addition options for a user that successfully logged in
+| | |/ / /  
+| |/| | |   
+| | | * | 2d340e9 Tests for ShowMessage(), DisplayMenu(), and LearnNewSkill()
+| | | | * 013da71 changed tester 1 file name
+| | | | * 92beac2 added comments for test file last updated
+| | | | * d1ea1dd testfor user log in added
+| | | |/  
+| | |/|   
+| | * | 5ffab0f added test to check success for registering new user
+| | * | 33c617b corrected Amir's file
+| | * | 606333e moved tester 2 file to source main folder
+| | * | 195b0c5 reconfiguring files
+| | * | 01e4f2f made test for checking accouns limit
+| | * |   93cab43 Merge branch 'main' of https://github.com/sid-ak/incollegetexas into IN-3-tester1
+| | |\ \  
+| | |/ /  
+| |/| |   
+| * | | 84d71d6 Update Signup.py
+|/ / /  
+* | | aca94b0 Fixed commits' accidents
+* | |   30310e6 Merge pull request #2 from sid-ak/database-setup
+|\ \ \  
+| * | | 29313c4 resolved change requests from Sid
+| | * |   8d11c6b Merge branch 'database-setup' of https://github.com/sid-ak/incollegetexas into IN-3-tester1
+| | |\ \  
+| | |/ /  
+| |/| |   
+| * | | 2de6e31 Bug fix and Testing Modular Files Added
+| * | | bdafc90 Bug fix in signup
+| * | | 4641ed1 Revert "Revert "set up of login and sign up functions""
+| * | | 909cc7c Revert "set up of login and sign up functions"
+| * | | 8f91562 set up of login and sign up functions
+| * | | 683d40d basic setup of hook to the firebase database
+| | * | 81ee1b6 some unversioned files
+| |/ /  
+|/| |   
+* | |   6303ef4 Merge pull request #3 from sid-ak/tester2
+|\ \ \  
+| | |/  
+| |/|   
+| * | 5a72722 test for validatePassword()
+| * | e6ad202 Revert "test for validatePassword()"
+| * | 5f41d67 test for validatePassword()
+| * | d6905da function to validate the password
+| |/  
+* | b40a5e1 Update Standards.txt
+* | 31bdd70 Update Standards.txt
+|/  
+*   b452288 Merge branch 'main' of https://github.com/sid-ak/incollegetexas
+|\  
+| *   9c1b911 Merge pull request #1 from sid-ak/ReadmeUpdate
+| |\  
+| | * 60b7c2d Update README.md
+* | | 09452fe Moved source code.
+* | | 21fef0f Added standards.
+|/ /  
+* / 81608a0 main file for code
+|/  
+* ab090b1 Delete sample_test.py
+* 1775513 sample commit
+* 880da08 Test commit.
+* 2a56c1f Initial commit
