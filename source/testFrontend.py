@@ -13,7 +13,7 @@ from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
 from model.User import User
 from model.Job import Job, JobHelpers
-from helpers.DisplayJobTitlesHelper import JobTitleHelper
+from helpers.JobTitleHelper import JobTitleHelper
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
@@ -482,7 +482,7 @@ def test_DisplayJobTitle():
                       '1 - Yes',
                       '2 - No',
                       '\nEnter (-1 to exit current menu): ',
-                      '\nPlease Select one of the following jobs\n',
+                      '\nSelect one of the following jobs to continue:\n',
                       '1 - testTitle',
                       '\nEnter (-1 to exit current menu): ',
                       '\nPlease select if you want to filter the Job:\n',
@@ -499,7 +499,7 @@ def test_DisplayJobTitle():
                          '1 - Yes',
                          '2 - No',
                          '\nEnter (-1 to exit current menu): ',
-                         '\nPlease Select one of the following jobs\n',
+                         '\nSelect one of the following jobs to continue:\n',
                          '1 - testTitle',
                          '\nEnter (-1 to exit current menu): ',
                          'Job Title: testTitle',
@@ -507,13 +507,13 @@ def test_DisplayJobTitle():
                          'Employer: testEmployer',
                          'Job Location: testLocation',
                          'Job Salary: 100000',
-                         '\nPlease Select one of the following options\n',
+                         '\nPlease select one of the following options:\n',
                          '1 - Apply for the job',
                          '2 - Save the job',
                          '3 - Unsave the job',
                          '4 - Delete job',
                          '\nEnter (-1 to exit current menu): ',
-                         '\nPlease Select one of the following jobs\n',
+                         '\nSelect one of the following jobs to continue:\n',
                          '1 - testTitle',
                          '\nEnter (-1 to exit current menu): ',
                          '\nPlease select if you want to filter the Job:\n',
@@ -531,7 +531,7 @@ def test_DisplayJobTitle():
                          '1 - Yes',
                          '2 - No',
                          '\nEnter (-1 to exit current menu): ',
-                         '\nPlease Select one of the following options\n',
+                         '\nPlease select one of the following options:\n',
                          '1 - Show applied jobs',
                          '2 - Show unapplied jobs',
                          '3 - Show saved Jobs',
