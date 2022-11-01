@@ -1,0 +1,65 @@
+Message:
+	Id: str
+	SenderId: str
+	ReceiverId: str
+	Content: str = ""
+	IsRead: bool = false
+
+User:
+	
+	Tier: TierEnum (Standard, Plus)
+
+MessageHelpers:
+	
+	MessageExists(messageId: str, collection = "Message") -> bool
+	
+	CreateMessage(
+		message: Message,
+		collection = "Message") -> bool
+		
+	SendMessage(
+		senderId: str,
+		receieverId: str,
+		content: str,
+		collection = "Message") -> bool
+	
+	DeleteMessageById(messageId: str) -> bool
+
+	GetAllMessages(collection = "Message") -> list[Message]
+	
+	GetMessageById(
+		messageId: str,
+		collection: str = "Message") -> Message
+	
+	GetAllMessagesOfUser(
+		userId: str
+		userCollection: str = "User",
+		messageCollection: str = "Message") -> list[Message]
+	
+	GetUnreadMessagesOfUser(
+		userId: str,
+		userCollection = "User",
+		messageCollection = "Message") -> list[Message]
+	
+	GetReadMessagesOfUser(
+		userId: str,
+		userCollection = "User",
+		messageCollection = "Message") -> list[Message]
+	
+UserHelpers:
+	
+	UserExists(userId: str, collection = "User") -> bool
+	
+	HasUnreadMessages(
+		userId: str,
+		userCollection = "User",
+		messageCollection = "Message") -> bool
+		
+
+NotificationHelpers:
+	
+	NotifyUserOfMessage(
+		userId: str,
+		messageId: str,
+		userCollection = "User",
+		messageCollection = "Message") -> bool
