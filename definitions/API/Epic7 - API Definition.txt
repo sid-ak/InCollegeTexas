@@ -25,7 +25,7 @@ MessageHelpers:
 	
 	DeleteMessageById(messageId: str) -> bool
 
-	GetAllMessages(collection = "Message") -> list[Message]
+	GetAllMessages(collection: str = "Message") -> list[Message]
 	
 	GetMessageById(
 		messageId: str,
