@@ -15,13 +15,13 @@ MessageHelpers:
 	
 	CreateMessage(
 		message: Message,
-		collection = "Message") -> bool
+		collection: str = "Message") -> bool
 		
 	SendMessage(
 		senderId: str,
 		receieverId: str,
 		content: str,
-		collection = "Message") -> bool
+		collection: str = "Message") -> bool
 	
 	DeleteMessageById(messageId: str) -> bool
 
@@ -38,22 +38,22 @@ MessageHelpers:
 	
 	GetUnreadMessagesOfUser(
 		userId: str,
-		userCollection = "User",
-		messageCollection = "Message") -> list[Message]
+		userCollection: str = "User",
+		messageCollection: str = "Message") -> list[Message]
 	
 	GetReadMessagesOfUser(
 		userId: str,
-		userCollection = "User",
-		messageCollection = "Message") -> list[Message]
+		userCollection: str = "User",
+		messageCollection: str = "Message") -> list[Message]
 	
 UserHelpers:
 	
-	UserExists(userId: str, collection = "User") -> bool
+	UserExists(userId: str, collection: str = "User") -> bool
 	
 	HasUnreadMessages(
 		userId: str,
-		userCollection = "User",
-		messageCollection = "Message") -> bool
+		userCollection: str = "User",
+		messageCollection: str = "Message") -> bool
 		
 
 NotificationHelpers:
@@ -61,5 +61,5 @@ NotificationHelpers:
 	NotifyUserOfMessage(
 		userId: str,
 		messageId: str,
-		userCollection = "User",
-		messageCollection = "Message") -> bool
+		userCollection: str = "User",
+		messageCollection: str = "Message") -> bool
