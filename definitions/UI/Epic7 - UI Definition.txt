@@ -1,0 +1,28 @@
+Log In:
+	
+	Show My Network:
+	
+		Select a user to continue:
+		
+		1. ...
+		2. ...
+		3. ...
+		
+		Enter (-1 to exit current menu): 1
+			
+			1. Send Message
+			
+			Enter (-1 to exit current menu): 1
+			
+				Type your message: ...
+				
+					1. Confirm
+					2. Cancel
+					
+					-> Enter (-1 to exit current menu): 1
+				
+						Sent message to [user.Username] successfully.
+						
+					-> Enter (-1 to exit current menu): 2
+						
+						Operation cancelled
