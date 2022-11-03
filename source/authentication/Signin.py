@@ -70,7 +70,8 @@ def DisplayLoginMenu(loggedUser: User):
                     "Update my tier",
                     "Show my inbox"
                     ]
-                if(loggedUser.TierEnum == UserTierEnum.Plus):
+                flag: bool = loggedUser.TierEnum == UserTierEnum.Plus
+                if(flag):
                     options.append("Show all Users")
 
                 while True:
@@ -135,7 +136,7 @@ def DisplayLoginMenu(loggedUser: User):
                             ShowInbox(loggedUser)
                             break
 
-                        elif decision == 13:
+                        elif decision == 13 and flag:
                             print("\nYou have selected to see all the users.")
                             DisplayEveryUser(loggedUser)
                         

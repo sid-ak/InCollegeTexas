@@ -32,6 +32,4 @@ def DisplayEveryUser(loggedUser: User, collection: str = "Users"):
                     else: print("\nMessage was not sent.\n")
             except Exception as e:
                 raise Exception(f"Something went wrong, could not display all the users\n{e}")
-
-
             
