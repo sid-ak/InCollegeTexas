@@ -22,7 +22,8 @@ class UserHelpers:
             'Friends': user.Friends,
             'University': str(user.University),
             'Major': str(user.Major),
-            'Profile': Profile.ProfileToDict(user.Profile)
+            'Profile': Profile.ProfileToDict(user.Profile),
+            'TierEnum': str(user.TierEnum)
         }
 
     # Gets a PyreResponse of all users from the DB and returns

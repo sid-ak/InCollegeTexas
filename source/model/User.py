@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from enums.LanguageEnum import LanguageEnum
+from enums.UserTierEnum import UserTierEnum
 from model.Profile import Profile
 
 # A User entity.
@@ -17,6 +18,7 @@ class User:
     University: str = ""
     Major: str = ""
     Profile: Profile = None
+    TierEnum: UserTierEnum = UserTierEnum.Standard
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
@@ -32,7 +34,8 @@ class User:
                 Friends = UserHydrator.HydrateProp(user, "Friends"),
                 University = UserHydrator.HydrateProp(user, "University"),
                 Major = UserHydrator.HydrateProp(user, "Major"),
-                Profile = UserHydrator.HydrateProp(user, "Profile")
+                Profile = UserHydrator.HydrateProp(user, "Profile"),
+                TierEnum = UserHydrator.HydrateProp(user, "TierEnum")
             )
 
 class UserHydrator:
@@ -50,7 +53,8 @@ class UserHydrator:
         "Friends": "dict[str, bool]",
         "University": "str",
         "Major": "str",
-        "Profile": "Profile"
+        "Profile": "Profile",
+        "TierEnum": "UserTierEnum"
     }
     
     # Hydrates an individual property for the User entity.
@@ -88,4 +92,5 @@ class UserHydrator:
         elif propType == "LanguageEnum": return LanguageEnum.English
         elif propType == "dict[str, bool]": return {}
         elif propType == "Profile": return Profile()
+        elif propType == "UserTierEnum": return UserTierEnum.Standard
         else: return None
