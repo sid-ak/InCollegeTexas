@@ -30,8 +30,8 @@ def DisplayEveryUser(loggedUser: User, collection: str = "Users"):
 
                     if messageSent: print(f"\nMessage sent to {displayU[optionNo - 1]} successfully.")
                     else: print("\nMessage was not sent.\n")
-            except:
-                print("None")
+            except Exception as e:
+                raise Exception(f"Something went wrong, could not display all the users\n{e}")
 
 
             
