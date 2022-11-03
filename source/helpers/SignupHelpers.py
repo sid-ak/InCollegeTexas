@@ -27,8 +27,7 @@ class SignupHelpers:
                     loggedUser, UserTierEnum.Standard, collection)
 
                 elif decision == 2: UserPrefHelpers.SetTierPreference(
-                    loggedUser, UserTierEnum.Plus, collection
-                )
+                    loggedUser, UserTierEnum.Plus, collection)
 
                 else:
                     print("\nUnexpected input, please select option 1 or 2.")
