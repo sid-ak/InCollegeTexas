@@ -1,3 +1,4 @@
+from helpers.UserPrefHelpers import UserPrefHelpers
 from model.User import User
 from helpers.UserHelpers import UserHelpers
 
@@ -54,6 +55,7 @@ def RegisterNewUser(collection: str="Users") -> bool:
     lastName = input("\nPlease enter your last name: ")
     university = input("\nPlease enter your university: ")
     major = input("\nPlease enter your major: ")
+    
     try:
         userId = UserHelpers.CreateUserId(username, password)
 
@@ -66,9 +68,16 @@ def RegisterNewUser(collection: str="Users") -> bool:
                 University=university,
                 Major=major),
             collection=collection)
+
         if userUpdated == False: raise Exception()
         
+        # Allow the user to set a tier for their account.
+        user: User = UserHelpers.GetUserById(userId)        
+        tierSet: bool = UserPrefHelpers.ShowTierPreferences(user)
+        if not tierSet: print("\nA tier could not be set for the user.")
+
         return True
-    except:
-        print("\nError! Something went wrong when connecting to database to push a new entry!")
+    
+    except Exception as e:
+        print(f"\nError! Something went wrong when connecting to database to push a new entry!\n{e}")
         return False
