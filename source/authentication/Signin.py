@@ -1,3 +1,4 @@
+from helpers.SignupHelpers import SignupHelpers
 from model.User import User
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
@@ -62,6 +63,7 @@ def DisplayLoginMenu(loggedUser: User):
                     "Show my network",
                     "Update my profile",
                     "View my profile",
+                    "Update my tier"
                     ]
 
                 while True:
@@ -104,6 +106,11 @@ def DisplayLoginMenu(loggedUser: User):
                         elif decision == 10:
                             print("\nYou have selected to view profile.")
                             ViewProfile(loggedUser)
+                        elif decision == 11:
+                            print("\nYou have selected to update your tier.")
+                            tierSet: bool = SignupHelpers.ShowTierPreferences(loggedUser)
+                            if not tierSet:
+                                raise Exception("\nTier could not be set fur to unexpected exception.")
 
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
