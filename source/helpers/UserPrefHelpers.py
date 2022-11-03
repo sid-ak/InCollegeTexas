@@ -1,3 +1,4 @@
+from enums.UserTierEnum import UserTierEnum
 from model.User import User
 from helpers.UserHelpers import UserHelpers
 from enums.LanguageEnum import LanguageEnum
@@ -53,4 +54,24 @@ class UserPrefHelpers:
             if updatedUser == True:
                 print(f"\nPreferred language set to: {user.LanguagePreference.name}")
         except:
-            print("Exception occurred. Targeted Advertising preference could not be toggled.")
+            print("Exception occurred. Language preference could not be set.")
+
+    # Sets the preferred tier for a user as specified.
+    def SetTierPreference(user: User, userTier: UserTierEnum, collection: str = "Users"):
+        try:
+            if user == None: return
+
+            user.TierEnum = userTier
+            updatedUser: bool = UserHelpers.UpdateUser(user, collection)
+
+            if updatedUser == True:
+                print(f"\nPreferred tier set to: {user.TierEnum.name}")
+
+                if user.TierEnum == UserTierEnum.Standard:
+                    print("\nYou will be using the app for free.")
+                
+                elif user.TierEnum == UserTierEnum.Plus:
+                    print("\nYou will now be charged $10/month.")
+        
+        except Exception as e:
+            print(f"Exception occurred. Tier preference could not be set.\n{e}")
