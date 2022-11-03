@@ -1,6 +1,7 @@
 from helpers.UserHelpers import UserHelpers
 from model.Message import Message
 from firebaseSetup.Firebase import database
+from model.User import User
 
 class MessageHelpers:
     
@@ -82,6 +83,14 @@ class MessageHelpers:
     # Returns true if update was successful else false.
     def UpdateMessage(message: Message, collection: str = "Messages") -> bool:
         try:
+
+            # Sanity check.
+            receiverExists: bool = UserHelpers.UserExists(message.ReceiverId)
+            if not receiverExists:
+                print("\nCould not send a message to the specified user because"
+                    + "the user no longer exists.")
+                return False
+
             database.child(collection).child(message.Id).set(
                 MessageHelpers.MessageToDict(message))
             
@@ -107,11 +116,32 @@ class MessageHelpers:
         if allMessages == None: return None
 
         # Filter all messages where the receiver id is equal to the specified user id.
-        allMessagesReceived: list[Message] = filter(
-            lambda m: m.ReceiverId == userId, allMessages)
+        allMessagesReceived: list[Message] = list(filter(
+            lambda m: m.ReceiverId == userId, allMessages))
         
         if onlyUnread:
-            allMessagesReceived = filter(
-                lambda m: m.ReceiverId == userId and not m.IsRead, allMessages)
+            allMessagesReceived = list(filter(
+                lambda m: m.ReceiverId == userId and not m.IsRead, allMessages))
 
         return allMessagesReceived
+
+
+    # Displays a message and updates its status to read.
+    def DisplayMessage(
+        message: Message,
+        userCollection = "Users",
+        messageCollection = "Messages"):
+        
+        sender: User = UserHelpers.GetUserById(message.SenderId, userCollection)
+        receiver: User = UserHelpers.GetUserById(message.ReceiverId, userCollection)
+
+        print("===============================================")
+
+        print(f"\nFrom: {sender.FirstName} {sender.LastName}"
+            + f"\nTo: {receiver.FirstName} {receiver.LastName}"
+            + f"\n\nContent:\n{message.Content}\n")
+
+        print("===============================================")
+        
+        message.IsRead = True
+        MessageHelpers.UpdateMessage(message, messageCollection)
