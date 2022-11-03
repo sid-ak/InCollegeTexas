@@ -36,10 +36,11 @@ class MessageHydrator:
         if prop not in MessageHydrator._messageAttributes.keys():
             raise Exception(f"Property {prop} not defined for entity: Message")
         
+        propType: str = MessageHydrator._messageAttributes.get(prop)
         value = None
         
         try:
-            value = message.val()[prop]
+            value = MessageHydrator.Cast(message.val()[prop], propType)
         except:
             value = MessageHydrator.GetDefaultValue(prop)
         
@@ -48,11 +49,18 @@ class MessageHydrator:
         return value
 
 
+    # Handles conversion to a certain type.
+    def Cast(pyreValue, propType):
+        if propType == "bool":
+            return eval(pyreValue)
+        
+        return pyreValue
+
     # Gets the default value for a property on the Message entity based on its type.
     def GetDefaultValue(prop: str):
         propType: str = MessageHydrator._messageAttributes.get(prop)
 
         if propType == "int": return 0
         if propType == "str": return ""
-        elif propType == "bool": return True
+        elif propType == "bool": return False
         else: return None

@@ -67,7 +67,7 @@ class UserHydrator:
         
         try:
             pyreValue = user.val()[prop]
-            value = UserHydrator.CastComplexType(pyreValue, propType)
+            value = UserHydrator.Cast(pyreValue, propType)
         except:
             value = UserHydrator.GetDefaultValue(prop)
         
@@ -75,8 +75,8 @@ class UserHydrator:
         
         return value
     
-    # Handles conversion to a complex type.
-    def CastComplexType(pyreValue, propType):
+    # Handles conversion to a certain type.
+    def Cast(pyreValue, propType):
         if propType == "Profile":
             profile: Profile = Profile.HydrateProfile(pyreValue)
             return profile

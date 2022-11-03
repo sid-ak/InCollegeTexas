@@ -67,7 +67,7 @@ def ShowMyNetwork(loggedUser: User = None):
                     ))
 
                     if messageSent: print(f"\nMessage sent to {friend.FirstName} successfully.")
-                    else: raise Exception()
+                    else: print("\nMessage was not sent.\n")
                 
                 else:
                     print("Invalid input.\n")
@@ -76,6 +76,6 @@ def ShowMyNetwork(loggedUser: User = None):
                 break
             else:
                 print("Invalid input.\n")
-        except:
-            print("Unexpected error ocurred\n")
+        except Exception as e:
+            print(f"Unexpected error ocurred\n{e}")
             break
