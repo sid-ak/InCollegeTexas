@@ -1,3 +1,5 @@
+from helpers.MessageHelpers import MessageHelpers
+from model.Message import Message
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
 from helpers.FriendHelpers import FriendHelpers
@@ -20,7 +22,10 @@ def ShowMyNetwork(loggedUser: User = None):
                 print("{}. {} {}\n".format(i + 1, user.FirstName, user.LastName))
 
             print("\nPlease select one of the following options:\n")
-            MenuHelpers.DisplayOptions(["View Profile", "Do you want to disconnect with a friend?"])
+            MenuHelpers.DisplayOptions([
+                "View a friend's profile.",
+                "Disconnect with a friend.",
+                "Send a message to a friend."])
             decision = MenuHelpers.InputOptionNo()
 
             if decision == 1:
@@ -44,6 +49,28 @@ def ShowMyNetwork(loggedUser: User = None):
                         FriendHelpers.DeleteFriend(loggedUser, friends[option-1])
                     else:
                         print("Invalid input.\n")
+            
+            elif decision == 3:
+                print("\nYou have selected to send a message to a friend."
+                    + "\n\nEnter the option number of the friend to send a message to: ")
+                
+                option: int = int(input()) - 1
+                if option in range(0, len(friends)):
+                    friend: User = friends[option]
+                    content: str = str(input(f"\nEnter the content for the message to {friend.FirstName}:\n\n"))
+                    
+                    messageSent: bool = MessageHelpers.UpdateMessage(Message(
+                        MessageHelpers.CreateMessageId(),
+                        loggedUser.Id,
+                        friend.Id,
+                        content
+                    ))
+
+                    if messageSent: print(f"\nMessage sent to {friend.FirstName} successfully.")
+                    else: raise Exception()
+                
+                else:
+                    print("Invalid input.\n")
 
             elif decision == -1:
                 break
