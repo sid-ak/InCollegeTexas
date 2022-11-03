@@ -14,6 +14,8 @@ from actions.SearchUsers import SearchUsers
 from helpers.UserHelpers import UserHelpers
 from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
+from enums.UserTierEnum import UserTierEnum
+from actions.DisplayAllUser import DisplayEveryUser
 
 
 # this function will check if the username and password exists 
@@ -68,9 +70,12 @@ def DisplayLoginMenu(loggedUser: User):
                     "Update my tier",
                     "Show my inbox"
                     ]
+                if(loggedUser.TierEnum == UserTierEnum.Plus):
+                    options.append("Show all Users")
 
                 while True:
                     try:
+                        
                         MenuHelpers.DisplayOptions(options)
 
                         decision = MenuHelpers.InputOptionNo()
@@ -129,6 +134,10 @@ def DisplayLoginMenu(loggedUser: User):
                             print("\nYou have selected to show your inbox.")
                             ShowInbox(loggedUser)
                             break
+
+                        elif decision == 13:
+                            print("\nYou have selected to see all the users.")
+                            DisplayEveryUser(loggedUser)
                         
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
