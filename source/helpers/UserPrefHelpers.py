@@ -1,4 +1,5 @@
 from enums.UserTierEnum import UserTierEnum
+from helpers.MenuHelpers import MenuHelpers
 from model.User import User
 from helpers.UserHelpers import UserHelpers
 from enums.LanguageEnum import LanguageEnum
@@ -56,6 +57,37 @@ class UserPrefHelpers:
         except:
             print("Exception occurred. Language preference could not be set.")
 
+    # Displays options for the user to set a tier for their account.
+    def ShowTierPreferences(loggedUser: User, collection = "Users"):
+        try:
+            while True:
+                print("\nTier Preference:\n")
+
+                if loggedUser == None:
+                    raise Exception(f"\nArgument null exception: {loggedUser}")
+
+                print("\nSelect an option to set your preferred tier:")
+                
+                options: list[str] = [UserTierEnum.Standard.name, UserTierEnum.Plus.name]
+                MenuHelpers.DisplayOptions(options)
+                
+                decision: int = MenuHelpers.InputOptionNo()
+                
+                if decision == -1: break
+
+                elif decision == 1: UserPrefHelpers.SetTierPreference(
+                    loggedUser, UserTierEnum.Standard, collection)
+
+                elif decision == 2: UserPrefHelpers.SetTierPreference(
+                    loggedUser, UserTierEnum.Plus, collection)
+
+                else:
+                    print("\nUnexpected input, please select option 1 or 2.")
+
+        except Exception as e:
+            raise Exception(f"\nUnexpected exception occurred. Could not set tier preference.\n{e}")
+
+
     # Sets the preferred tier for a user as specified.
     def SetTierPreference(user: User, userTier: UserTierEnum, collection: str = "Users"):
         try:
@@ -72,6 +104,6 @@ class UserPrefHelpers:
                 
                 elif user.TierEnum == UserTierEnum.Plus:
                     print("\nYou will now be charged $10/month.")
-        
+
         except Exception as e:
             print(f"Exception occurred. Tier preference could not be set.\n{e}")

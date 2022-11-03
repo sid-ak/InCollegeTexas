@@ -1,4 +1,4 @@
-from helpers.SignupHelpers import SignupHelpers
+from helpers.UserPrefHelpers import UserPrefHelpers
 from model.User import User
 from actions.FindSomeone import FindSomeoneAction
 from actions.JobInternshipSearch import FindJobInternshipAction
@@ -108,7 +108,7 @@ def DisplayLoginMenu(loggedUser: User):
                             ViewProfile(loggedUser)
                         elif decision == 11:
                             print("\nYou have selected to update your tier.")
-                            tierSet: bool = SignupHelpers.ShowTierPreferences(loggedUser)
+                            tierSet: bool = UserPrefHelpers.ShowTierPreferences(loggedUser)
                             if not tierSet:
                                 raise Exception("\nTier could not be set fur to unexpected exception.")
 
