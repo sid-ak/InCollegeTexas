@@ -37,7 +37,7 @@ class UserHelpers:
             if (userResponseList == None): return None
 
             users: list[User] = []
-            for user in usersResponse.each():
+            for user in userResponseList:
                 if user == None: continue
                 else: users.append(User.HydrateUser(user))
 
@@ -142,3 +142,8 @@ class UserHelpers:
         except:
             print("\nUh Oh! Something went wrong while searching for users\n")
             return []
+
+    # Checks if the specified user exists in the DB using the provided ID.
+    def UserExists(userId: str, collection = "Users") -> bool:
+        return False if UserHelpers.GetUserById(
+            userId, collection) == None else True

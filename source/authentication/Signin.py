@@ -1,3 +1,4 @@
+from actions.ShowInbox import ShowInbox
 from helpers.UserPrefHelpers import UserPrefHelpers
 from model.User import User
 from actions.FindSomeone import FindSomeoneAction
@@ -53,7 +54,8 @@ def DisplayLoginMenu(loggedUser: User):
 
             while True:
                 print("\nPlease enter one of the following options to continue:")
-                options = ["Search for a job or internship",
+                options = [
+                    "Search for a job or internship",
                     "Find someone that you know",
                     "Learn a new skill",
                     "Display important links",
@@ -63,7 +65,8 @@ def DisplayLoginMenu(loggedUser: User):
                     "Show my network",
                     "Update my profile",
                     "View my profile",
-                    "Update my tier"
+                    "Update my tier",
+                    "Show my inbox"
                     ]
 
                 while True:
@@ -76,42 +79,57 @@ def DisplayLoginMenu(loggedUser: User):
                             print("\nYou have selected to search for job or internship.")
                             FindJobInternshipAction(loggedUser = loggedUser)
                             break
+
                         elif decision == 2:
                             print("\nYou have selected to find someone you know.")
                             FindSomeoneAction()
                             break
+
                         elif decision == 3:
                             print("\nYou have selected to learn a new skill.")
                             PresentSkillsAction()
                             break
+
                         elif decision == 4:
                             print("\nYou have selected to display important links.")
                             DisplayImpLinks(loggedUser=loggedUser)
                             break
+
                         elif decision == 5:
                             print("\nYou have selected to display useful links.")
                             DisplayUsefulLinks()
+
                         elif decision == 6:
                             print("\nYou have selected to search users.")
                             SearchUsers(loggedUser)
+
                         elif decision == 7:
                             print("\nYou have selected to display pending requests.")
                             DisplayPendingRequests(loggedUser)
+
                         elif decision == 8: 
                             print("\nYou have selected to show my network.")
                             ShowMyNetwork(loggedUser) 
+
                         elif decision == 9:
                             print("\nYou have selected to update profile.")
                             EditProfile(userLoggedIn=loggedUser)
+
                         elif decision == 10:
                             print("\nYou have selected to view profile.")
                             ViewProfile(loggedUser)
+
                         elif decision == 11:
                             print("\nYou have selected to update your tier.")
                             tierSet: bool = UserPrefHelpers.ShowTierPreferences(loggedUser)
                             if not tierSet:
-                                raise Exception("\nTier could not be set fur to unexpected exception.")
-
+                                raise Exception("\nTier could not be set due to an unexpected exception.")
+                        
+                        elif decision == 12:
+                            print("\nYou have selected to show your inbox.")
+                            ShowInbox(loggedUser)
+                            break
+                        
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")
                             terminateSession = True
