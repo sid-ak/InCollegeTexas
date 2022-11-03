@@ -126,7 +126,8 @@ def DisplayLoginMenu(loggedUser: User):
                             ViewProfile(loggedUser)
 
                         elif decision == 11:
-                            print("\nYou have selected to update your tier.")
+                            print("\nYou have selected to update your tier."
+                                + f"\nCurrent tier: {loggedUser.TierEnum.name}")
                             tierSet: bool = UserPrefHelpers.ShowTierPreferences(loggedUser)
                             if not tierSet:
                                 raise Exception("\nTier could not be set due to an unexpected exception.")

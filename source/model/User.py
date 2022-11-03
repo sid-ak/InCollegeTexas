@@ -81,6 +81,11 @@ class UserHydrator:
             profile: Profile = Profile.HydrateProfile(pyreValue)
             return profile
         
+        if propType == "UserTierEnum":
+            enumName: str = str(pyreValue).lstrip("UserTierEnum.")
+            tierEnum: UserTierEnum = UserTierEnum[enumName]
+            return tierEnum
+        
         return pyreValue
         
     # Gets the default value for a property on the User entity based on its type.
