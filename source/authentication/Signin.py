@@ -14,7 +14,6 @@ from actions.SearchUsers import SearchUsers
 from helpers.UserHelpers import UserHelpers
 from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
-from enums.UserTierEnum import UserTierEnum
 from actions.DisplayAllUser import DisplayEveryUser
 
 
@@ -68,11 +67,12 @@ def DisplayLoginMenu(loggedUser: User):
                     "Update my profile",
                     "View my profile",
                     "Update my tier",
-                    "Show my inbox"
+                    "Show my inbox",
+                    "Show all Users"
                     ]
-                flag: bool = loggedUser.TierEnum == UserTierEnum.Plus
-                if(flag):
-                    options.append("Show all Users")
+                # flag: bool = loggedUser.TierEnum == UserTierEnum.Plus
+                # if(flag):
+                #     options.append("Show all Users")
 
                 while True:
                     try:
@@ -137,7 +137,7 @@ def DisplayLoginMenu(loggedUser: User):
                             ShowInbox(loggedUser)
                             break
 
-                        elif decision == 13 and flag:
+                        elif decision == 13:
                             print("\nYou have selected to see all the users.")
                             DisplayEveryUser(loggedUser)
                         
