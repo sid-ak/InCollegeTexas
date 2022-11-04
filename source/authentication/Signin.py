@@ -15,6 +15,7 @@ from helpers.UserHelpers import UserHelpers
 from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
 from actions.DisplayAllUser import DisplayEveryUser
+from helpers.NotificationHelpers import NotificationHelpers
 
 
 # this function will check if the username and password exists 
@@ -54,7 +55,10 @@ def DisplayLoginMenu(loggedUser: User):
             terminateSession: bool = False
 
             while True:
-                print("\nPlease enter one of the following options to continue:")
+                # Notify if the user as unread messages.
+                NotificationHelpers.NotifyIfUnreadMessages(loggedUser)
+                
+                print("\nPlease enter one of the following options to continue:\n")
                 options = [
                     "Search for a job or internship",
                     "Find someone that you know",
