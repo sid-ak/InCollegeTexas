@@ -14,18 +14,19 @@ class Main:
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
         + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 
-    print("Welcome!\nPlease select an option to continue:")
-    MenuHelpers.DisplayOptions(
-        ["Log In",
-        "Sign Up",
-        "Play an Informational Video",
-        "Search User",
-        "Display Important Links",
-        "Display Useful Links"]
-    ) 
-
     while True:
         try:
+            
+            print("Welcome!\nPlease select an option to continue:")
+            MenuHelpers.DisplayOptions(
+                ["Log In",
+                "Sign Up",
+                "Play an Informational Video",
+                "Search User",
+                "Display Important Links",
+                "Display Useful Links"]
+            )
+
             decision: int = MenuHelpers.InputOptionNo()
             
             if decision == 1:
@@ -65,5 +66,6 @@ class Main:
             
             else:
                 print("Invalid entry! Please try again.")
+        
         except Exception as e:
             print(f"Invalid entry! Please try again.\n{e}")

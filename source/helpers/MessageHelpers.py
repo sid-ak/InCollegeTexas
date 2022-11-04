@@ -105,13 +105,8 @@ class MessageHelpers:
     def GetAllReceivedMessages(
         userId: str,
         onlyUnread: bool = False,
-        userCollection = "Users",
         messageCollection = "Messages") -> list[Message]:
 
-        if not UserHelpers.UserExists(userId, userCollection):
-            print(f"Specified user does not exist in collection: {userCollection}")
-            return None
-        
         allMessages: list[Message] = MessageHelpers.GetAllMessages(messageCollection)
         if allMessages == None: return None
 

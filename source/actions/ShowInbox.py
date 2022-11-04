@@ -12,7 +12,6 @@ def ShowInbox(
         while True:
             receivedMessages: list[Message] = MessageHelpers.GetAllReceivedMessages(
                 loggedUser.Id,
-                userCollection = userCollection,
                 messageCollection = messageCollection)
             
             if receivedMessages == None or receivedMessages == []:
