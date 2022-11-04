@@ -14,6 +14,7 @@ from actions.SearchUsers import SearchUsers
 from helpers.UserHelpers import UserHelpers
 from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
+from actions.DisplayAllUser import DisplayEveryUser
 from helpers.NotificationHelpers import NotificationHelpers
 
 
@@ -70,11 +71,13 @@ def DisplayLoginMenu(loggedUser: User):
                     "Update my profile",
                     "View my profile",
                     "Update my tier",
-                    "Show my inbox"
+                    "Show my inbox",
+                    "Show all Users"
                     ]
 
                 while True:
                     try:
+                        
                         MenuHelpers.DisplayOptions(options)
 
                         decision = MenuHelpers.InputOptionNo()
@@ -124,7 +127,8 @@ def DisplayLoginMenu(loggedUser: User):
                             ViewProfile(loggedUser)
 
                         elif decision == 11:
-                            print("\nYou have selected to update your tier.")
+                            print("\nYou have selected to update your tier."
+                                + f"\nCurrent tier: {loggedUser.TierEnum.name}")
                             tierSet: bool = UserPrefHelpers.ShowTierPreferences(loggedUser)
                             if not tierSet:
                                 raise Exception("\nTier could not be set due to an unexpected exception.")
@@ -133,6 +137,10 @@ def DisplayLoginMenu(loggedUser: User):
                             print("\nYou have selected to show your inbox.")
                             ShowInbox(loggedUser)
                             break
+
+                        elif decision == 13:
+                            print("\nYou have selected to see all the users.")
+                            DisplayEveryUser(loggedUser)
                         
                         elif decision == -1:
                             print("\nYou have selected to log out of your account.")

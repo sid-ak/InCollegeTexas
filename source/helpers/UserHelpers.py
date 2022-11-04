@@ -158,3 +158,5 @@ class UserHelpers:
     def UserExists(userId: str, collection = "Users") -> bool:
         return False if UserHelpers.GetUserById(
             userId, collection) == None else True
+
+            
