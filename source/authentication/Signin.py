@@ -70,9 +70,6 @@ def DisplayLoginMenu(loggedUser: User):
                     "Show my inbox",
                     "Show all Users"
                     ]
-                # flag: bool = loggedUser.TierEnum == UserTierEnum.Plus
-                # if(flag):
-                #     options.append("Show all Users")
 
                 while True:
                     try:

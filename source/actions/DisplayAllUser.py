@@ -4,7 +4,8 @@ from helpers.MenuHelpers import MenuHelpers
 from helpers.MessageHelpers import MessageHelpers
 from model.Message import Message
 from enums.UserTierEnum import UserTierEnum
- 
+
+#This function helps dislay all the user in the database and gives the user to send a message to anyone if they are plus member or are friends with them
 def DisplayEveryUser(loggedUser: User, collection: str = "Users"):
         allUser = UserHelpers.GetAllUsers(collection)
         allUsers = list(filter(lambda user: user.Username != loggedUser.Username, allUser))
@@ -17,12 +18,12 @@ def DisplayEveryUser(loggedUser: User, collection: str = "Users"):
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
-                check:bool = loggedUser.Friends.get(displayU[optionNo - 1])
+                isFriends:bool = loggedUser.Friends.get(displayU[optionNo - 1])
 
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(allUser) + 1):
-                    if(loggedUser.TierEnum == UserTierEnum.Plus or check):
+                    if(loggedUser.TierEnum == UserTierEnum.Plus or isFriends):
                         content: str = str(input(f"\nEnter the content for the message to {displayU[optionNo - 1]}:\n\n"))
 
                         messageSent: bool = MessageHelpers.UpdateMessage(Message(
