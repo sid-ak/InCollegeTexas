@@ -572,9 +572,9 @@ def test_SendMessage():
     retrieved_message = MessageHelpers.GetMessageById(msgId, collection="testMessages")
     assert  test_message == retrieved_message
 
-    UserHelpers.DeleteUserAccount(user1)
-    UserHelpers.DeleteUserAccount(user2)
-    MessageHelpers.DeleteMessageById(msgId)
+    UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    UserHelpers.DeleteUserAccount(user2, collection="testUsers")
+    MessageHelpers.DeleteMessageById(msgId, collection="testMessages")
 
 def test_GetReceiveMessages():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
@@ -591,7 +591,7 @@ def test_GetReceiveMessages():
 
     assert sent_messages == received_messages
 
-    UserHelpers.DeleteUserAccount(user1)
-    UserHelpers.DeleteUserAccount(user2)
+    UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     for i in range(2):
-        MessageHelpers.DeleteMessageById(i+1)
+        MessageHelpers.DeleteMessageById(i+1, collection="testMessages")
