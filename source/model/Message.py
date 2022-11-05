@@ -54,6 +54,9 @@ class MessageHydrator:
         if propType == "bool":
             return eval(pyreValue)
         
+        if propType == "int":
+            return int(pyreValue)
+        
         return pyreValue
 
     # Gets the default value for a property on the Message entity based on its type.
