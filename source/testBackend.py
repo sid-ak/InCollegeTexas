@@ -569,14 +569,16 @@ def test_SendMessage():
     test_message = Message(Id=msgId, SenderId=user1.Id, ReceiverId=user2.Id , Content="Hello from the other side!")
     MessageHelpers.UpdateMessage(message=test_message, collection="testMessages", userCollection="testUsers")
 
+    # check if message sent by sender is same as message received by receiver in DB
     retrieved_message = MessageHelpers.GetMessageById(msgId, collection="testMessages")
     assert  test_message == retrieved_message
-
+    # DB clean up
     UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     MessageHelpers.DeleteMessageById(msgId, collection="testMessages")
 
-def test_GetReceiveMessages():
+# tests the GetAllReceivedMessages function
+def test_GetReceivedMessages():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
     user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
     UserHelpers.UpdateUser(user1, "testUsers")
@@ -588,9 +590,9 @@ def test_GetReceiveMessages():
         sent_messages.append(test_message)
 
     received_messages = MessageHelpers.GetAllReceivedMessages(user2.Id, messageCollection="testMessages")
-
+    # check if messages sent by sender are same as messages received by receiver in DB
     assert sent_messages == received_messages
-
+    # DB clean up
     UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     for i in range(2):
