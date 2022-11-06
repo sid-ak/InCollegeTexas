@@ -576,10 +576,10 @@ def test_DisplayListFriends():
   for friend in testFriendsList:
     assert friend.Username in testFriendsUsernameList
     # get rid of the user account in the DB
-    UserHelpers.DeleteUserAccount(user=friend, collection="TestUsers")
+    assert True == UserHelpers.DeleteUserAccount(user=friend, collection="TestUsers")
 
-  UserHelpers.DeleteUserAccount(user=testUser)
-
+  assert True == UserHelpers.DeleteUserAccount(user=testUser, collection="TestUsers")
+  
 
 # test the list of all users
 def test_DisplayListUsers():
@@ -598,8 +598,8 @@ def test_DisplayListUsers():
   assert output == ["\nSelect one of the user to send a message\n", "1 - testUsernameEpic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
 
   # get rid of the dummy users from DB
-  UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
-  UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
 
 
 # test the messaging
@@ -609,6 +609,9 @@ def test_Messaging():
                     University='TestUniversity', Major='major')
   testUser2 = User(Id='testIdEpic7User2', Username='testUser2Epic7', FirstName='TestFirstNameUser2', LastName='TestLastName',
                     University='TestUniversity', Major='major')
+  # push to DB
+  UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
+  UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
 
   # now create a message from test user 1 to test user 2
   testMessageContent: str = "Testing a message from testUser1 to testUser2"
@@ -639,9 +642,9 @@ def test_Messaging():
      "==============================================="]
 
   # get rid of the test users
-  UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
-  UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
   # get rid of the test message
-  MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
+  assert True == MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
 
 
