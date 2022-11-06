@@ -593,7 +593,7 @@ def test_DisplayListUsers():
   UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
 
   set_keyboard_input(["-1"])
-  DisplayEveryUser(loggedUser=testLoggedUser, collection="TestUsers")
+  DisplayEveryUser(loggedUser=testLoggedUser, userCollection="TestUsers")
   output = get_display_output()
   assert output == ["\nSelect one of the user to send a message\n", "1 - testUser1Epic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
 
