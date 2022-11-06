@@ -592,7 +592,7 @@ def test_DisplayListUsers():
   set_keyboard_input(["-1"])
   DisplayEveryUser(loggedUser=testUser1, collection="TestUsers")
   output = get_display_output()
-  assert output == ["\nSelect one of the user to send a message\n", "1 - testUsername", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
+  assert output == ["\nSelect one of the user to send a message\n", "1 - testUsernameEpic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
 
   # get rid of the dummy users from DB
   UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
