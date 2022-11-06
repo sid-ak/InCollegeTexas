@@ -581,19 +581,23 @@ def test_DisplayListFriends():
 # test the list of all users
 def test_DisplayListUsers():
   # create a couple dummy users
+  testLoggedUser = User(Id='testLoggedUserEpic7', Username='testLoggedUsernameEpic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
   testUser1 = User(Id='testIdEpic7User1', Username='testUser1Epic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
                     University='TestUniversity', Major='major')
   testUser2 = User(Id='testIdEpic7User2', Username='testUser2Epic7', FirstName='TestFirstNameUser2', LastName='TestLastName',
                     University='TestUniversity', Major='major')
   # push to DB
+  UserHelpers.UpdateUser(user=testLoggedUser, collection="TestUsers")
   UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
   UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
 
   set_keyboard_input(["-1"])
-  DisplayEveryUser(loggedUser=testUser1, collection="TestUsers")
+  DisplayEveryUser(loggedUser=testLoggedUser, collection="TestUsers")
   output = get_display_output()
-  assert output == ["\nSelect one of the user to send a message\n", "1 - testUsernameEpic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
+  assert output == ["\nSelect one of the user to send a message\n", "1 - testUser1Epic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
 
-  # get rid of the dummy users from DB
+  # # get rid of the dummy users from DB
+  assert True == UserHelpers.DeleteUserAccount(user=testLoggedUser, collection="TestUsers")
   assert True == UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
   assert True == UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")

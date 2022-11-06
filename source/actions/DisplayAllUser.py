@@ -18,11 +18,11 @@ def DisplayEveryUser(loggedUser: User, collection: str = "Users"):
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
-                isFriends:bool = loggedUser.Friends.get(displayU[optionNo - 1])
 
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(allUser) + 1):
+                    isFriends:bool = loggedUser.Friends.get(displayU[optionNo - 1])
                     if(loggedUser.TierEnum == UserTierEnum.Plus or isFriends):
                         content: str = str(input(f"\nEnter the content for the message to {displayU[optionNo - 1]}:\n\n"))
 
