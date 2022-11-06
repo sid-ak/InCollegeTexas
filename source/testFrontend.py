@@ -588,9 +588,9 @@ def test_DisplayListUsers():
   testUser2 = User(Id='testIdEpic7User2', Username='testUser2Epic7', FirstName='TestFirstNameUser2', LastName='TestLastName',
                     University='TestUniversity', Major='major')
   # push to DB
-  UserHelpers.UpdateUser(user=testLoggedUser, collection="TestUsers")
-  UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
-  UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testLoggedUser, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
 
   set_keyboard_input(["-1"])
   DisplayEveryUser(loggedUser=testLoggedUser, userCollection="TestUsers")
