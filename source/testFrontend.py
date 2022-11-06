@@ -8,12 +8,15 @@ from actions.DisplayPendingRequests import DisplayPendingRequests
 from actions.ShowMyNetwork import ShowMyNetwork
 from helpers.DisplayUsefulLinksHelpers import DisplayUsefulLinksHelpers
 from helpers.ProfileHelpers import ProfileHelpers
+from helpers.FriendHelpers import FriendHelpers
 from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
 from model.User import User
 from model.Job import Job, JobHelpers
 from helpers.JobTitleHelper import JobTitleHelper
+from actions.DisplayAllUser import DisplayEveryUser
+
 
 # Tests below worked on for EPIC 2
 def test_PlayVideo(capfd):
@@ -543,3 +546,58 @@ def test_DisplayJobTitle():
                       ]
 
     JobHelpers.DeleteJob(test_job, collection="testJobs")
+
+
+# EPIC 7 - 10/06/2022 by Amir Aslamov
+# test the list of friends
+def test_DisplayListFriends():
+  # first create 2 test user friends
+  testFriend1 = User(Id='testIdEpic7Friend1', Username='testFriend1', FirstName='TestFirstNameFriend1', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  testFriend2 = User(Id='testIdEpic7Friend2', Username='testFriend2', FirstName='TestFirstNameFriend2', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  UserHelpers.UpdateUser(testFriend1, collection="TestUsers")
+  UserHelpers.UpdateUser(testFriend2, collection="TestUsers")
+  testFriendsUsernameList: list[str] = ["testFriend1", "testFriend2"]
+
+  # now create the test user and assign the above users as its friends
+  testUser = User(Id='testIdEpic7', Username='testUsernameEpic7', FirstName='TestFirstName', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  testFriends: dict[str, bool] = {"testFriend1": True, "testFriend2": True}
+  testUser.Friends = testFriends
+  UserHelpers.UpdateUser(testUser, collection="TestUsers")
+
+  # get the list of test friends
+  testFriendsList: list[User] = FriendHelpers.GetFriends(userNameToFind="testUsernameEpic7", collection="TestUsers")
+  # ensure each of them in the pre-determined list of friend users
+  for friend in testFriendsList:
+    assert friend.Username in testFriendsUsernameList
+    # get rid of the user account in the DB
+    assert True == UserHelpers.DeleteUserAccount(user=friend, collection="TestUsers")
+
+  assert True == UserHelpers.DeleteUserAccount(user=testUser, collection="TestUsers")
+
+
+# test the list of all users
+def test_DisplayListUsers():
+  # create a couple dummy users
+  testLoggedUser = User(Id='testLoggedUserEpic7', Username='testLoggedUsernameEpic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  testUser1 = User(Id='testIdEpic7User1', Username='testUser1Epic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  testUser2 = User(Id='testIdEpic7User2', Username='testUser2Epic7', FirstName='TestFirstNameUser2', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  # push to DB
+  assert True == UserHelpers.UpdateUser(user=testLoggedUser, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
+
+  set_keyboard_input(["-1"])
+  DisplayEveryUser(loggedUser=testLoggedUser, userCollection="TestUsers")
+  output = get_display_output()
+  assert output == ["\nSelect one of the user to send a message\n", "1 - testUser1Epic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
+
+  # # get rid of the dummy users from DB
+  assert True == UserHelpers.DeleteUserAccount(user=testLoggedUser, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")

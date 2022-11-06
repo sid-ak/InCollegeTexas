@@ -22,13 +22,13 @@ def DisplayEveryUser(
 
             try:
                 optionNo: int = MenuHelpers.InputOptionNo()
-                friendUsername: str = otherUsernames[optionNo - 1]
-                isFriends :bool = loggedUser.Friends.get(friendUsername)
-                friendUserId: User = otherUsers[optionNo - 1].Id
 
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(allUsers) + 1):
+                    friendUsername: str = otherUsernames[optionNo - 1]
+                    isFriends: bool = loggedUser.Friends.get(friendUsername)
+                    friendUserId: User = otherUsers[optionNo - 1].Id
                     
                     if (loggedUser.TierEnum == UserTierEnum.Plus or isFriends):
                         messageSent: bool = MessageHelpers.SendMessage(
