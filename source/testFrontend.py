@@ -573,9 +573,9 @@ def test_DisplayListFriends():
   for friend in testFriendsList:
     assert friend.Username in testFriendsUsernameList
     # get rid of the user account in the DB
-    UserHelpers.DeleteUserAccount(user=friend, collection="TestUsers")
+    assert True == UserHelpers.DeleteUserAccount(user=friend, collection="TestUsers")
 
-  UserHelpers.DeleteUserAccount(user=testUser)
+  assert True == UserHelpers.DeleteUserAccount(user=testUser, collection="TestUsers")
 
 
 # test the list of all users
@@ -595,5 +595,5 @@ def test_DisplayListUsers():
   assert output == ["\nSelect one of the user to send a message\n", "1 - testUsernameEpic7", "2 - testUser2Epic7", "\nEnter (-1 to exit current menu): "]
 
   # get rid of the dummy users from DB
-  UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
-  UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
