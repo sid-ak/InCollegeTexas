@@ -56,18 +56,11 @@ def ShowMyNetwork(loggedUser: User = None):
                 
                 option: int = int(input()) - 1
                 if option in range(0, len(friends)):
-                    friend: User = friends[option]
-                    content: str = str(input(f"\nEnter the content for the message to {friend.FirstName}:\n\n"))
                     
-                    messageSent: bool = MessageHelpers.UpdateMessage(Message(
-                        MessageHelpers.CreateMessageId(),
-                        loggedUser.Id,
-                        friend.Id,
-                        content
-                    ))
+                    friendId: User = friends[option].Id
+                    messageSent: bool = MessageHelpers.SendMessage(loggedUser.Id, friendId)
 
-                    if messageSent: print(f"\nMessage sent to {friend.FirstName} successfully.")
-                    else: print("\nMessage was not sent.\n")
+                    if not messageSent: raise Exception()
                 
                 else:
                     print("Invalid input.\n")
