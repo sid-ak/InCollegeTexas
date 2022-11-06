@@ -645,4 +645,3 @@ def test_Messaging():
   MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
 
 
-test_DisplayListUsers()
