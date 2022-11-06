@@ -579,11 +579,11 @@ def test_DisplayListFriends():
     assert True == UserHelpers.DeleteUserAccount(user=friend, collection="TestUsers")
 
   assert True == UserHelpers.DeleteUserAccount(user=testUser, collection="TestUsers")
-  
+
 
 # test the list of all users
 def test_DisplayListUsers():
- # create a couple dummy users
+  # create a couple dummy users
   testLoggedUser = User(Id='testLoggedUserEpic7', Username='testLoggedUsernameEpic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
                     University='TestUniversity', Major='major')
   testUser1 = User(Id='testIdEpic7User1', Username='testUser1Epic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
@@ -592,8 +592,9 @@ def test_DisplayListUsers():
                     University='TestUniversity', Major='major')
   # push to DB
   UserHelpers.UpdateUser(user=testLoggedUser, collection="TestUsers")
-  UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
-  UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testLoggedUser, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testUser1, collection="TestUsers")
+  assert True == UserHelpers.UpdateUser(user=testUser2, collection="TestUsers")
 
   set_keyboard_input(["-1"])
   DisplayEveryUser(loggedUser=testLoggedUser, collection="TestUsers")

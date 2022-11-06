@@ -31,7 +31,22 @@ def ShowInbox(
             if option == -1: break
             if option not in range(0, len(receivedMessages)): break
             else:
-                MessageHelpers.DisplayMessage(receivedMessages[option])
+                message: Message = receivedMessages[option]
+                MessageHelpers.DisplayMessage(message)
+                
+                print("\nEnter 1 to reply to the message or 2 to delete it:")
+                decision: int = MenuHelpers.InputOptionNo()
+                
+                if decision == 1:
+                    if not MessageHelpers.SendMessage(
+                        loggedUser.Id, sender.Id, messageCollection, userCollection):
+                        raise Exception()
+                    break
+                
+                elif decision == 2:
+                    if not MessageHelpers.DeleteMessageById(message.Id): raise Exception()
+                    break
+
 
     except Exception as e:
-        print(f"Inbox could not be displayed.\n{e}")
+        print(f"Something went wrong.\n{e}")
