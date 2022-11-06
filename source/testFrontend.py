@@ -16,6 +16,9 @@ from model.User import User
 from model.Job import Job, JobHelpers
 from helpers.JobTitleHelper import JobTitleHelper
 from actions.DisplayAllUser import DisplayEveryUser
+from helpers.MessageHelpers import MessageHelpers
+from model.Message import Message
+from actions.ShowInbox import ShowInbox
 
 
 # Tests below worked on for EPIC 2
@@ -597,3 +600,46 @@ def test_DisplayListUsers():
   # get rid of the dummy users from DB
   UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
   UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
+
+
+# test the messaging
+def test_Messaging():
+  # create a couple test users
+  testUser1 = User(Id='testIdEpic7User1', Username='testUser1Epic7', FirstName='TestFirstNameUser1', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+  testUser2 = User(Id='testIdEpic7User2', Username='testUser2Epic7', FirstName='TestFirstNameUser2', LastName='TestLastName',
+                    University='TestUniversity', Major='major')
+
+  # now create a message from test user 1 to test user 2
+  testMessageContent: str = "Testing a message from testUser1 to testUser2"
+  testMessage = Message(
+    Id="testMessageEic7", 
+    SenderId=testUser1.Id,
+    ReceiverId=testUser2.Id,
+    Content=testMessageContent)
+
+  MessageHelpers.UpdateMessage(message=testMessage, collection="testMessages")
+
+  # test the inbox
+  set_keyboard_input(["-1"])
+  ShowInbox(loggedUser=testUser2, userCollection="TestUsers", messageCollection="testMessages")
+  output = get_display_output()
+
+  assert output == ["\n1. From: TestFirstNameUser1 TestLastName (Unread)", 
+  "\nEnter a message number to display it:", "\nEnter (-1 to exit current menu): ",
+  ]
+
+  # test the message
+  set_keyboard_input([])
+  MessageHelpers.DisplayMessage(message=testMessage, userCollection="TestUsers", messageCollection="testMessages")
+  output = get_display_output()
+
+  assert output == ["===============================================", 
+    "\nFrom: TestFirstNameUser1 TestLastName\nTo: TestFirstNameUser2 TestLastName\n\nContent:\nTesting a message from testUser1 to testUser2\n",
+     "==============================================="]
+
+  # get rid of the test users
+  UserHelpers.DeleteUserAccount(user=testUser1, collection="TestUsers")
+  UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
+  # get rid of the test message
+  MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
