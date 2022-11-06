@@ -1,3 +1,4 @@
+import datetime
 from helpers.UserHelpers import UserHelpers
 from model.Message import Message
 from firebaseSetup.Firebase import database
@@ -25,10 +26,7 @@ class MessageHelpers:
     # Creates a message id which is essentially its index.
     # Example: If total messages => 4 then messageId => 5.
     def CreateMessageId(collection = "Messages") -> int:
-        allMessages: list[Message] = MessageHelpers.GetAllMessages(collection)
-        if allMessages == None: return 0
-
-        return len(allMessages)
+        return int(datetime.datetime.now().timestamp())
 
 
     # Gets a PyreResponse of all messages from the DB and returns
@@ -73,6 +71,7 @@ class MessageHelpers:
                 return False
             
             database.child(collection).child(messageId).remove()
+            print("Message deleted successfully.")
             return True
 
         except:
@@ -140,3 +139,44 @@ class MessageHelpers:
         
         message.IsRead = True
         MessageHelpers.UpdateMessage(message, messageCollection)
+
+
+    # Sends a message using the specified sender and receiver.
+    def SendMessage(
+        senderId: str,
+        receiverId: str,
+        messageCollection: str = "Messages",
+        userCollection: str = "Users") -> bool:
+
+        try:
+            
+            # Sanity Checks
+            if UserHelpers.UserExists(senderId, userCollection) == False:
+                raise Exception("\nThe specified sender for the message does not exist."
+                    + f"\n Sender ID: {senderId}")
+            
+            if UserHelpers.UserExists(receiverId, userCollection) == False:
+                raise Exception("\nThe specified receiver for the message does not exist."
+                    + f"\n Receiver ID: {receiverId}")
+
+            receiverName: User = UserHelpers.GetUserById(receiverId, userCollection).FirstName
+            
+            content: str = str(
+                input(f"\nEnter the content for the message to {receiverName}:\n\n"))
+            
+            messageSent: bool = MessageHelpers.UpdateMessage(Message(
+                        MessageHelpers.CreateMessageId(),
+                        senderId,
+                        receiverId,
+                        content),
+                        messageCollection)
+            
+            if not messageSent: raise Exception()
+
+            if messageSent: print(f"\nMessage sent to {receiverName} successfully.")
+
+            return messageSent
+            
+        except Exception as e:
+            print(f"\nException occurred. Message could not be sent.\n{e}")
+            return False
