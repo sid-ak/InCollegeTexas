@@ -1,0 +1,357 @@
+{
+  "AppliedJobs": {
+    "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754af77dbc88ea7ca8cd02e0a276b33ea1b2461ff12753199f39148ca217d684965": {
+      "GoodFitReasoning": "Experience with data management",
+      "GraduationDate": "05/10/2023",
+      "JobEmployer": "IBM",
+      "JobId": "af77dbc88ea7ca8cd02e0a276b33ea1b2461ff12753199f39148ca217d684965",
+      "JobTitle": "Data Analyst",
+      "StartDate": "08/10/2023",
+      "UserId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754"
+    },
+    "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce1639235a78d2067cdabedf2793ae01dd3086dd165958e0e0d649ba5b44512f65b87": {
+      "GoodFitReasoning": "I have good skills in C# web development",
+      "GraduationDate": "09/06/2023",
+      "JobEmployer": "Microsoft",
+      "JobId": "9235a78d2067cdabedf2793ae01dd3086dd165958e0e0d649ba5b44512f65b87",
+      "JobTitle": ".NET Developer",
+      "StartDate": "09/06/2023",
+      "UserId": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163"
+    }
+  },
+  "Jobs": {
+    "af77dbc88ea7ca8cd02e0a276b33ea1b2461ff12753199f39148ca217d684965": {
+      "Description": "Analyze Data",
+      "Employer": "IBM",
+      "Id": "af77dbc88ea7ca8cd02e0a276b33ea1b2461ff12753199f39148ca217d684965",
+      "Location": "Miami",
+      "Poster": {
+        "EmailEnabled": "True",
+        "FirstName": "Aoun",
+        "Id": "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b171",
+        "LanguagePreference": "LanguageEnum.English",
+        "LastName": "Ashraf",
+        "Major": "CS",
+        "Profile": {
+          "About": "",
+          "Id": "",
+          "Major": "",
+          "Title": "",
+          "University": ""
+        },
+        "SmsEnabled": "True",
+        "TargetedAdvertEnabled": "True",
+        "University": "USF",
+        "Username": "Aoun"
+      },
+      "Salary": "80000",
+      "Title": "Data Analyst"
+    },
+    "d9112fc6b197e833e545e742657eec39432912cbadb40101c0bb77e19cb03e68": {
+      "Description": "Hello world!",
+      "Employer": "TestEmployer",
+      "Id": "d9112fc6b197e833e545e742657eec39432912cbadb40101c0bb77e19cb03e68",
+      "Location": "world!",
+      "Poster": {
+        "EmailEnabled": "University of South Florida",
+        "FirstName": "Amir",
+        "Id": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163",
+        "LanguagePreference": "LanguageEnum.English",
+        "LastName": "Aslamov",
+        "Major": "",
+        "SmsEnabled": "Computer Science",
+        "TargetedAdvertEnabled": "True",
+        "University": "",
+        "Username": "aslfarmir"
+      },
+      "Salary": "very hight indeed",
+      "Title": "TestTitle"
+    }
+  },
+  "Messages": {
+    "1667760165": {
+      "Content": "Test",
+      "Id": "1667760165",
+      "IsRead": "True",
+      "ReceiverId": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6",
+      "SenderId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46"
+    },
+    "1667760362": {
+      "Content": "Hey Osama, what's up?",
+      "Id": "1667760362",
+      "IsRead": "False",
+      "ReceiverId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754",
+      "SenderId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46"
+    }
+  },
+  "SavedJobs": {
+    "0069a2515dce8e9f00453d053fed6ede7b0e61bbcc0cc199108f2cecf231caea": {
+      "Id": "0069a2515dce8e9f00453d053fed6ede7b0e61bbcc0cc199108f2cecf231caea",
+      "JobId": "b36ee15aa0f2967323b1d0d5bee26d1fefb89f51e4239ff98e50c63ef14749b8",
+      "UserId": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163"
+    },
+    "84a2f71df8055014386f58ce81c280a89b9af5cd59a441e92d903ef31068f97b": {
+      "Id": "84a2f71df8055014386f58ce81c280a89b9af5cd59a441e92d903ef31068f97b",
+      "JobId": "063d8b4f3441ba3ace9e039ceb001cb5ec029cc6dde11e29569fb79299759060",
+      "UserId": "90a867d3fe6b43032cabd3a753866812619896804bbe89e436fa1745b117ccb1"
+    },
+    "87f810c314a3b4fb42361050cfe28d99573a55f6933525feb053cc30a916832a": {
+      "Id": "87f810c314a3b4fb42361050cfe28d99573a55f6933525feb053cc30a916832a",
+      "JobId": "c8f061b18ec90412c070ad7efab17f6f62c179970418af6210ea62aa1c072d2b",
+      "UserId": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163"
+    },
+    "9c805a194716a692a72d651954a245dbedaa40bfb4a7bb317edf3028a20b2fba": {
+      "Id": "9c805a194716a692a72d651954a245dbedaa40bfb4a7bb317edf3028a20b2fba",
+      "JobId": "d9112fc6b197e833e545e742657eec39432912cbadb40101c0bb77e19cb03e68",
+      "UserId": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163"
+    }
+  },
+  "Users": {
+    "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754": {
+      "EmailEnabled": "True",
+      "FirstName": "Osama",
+      "Friends": {
+        "aslfarmir": true
+      },
+      "Id": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Basit",
+      "Major": "Computer Science",
+      "Profile": {
+        "About": "",
+        "EducationList": [
+          {
+            "Degree": "Gcse A-Levels",
+            "SchoolName": "The City School",
+            "YearsAttended": 2
+          }
+        ],
+        "ExperienceList": [
+          {
+            "DateEnded": "N/A",
+            "DateStarted": "08/22/2022",
+            "Description": "software engineering",
+            "Employer": "Tenex",
+            "Location": "Tampa",
+            "Title": "Software Engineer Intern"
+          }
+        ],
+        "Id": "",
+        "Major": "Cs",
+        "Title": "Engineer",
+        "University": "Usf"
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "University": "USF",
+      "Username": "obasit"
+    },
+    "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46": {
+      "EmailEnabled": "True",
+      "FirstName": "Sidharth",
+      "Friends": {
+        "Aoun": true,
+        "Sid2": true
+      },
+      "Id": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "LanguagePreference": "Spanish",
+      "LastName": "Anandkumar",
+      "Major": "",
+      "Profile": {
+        "About": "Student at USF and SE Intern at Siemens.",
+        "EducationList": [
+          {
+            "Degree": "Ce",
+            "SchoolName": "Usf",
+            "YearsAttended": 4
+          },
+          {
+            "Degree": "High School Diploma",
+            "SchoolName": "Giis",
+            "YearsAttended": 4
+          }
+        ],
+        "ExperienceList": [
+          {
+            "DateEnded": "12/25/2022",
+            "DateStarted": "10/25/2018",
+            "Description": "Worked on testing a WPF app and used REST/gRPC APIs.",
+            "Employer": "Siemens",
+            "Location": "Chicago, Il",
+            "Title": "Software Engineer Intern"
+          },
+          {
+            "DateEnded": "10/25/2022",
+            "DateStarted": "10/25/2018",
+            "Description": "Full stack web dev.",
+            "Employer": "Affordit",
+            "Location": "Tampa, Fl",
+            "Title": "Software Engineer Intern"
+          }
+        ],
+        "Id": "",
+        "Major": "Computer Engineering",
+        "Title": "Student at USF",
+        "University": "University Of South Florida"
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Plus",
+      "University": "",
+      "Username": "Sid"
+    },
+    "9516e7a745aeb68db9f1a9fce02cefd22b265d9e238f4bdfaccfba690ba94512": {
+      "EmailEnabled": "True",
+      "FirstName": "Prerna",
+      "Friends": {
+        "Anshika": true
+      },
+      "Id": "9516e7a745aeb68db9f1a9fce02cefd22b265d9e238f4bdfaccfba690ba94512",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Yarehalli",
+      "Major": "CS",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Plus",
+      "University": "USF",
+      "Username": "Prerna"
+    },
+    "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163": {
+      "EmailEnabled": "University of South Florida",
+      "FirstName": "Amir",
+      "Friends": {
+        "obasit": true
+      },
+      "Id": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Aslamov",
+      "Major": "",
+      "Profile": {
+        "About": "CS Student",
+        "EducationList": [
+          {
+            "Degree": "Bachelors",
+            "SchoolName": "Usf",
+            "YearsAttended": 3
+          },
+          {
+            "Degree": "Diploma",
+            "SchoolName": "College",
+            "YearsAttended": 3
+          }
+        ],
+        "ExperienceList": [
+          {
+            "DateEnded": "n/a",
+            "DateStarted": "05/05/2023",
+            "Description": "Software Engineering",
+            "Employer": "Hashicorp Inc.",
+            "Location": "Remote",
+            "Title": "Software Engineer"
+          },
+          {
+            "DateEnded": "n/a",
+            "DateStarted": "n/a",
+            "Description": "dw",
+            "Employer": "Honors College",
+            "Location": "N/A",
+            "Title": "Software Developer"
+          },
+          {
+            "DateEnded": "daw",
+            "DateStarted": "dwa",
+            "Description": "daw",
+            "Employer": "Usf College Of Engineering",
+            "Location": "Ddaw",
+            "Title": "Undergraduate Teaching Assistant"
+          }
+        ],
+        "Id": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163",
+        "Major": "Computer Science",
+        "Title": "Software Engineer",
+        "University": "Usf"
+      },
+      "SmsEnabled": "Computer Science",
+      "TargetedAdvertEnabled": "True",
+      "University": "",
+      "Username": "aslfarmir"
+    },
+    "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b171": {
+      "EmailEnabled": "True",
+      "FirstName": "Aoun",
+      "Friends": {
+        "Anshika": true,
+        "Sid": true
+      },
+      "Id": "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b171",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Ashraf",
+      "Major": "CS",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Plus",
+      "University": "USF",
+      "Username": "Aoun"
+    },
+    "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6": {
+      "EmailEnabled": "True",
+      "FirstName": "Sid",
+      "Friends": {
+        "Sid": true
+      },
+      "Id": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Ak",
+      "Major": "Computer Engineering",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Standard",
+      "University": "University of South Florida",
+      "Username": "Sid2"
+    },
+    "fff49b9a9432a5bb7badfcaa755d9d423caa5af33a4e18f5c11af4dc5074f486": {
+      "EmailEnabled": "True",
+      "FirstName": "Anshika",
+      "Friends": {
+        "Prerna": true
+      },
+      "Id": "fff49b9a9432a5bb7badfcaa755d9d423caa5af33a4e18f5c11af4dc5074f486",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Bhowmick",
+      "Major": "Computer Science",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Standard",
+      "University": "University of South Florida",
+      "Username": "Anshika"
+    }
+  }
+}
