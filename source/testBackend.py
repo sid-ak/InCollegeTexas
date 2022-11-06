@@ -17,6 +17,8 @@ from model.Profile import Education, Experience, Profile
 from model.Job import Job, JobHelpers
 from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
+from model.Message import Message, MessageHydrator
+from helpers.MessageHelpers import MessageHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -556,3 +558,42 @@ def test_ApplyForJob():
 
     #delete the applied job node
     assert True == AppliedJobHelpers.DeleteAppliedJob(to_apply_job, "TestAppliedJobs")
+
+# EPIC 7: Testing receiving and sending message backend functionality
+def test_SendMessage():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
+    UserHelpers.UpdateUser(user1, "testUsers")
+    UserHelpers.UpdateUser(user2, "testUsers")
+    msgId = 1
+    test_message = Message(Id=msgId, SenderId=user1.Id, ReceiverId=user2.Id , Content="Hello from the other side!")
+    MessageHelpers.UpdateMessage(message=test_message, collection="testMessages", userCollection="testUsers")
+
+    # check if message sent by sender is same as message received by receiver in DB
+    retrieved_message = MessageHelpers.GetMessageById(msgId, collection="testMessages")
+    assert  test_message == retrieved_message
+    # DB clean up
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
+    assert True == MessageHelpers.DeleteMessageById(msgId, collection="testMessages")
+
+# EPIC7: tests the GetAllReceivedMessages function
+def test_GetReceivedMessages():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
+    UserHelpers.UpdateUser(user1, "testUsers")
+    UserHelpers.UpdateUser(user2, "testUsers")
+    sent_messages = []
+    for i in range(2):
+        test_message = Message(Id=i+1, SenderId=user1.Id, ReceiverId=user2.Id, Content=f"Hello from the other side!{i}")
+        MessageHelpers.UpdateMessage(message=test_message, collection="testMessages", userCollection="testUsers")
+        sent_messages.append(test_message)
+
+    received_messages = MessageHelpers.GetAllReceivedMessages(user2.Id, messageCollection="testMessages")
+    # check if messages sent by sender are same as messages received by receiver in DB
+    assert sent_messages == received_messages
+    # DB clean up
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
+    for i in range(2):
+        assert True == MessageHelpers.DeleteMessageById(i+1, collection="testMessages")

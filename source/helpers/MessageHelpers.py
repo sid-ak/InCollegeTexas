@@ -80,11 +80,11 @@ class MessageHelpers:
 
     # Creates or updates the specified message in the DB.
     # Returns true if update was successful else false.
-    def UpdateMessage(message: Message, collection: str = "Messages") -> bool:
+    def UpdateMessage(message: Message, collection: str = "Messages", userCollection = "Users") -> bool:
         try:
 
             # Sanity check.
-            receiverExists: bool = UserHelpers.UserExists(message.ReceiverId)
+            receiverExists: bool = UserHelpers.UserExists(message.ReceiverId, userCollection)
             if not receiverExists:
                 print("\nCould not send a message to the specified user because"
                     + "the user no longer exists.")

@@ -155,7 +155,7 @@ class UserHelpers:
 
 
     # Checks if the specified user exists in the DB using the provided ID.
-    def UserExists(userId: str, collection = "Users") -> bool:
+    def UserExists(userId: str, collection: str = "Users") -> bool:
         return False if UserHelpers.GetUserById(
             userId, collection) == None else True
 
