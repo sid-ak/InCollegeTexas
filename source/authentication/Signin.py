@@ -16,7 +16,7 @@ from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
 from actions.DisplayAllUser import DisplayEveryUser
 from helpers.NotificationHelpers import NotificationHelpers
-
+from helpers.JobNotificationHelpers import JobNotificationHelpers
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
@@ -55,8 +55,14 @@ def DisplayLoginMenu(loggedUser: User):
             terminateSession: bool = False
 
             while True:
+                
+                # TODO: Call parent notification helper once all notifications are implemented. 
+
                 # Notify if the user as unread messages.
                 NotificationHelpers.NotifyIfUnreadMessages(loggedUser)
+
+                # Notify if the user has not applied for a job in a while.
+                JobNotificationHelpers.NotifyIfNotAppliedJob(loggedUser)
                 
                 print("\nPlease enter one of the following options to continue:\n")
                 options = [
