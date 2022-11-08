@@ -14,9 +14,11 @@ class AppliedJobHelpers:
             'JobEmployer': str(appliedJob.JobEmployer),
             'GraduationDate': str(appliedJob.GraduationDate),
             'StartDate': str(appliedJob.StartDate),
-            'GoodFitReasoning': str(appliedJob.GoodFitReasoning)
+            'GoodFitReasoning': str(appliedJob.GoodFitReasoning),
+            '_CreatedTimestamp': str(appliedJob._CreatedTimestamp)
         }
-    
+
+
     # queries all applid jobs nodes from the DB
     def GetAllAppliedJobs(collection: str = "AppliedJobs") -> list[AppliedJob]:
         try:
