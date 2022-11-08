@@ -65,7 +65,7 @@ class AppliedJobHydrator:
     # Handles conversion to a certain type.
     def Cast(pyreValue, propType):
         if propType == "datetime":
-            datetimeValue: datetime = datetime(pyreValue)
+            datetimeValue: datetime = datetime.fromisoformat(pyreValue)
             return datetimeValue
 
         return pyreValue
@@ -76,5 +76,5 @@ class AppliedJobHydrator:
         propType: str = AppliedJobHydrator._appliedJobAttributes.get(prop)
 
         if propType == "str": return ""
-        if propType == "datetime": return datetime.now()
+        if propType == "datetime": return datetime.min
         else: return None
