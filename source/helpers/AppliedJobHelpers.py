@@ -1,3 +1,4 @@
+from datetime import datetime
 from model.AppliedJob import AppliedJob
 from firebaseSetup.Firebase import database
 from model.User import User
@@ -96,3 +97,35 @@ class AppliedJobHelpers:
         except Exception as e:
             print(f"\nFailure! Could not delete the instance of applied job for some reason.{e}\n")
             return False
+
+
+    # Gets the job the user last applied to.
+    def GetLastAppliedJob(loggedUser: User, collection: str = "AppliedJobs") -> AppliedJob:
+
+        try:
+
+            # Get all the applied jobs of the user specified.
+            appliedJobs: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(
+                loggedUser, collection
+            )
+            if appliedJobs == None or appliedJobs == []: return None
+
+            # Get the created timestamps of the applied jobs and sort them.
+            appliedJobDates: list[datetime] = list(map(
+                lambda appliedJob: appliedJob._CreatedTimestamp, appliedJobs
+            ))
+            appliedJobDates.sort()
+
+            # Access the last element of the sorted list of timestamps to get the latest.
+            lastAppliedJobDate: datetime = appliedJobDates[-1]
+
+            # Get the applied job that matches the last applied job date.
+            lastAppliedJob: AppliedJob = next(filter(
+                lambda appliedJob: appliedJob._CreatedTimestamp == lastAppliedJobDate, appliedJobs
+            ), None)
+
+            return lastAppliedJob
+
+        except Exception as e:
+            print(f"Could not get last applied job user due to an exception.\n{e}")
+            return None
