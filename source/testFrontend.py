@@ -13,7 +13,8 @@ from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
 from model.User import User
-from model.Job import Job, JobHelpers
+from model.Job import Job
+from helpers.JobHelpers import JobHelpers
 from helpers.JobTitleHelper import JobTitleHelper
 from actions.DisplayAllUser import DisplayEveryUser
 from helpers.MessageHelpers import MessageHelpers

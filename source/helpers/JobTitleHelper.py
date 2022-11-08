@@ -1,5 +1,5 @@
-from helpers.JobsHelpers import JobsHelpers
-from model.Job import Job, JobHelpers
+from helpers.JobHelpers import JobHelpers
+from model.Job import Job
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
 from actions.ApplyForJob import ApplyForJob
@@ -112,19 +112,19 @@ class JobTitleHelper:
                 if optionNo == -1: break
 
                 elif(optionNo == 1):
-                    filteredJobs = JobsHelpers.GetAppliedJobs(
+                    filteredJobs = JobHelpers.GetAppliedJobs(
                         loggedUser, collectionApplied)
                     if filteredJobs != []:
                         print("\nApplied jobs found.")
 
                 elif(optionNo == 2):
-                    filteredJobs = JobsHelpers.GetUnappliedJobs(
+                    filteredJobs = JobHelpers.GetUnappliedJobs(
                         loggedUser, collectionApplied)
                     if filteredJobs != []:
                         print("\nUnapplied jobs found.")
 
                 elif(optionNo == 3):
-                    filteredJobs = JobsHelpers.GetSavedJobs(
+                    filteredJobs = JobHelpers.GetSavedJobs(
                         loggedUser, collectionSaved)
                     if filteredJobs != []:
                         print("\nSaved jobs found.")

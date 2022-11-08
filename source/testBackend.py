@@ -4,20 +4,18 @@ import sys
 from firebaseSetup.Firebase import database
 from authentication.Signin import LoginUser
 from model.User import User
-from model.Job import Job, JobHelpers
+from model.Job import Job
+from helpers.JobHelpers import JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
-from actions.ApplyForJob import ApplyForJob
-from actions.SaveJob import SaveJob
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.SavedJobHelpers import SavedJobHelpers
 from model.Profile import Education, Experience, Profile
-from model.Job import Job, JobHelpers
 from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
-from model.Message import Message, MessageHydrator
+from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir

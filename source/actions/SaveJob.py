@@ -1,7 +1,7 @@
 from model.SavedJob import SavedJob
 from model.User import User
 from model.Job import Job
-from helpers.JobsHelpers import JobsHelpers
+from helpers.JobHelpers import JobHelpers
 from helpers.SavedJobHelpers import SavedJobHelpers
 
 
@@ -9,7 +9,7 @@ from helpers.SavedJobHelpers import SavedJobHelpers
 def SaveJob(loggedUser: User, selectedJob: Job, collection: str = "SavedJobs") -> bool:
     try:
         # first check if the user already saved the job
-        if JobsHelpers.HelpFindIfSaved(loggedUser=loggedUser, jobInterested=selectedJob):
+        if JobHelpers.HelpFindIfSaved(loggedUser=loggedUser, jobInterested=selectedJob):
             print("\nError! You have already saved this job\n")
             return False
         

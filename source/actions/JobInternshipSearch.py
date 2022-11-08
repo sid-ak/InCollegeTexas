@@ -1,5 +1,6 @@
-from model.Job import Job, JobHelpers
+from model.Job import Job
 from model.User import User
+from helpers.JobHelpers import JobHelpers
 from helpers.MenuHelpers import MenuHelpers
 from helpers.JobTitleHelper import JobTitleHelper
 from helpers.NotificationHelpers import NotificationHelpers
