@@ -62,4 +62,4 @@ def MakeJob(jobPoster: User) -> Job:
         salary
     )
 
-    return Job(id, title, employer, desc, loc, salary, jobPoster)
+    return Job(id, title, employer, desc, loc, salary, jobPoster.Id)

@@ -1,4 +1,5 @@
 from helpers.JobHelpers import JobHelpers
+from helpers.UserHelpers import UserHelpers
 from model.Job import Job
 from model.User import User
 from helpers.MenuHelpers import MenuHelpers
@@ -11,7 +12,7 @@ from actions.UnsaveJob import UnsaveJob
 class JobTitleHelper:
 
     #Gives an option to a logged in user to either filter the jobs or view them all
-    def DisplayJobTitle(loggedUser: User, collection: str = "Jobs"):
+    def DisplayJobTitle(loggedUser: User, jobCollection: str = "Jobs", userCollection: str = "Users"):
         while True:
             print("\nPlease select if you want to filter the Job:\n")
             MenuHelpers.DisplayOptions(["Yes", "No"])
@@ -26,7 +27,7 @@ class JobTitleHelper:
                 
                 elif optionNo == 2:
                     JobTitleHelper.DisplayJobs(
-                        JobHelpers.GetAllJobs(collection), loggedUser)
+                        JobHelpers.GetAllJobs(jobCollection), loggedUser, userCollection)
 
                 else:
                     print("Invalid entry! Please try again.\n")
@@ -36,23 +37,24 @@ class JobTitleHelper:
 
     
     #Print the details of the job after the logged in user has selected the job
-    def PrintDetails(loggedUser: User, job: Job):
-        print(f"Job Title: {job.Title}")
+    def PrintDetails(loggedUser: User, job: Job, collection: str = "Users"):
+        print(f"\nJob Title: {job.Title}")
         print(f"Job Description: {job.Description}")
         print(f"Employer: {job.Employer}")
         print(f"Job Location: {job.Location}")
-        print(f"Job Salary: {job.Salary}")
-        JobTitleHelper.SelectJobOptions(loggedUser=loggedUser, job=job)
+        print(f"Job Salary: {job.Salary}\n")
+        JobTitleHelper.SelectJobOptions(loggedUser=loggedUser, job=job, collection=collection)
     
     
     #This Function gives the option to either apply or to save the job
-    def SelectJobOptions(loggedUser: User, job: Job):
+    def SelectJobOptions(loggedUser: User, job: Job, collection: str = "Users"):
         while True:
 
             print("\nPlease select one of the following options:\n")
             optionList = ["Apply for the job", "Save the job", "Unsave the job"]
 
-            flag: bool = job.Poster["Username"] == loggedUser.Username
+            poster: User = UserHelpers.GetUserById(job.PosterId, collection) 
+            flag: bool = poster.Username == loggedUser.Username
             if flag:
                 optionList.append("Delete job")
 
@@ -142,7 +144,7 @@ class JobTitleHelper:
 
     
     # Helper method to display the given list of jobs.
-    def DisplayJobs(jobList: list[Job], loggedUser: User):
+    def DisplayJobs(jobList: list[Job], loggedUser: User, collection = "Users"):
         try:
             while True:
                 jobTitleList: list[str] = list(map(lambda job: job.Title, jobList))
@@ -154,7 +156,7 @@ class JobTitleHelper:
                 if optionNo == -1: break
 
                 elif optionNo in range(1, len(jobTitleList) + 1):
-                    JobTitleHelper.PrintDetails(loggedUser, jobList[optionNo - 1])
+                    JobTitleHelper.PrintDetails(loggedUser, jobList[optionNo - 1], collection)
 
                 else: print("Invalid entry! Please try again.\n")
 

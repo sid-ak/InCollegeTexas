@@ -22,7 +22,7 @@ class JobHelpers:
             'Description': str(job.Description),
             'Location': str(job.Location),
             'Salary': str(job.Salary),
-            'Poster': UserHelpers.UserToDict(job.Poster)
+            'PosterId': str(job.PosterId)
         }
 
 
@@ -113,7 +113,7 @@ class JobHelpers:
     
         # helps find if the user did not post the job provided
     def HelpFindUserPosted(loggedUser: User, jobInterested: Job) -> bool:
-        return loggedUser.Id == jobInterested.Poster["Id"]
+        return loggedUser.Id == jobInterested.PosterId
 
 
     # helps find if the user already applied for the job provided

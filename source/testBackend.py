@@ -145,7 +145,7 @@ def test_NewUserEnglishSet():
 def test_CreateJob():
     poster = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
     job_id = JobHelpers.CreateJobId("Test Software Engineer", "Aramark", "coding", "Atlanta", "60000")
-    first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster)
+    first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster.Id)
     
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
     
@@ -522,7 +522,7 @@ def test_DeleteJob():
     #create a job
     poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
-    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster.Id)
     
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
 
