@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime
 
 # A Job entity.
 @dataclass
@@ -10,6 +11,7 @@ class Job:
     Location: str
     Salary: str
     PosterId: str
+    _CreatedTimestamp: datetime = datetime.now()
 
 
     # Hydrates a Job entity using a pyrebase response value and returns it.
@@ -21,7 +23,8 @@ class Job:
                 Description = JobHydrator.HydrateProp(job, "Description"),
                 Location = JobHydrator.HydrateProp(job, "Location"),
                 Salary = JobHydrator.HydrateProp(job, "Salary"),
-                PosterId = JobHydrator.HydrateProp(job, "PosterId")
+                PosterId = JobHydrator.HydrateProp(job, "PosterId"),
+                _CreatedTimestamp = JobHydrator.HydrateProp(job, "_CreatedTimestamp")
             )
 
 
@@ -36,7 +39,8 @@ class JobHydrator:
         "Description": "str",
         "Location": "str",
         "Salary": "str",
-        "PosterId": "str"
+        "PosterId": "str",
+        "_CreatedTimestamp": "datetime"
     }
 
 
@@ -45,10 +49,12 @@ class JobHydrator:
         if prop not in JobHydrator._jobAttributes.keys():
             raise Exception(f"Property {prop} not defined for entity: Job")
         
+        propType: str = JobHydrator._jobAttributes.get(prop)
         value = None
         
         try:
-            value = job.val()[prop]
+            pyreValue = job.val()[prop]
+            value = JobHydrator.Cast(pyreValue, propType)
         except:
             value = JobHydrator.GetDefaultValue(prop)
         
@@ -57,9 +63,19 @@ class JobHydrator:
         return value
 
 
+    # Handles conversion to a certain type.
+    def Cast(pyreValue, propType):
+        if propType == "datetime":
+            datetimeValue: datetime = datetime.fromisoformat(pyreValue)
+            return datetimeValue
+
+        return pyreValue
+
+        
     # Gets the default value for a property on the Job entity based on its type.
     def GetDefaultValue(prop: str):
         propType: str = JobHydrator._jobAttributes.get(prop)
 
         if propType == "str": return ""
+        if propType == "datetime": return datetime.min
         else: return None

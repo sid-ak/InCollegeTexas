@@ -4,10 +4,9 @@ from model.Job import Job
 from model.User import User
 from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
-from helpers.UserHelpers import UserHelpers
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.SavedJobHelpers import SavedJobHelpers
-
+from datetime import datetime
 
 class JobHelpers:
 
@@ -22,7 +21,8 @@ class JobHelpers:
             'Description': str(job.Description),
             'Location': str(job.Location),
             'Salary': str(job.Salary),
-            'PosterId': str(job.PosterId)
+            'PosterId': str(job.PosterId),
+            '_CreatedTimestamp': str(job._CreatedTimestamp)
         }
 
 
@@ -242,3 +242,21 @@ class JobHelpers:
 
         except:
             print(f"Could not get any Saved job by the user: {loggedUser.Username}")
+
+
+    # Gets a list of all the jobs that have been posted after the user last logged in.
+    def GetNewJobs(loggedUser: User, collection = "Jobs") -> list[Job]:
+        try:
+            lastLogin: datetime = loggedUser._LastLoginTimestamp
+            allJobs: list[Job] = JobHelpers.GetAllJobs(collection)
+            if allJobs == None or allJobs == []: return []
+            
+            latestJobs: list[Job] = list(filter(lambda job:
+                job._CreatedTimestamp > lastLogin and job.PosterId != loggedUser.Id, allJobs))
+            
+            if latestJobs == None or latestJobs == []: return []
+
+            return latestJobs
+
+        except Exception as e:
+            print(f"\nException occurred while getting new jobs.\n{e}\n")
