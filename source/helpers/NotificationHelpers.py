@@ -57,4 +57,4 @@ class NotificationHelpers:
         if unreadMessages == None or unreadMessages == []: return
         
         unreadMessagesCount: int = len(unreadMessages)
-        print(f"\nNotifications:\nYou have {unreadMessagesCount} new unread message(s).\n")
+        print(f"\nNotifications:\nYou have {unreadMessagesCount} message(s) waiting for you.\n")
