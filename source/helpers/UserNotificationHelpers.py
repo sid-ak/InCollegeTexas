@@ -13,3 +13,9 @@ class UserNotificationHelpers:
     def NotifyIfProfileNotCreated(loggedUser: User):
         if ProfileHelpers.ProfileExists(loggedUser) == False:
             print("\nDon't forget to create a profile")
+
+    # Tells the user how many jobs they have applied to
+    def NotifyAppliedJobsCount(loggedUser: User):
+        JobCount = len(AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser))
+        message = "\nYou have currently applied for {}".format(JobCount)
+        print(message + " jobs." if JobCount != 1 else message + " job.") 

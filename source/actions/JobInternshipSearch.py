@@ -4,10 +4,14 @@ from helpers.MenuHelpers import MenuHelpers
 from helpers.JobTitleHelper import JobTitleHelper
 from helpers.NotificationHelpers import NotificationHelpers
 from actions.DeleteSavedJobIfDeleted import DeleteSavedJobIfDeleted
+from helpers.UserNotificationHelpers import UserNotificationHelpers
 
 
 # Allows a logged in user to create a job posting or view all the jobs.
 def FindJobInternshipAction(loggedUser: User):
+    # tell the user how many jobs they have applied to
+    UserNotificationHelpers.NotifyAppliedJobsCount(loggedUser)
+
     # first we notify the user if a job or jobs they applied for has or have been deleted from the DB
     NotificationHelpers.NotifyIfAppliedJobsDeleted(loggedUser=loggedUser)
     # now we check if a job or jobs they saved has or have been deleted from the DB
