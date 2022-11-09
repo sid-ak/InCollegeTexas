@@ -58,6 +58,9 @@ def DisplayLoginMenu(loggedUser: User):
                 
                 # TODO: Call parent notification helper once all notifications are implemented. 
 
+                # Notify if user has not created a profile
+                NotificationHelpers.NotifyIfProfileNotCreated(loggedUser)
+
                 # Notify if the user as unread messages.
                 NotificationHelpers.NotifyIfUnreadMessages(loggedUser)
 
