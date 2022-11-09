@@ -63,6 +63,12 @@ def DisplayLoginMenu(loggedUser: User):
 
                 # Notify if the user has not applied for a job in a while.
                 JobNotificationHelpers.NotifyIfNotAppliedJob(loggedUser)
+
+                # Notify if new jobs have been posted since the user last logged in.
+                JobNotificationHelpers.NotifyIfNewJobsPosted(loggedUser)
+                
+                # Update the last time the user logged in after all notifications are displayed.
+                UserHelpers.UpdateLastLogin(loggedUser)
                 
                 print("\nPlease enter one of the following options to continue:\n")
                 options = [
