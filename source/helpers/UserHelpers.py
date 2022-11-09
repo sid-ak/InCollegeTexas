@@ -3,6 +3,8 @@ from model.User import User
 from firebaseSetup.Firebase import database
 import hashlib
 from helpers.ProfileHelpers import ProfileHelpers
+from datetime import datetime
+
 
 class UserHelpers:
     # The maximum of User entities that can be imported into Firebase.
@@ -24,7 +26,8 @@ class UserHelpers:
             'University': str(user.University),
             'Major': str(user.Major),
             'Profile': Profile.ProfileToDict(user.Profile),
-            'TierEnum': str(user.TierEnum)
+            'TierEnum': str(user.TierEnum),
+            '_LastLoginTimestamp': str(user._LastLoginTimestamp)
         }
 
 
@@ -159,4 +162,12 @@ class UserHelpers:
         return False if UserHelpers.GetUserById(
             userId, collection) == None else True
 
-            
+
+    # Updates the user's last log in timestamp.
+    def UpdateLastLogin(loggedUser: User, collection = "Users"):
+        try:
+            loggedUser._LastLoginTimestamp = datetime.now()
+            UserHelpers.UpdateUser(loggedUser, collection)
+        
+        except Exception as e:
+            print(f"\nException encountered while updating user's last log in timestamp.\n{e}\n")
