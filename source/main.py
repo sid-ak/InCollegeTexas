@@ -17,7 +17,7 @@ class Main:
     while True:
         try:
             
-            print("Welcome!\nPlease select an option to continue:")
+            print("\nWelcome!\nPlease select an option to continue:")
             MenuHelpers.DisplayOptions(
                 ["Log In",
                 "Sign Up",

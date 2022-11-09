@@ -70,7 +70,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
                     return True
         
         # get a paragraph why they are a good fit for the role
-        goodFitReasoning = input("Please explain why you think you would be a good fit for this role (-1 To Exit): ")
+        goodFitReasoning = input("\nPlease explain why you think you would be a good fit for this role (-1 To Exit): ")
         if goodFitReasoning == "-1":
             print("\nYou have selected to quit\n")
             print("\nIncomplete application ignored.\n")
@@ -79,7 +79,7 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
             if len(goodFitReasoning) == 0:
                 print("\nError! Empty text provided, try again")
                 while True:
-                    goodFitReasoning = input("Please explain why you think you would be a good fit for this role (-1 To Exit): ")
+                    goodFitReasoning = input("\nPlease explain why you think you would be a good fit for this role (-1 To Exit): ")
                     if goodFitReasoning == "-1":
                         terminateOperation = True
                         break
