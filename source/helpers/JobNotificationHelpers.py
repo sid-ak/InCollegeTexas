@@ -33,9 +33,12 @@ class JobNotificationHelpers:
     # Notifies the user if any jobs were posted after their last log in.
     def NotifyIfNewJobsPosted(loggedUser: User, collection = "Jobs"):
 
-        notificationStr: str = "\nThe following new jobs were posted:\n"
         newJobs: list[Job] = JobHelpers.GetNewJobs(loggedUser, collection)
         if newJobs == None or newJobs == []: return
 
-        print(notificationStr)
+        if len(newJobs) == 1:
+            print(f"\nA new job {newJobs[0].Title} has been posted.\n")
+            return
+
+        print("\nThe following new jobs were posted:\n")
         for job in newJobs: print(job.Title)
