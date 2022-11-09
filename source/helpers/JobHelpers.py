@@ -260,3 +260,4 @@ class JobHelpers:
 
         except Exception as e:
             print(f"\nException occurred while getting new jobs.\n{e}\n")
+            return []
