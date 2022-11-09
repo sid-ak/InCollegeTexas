@@ -59,8 +59,3 @@ class NotificationHelpers:
         
         unreadMessagesCount: int = len(unreadMessages)
         print(f"\nNotifications:\nYou have {unreadMessagesCount} message(s) waiting for you.\n")
-
-    # Notifies the user if they don't have their profile created
-    def NotifyIfProfileNotCreated(loggedUser: User):
-        if ProfileHelpers.ProfileExists(loggedUser) == False:
-            print("\nDon't forget to create a profile")
