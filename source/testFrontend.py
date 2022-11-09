@@ -13,7 +13,8 @@ from testInputs.testInputs import set_keyboard_input
 from testInputs.testInputs import get_display_output
 from helpers.UserHelpers import UserHelpers
 from model.User import User
-from model.Job import Job, JobHelpers
+from model.Job import Job
+from helpers.JobHelpers import JobHelpers
 from helpers.JobTitleHelper import JobTitleHelper
 from actions.DisplayAllUser import DisplayEveryUser
 from helpers.MessageHelpers import MessageHelpers
@@ -470,13 +471,15 @@ def test_TitleCaseUniversity():
 def test_DisplayJobTitle():
     testUser = User(Id='testId', Username='testUsername', FirstName='TestFirstName', LastName='TestLastName',
                     University='TestUniversity', Major='major')
+    UserHelpers.UpdateUser(testUser, "testUsers")
+
     title = "testTitle"
     employer = "testEmployer"
     desc = "testDecsription"
     loc = "testLocation"
     salary = "100000"
     job_id = JobHelpers.CreateJobId(title, employer, desc, loc, salary)
-    test_job = Job(job_id, title, employer, desc, loc, salary, testUser)
+    test_job = Job(job_id, title, employer, desc, loc, salary, testUser.Id)
     JobHelpers.CreateJob(test_job, collection="testJobs")
 
     # testing view all jobs titles option inside display job menu
@@ -499,7 +502,7 @@ def test_DisplayJobTitle():
 
     # testing select a job option (apply, save and delete) menu inside Display Job Titles
     set_keyboard_input(["2", "1", "-1", "-1", "-1"])
-    JobTitleHelper.DisplayJobTitle(testUser, "testJobs")
+    JobTitleHelper.DisplayJobTitle(testUser, "testJobs", "testUsers")
     output = get_display_output()
     assert output == ['\nPlease select if you want to filter the Job:\n',
                          '1 - Yes',
@@ -508,11 +511,11 @@ def test_DisplayJobTitle():
                          '\nSelect one of the following jobs to continue:\n',
                          '1 - testTitle',
                          '\nEnter (-1 to exit current menu): ',
-                         'Job Title: testTitle',
+                         '\nJob Title: testTitle',
                          'Job Description: testDecsription',
                          'Employer: testEmployer',
                          'Job Location: testLocation',
-                         'Job Salary: 100000',
+                         'Job Salary: 100000\n',
                          '\nPlease select one of the following options:\n',
                          '1 - Apply for the job',
                          '2 - Save the job',
@@ -549,7 +552,7 @@ def test_DisplayJobTitle():
                       ]
 
     JobHelpers.DeleteJob(test_job, collection="testJobs")
-
+    UserHelpers.DeleteUserAccount(testUser, "testUsers")
 
 # EPIC 7 - 10/06/2022 by Amir Aslamov
 # test the list of friends

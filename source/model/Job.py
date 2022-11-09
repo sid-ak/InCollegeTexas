@@ -1,8 +1,5 @@
 from dataclasses import dataclass
-import hashlib
-from firebaseSetup.Firebase import database
-from model.User import User
-from helpers.UserHelpers import UserHelpers
+from datetime import datetime
 
 # A Job entity.
 @dataclass
@@ -13,110 +10,72 @@ class Job:
     Description: str
     Location: str
     Salary: str
-    Poster: User
+    PosterId: str
+    _CreatedTimestamp: datetime = datetime.now()
+
 
     # Hydrates a Job entity using a pyrebase response value and returns it.
     def HydrateJob(job):
         return Job(
-                Id = job.val()["Id"],
-                Title = job.val()["Title"],
-                Employer = job.val()["Employer"],
-                Description = job.val()["Description"],
-                Location = job.val()["Location"],
-                Salary = job.val()["Salary"],
-                Poster = job.val()["Poster"]
+                Id = JobHydrator.HydrateProp(job, "Id"),
+                Title = JobHydrator.HydrateProp(job, "Title"),
+                Employer = JobHydrator.HydrateProp(job, "Employer"),
+                Description = JobHydrator.HydrateProp(job, "Description"),
+                Location = JobHydrator.HydrateProp(job, "Location"),
+                Salary = JobHydrator.HydrateProp(job, "Salary"),
+                PosterId = JobHydrator.HydrateProp(job, "PosterId"),
+                _CreatedTimestamp = JobHydrator.HydrateProp(job, "_CreatedTimestamp")
             )
 
-class JobHelpers:
-    _jobLimit: int = 10
 
-    # Converts this entity into a dictionary.
-    def JobToDict(job: Job) -> dict:
-        return {
-            'Id': str(job.Id),
-            'Title': str(job.Title),
-            'Employer': str(job.Employer),
-            'Description': str(job.Description),
-            'Location': str(job.Location),
-            'Salary': str(job.Salary),
-            'Poster': UserHelpers.UserToDict(job.Poster)
-        }
+class JobHydrator:
 
-    # Gets a PyreResponse of all jobs from the DB and returns
-    # a list of Job entities after constructing it.
-    def GetAllJobs(collection: str = "Jobs") -> list[Job]:
-        try:
-            jobsResponse = database.child(collection).get()
 
-            if jobsResponse == None: return None
-            
-            jobsResponseList: list = jobsResponse.each()
-            if (jobsResponseList == None): return None 
-            
-            jobs: list[Job] = []
-            for job in jobsResponse.each():
-                if job == None: continue
-                else: jobs.append(Job.HydrateJob(job))
+    # A dictionary to maintain the Job entity's property name (key) and its type (value).
+    _jobAttributes: dict[str, str] = {
+        "Id": "str",
+        "Title": "str",
+        "Employer": "str",
+        "Description": "str",
+        "Location": "str",
+        "Salary": "str",
+        "PosterId": "str",
+        "_CreatedTimestamp": "datetime"
+    }
 
-            return jobs
-        except:
-            return None
 
-    # Creates the specified job in the DB.
-    # Takes an optional argument for the child node in the DB.
-    # Return true if creation was successful.
-    def CreateJob(job: Job, collection: str = "Jobs") -> bool:
-        try:
-            database.child(collection).child(
-                job.Id).set(JobHelpers.JobToDict(job))
-            return True
-        except:
-            return False
-
-    # Creates a sha256 hash using all job details.
-    def CreateJobId(
-        title: str,
-        employer: str,
-        desc: str,
-        loc: str,
-        salary: str) -> str:
-        return hashlib.sha256(
-            str.encode(title
-                .join(employer)
-                .join(desc)
-                .join(loc)
-                .join(salary))).hexdigest()
-    
-    # Checks if the maximum number of jobs have been posted.
-    def IsJobLimitMet(collection: str = "Jobs") -> bool:
-        allJobs: list[User] = JobHelpers.GetAllJobs(collection)
+    # Hydrates an individual property for the Job entity.
+    def HydrateProp(job, prop: str):
+        if prop not in JobHydrator._jobAttributes.keys():
+            raise Exception(f"Property {prop} not defined for entity: Job")
         
-        if allJobs == None or allJobs == []:
-            return False
+        propType: str = JobHydrator._jobAttributes.get(prop)
+        value = None
         
-        return True if len(allJobs) == JobHelpers._jobLimit else False
-
-    def DeleteJob(job: Job, collection: str = "Jobs"):
-        jobs = JobHelpers.GetAllJobs(collection=collection)
-        if (jobs != None):
-            for dbJob in jobs:
-                if job.Id == dbJob.Id and job.Title == dbJob.Title:
-                    database.child(collection).child(job.Id).remove()
-                    return True
-        else:
-            return False
-    
-    def GetJobByID(jobID: str, collection: str = "Jobs") -> Job:
         try:
-            jobs = JobHelpers.GetAllJobs(collection=collection) 
-
-            if jobs == None:
-                raise Exception(
-                    f"Could not get the specified job with Job ID: {jobID}")
-
-            for job in jobs:
-                if(job.Id == jobID): 
-                    return job
-        
+            pyreValue = job.val()[prop]
+            value = JobHydrator.Cast(pyreValue, propType)
         except:
-            print(f"Could not get the specified job with Job ID: {jobID}")
+            value = JobHydrator.GetDefaultValue(prop)
+        
+        if value == None: raise Exception(f"Could not hydrate prop: {prop} for Job")
+        
+        return value
+
+
+    # Handles conversion to a certain type.
+    def Cast(pyreValue, propType):
+        if propType == "datetime":
+            datetimeValue: datetime = datetime.fromisoformat(pyreValue)
+            return datetimeValue
+
+        return pyreValue
+
+        
+    # Gets the default value for a property on the Job entity based on its type.
+    def GetDefaultValue(prop: str):
+        propType: str = JobHydrator._jobAttributes.get(prop)
+
+        if propType == "str": return ""
+        if propType == "datetime": return datetime.min
+        else: return None

@@ -4,20 +4,18 @@ import sys
 from firebaseSetup.Firebase import database
 from authentication.Signin import LoginUser
 from model.User import User
-from model.Job import Job, JobHelpers
+from model.Job import Job
+from helpers.JobHelpers import JobHelpers
 from testInputs.testInputs import set_keyboard_input
 from actions.DisplayImpLinks import DisplayImpLinks
-from actions.ApplyForJob import ApplyForJob
-from actions.SaveJob import SaveJob
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.SavedJobHelpers import SavedJobHelpers
 from model.Profile import Education, Experience, Profile
-from model.Job import Job, JobHelpers
 from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
-from model.Message import Message, MessageHydrator
+from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
@@ -147,7 +145,7 @@ def test_NewUserEnglishSet():
 def test_CreateJob():
     poster = User(UserHelpers.CreateUserId("testID", "Mypassword3!"), "testID", "Test", "Account")
     job_id = JobHelpers.CreateJobId("Test Software Engineer", "Aramark", "coding", "Atlanta", "60000")
-    first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster)
+    first_job = Job(job_id, "Test Software Engineer", "Aramark", "coding", "Atlanta", "60000", poster.Id)
     
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
     
@@ -524,7 +522,7 @@ def test_DeleteJob():
     #create a job
     poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
     job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
-    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster)
+    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster.Id)
     
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
 

@@ -1,6 +1,6 @@
 from model.User import User
 from model.Job import Job
-from helpers.JobsHelpers import JobsHelpers
+from helpers.JobHelpers import JobHelpers
 from model.AppliedJob import AppliedJob
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 
@@ -8,12 +8,12 @@ from helpers.AppliedJobHelpers import AppliedJobHelpers
 
 def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJobs") -> bool:
     # first check if the user did not post this job  
-    if JobsHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
+    if JobHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
         print("\nFailure! You cannot apply for a job you posted.\n")
         return False
 
     # now check if the user has already applied for this job
-    if JobsHelpers.HelpFindIfApplied(loggedUser=loggedUser, jobInterested=selectedJob):
+    if JobHelpers.HelpFindIfApplied(loggedUser=loggedUser, jobInterested=selectedJob):
         print("\nFailure! You have already applied for this job.\n")
         return False
 
@@ -29,14 +29,14 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
             return True
         else:
             # validate that the input is within the pattern mm/dd/yyyy
-            if not JobsHelpers.HelpValidateDate(graduationDate):
+            if not JobHelpers.HelpValidateDate(graduationDate):
                 print("\nError! Invalid graduation date, try again.")
                 while True:
                     graduationDate = input("\nPlease enter graduation date (mm/dd/yyyy) (-1 to Exit): ")
                     if graduationDate == "-1":
                         terminateOperation = True
                         break
-                    if not JobsHelpers.HelpValidateDate(graduationDate):
+                    if not JobHelpers.HelpValidateDate(graduationDate):
                         print("\nError! Invalid graduation date, try again.")
                     else:
                         break
@@ -53,14 +53,14 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
             return True
         else:
             # validate that the input is within the pattern mm/dd/yyyy
-            if not JobsHelpers.HelpValidateDate(startDate):
+            if not JobHelpers.HelpValidateDate(startDate):
                 print("\nError! Invalid start date, try again.")
                 while True:
                     startDate = input("\nPlease enter start date (mm/dd/yyyy) (-1 to Exit): ")
                     if  startDate == "-1":
                         terminateOperation = True
                         break
-                    if not JobsHelpers.HelpValidateDate(startDate):
+                    if not JobHelpers.HelpValidateDate(startDate):
                         print("\nError! Invalid start date, try again.")
                     else:
                         break

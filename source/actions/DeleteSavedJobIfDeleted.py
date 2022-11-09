@@ -2,7 +2,7 @@ from model.User import User
 from model.SavedJob import SavedJob
 from model.Job import Job
 from helpers.SavedJobHelpers import SavedJobHelpers
-from model.Job import JobHelpers
+from helpers.JobHelpers import JobHelpers
 
 
 def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJobs", jobsCollection: str ="Jobs"):

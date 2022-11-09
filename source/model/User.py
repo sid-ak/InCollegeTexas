@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from enums.LanguageEnum import LanguageEnum
 from enums.UserTierEnum import UserTierEnum
 from model.Profile import Profile
+from datetime import datetime
 
 # A User entity.
 @dataclass
@@ -19,6 +20,7 @@ class User:
     Major: str = ""
     Profile: Profile = None
     TierEnum: UserTierEnum = UserTierEnum.Standard
+    _LastLoginTimestamp: datetime = datetime.now()
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
@@ -35,7 +37,8 @@ class User:
                 University = UserHydrator.HydrateProp(user, "University"),
                 Major = UserHydrator.HydrateProp(user, "Major"),
                 Profile = UserHydrator.HydrateProp(user, "Profile"),
-                TierEnum = UserHydrator.HydrateProp(user, "TierEnum")
+                TierEnum = UserHydrator.HydrateProp(user, "TierEnum"),
+                _LastLoginTimestamp = UserHydrator.HydrateProp(user, "_LastLoginTimestamp")
             )
 
 class UserHydrator:
@@ -54,7 +57,8 @@ class UserHydrator:
         "University": "str",
         "Major": "str",
         "Profile": "Profile",
-        "TierEnum": "UserTierEnum"
+        "TierEnum": "UserTierEnum",
+        "_LastLoginTimestamp": "datetime"
     }
     
     # Hydrates an individual property for the User entity.
@@ -86,6 +90,10 @@ class UserHydrator:
             tierEnum: UserTierEnum = UserTierEnum[enumName]
             return tierEnum
         
+        if propType == "datetime":
+            datetimeValue: datetime = datetime.fromisoformat(pyreValue)
+            return datetimeValue
+        
         return pyreValue
         
     # Gets the default value for a property on the User entity based on its type.
@@ -98,4 +106,5 @@ class UserHydrator:
         elif propType == "dict[str, bool]": return {}
         elif propType == "Profile": return Profile()
         elif propType == "UserTierEnum": return UserTierEnum.Standard
+        elif propType == "datetime": return datetime.min
         else: return None
