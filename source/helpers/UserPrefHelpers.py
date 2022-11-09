@@ -58,7 +58,7 @@ class UserPrefHelpers:
             print("Exception occurred. Language preference could not be set.")
 
     # Displays options for the user to set a tier for their account.
-    def ShowTierPreferences(loggedUser: User, collection = "Users"):
+    def ShowTierPreferences(loggedUser: User, collection: str = "Users"):
         try:
             while True:
                 print("\nTier Preference:\n")

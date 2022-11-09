@@ -18,20 +18,20 @@ class MessageHelpers:
 
 
     # Checks if the specified message exists in the DB using the provided ID.
-    def MessageExists(messageId: int, collection = "Messages") -> bool:
+    def MessageExists(messageId: int, collection: str = "Messages") -> bool:
         return False if MessageHelpers.GetMessageById(
             messageId, collection) == None else True
 
 
     # Creates a message id which is essentially its index.
     # Example: If total messages => 4 then messageId => 5.
-    def CreateMessageId(collection = "Messages") -> int:
+    def CreateMessageId(collection: str = "Messages") -> int:
         return int(datetime.datetime.now().timestamp())
 
 
     # Gets a PyreResponse of all messages from the DB and returns
     # a list of message entities after constructing it.
-    def GetAllMessages(collection = "Messages") -> list[Message]:
+    def GetAllMessages(collection: str = "Messages") -> list[Message]:
         try:
             messagesResponse = database.child(collection).get()
             if messagesResponse == None: return None
@@ -51,7 +51,7 @@ class MessageHelpers:
 
 
     # Gets a specific Message from the database based on the Message ID provided.
-    def GetMessageById(messageId: int, collection = "Messages") -> Message:
+    def GetMessageById(messageId: int, collection: str = "Messages") -> Message:
         try:
             message: Message = Message.HydrateMessage(
                 database.child(collection).child(messageId).get())
@@ -65,7 +65,7 @@ class MessageHelpers:
     
 
     # Deletes a specific Message from the database based on the Message ID provided.
-    def DeleteMessageById(messageId: int, collection = "Messages") -> bool:
+    def DeleteMessageById(messageId: int, collection: str = "Messages") -> bool:
         try:
             if not MessageHelpers.MessageExists(messageId, collection):
                 return False
@@ -80,7 +80,7 @@ class MessageHelpers:
 
     # Creates or updates the specified message in the DB.
     # Returns true if update was successful else false.
-    def UpdateMessage(message: Message, collection: str = "Messages", userCollection = "Users") -> bool:
+    def UpdateMessage(message: Message, collection: str = "Messages", userCollection: str = "Users") -> bool:
         try:
 
             # Sanity check.
@@ -104,7 +104,7 @@ class MessageHelpers:
     def GetAllReceivedMessages(
         userId: str,
         onlyUnread: bool = False,
-        messageCollection = "Messages") -> list[Message]:
+        messageCollection: str = "Messages") -> list[Message]:
 
         allMessages: list[Message] = MessageHelpers.GetAllMessages(messageCollection)
         if allMessages == None: return None
@@ -123,8 +123,8 @@ class MessageHelpers:
     # Displays a message and updates its status to read.
     def DisplayMessage(
         message: Message,
-        userCollection = "Users",
-        messageCollection = "Messages"):
+        userCollection: str = "Users",
+        messageCollection: str = "Messages"):
         
         sender: User = UserHelpers.GetUserById(message.SenderId, userCollection)
         receiver: User = UserHelpers.GetUserById(message.ReceiverId, userCollection)

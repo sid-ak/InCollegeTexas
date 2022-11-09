@@ -117,7 +117,7 @@ class JobHelpers:
 
 
     # helps find if the user already applied for the job provided
-    def HelpFindIfApplied(loggedUser: User, jobInterested: Job, collection = "AppliedJobs") -> bool:
+    def HelpFindIfApplied(loggedUser: User, jobInterested: Job, collection: str = "AppliedJobs") -> bool:
         allApplied: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobs(collection)
         if allApplied == None or allApplied == []: return False
 
@@ -130,7 +130,7 @@ class JobHelpers:
 
     
     # helps find if the user already saved the job provided
-    def HelpFindIfSaved(loggedUser: User, jobInterested: Job, collection = "SavedJobs") -> bool:
+    def HelpFindIfSaved(loggedUser: User, jobInterested: Job, collection: str = "SavedJobs") -> bool:
         allSaved: list[SavedJob] = SavedJobHelpers.GetAllSavedJobs(collection)
         if allSaved == None or allSaved == []: return False
 
@@ -245,7 +245,7 @@ class JobHelpers:
 
 
     # Gets a list of all the jobs that have been posted after the user last logged in.
-    def GetNewJobs(loggedUser: User, collection = "Jobs") -> list[Job]:
+    def GetNewJobs(loggedUser: User, collection: str = "Jobs") -> list[Job]:
         try:
             lastLogin: datetime = loggedUser._LastLoginTimestamp
             allJobs: list[Job] = JobHelpers.GetAllJobs(collection)

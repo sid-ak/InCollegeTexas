@@ -10,7 +10,7 @@ class JobNotificationHelpers:
 
 
     # Notifies the user if they did not apply for a job for a certain period of time.
-    def NotifyIfNotAppliedJob(loggedUser: User, collection = "AppliedJobs"):
+    def NotifyIfNotAppliedJob(loggedUser: User, collection: str = "AppliedJobs"):
         
         notificationStr: str = "\nRemember - you're going to want to have a job when you graduate."
         notificationStr += "\nMake sure that you start to apply for jobs today!\n"
@@ -31,7 +31,7 @@ class JobNotificationHelpers:
     
 
     # Notifies the user if any jobs were posted after their last log in.
-    def NotifyIfNewJobsPosted(loggedUser: User, collection = "Jobs"):
+    def NotifyIfNewJobsPosted(loggedUser: User, collection: str = "Jobs"):
 
         newJobs: list[Job] = JobHelpers.GetNewJobs(loggedUser, collection)
         if newJobs == None or newJobs == []: return

@@ -6,8 +6,8 @@ from helpers.MenuHelpers import MenuHelpers
 
 def ShowInbox(
     loggedUser: User,
-    userCollection = "Users",
-    messageCollection = "Messages"):
+    userCollection: str = "Users",
+    messageCollection: str = "Messages"):
     try:
         while True:
             receivedMessages: list[Message] = MessageHelpers.GetAllReceivedMessages(

@@ -144,7 +144,7 @@ class JobTitleHelper:
 
     
     # Helper method to display the given list of jobs.
-    def DisplayJobs(jobList: list[Job], loggedUser: User, collection = "Users"):
+    def DisplayJobs(jobList: list[Job], loggedUser: User, collection: str = "Users"):
         try:
             while True:
                 jobTitleList: list[str] = list(map(lambda job: job.Title, jobList))

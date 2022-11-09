@@ -50,7 +50,7 @@ class NotificationHelpers:
 
 
     # Notifies the user if they have any unread messages.
-    def NotifyIfUnreadMessages(loggedUser: User, collection = "Messages"):
+    def NotifyIfUnreadMessages(loggedUser: User, collection: str = "Messages"):
         unreadMessages: list[Message] = MessageHelpers.GetAllReceivedMessages(
             loggedUser.Id, onlyUnread = True, messageCollection = collection)
         

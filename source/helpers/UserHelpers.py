@@ -164,7 +164,7 @@ class UserHelpers:
 
 
     # Updates the user's last log in timestamp.
-    def UpdateLastLogin(loggedUser: User, collection = "Users"):
+    def UpdateLastLogin(loggedUser: User, collection: str = "Users"):
         try:
             loggedUser._LastLoginTimestamp = datetime.now()
             UserHelpers.UpdateUser(loggedUser, collection)
