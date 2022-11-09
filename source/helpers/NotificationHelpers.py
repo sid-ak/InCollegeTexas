@@ -5,6 +5,7 @@ from model.Job import Job
 from helpers.JobHelpers import JobHelpers
 from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
+from helpers.ProfileHelpers import ProfileHelpers
 
 class NotificationHelpers:
 

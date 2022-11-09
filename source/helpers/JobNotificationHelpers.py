@@ -28,7 +28,7 @@ class JobNotificationHelpers:
         daysElapsed: int = timeElapsed.days
 
         if daysElapsed >= maxDays: print(notificationStr)
-    
+
 
     # Notifies the user if any jobs were posted after their last log in.
     def NotifyIfNewJobsPosted(loggedUser: User, collection: str = "Jobs"):
@@ -42,3 +42,10 @@ class JobNotificationHelpers:
 
         print("\nThe following new jobs were posted:\n")
         for job in newJobs: print(job.Title)
+
+
+    # Tells the user how many jobs they have applied to
+    def NotifyAppliedJobsCount(loggedUser: User):
+        JobCount = len(AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser))
+        message = "\nYou have currently applied for {}".format(JobCount)
+        print(message + " jobs." if JobCount != 1 else message + " job.")

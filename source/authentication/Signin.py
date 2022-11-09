@@ -16,6 +16,7 @@ from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
 from actions.DisplayAllUser import DisplayEveryUser
 from helpers.NotificationHelpers import NotificationHelpers
+from helpers.UserNotificationHelpers import UserNotificationHelpers
 from helpers.JobNotificationHelpers import JobNotificationHelpers
 
 # this function will check if the username and password exists 
@@ -57,6 +58,9 @@ def DisplayLoginMenu(loggedUser: User):
             while True:
                 
                 # TODO: Call parent notification helper once all notifications are implemented. 
+
+                # Notify if user has not created a profile
+                UserNotificationHelpers.NotifyIfProfileNotCreated(loggedUser)
 
                 # Notify if the user as unread messages.
                 NotificationHelpers.NotifyIfUnreadMessages(loggedUser)
