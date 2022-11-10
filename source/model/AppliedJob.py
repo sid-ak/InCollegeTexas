@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 
 @dataclass
@@ -10,7 +10,7 @@ class AppliedJob:
     GraduationDate: str
     StartDate: str
     GoodFitReasoning: str
-    _CreatedTimestamp: datetime = datetime.now()
+    _CreatedTimestamp: datetime = field(default_factory=datetime.now)
 
 
     # hydrates an AppliedJob entity using a pyrebase response value and returns it
