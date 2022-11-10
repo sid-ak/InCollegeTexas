@@ -8,6 +8,9 @@ class NotificationHelpers:
     def DisplayLoginNotifications(loggedUser: User):
         
         print(f"\n================= Notifications =================\n")
+
+        # Notify the user about the new users who joined the platform
+        UserNotificationHelpers.NotifyAboutNewUsers(loggedUser)
         
         # Notify if user has not created a profile
         UserNotificationHelpers.NotifyIfProfileNotCreated(loggedUser)

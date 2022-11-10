@@ -1,3 +1,4 @@
+from datetime import datetime
 from helpers.UserPrefHelpers import UserPrefHelpers
 from model.User import User
 from helpers.UserHelpers import UserHelpers
@@ -66,7 +67,9 @@ def RegisterNewUser(collection: str="Users") -> bool:
                 FirstName=firstName,
                 LastName=lastName,
                 University=university,
-                Major=major),
+                Major=major,
+                _LastLoginTimestamp = datetime.now(),
+                _SignUpTimestamp = datetime.now()),
             collection=collection)
 
         if userUpdated == False: raise Exception()
