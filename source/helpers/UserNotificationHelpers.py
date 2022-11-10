@@ -1,7 +1,12 @@
 from model.User import User
 from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
+from model.AppliedJob import AppliedJob
+from helpers.AppliedJobHelpers import AppliedJobHelpers
+from model.Job import Job
 from helpers.ProfileHelpers import ProfileHelpers
+from helpers.UserHelpers import UserHelpers
+from datetime import datetime
 
 class UserNotificationHelpers:   
    
@@ -19,3 +24,21 @@ class UserNotificationHelpers:
         
         unreadMessagesCount: int = len(unreadMessages)
         print(f"\nNotifications:\nYou have {unreadMessagesCount} message(s) waiting for you.\n")
+
+
+    # To show the logged in user the new users that have signed up
+    def NotifyAboutNewUsers(loggedUser: User):
+        # Get all users
+        allUsers: list[User] = UserHelpers.GetAllUsers()
+        if allUsers == None or allUsers == []:
+            return None
+
+        # find the users who have signed up after the logged in user's last login time
+        newUsers: list[User] = list(filter(
+            lambda user: user._SignUpTimestamp > loggedUser._LastLoginTimestamp, allUsers
+        ))
+        
+        # print the new users
+        if newUsers != None and newUsers != []: 
+            for user in newUsers:
+                print("\n" + user.FirstName + " " + user.LastName + " has joined InCollege.")

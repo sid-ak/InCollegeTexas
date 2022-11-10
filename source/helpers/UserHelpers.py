@@ -27,7 +27,8 @@ class UserHelpers:
             'Major': str(user.Major),
             'Profile': Profile.ProfileToDict(user.Profile),
             'TierEnum': str(user.TierEnum),
-            '_LastLoginTimestamp': str(user._LastLoginTimestamp)
+            '_LastLoginTimestamp': str(user._LastLoginTimestamp),
+            '_SignUpTimestamp': str(user._SignUpTimestamp)
         }
 
 
