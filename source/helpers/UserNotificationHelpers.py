@@ -27,7 +27,7 @@ class UserNotificationHelpers:
 
 
     # To show the logged in user the new users that have signed up
-    def NotifyAboutNewUsers(loggedUser: User):
+    def NotifyIfNewUsers(loggedUser: User):
         # Get all users
         allUsers: list[User] = UserHelpers.GetAllUsers()
         if allUsers == None or allUsers == []:

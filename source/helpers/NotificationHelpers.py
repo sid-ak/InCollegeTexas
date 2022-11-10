@@ -10,7 +10,7 @@ class NotificationHelpers:
         print(f"\n================= Notifications =================\n")
 
         # Notify the user about the new users who joined the platform
-        UserNotificationHelpers.NotifyAboutNewUsers(loggedUser)
+        UserNotificationHelpers.NotifyIfNewUsers(loggedUser)
         
         # Notify if user has not created a profile
         UserNotificationHelpers.NotifyIfProfileNotCreated(loggedUser)
