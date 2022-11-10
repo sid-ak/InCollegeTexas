@@ -1,4 +1,5 @@
 from authentication.Signup import ValidatePassword
+from authentication.Signin import DisplayLoginMenu
 from actions.LearnNewSkill import DisplaySkills
 from actions.FindSomeone import FindSomeoneAction
 from actions.PlayVideo import PlayVideo
@@ -20,6 +21,7 @@ from actions.DisplayAllUser import DisplayEveryUser
 from helpers.MessageHelpers import MessageHelpers
 from model.Message import Message
 from actions.ShowInbox import ShowInbox
+from helpers.UserNotificationHelpers import UserNotificationHelpers
 
 
 # Tests below worked on for EPIC 2
@@ -129,10 +131,27 @@ def test_GeneralSetting():
                         "7 - Developers",
                         "\nEnter (-1 to exit current menu): ",
                         "\nSignup Selected.",
-                        "\nPlease enter your username: ",
-                        "\nPlease enter your password: ",
-                        "\nError! Your password does not meet one or some of the standards!",
-                        "\nFailure! We have not been able to create a new account for you.",
+                        "\nAll permitted accounts have been created, please come back later!",
+                        "\nPlease select one of the following links to display its content:",
+                        "1 - Sign Up",
+                        "2 - Help Center",
+                        "3 - About",
+                        "4 - Press",
+                        "5 - Blog",
+                        "6 - Careers",
+                        "7 - Developers",
+                        "\nEnter (-1 to exit current menu): ",
+                        "Unexpected exception ocurred, invalid input.\nPlease enter a number between 1 and 7.\n",
+                        "\nPlease select one of the following links to display its content:",
+                        "1 - Sign Up",
+                        "2 - Help Center",
+                        "3 - About",
+                        "4 - Press",
+                        "5 - Blog",
+                        "6 - Careers",
+                        "7 - Developers",
+                        "\nEnter (-1 to exit current menu): ",
+                        "Unexpected exception ocurred, invalid input.\nPlease enter a number between 1 and 7.\n",
                         "\nPlease select one of the following links to display its content:",
                         "1 - Sign Up",
                         "2 - Help Center",
@@ -388,7 +407,7 @@ def test_SearchUsersMajor():
                     "\nEnter (-1 to exit current menu): ",
                     "You have selected to search by major.\nEnter the major of the user you want to search for: ",
                     '1. TestFirstName TestLastName\n',
-                    "Enter the option number of the user you want to send a friend request to: ",
+                    'Enter the option number of the user you want to send a friend request to: ',
                     "\nEnter (-1 to exit current menu): ",
                     "\nPlease select one of the following options:\n",
                     "1 - Search by last name",
@@ -654,4 +673,20 @@ def test_Messaging():
   assert True == UserHelpers.DeleteUserAccount(user=testUser2, collection="TestUsers")
   # get rid of the test message
   assert True == MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
+
+# EPIC8: Testing if a user gets notification if tthey have not created their Profile
+def test_UserProfileNotification():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    UserHelpers.UpdateUser(user1, "testUsers")
+    output1 =  ProfileHelpers.ProfileExists(user1)
+    assert output1 == False
+
+    set_keyboard_input(["-1"])
+    UserNotificationHelpers.NotifyIfProfileNotCreated(user1)
+    
+    output = get_display_output()
+
+    assert output == ["\nDon't forget to create a profile"]
+
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers") 
 
