@@ -67,9 +67,7 @@ def RegisterNewUser(collection: str="Users") -> bool:
                 FirstName=firstName,
                 LastName=lastName,
                 University=university,
-                Major=major,
-                _LastLoginTimestamp = datetime.now(),
-                _SignUpTimestamp = datetime.now()),
+                Major=major),
             collection=collection)
 
         if userUpdated == False: raise Exception()

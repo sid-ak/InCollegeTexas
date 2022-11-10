@@ -20,8 +20,8 @@ class User:
     Major: str = ""
     Profile: Profile = None
     TierEnum: UserTierEnum = UserTierEnum.Standard
-    _LastLoginTimestamp: datetime = datetime.now()
-    _SignUpTimestamp: datetime = datetime.now()
+    _LastLoginTimestamp: datetime = field(default_factory=datetime.now)
+    _SignUpTimestamp: datetime = field(default_factory=datetime.now)
 
     # Hydrates a User entity using a pyrebase response value and returns it.
     def HydrateUser(user):
