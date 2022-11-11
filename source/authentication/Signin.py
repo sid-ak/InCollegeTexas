@@ -16,8 +16,6 @@ from actions.UpdateProfile import EditProfile
 from actions.ViewProfile import ViewProfile
 from actions.DisplayAllUser import DisplayEveryUser
 from helpers.NotificationHelpers import NotificationHelpers
-from helpers.UserNotificationHelpers import UserNotificationHelpers
-from helpers.JobNotificationHelpers import JobNotificationHelpers
 
 # this function will check if the username and password exists 
 # and returns True if so, False otherwise
@@ -57,20 +55,9 @@ def DisplayLoginMenu(loggedUser: User):
 
             while True:
                 
-                # TODO: Call parent notification helper once all notifications are implemented. 
+                # Display notifications that need to be displayed in the log in menu. 
+                NotificationHelpers.DisplayLoginNotifications(loggedUser)
 
-                # Notify if user has not created a profile
-                UserNotificationHelpers.NotifyIfProfileNotCreated(loggedUser)
-
-                # Notify if the user as unread messages.
-                NotificationHelpers.NotifyIfUnreadMessages(loggedUser)
-
-                # Notify if the user has not applied for a job in a while.
-                JobNotificationHelpers.NotifyIfNotAppliedJob(loggedUser)
-
-                # Notify if new jobs have been posted since the user last logged in.
-                JobNotificationHelpers.NotifyIfNewJobsPosted(loggedUser)
-                
                 # Update the last time the user logged in after all notifications are displayed.
                 UserHelpers.UpdateLastLogin(loggedUser)
                 

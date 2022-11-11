@@ -27,7 +27,8 @@ class UserHelpers:
             'Major': str(user.Major),
             'Profile': Profile.ProfileToDict(user.Profile),
             'TierEnum': str(user.TierEnum),
-            '_LastLoginTimestamp': str(user._LastLoginTimestamp)
+            '_LastLoginTimestamp': str(user._LastLoginTimestamp),
+            '_SignUpTimestamp': str(user._SignUpTimestamp)
         }
 
 
@@ -86,7 +87,8 @@ class UserHelpers:
     # Return true if creation was successful.
     def UpdateUser(user: User, collection: str = "Users") -> bool:
         try:
-            if (UserHelpers.IsUserLimitMet(collection)):
+            if (UserHelpers.IsUserLimitMet(collection)
+                and not UserHelpers.UserExists(user.Id)):
                 print("Maximum of number of users that can sign up have been met.\n"
                     + "User was not updated")
                 return False

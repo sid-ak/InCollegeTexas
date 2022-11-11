@@ -1,3 +1,4 @@
+from datetime import datetime
 from helpers.UserPrefHelpers import UserPrefHelpers
 from model.User import User
 from helpers.UserHelpers import UserHelpers
@@ -73,8 +74,7 @@ def RegisterNewUser(collection: str="Users") -> bool:
         
         # Allow the user to set a tier for their account.
         user: User = UserHelpers.GetUserById(userId)        
-        tierSet: bool = UserPrefHelpers.ShowTierPreferences(user)
-        if not tierSet: print("\nA tier could not be set for the user.")
+        UserPrefHelpers.ShowTierPreferences(user)
 
         return True
     

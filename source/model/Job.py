@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 
 # A Job entity.
@@ -11,7 +11,7 @@ class Job:
     Location: str
     Salary: str
     PosterId: str
-    _CreatedTimestamp: datetime = datetime.now()
+    _CreatedTimestamp: datetime = field(default_factory=datetime.now)
 
 
     # Hydrates a Job entity using a pyrebase response value and returns it.
