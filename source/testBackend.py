@@ -6,7 +6,7 @@ from authentication.Signin import LoginUser
 from model.User import User
 from model.Job import Job
 from helpers.JobHelpers import JobHelpers
-from testInputs.testInputs import set_keyboard_input
+from testInputs.testInputs import set_keyboard_input, get_display_output
 from actions.DisplayImpLinks import DisplayImpLinks
 from helpers.UserHelpers import UserHelpers
 from helpers.FriendHelpers import FriendHelpers
@@ -17,6 +17,7 @@ from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
 from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
+from helpers.NotificationHelpers import NotificationHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -595,3 +596,34 @@ def test_GetReceivedMessages():
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     for i in range(2):
         assert True == MessageHelpers.DeleteMessageById(i+1, collection="testMessages")
+
+# EPIC8: Testing if a user gets notification if the job they applied to is deleted
+def test_DeleteJobNotification():
+    poster = User(UserHelpers.CreateUserId("testID", "testPass1!"), "testID", "Test1", "Account1")
+    job_id = JobHelpers.CreateJobId("Test IT Intern", "Cummins", "learn the job", "Columbus", "80000")
+    first_job = Job(job_id, "Test IT Intern", "Cummins", "learn the job", "Columbus", "80000", poster.Id)
+
+    job_id2 = JobHelpers.CreateJobId("Test IT Intern2", "Cummins2", "learn the job2", "Columbus2", "80001")
+    second_job = Job(job_id2, "Test IT Intern2", "Cummins2", "learn the job2", "Columbus2", "80001", poster.Id)
+
+    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
+    to_apply_job = AppliedJob(user2.Id, job_id, "Test IT Intern", "Cummins", "12/11/22", "01/11/23", "love to work")
+
+    assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user2, "TestAppliedJobs") #first 
+    assert True == JobHelpers.CreateJob(first_job, "TestJobs")
+    assert True == JobHelpers.CreateJob(second_job, "TestJobs")
+    assert True == JobHelpers.DeleteJob(first_job, "TestJobs")
+
+    set_keyboard_input(["-1"])
+    NotificationHelpers.NotifyIfAppliedJobsDeleted(user2, appliedJobsCollection="TestAppliedJobs",
+    allJobsCollection="TestJobs")
+    output = get_display_output()
+
+    assert output == ["\nAttention! Among the jobs you have applied for some have been deleted.",
+                      "\nHere they are: \n",
+                      "1. Test IT Intern from Cummins",
+                      "\nYour applications for these jobs are revoked.\n"]
+    assert True == JobHelpers.DeleteJob(second_job, "TestJobs")
+    
+                                            
+    
