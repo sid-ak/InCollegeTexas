@@ -700,7 +700,7 @@ def test_Messaging():
   # get rid of the test message
   assert True == MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
 
-# EPIC8: Testing if a user gets notification if tthey have not created their Profile
+# EPIC8: Testing if a user gets notification if they have not created their Profile
 def test_UserProfileNotification():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
     UserHelpers.UpdateUser(user1, "testUsers")
