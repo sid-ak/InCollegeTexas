@@ -629,8 +629,9 @@ def test_DeleteJobNotification():
 #Epic 8: Testing if all the users get a notification when a new user signs up
 def test_NewUserNotification():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
-    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
     UserHelpers.UpdateUser(user1, "testUsers")
+    
+    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
     UserHelpers.UpdateUser(user2, "testUsers")
 
     output1 = user2._SignUpTimestamp > user1._LastLoginTimestamp
