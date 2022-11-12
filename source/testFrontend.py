@@ -1,3 +1,4 @@
+import time
 from authentication.Signup import ValidatePassword
 from authentication.Signin import DisplayLoginMenu
 from actions.LearnNewSkill import DisplaySkills
@@ -784,4 +785,30 @@ def test_AppliedJobsNotification():
   assert AppliedJobHelpers.DeleteAppliedJobsOfUser(applierUser=user2, collection="testAppliedJobsEpic8")
 
 
-test_AppliedJobsNotification()
+# EPIC8: Testing that the user is notified of a new job posted
+def test_NewJobNotification():
+  # create 2 dummy test users
+  user1 = User(UserHelpers.CreateUserId("testUser1Epic8", "testPass2!Epic8"), "testUserID1", "test1", "test1")
+  user2 = User(UserHelpers.CreateUserId("testUser2Epic8", "testPass2!Epic8"), "testUserID2", "test2", "test2")
+  assert UserHelpers.UpdateUser(user1, "testUsersEpic8")
+  assert UserHelpers.UpdateUser(user2, "testUsersEpic8")
+
+  # create a new dummy job by user 2
+  set_keyboard_input(["Test Title", "Test Employer", "Test Description", "Test Location", "Test Salary"])
+  job = MakeJob(jobPoster=user2)
+  # push the job created to the test node in the DB
+  assert JobHelpers.CreateJob(job=job, collection="testJobsEpic8")
+
+  # pause the program for 1 second and then create the job
+  time.sleep(1)
+
+  # now see if this user1 is notified of this new job posted
+  set_keyboard_input([""])
+  JobNotificationHelpers.NotifyIfNewJobsPosted(loggedUser=user1, collection="testJobsEpic8")
+  output = get_display_output()
+
+  assert output == ["\nA new job Test Title has been posted.\n"]
+
+  assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
+  assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
+  assert JobHelpers.DeleteJob(job=job, collection="testJobsEpic8")
