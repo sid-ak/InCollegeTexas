@@ -749,6 +749,7 @@ def test_UnreadMessagesNotification():
 
     assert output == ["\nNotifications:\nYou have 1 message(s) waiting for you.\n"]
     
+    # get rid of all the dummy nodes in the DB
     assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
     assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
     assert MessageHelpers.DeleteMessagesBySenderReceiverID(sender=user2, receiver=user1, collection="testMessagesEpic8")
@@ -769,8 +770,9 @@ def test_AppliedJobsNotification():
   # now make a new test user apply for this job
   user2 = User(UserHelpers.CreateUserId("testUser2Epic8", "testPass2!Epic8"), "testUserID2", "test2", "test2")
   assert UserHelpers.UpdateUser(user2, "testUsersEpic8")
+
   set_keyboard_input(["09/09/2019", "10/10/2020", "I have all the skills."])
-  ApplyForJob(loggedUser=user2, selectedJob=job, collection="testAppliedJobsEpic8")
+  assert ApplyForJob(loggedUser=user2, selectedJob=job, collection="testAppliedJobsEpic8")
 
   # now check if user 2 is notified of 1 applied job
   set_keyboard_input([""])
@@ -779,6 +781,7 @@ def test_AppliedJobsNotification():
 
   assert output == ["\nYou have currently applied for 1 job."]
 
+  # get rid of all the dummy nodes in the DB
   assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
   assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
   assert JobHelpers.DeleteJob(job=job, collection="testJobsEpic8")
@@ -809,6 +812,7 @@ def test_NewJobNotification():
 
   assert output == ["\nA new job Test Title has been posted.\n"]
 
+  # get rid of all the dummy nodes in the DB
   assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
   assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
   assert JobHelpers.DeleteJob(job=job, collection="testJobsEpic8")
