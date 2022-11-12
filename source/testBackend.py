@@ -623,7 +623,4 @@ def test_DeleteJobNotification():
                       "\nHere they are: \n",
                       "1. Test IT Intern from Cummins",
                       "\nYour applications for these jobs are revoked.\n"]
-    assert True == JobHelpers.DeleteJob(second_job, "TestJobs")
-    
-                                            
-    
+    assert True == JobHelpers.DeleteJob(second_job, "TestJobs")                                 

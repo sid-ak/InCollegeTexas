@@ -45,8 +45,8 @@ class JobNotificationHelpers:
 
 
     # Tells the user how many jobs they have applied to
-    def NotifyAppliedJobsCount(loggedUser: User):
-        JobCount = len(AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser))
+    def NotifyAppliedJobsCount(loggedUser: User, collection: str = "AppliedJobs"):
+        JobCount = len(AppliedJobHelpers.GetAllAppliedJobsOfUser(loggedUser, collection=collection))
         message = "\nYou have currently applied for {}".format(JobCount)
         print(message + " jobs." if JobCount != 1 else message + " job.")
 
