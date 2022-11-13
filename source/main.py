@@ -37,7 +37,7 @@ class Main:
             elif decision == 2:
                 print("\nSignup Selected.")
                 if UserHelpers.IsUserLimitMet():
-                    print("\nFailure! We have not been able to create a new account for you.")
+                    print("\nFailure! We have not been able to create a new account for you. The maximum number of users limit met.")
                 else:
                     if RegisterNewUser():
                         print("\nSuccess! You have successfully created a new account.\n")
