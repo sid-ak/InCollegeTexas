@@ -1,3 +1,4 @@
+import time
 from authentication.Signup import ValidatePassword
 from authentication.Signin import DisplayLoginMenu
 from actions.LearnNewSkill import DisplaySkills
@@ -22,13 +23,19 @@ from helpers.MessageHelpers import MessageHelpers
 from model.Message import Message
 from actions.ShowInbox import ShowInbox
 from helpers.UserNotificationHelpers import UserNotificationHelpers
+from actions.JobInternshipSearch import MakeJob
+from actions.ApplyForJob import ApplyForJob
+from helpers.JobNotificationHelpers import JobNotificationHelpers
+from helpers.AppliedJobHelpers import AppliedJobHelpers
 
 
 # Tests below worked on for EPIC 2
-def test_PlayVideo(capfd):
-    PlayVideo()
-    out, err = capfd.readouterr()
-    assert out == "Video is now playing!\n"
+def test_PlayVideo():
+  set_keyboard_input([""])
+  PlayVideo()
+  output = get_display_output()
+  assert output == ["Video is now playing!"]
+
 
 # Tests below worked on for EPIC 1 - 9/19/22 by Anshika
 def test_ValidatePassword():
@@ -40,16 +47,21 @@ def test_ValidatePassword():
     for pwd in bad_pwd:
         assert ValidatePassword(pwd) == False
 
-def test_DisplaySkills(capfd):
-    skills = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
-    DisplaySkills(skills)
-    out, err = capfd.readouterr()
-    assert out == "1. Communication\n2. Marketing\n3. Python Programming\n4. Web Development\n5. Public Speaking\n"
 
-def test_FindSomeone(capfd):
+def test_DisplaySkills():
+    skills = ['communication', 'marketing', 'python programming', 'web development', 'public speaking']
+    set_keyboard_input([""])
+    DisplaySkills(skills)
+    output = get_display_output()
+    assert output == ["1. Communication", "2. Marketing", "3. Python Programming", "4. Web Development", "5. Public Speaking"]
+
+
+def test_FindSomeone():
+    set_keyboard_input([""])
     FindSomeoneAction()
-    out, err = capfd.readouterr()
-    assert out == "under construction\n"
+    output = get_display_output()
+    assert output == ["under construction"]
+
 
 # TESTS BELOW FOR EPIC 3 BY AOUN - 10/08/2022
 
@@ -700,6 +712,7 @@ def test_Messaging():
   # get rid of the test message
   assert True == MessageHelpers.DeleteMessageById(messageId=testMessage.Id, collection="testMessages")
 
+
 # EPIC8: Testing if a user gets notification if they have not created their Profile
 def test_UserProfileNotification():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
@@ -716,3 +729,90 @@ def test_UserProfileNotification():
 
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers") 
 
+
+# EPIC8: Testing that the program checks and notifies of unread messages
+def test_UnreadMessagesNotification():
+    # create 2 dummy test users
+    user1 = User(UserHelpers.CreateUserId("testUser1Epic8", "testPass2!Epic8"), "testUserID1", "test1", "test1")
+    user2 = User(UserHelpers.CreateUserId("testUser2Epic8", "testPass2!Epic8"), "testUserID2", "test2", "test2")
+    assert UserHelpers.UpdateUser(user1, "testUsersEpic8")
+    assert UserHelpers.UpdateUser(user2, "testUsersEpic8")
+
+    # make user 2 send message to user 1
+    set_keyboard_input(["Test Message"])
+    assert MessageHelpers.SendMessage(senderId=user2.Id, receiverId=user1.Id, messageCollection="testMessagesEpic8", userCollection="testUsersEpic8")
+
+    # now check whether the user 1 is notified of the unread message
+    set_keyboard_input([""])
+    UserNotificationHelpers.NotifyIfUnreadMessages(loggedUser=user1, collection="testMessagesEpic8")
+    output = get_display_output()
+
+    assert output == ["\nNotifications:\nYou have 1 message(s) waiting for you.\n"]
+    
+    # get rid of all the dummy nodes in the DB
+    assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
+    assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
+    assert MessageHelpers.DeleteMessagesBySenderReceiverID(sender=user2, receiver=user1, collection="testMessagesEpic8")
+
+
+# EPIC8: Testing that the program counts the number of applied jobs for a user and notifies of it
+def test_AppliedJobsNotification():
+  # create a dummy test users
+  user1 = User(UserHelpers.CreateUserId("testUser1Epic8", "testPass2!Epic8"), "testUserID1", "test1", "test1")
+  assert UserHelpers.UpdateUser(user1, "testUsersEpic8")
+
+  # create a dummy test job
+  set_keyboard_input(["Test Title", "Test Employer", "Test Description", "Test Location", "Test Salary"])
+  job = MakeJob(jobPoster=user1)
+  # push the job created to the test node in the DB
+  assert JobHelpers.CreateJob(job=job, collection="testJobsEpic8")
+
+  # now make a new test user apply for this job
+  user2 = User(UserHelpers.CreateUserId("testUser2Epic8", "testPass2!Epic8"), "testUserID2", "test2", "test2")
+  assert UserHelpers.UpdateUser(user2, "testUsersEpic8")
+
+  set_keyboard_input(["09/09/2019", "10/10/2020", "I have all the skills."])
+  assert ApplyForJob(loggedUser=user2, selectedJob=job, collection="testAppliedJobsEpic8")
+
+  # now check if user 2 is notified of 1 applied job
+  set_keyboard_input([""])
+  JobNotificationHelpers.NotifyAppliedJobsCount(loggedUser=user2, collection="testAppliedJobsEpic8")
+  output = get_display_output()
+
+  assert output == ["\nYou have currently applied for 1 job."]
+
+  # get rid of all the dummy nodes in the DB
+  assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
+  assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
+  assert JobHelpers.DeleteJob(job=job, collection="testJobsEpic8")
+  assert AppliedJobHelpers.DeleteAppliedJobsOfUser(applierUser=user2, collection="testAppliedJobsEpic8")
+
+
+# EPIC8: Testing that the user is notified of a new job posted
+def test_NewJobNotification():
+  # create 2 dummy test users
+  user1 = User(UserHelpers.CreateUserId("testUser1Epic8", "testPass2!Epic8"), "testUserID1", "test1", "test1")
+  user2 = User(UserHelpers.CreateUserId("testUser2Epic8", "testPass2!Epic8"), "testUserID2", "test2", "test2")
+  assert UserHelpers.UpdateUser(user1, "testUsersEpic8")
+  assert UserHelpers.UpdateUser(user2, "testUsersEpic8")
+
+  # create a new dummy job by user 2
+  set_keyboard_input(["Test Title", "Test Employer", "Test Description", "Test Location", "Test Salary"])
+  job = MakeJob(jobPoster=user2)
+  # push the job created to the test node in the DB
+  assert JobHelpers.CreateJob(job=job, collection="testJobsEpic8")
+
+  # pause the program for 1 second and then create the job
+  time.sleep(1)
+
+  # now see if this user1 is notified of this new job posted
+  set_keyboard_input([""])
+  JobNotificationHelpers.NotifyIfNewJobsPosted(loggedUser=user1, collection="testJobsEpic8")
+  output = get_display_output()
+
+  assert output == ["\nA new job Test Title has been posted.\n"]
+
+  # get rid of all the dummy nodes in the DB
+  assert UserHelpers.DeleteUserAccount(user=user1, collection="testUsersEpic8")
+  assert UserHelpers.DeleteUserAccount(user=user2, collection="testUsersEpic8")
+  assert JobHelpers.DeleteJob(job=job, collection="testJobsEpic8")

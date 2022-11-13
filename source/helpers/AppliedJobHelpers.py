@@ -99,6 +99,26 @@ class AppliedJobHelpers:
             return False
 
 
+    # deletes all applied jobs by a particular user
+    def DeleteAppliedJobsOfUser(applierUser: User, collection: str = "AppliedJobs") -> bool:
+        allAppliedJobs: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
+
+        try:
+            if (allAppliedJobs != None):
+                for dbAppliedJob in allAppliedJobs:
+                    if dbAppliedJob.UserId == applierUser.Id:
+                        database.child(collection).child(dbAppliedJob.UserId+dbAppliedJob.JobId).remove()
+                
+                return True
+            
+            else:
+                return False
+        
+        except Exception as e:
+            print(f"\nFailure! Could not delete the instances of applied jobs by a user for some reason.{e}\n")
+            return False
+
+
     # Gets the job the user last applied to.
     def GetLastAppliedJob(loggedUser: User, collection: str = "AppliedJobs") -> AppliedJob:
 

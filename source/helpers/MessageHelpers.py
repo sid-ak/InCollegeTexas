@@ -78,6 +78,24 @@ class MessageHelpers:
             return False
 
 
+    # Deletes all messages from a particular user to a particular user
+    def DeleteMessagesBySenderReceiverID(sender: User, receiver: User, collection: str = "Messages") -> bool:
+        try:
+            allMessages: list[Message] = MessageHelpers.GetAllMessages(collection=collection)
+            if allMessages == None or allMessages == []:
+                return False
+
+            for message in allMessages:
+                if message.SenderId == sender.Id and message.ReceiverId == receiver.Id:
+                    database.child(collection).child(message.Id).remove()
+            
+            print("Message(s) deleted successfully.")
+            return True
+        except Exception as e:
+            print(f"\nFailure! Could not delete messages by a sender to a receiver for some reason: {e}\n")
+            return False
+
+
     # Creates or updates the specified message in the DB.
     # Returns true if update was successful else false.
     def UpdateMessage(message: Message, collection: str = "Messages", userCollection: str = "Users") -> bool:

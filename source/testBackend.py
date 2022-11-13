@@ -624,7 +624,9 @@ def test_DeleteJobNotification():
                       "\nHere they are: \n",
                       "1. Test IT Intern from Cummins",
                       "\nYour applications for these jobs are revoked.\n"]
-    assert True == JobHelpers.DeleteJob(second_job, "TestJobs")
+
+    assert True == JobHelpers.DeleteJob(second_job, "TestJobs")                                 
+
     
 #Epic 8: Testing if all the users get a notification when a new user signs up
 def test_NewUserNotification():
