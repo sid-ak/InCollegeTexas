@@ -641,8 +641,7 @@ def test_NewUserNotification():
     UserNotificationHelpers.NotifyIfNewUsers(user1, collection="testUsers")
     output = get_display_output()
 
-    assert output == ["\ntest1 test1 has joined InCollege.",
-                      "\ntest2 test2 has joined InCollege."]
+    assert output == ["\ntest2 test2 has joined InCollege."]
 
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")

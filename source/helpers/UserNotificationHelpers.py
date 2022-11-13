@@ -35,7 +35,7 @@ class UserNotificationHelpers:
 
         # find the users who have signed up after the logged in user's last login time
         newUsers: list[User] = list(filter(
-            lambda user: user._SignUpTimestamp > loggedUser._LastLoginTimestamp, allUsers
+            lambda user: user._SignUpTimestamp > loggedUser._LastLoginTimestamp and user.Id != loggedUser.Id, allUsers
         ))
 
         # print the new users
