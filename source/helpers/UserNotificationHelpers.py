@@ -27,15 +27,15 @@ class UserNotificationHelpers:
 
 
     # To show the logged in user the new users that have signed up
-    def NotifyIfNewUsers(loggedUser: User):
+    def NotifyIfNewUsers(loggedUser: User, collection: str = "Users"):
         # Get all users
-        allUsers: list[User] = UserHelpers.GetAllUsers()
+        allUsers: list[User] = UserHelpers.GetAllUsers(collection)
         if allUsers == None or allUsers == []:
             return None
 
         # find the users who have signed up after the logged in user's last login time
         newUsers: list[User] = list(filter(
-            lambda user: user._SignUpTimestamp > loggedUser._LastLoginTimestamp, allUsers
+            lambda user: user._SignUpTimestamp > loggedUser._LastLoginTimestamp and user.Id != loggedUser.Id, allUsers
         ))
 
         # print the new users

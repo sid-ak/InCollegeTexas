@@ -17,7 +17,8 @@ from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
 from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
-from helpers.NotificationHelpers import NotificationHelpers
+from helpers.UserNotificationHelpers import UserNotificationHelpers
+from helpers.JobNotificationHelpers import JobNotificationHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -609,13 +610,13 @@ def test_DeleteJobNotification():
     user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
     to_apply_job = AppliedJob(user2.Id, job_id, "Test IT Intern", "Cummins", "12/11/22", "01/11/23", "love to work")
 
-    assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user2, "TestAppliedJobs") #first 
+    assert True == AppliedJobHelpers.CreateAppliedJob(to_apply_job, user2, "TestAppliedJobs") 
     assert True == JobHelpers.CreateJob(first_job, "TestJobs")
     assert True == JobHelpers.CreateJob(second_job, "TestJobs")
     assert True == JobHelpers.DeleteJob(first_job, "TestJobs")
 
     set_keyboard_input(["-1"])
-    NotificationHelpers.NotifyIfAppliedJobsDeleted(user2, appliedJobsCollection="TestAppliedJobs",
+    JobNotificationHelpers.NotifyIfAppliedJobsDeleted(user2, appliedJobsCollection="TestAppliedJobs",
     allJobsCollection="TestJobs")
     output = get_display_output()
 
@@ -625,5 +626,22 @@ def test_DeleteJobNotification():
                       "\nYour applications for these jobs are revoked.\n"]
     assert True == JobHelpers.DeleteJob(second_job, "TestJobs")
     
-                                            
+#Epic 8: Testing if all the users get a notification when a new user signs up
+def test_NewUserNotification():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    UserHelpers.UpdateUser(user1, "testUsers")
     
+    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
+    UserHelpers.UpdateUser(user2, "testUsers")
+
+    output1 = user2._SignUpTimestamp > user1._LastLoginTimestamp
+    assert output1 == True
+
+    set_keyboard_input("-1")
+    UserNotificationHelpers.NotifyIfNewUsers(user1, collection="testUsers")
+    output = get_display_output()
+
+    assert output == ["\ntest2 test2 has joined InCollege."]
+
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
