@@ -17,7 +17,7 @@ from model.AppliedJob import AppliedJob
 from model.SavedJob import SavedJob
 from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
-from helpers.NotificationHelpers import NotificationHelpers
+from helpers.JobNotificationHelpers import JobNotificationHelpers
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -615,7 +615,7 @@ def test_DeleteJobNotification():
     assert True == JobHelpers.DeleteJob(first_job, "TestJobs")
 
     set_keyboard_input(["-1"])
-    NotificationHelpers.NotifyIfAppliedJobsDeleted(user2, appliedJobsCollection="TestAppliedJobs",
+    JobNotificationHelpers.NotifyIfAppliedJobsDeleted(user2, appliedJobsCollection="TestAppliedJobs",
     allJobsCollection="TestJobs")
     output = get_display_output()
 
