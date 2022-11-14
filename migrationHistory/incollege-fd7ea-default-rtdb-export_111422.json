@@ -1,0 +1,451 @@
+{
+  "AppliedJobs": {
+    "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": {
+      "GoodFitReasoning": "Experience with high level languages as well as software cycle of an application",
+      "GraduationDate": "05/10/2023",
+      "JobEmployer": "Tadpole Solutions",
+      "JobId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "JobTitle": "Software Engineer",
+      "StartDate": "08/15/2023",
+      "UserId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754",
+      "_CreatedTimestamp": "2022-11-10 20:15:16.838211"
+    },
+    "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": {
+      "GoodFitReasoning": "I think I got some XP.",
+      "GraduationDate": "12/12/2022",
+      "JobEmployer": "Tadpole Solutions",
+      "JobId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "JobTitle": "Software Engineer",
+      "StartDate": "01/01/2023",
+      "UserId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "_CreatedTimestamp": "2022-11-07 23:57:51.470455"
+    },
+    "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce16310d0ab0fe297a41355e111cd9f839571fc837954ce6ea94c9cf7e803aae13a12": {
+      "GoodFitReasoning": "I am good",
+      "GraduationDate": "09/20/2022",
+      "JobEmployer": "Intel",
+      "JobId": "10d0ab0fe297a41355e111cd9f839571fc837954ce6ea94c9cf7e803aae13a12",
+      "JobTitle": "Embedded Systems Programmer",
+      "StartDate": "09/12/2023",
+      "UserId": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163",
+      "_CreatedTimestamp": "2022-11-13 18:36:15.916671"
+    },
+    "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b17110d0ab0fe297a41355e111cd9f839571fc837954ce6ea94c9cf7e803aae13a12": {
+      "GoodFitReasoning": "yes",
+      "GraduationDate": "12/02/2023",
+      "JobEmployer": "Intel",
+      "JobId": "10d0ab0fe297a41355e111cd9f839571fc837954ce6ea94c9cf7e803aae13a12",
+      "JobTitle": "Embedded Systems Programmer",
+      "StartDate": "12/03/2023",
+      "UserId": "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b171",
+      "_CreatedTimestamp": "2022-11-09 16:31:34.307896"
+    },
+    "a4606d2e572b3fd40243f48fe89ccd03132be999889a5adadbe180d4ee466817694bc92f586a61a7ee91afa577d7231ef3cabfe56ca4aab19c718a2545dab553": {
+      "GoodFitReasoning": "I good",
+      "GraduationDate": "06/10/2023",
+      "JobEmployer": "Activision",
+      "JobId": "694bc92f586a61a7ee91afa577d7231ef3cabfe56ca4aab19c718a2545dab553",
+      "JobTitle": "Game Developer",
+      "StartDate": "08/20/2023",
+      "UserId": "a4606d2e572b3fd40243f48fe89ccd03132be999889a5adadbe180d4ee466817",
+      "_CreatedTimestamp": "2022-11-11 12:29:30.607253"
+    },
+    "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6929e18285656dddd42aaf3e47840cc53194c490f059496f544c7cf34b26cfe30": {
+      "GoodFitReasoning": "I get shit done.",
+      "GraduationDate": "12/10/2022",
+      "JobEmployer": "TechData",
+      "JobId": "929e18285656dddd42aaf3e47840cc53194c490f059496f544c7cf34b26cfe30",
+      "JobTitle": "Software Architect",
+      "StartDate": "01/02/2022",
+      "UserId": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6",
+      "_CreatedTimestamp": "2022-11-08 23:12:49.591846"
+    },
+    "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6fa9562ccd82d9df30b376f0a8b10fb5c596671c16d7e15aef48ba735042ba9a3": {
+      "GoodFitReasoning": "You tell me.",
+      "GraduationDate": "12/10/2022",
+      "JobEmployer": "Siemens",
+      "JobId": "fa9562ccd82d9df30b376f0a8b10fb5c596671c16d7e15aef48ba735042ba9a3",
+      "JobTitle": "Software Engineer Intern",
+      "StartDate": "01/01/2023",
+      "UserId": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6",
+      "_CreatedTimestamp": "2022-11-08 01:24:31.024836"
+    }
+  },
+  "Jobs": {
+    "10d0ab0fe297a41355e111cd9f839571fc837954ce6ea94c9cf7e803aae13a12": {
+      "Description": "Work on FPGAs using VHDL",
+      "Employer": "Intel",
+      "Id": "10d0ab0fe297a41355e111cd9f839571fc837954ce6ea94c9cf7e803aae13a12",
+      "Location": "Clearwater, FL",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "250,000",
+      "Title": "Embedded Systems Programmer",
+      "_CreatedTimestamp": "2022-11-09 14:26:47.882125"
+    },
+    "2c0a7abc2a8881f43c601ebd700039f2a36ac949068f9e866917230ef4fcdd98": {
+      "Description": "Work on developing web applications for the social club.",
+      "Employer": "Rockstar Games",
+      "Id": "2c0a7abc2a8881f43c601ebd700039f2a36ac949068f9e866917230ef4fcdd98",
+      "Location": "San Diego, Claifornia",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "120,000",
+      "Title": "Full Stack Engineer",
+      "_CreatedTimestamp": "2022-11-08 23:12:49.576221"
+    },
+    "694bc92f586a61a7ee91afa577d7231ef3cabfe56ca4aab19c718a2545dab553": {
+      "Description": "Work on latest Activision projects such as COD MW2 using the Unreal engine.",
+      "Employer": "Activision",
+      "Id": "694bc92f586a61a7ee91afa577d7231ef3cabfe56ca4aab19c718a2545dab553",
+      "Location": "Atlanta, Georgia",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "200,000",
+      "Title": "Game Developer",
+      "_CreatedTimestamp": "2022-11-09 14:26:47.882125"
+    },
+    "929e18285656dddd42aaf3e47840cc53194c490f059496f544c7cf34b26cfe30": {
+      "Description": "Design systems and architect solutions to complex propblems.",
+      "Employer": "TechData",
+      "Id": "929e18285656dddd42aaf3e47840cc53194c490f059496f544c7cf34b26cfe30",
+      "Location": "St. Pete, FL",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "300,000",
+      "Title": "Software Architect",
+      "_CreatedTimestamp": "2022-11-08 23:12:49.576221"
+    },
+    "c2c290af6da83b4d6f9d10427682135e8a137d0f0d1fe52bf6d5bed705be3ed0": {
+      "Description": "Work with a talented team to improve a responsive React application.",
+      "Employer": "Tesla",
+      "Id": "c2c290af6da83b4d6f9d10427682135e8a137d0f0d1fe52bf6d5bed705be3ed0",
+      "Location": "Austin, Texas",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "200,000",
+      "Title": "Frontend Engineer",
+      "_CreatedTimestamp": "2022-11-08 23:50:51.520313"
+    },
+    "df09981aa428863e2aede73abee10afbbba2ecea4729aff241744aaa10ef2ed1": {
+      "Description": "Full stack web development using .NET, Angular and PostgreSQL.",
+      "Employer": "Dice",
+      "Id": "df09981aa428863e2aede73abee10afbbba2ecea4729aff241744aaa10ef2ed1",
+      "Location": "Paris, France",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "80,000",
+      "Title": "\u0010Web Developer",
+      "_CreatedTimestamp": "2022-11-08 23:12:49.576221"
+    },
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": {
+      "Description": "We use software to solve real world problems, when it works.",
+      "Employer": "Tadpole Solutions",
+      "Id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Location": "Mars",
+      "PosterId": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6",
+      "Salary": "",
+      "Title": "Software Engineer"
+    },
+    "fa9562ccd82d9df30b376f0a8b10fb5c596671c16d7e15aef48ba735042ba9a3": {
+      "Description": "Work on a WPF application and write integration tests for it.",
+      "Employer": "Siemens",
+      "Id": "fa9562ccd82d9df30b376f0a8b10fb5c596671c16d7e15aef48ba735042ba9a3",
+      "Location": "Chicago, IL",
+      "PosterId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "Salary": "120,000",
+      "Title": "Software Engineer Intern"
+    }
+  },
+  "Messages": {
+    "1667760362": {
+      "Content": "Hey Osama, what's up?",
+      "Id": "1667760362",
+      "IsRead": "True",
+      "ReceiverId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754",
+      "SenderId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46"
+    },
+    "1667775186": {
+      "Content": "Testing messaging one final tiem again.",
+      "Id": "1667775186",
+      "IsRead": "True",
+      "ReceiverId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "SenderId": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6"
+    },
+    "1668129232": {
+      "Content": "Doing good, how are you doing?",
+      "Id": "1668129232",
+      "IsRead": "False",
+      "ReceiverId": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "SenderId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754"
+    },
+    "1668382615": {
+      "Content": "Hi Osama",
+      "Id": "1668382615",
+      "IsRead": "True",
+      "ReceiverId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754",
+      "SenderId": "566862d093e0fa9da2be8539fa2a870393087bdb51d14b4ca280d5054d305838"
+    },
+    "1668382690": {
+      "Content": "Yo",
+      "Id": "1668382690",
+      "IsRead": "True",
+      "ReceiverId": "566862d093e0fa9da2be8539fa2a870393087bdb51d14b4ca280d5054d305838",
+      "SenderId": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754"
+    }
+  },
+  "Users": {
+    "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754": {
+      "EmailEnabled": "True",
+      "FirstName": "Osama",
+      "Friends": {
+        "aslfarmir": true
+      },
+      "Id": "0122352aadb1a8c61082cbb0c1893c23aff82374f291acee9cd6c6173315d754",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Basit",
+      "Major": "Computer Science",
+      "Profile": {
+        "About": "",
+        "EducationList": [
+          {
+            "Degree": "Gcse A-Levels",
+            "SchoolName": "The City School",
+            "YearsAttended": 2
+          }
+        ],
+        "ExperienceList": [
+          {
+            "DateEnded": "N/A",
+            "DateStarted": "08/22/2022",
+            "Description": "software engineering",
+            "Employer": "Tenex",
+            "Location": "Tampa",
+            "Title": "Software Engineer Intern"
+          }
+        ],
+        "Id": "",
+        "Major": "Cs",
+        "Title": "Engineer",
+        "University": "Usf"
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Standard",
+      "University": "USF",
+      "Username": "obasit",
+      "_LastLoginTimestamp": "2022-11-13 18:42:13.169928",
+      "_SignUpTimestamp": "0001-01-01 00:00:00"
+    },
+    "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46": {
+      "EmailEnabled": "True",
+      "FirstName": "Sidharth",
+      "Friends": {
+        "Aoun": true,
+        "Sid2": true
+      },
+      "Id": "6aa6f4cb7eefd7b7084dd279ce8af20bbfdc35205145f386deefc32430eb5e46",
+      "LanguagePreference": "Spanish",
+      "LastName": "Anandkumar",
+      "Major": "",
+      "Profile": {
+        "About": "Student at USF and SE Intern at Siemens.",
+        "EducationList": [
+          {
+            "Degree": "Ce",
+            "SchoolName": "Usf",
+            "YearsAttended": 4
+          },
+          {
+            "Degree": "High School Diploma",
+            "SchoolName": "Giis",
+            "YearsAttended": 4
+          }
+        ],
+        "ExperienceList": [
+          {
+            "DateEnded": "12/25/2022",
+            "DateStarted": "10/25/2018",
+            "Description": "Worked on testing a WPF app and used REST/gRPC APIs.",
+            "Employer": "Siemens",
+            "Location": "Chicago, Il",
+            "Title": "Software Engineer Intern"
+          },
+          {
+            "DateEnded": "10/25/2022",
+            "DateStarted": "10/25/2018",
+            "Description": "Full stack web dev.",
+            "Employer": "Affordit",
+            "Location": "Tampa, Fl",
+            "Title": "Software Engineer Intern"
+          }
+        ],
+        "Id": "",
+        "Major": "Computer Engineering",
+        "Title": "Student at USF",
+        "University": "University Of South Florida"
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Plus",
+      "University": "",
+      "Username": "Sid",
+      "_LastLoginTimestamp": "2022-11-13 18:24:21.148543",
+      "_SignUpTimestamp": "0001-01-01 00:00:00"
+    },
+    "9516e7a745aeb68db9f1a9fce02cefd22b265d9e238f4bdfaccfba690ba94512": {
+      "EmailEnabled": "True",
+      "FirstName": "Prerna",
+      "Friends": {
+        "Anshika": true
+      },
+      "Id": "9516e7a745aeb68db9f1a9fce02cefd22b265d9e238f4bdfaccfba690ba94512",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Yarehalli",
+      "Major": "CS",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Plus",
+      "University": "USF",
+      "Username": "Prerna"
+    },
+    "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163": {
+      "EmailEnabled": "University of South Florida",
+      "FirstName": "Amir",
+      "Friends": {
+        "obasit": true
+      },
+      "Id": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Aslamov",
+      "Major": "",
+      "Profile": {
+        "About": "CS Student",
+        "EducationList": [
+          {
+            "Degree": "Bachelors",
+            "SchoolName": "Usf",
+            "YearsAttended": 3
+          },
+          {
+            "Degree": "Diploma",
+            "SchoolName": "College",
+            "YearsAttended": 3
+          }
+        ],
+        "ExperienceList": [
+          {
+            "DateEnded": "n/a",
+            "DateStarted": "05/05/2023",
+            "Description": "Software Engineering",
+            "Employer": "Hashicorp Inc.",
+            "Location": "Remote",
+            "Title": "Software Engineer"
+          },
+          {
+            "DateEnded": "n/a",
+            "DateStarted": "n/a",
+            "Description": "dw",
+            "Employer": "Honors College",
+            "Location": "N/A",
+            "Title": "Software Developer"
+          },
+          {
+            "DateEnded": "daw",
+            "DateStarted": "dwa",
+            "Description": "daw",
+            "Employer": "Usf College Of Engineering",
+            "Location": "Ddaw",
+            "Title": "Undergraduate Teaching Assistant"
+          }
+        ],
+        "Id": "957f5aae088100aca56a7e0ecca8e5964c96d602366deb204c344177b79ce163",
+        "Major": "Computer Science",
+        "Title": "Software Engineer",
+        "University": "Usf"
+      },
+      "SmsEnabled": "Computer Science",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Standard",
+      "University": "",
+      "Username": "aslfarmir",
+      "_LastLoginTimestamp": "2022-11-13 18:36:34.585908",
+      "_SignUpTimestamp": "0001-01-01 00:00:00"
+    },
+    "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b171": {
+      "EmailEnabled": "True",
+      "FirstName": "Aoun",
+      "Friends": {
+        "Anshika": true,
+        "Sid": true
+      },
+      "Id": "9ee4f4ebec7586aef057e0492edacd585b1595e558d3d60710355f0d3ad4b171",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Ashraf",
+      "Major": "CS",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Plus",
+      "University": "USF",
+      "Username": "Aoun",
+      "_LastLoginTimestamp": "2022-11-10 20:30:40.293938"
+    },
+    "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6": {
+      "EmailEnabled": "True",
+      "FirstName": "Sid",
+      "Friends": {
+        "Sid": true
+      },
+      "Id": "b67fee01c7f3719f83106e63fbb3d0534b9627c8b94854f69e68ea9522adcef6",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Ak",
+      "Major": "Computer Engineering",
+      "Profile": {
+        "About": "",
+        "Id": "",
+        "Major": "",
+        "Title": "",
+        "University": ""
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Standard",
+      "University": "University of South Florida",
+      "Username": "Sid2",
+      "_LastLoginTimestamp": "2022-11-09 14:30:40.638262"
+    },
+    "fff49b9a9432a5bb7badfcaa755d9d423caa5af33a4e18f5c11af4dc5074f486": {
+      "EmailEnabled": "True",
+      "FirstName": "Anshika",
+      "Friends": {
+        "Prerna": true
+      },
+      "Id": "fff49b9a9432a5bb7badfcaa755d9d423caa5af33a4e18f5c11af4dc5074f486",
+      "LanguagePreference": "LanguageEnum.English",
+      "LastName": "Bhowmick",
+      "Major": "Computer Science",
+      "Profile": {
+        "About": "I'm looking for jobs",
+        "Id": "",
+        "Major": "Cs",
+        "Title": "Intern",
+        "University": "Usf"
+      },
+      "SmsEnabled": "True",
+      "TargetedAdvertEnabled": "True",
+      "TierEnum": "UserTierEnum.Standard",
+      "University": "University of South Florida",
+      "Username": "Anshika",
+      "_LastLoginTimestamp": "2022-11-09 20:22:37.286098",
+      "_SignUpTimestamp": "0001-01-01 00:00:00"
+    }
+  }
+}
