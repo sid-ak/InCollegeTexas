@@ -12,7 +12,7 @@ from helpers.APIHelpers import getCurrentPath
 def RunOutputAPIs():
     AppliedJobsAPI()
 
-def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs"):
+def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs") -> bool:
 
     # create file called MyCollege_appliedJobs.txt
     FILE_NAME = os.path.join(getCurrentPath(), "MyCollege_appliedJobs.txt")
