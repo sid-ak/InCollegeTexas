@@ -155,14 +155,21 @@ class AppliedJobHelpers:
     # returns a list of AppliedJob (s) for a specific Job
     def GetApplicationsForSpecificJob(jobId: str, collection:str = "AppliedJobs") -> list[AppliedJob]:
         try:
-            allJobApplications = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
-            if allJobApplications == None: return []
-
             job: Job = JobHelpers.GetJobByID(jobId)
+            try:
+                allJobApplications = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
+                if allJobApplications == None: return []
 
-            jobApplications = list(
-                filter(lambda application: application.JobId == job.Id, allJobApplications)
-            )
-            return jobApplications
+                jobApplications = list(
+                    filter(lambda application: application.JobId == job.Id, allJobApplications)
+                )
+                return jobApplications
+            except Exception as e:
+                print(f"An error occurred while accessing applications for job: {job.Title} {e}\n")
+                return None
+
         except Exception as e:
-            print(f"An error occurred while accessing applications for job: {job.Title} {e}\n")
+            print(f"Could not get job by Id {e}")
+            return None
+
+
