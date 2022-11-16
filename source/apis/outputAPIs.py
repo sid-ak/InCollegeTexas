@@ -9,7 +9,11 @@ from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.UserHelpers import UserHelpers
 from helpers.APIHelpers import getCurrentPath
 
-def AppliedJobsAPI(jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs"):
+def RunOutputAPIs():
+    AppliedJobsAPI()
+
+def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs"):
+
     # create file called MyCollege_appliedJobs.txt
     FILE_NAME = os.path.join(getCurrentPath(), "MyCollege_appliedJobs.txt")
 
@@ -26,7 +30,7 @@ def AppliedJobsAPI(jobsCollection: str = "Jobs", appliedJobsCollection:str = "Ap
 
                 # for each job, get and write users and reason for good fit
                 for application in jobApplications:
-                    username = UserHelpers.GetUserById(application.UserId).Username
+                    username = UserHelpers.GetUserById(application.UserId, collection=userCollection).Username
                     outputFile.write(f"{username}, {application.GoodFitReasoning}\n")
 
                 # each job posting separated by a line of "====="
