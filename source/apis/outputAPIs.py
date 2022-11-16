@@ -35,6 +35,6 @@ def AppliedJobsAPI(jobsCollection: str = "Jobs", appliedJobsCollection:str = "Ap
         return True
 
     except Exception as e:
-        print(f"An error ocurred running the applied jobs output API! {e}\n")
+        print(f"An error occurred running the applied jobs output API! {e}\n")
         return False
 
