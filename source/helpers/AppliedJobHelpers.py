@@ -2,6 +2,7 @@ from datetime import datetime
 from model.AppliedJob import AppliedJob
 from firebaseSetup.Firebase import database
 from model.User import User
+from model.Job import Job
 
 
 class AppliedJobHelpers:
@@ -149,3 +150,14 @@ class AppliedJobHelpers:
         except Exception as e:
             print(f"Could not get last applied job user due to an exception.\n{e}")
             return None
+
+    # returns a list of AppliedJob (s) for a specific Job
+    def GetApplicationsForSpecificJob(job: Job, collection:str = "AppliedJobs") -> list[AppliedJob]:
+        try:
+            allJobApplications = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
+            jobApplications = list(
+                filter(lambda application: application.JobId == job.Id, allJobApplications)
+            )
+            return jobApplications
+        except Exception as e:
+            print(f"An error occurred while accessing applications for job: {job.Title} {e}\n")
