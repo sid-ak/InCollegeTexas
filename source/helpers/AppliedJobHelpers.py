@@ -3,6 +3,7 @@ from model.AppliedJob import AppliedJob
 from firebaseSetup.Firebase import database
 from model.User import User
 from model.Job import Job
+from helpers.JobHelpers import JobHelpers
 
 
 class AppliedJobHelpers:
@@ -152,10 +153,12 @@ class AppliedJobHelpers:
             return None
 
     # returns a list of AppliedJob (s) for a specific Job
-    def GetApplicationsForSpecificJob(job: Job, collection:str = "AppliedJobs") -> list[AppliedJob]:
+    def GetApplicationsForSpecificJob(jobId: str, collection:str = "AppliedJobs") -> list[AppliedJob]:
         try:
             allJobApplications = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
-            if allJobApplications == None: return None
+            if allJobApplications == None: return []
+
+            job: Job = JobHelpers.GetJobByID(jobId)
 
             jobApplications = list(
                 filter(lambda application: application.JobId == job.Id, allJobApplications)

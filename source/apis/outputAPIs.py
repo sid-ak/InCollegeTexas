@@ -38,7 +38,7 @@ def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", 
 
                 # gets all job applications of a specific JobId/job posting from allJobApplciations
                 jobApplications = AppliedJobHelpers.GetApplicationsForSpecificJob(
-                    job, appliedJobsCollection)
+                    job.Id, appliedJobsCollection)
                 if jobApplications == None: raise Exception("Getting applications for job error")
 
                 # for each job, get and write users and reason for good fit
