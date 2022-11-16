@@ -155,6 +155,8 @@ class AppliedJobHelpers:
     def GetApplicationsForSpecificJob(job: Job, collection:str = "AppliedJobs") -> list[AppliedJob]:
         try:
             allJobApplications = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
+            if allJobApplications == None: return None
+
             jobApplications = list(
                 filter(lambda application: application.JobId == job.Id, allJobApplications)
             )
