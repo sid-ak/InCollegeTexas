@@ -9,7 +9,7 @@ from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.UserHelpers import UserHelpers
 from helpers.APIHelpers import getCurrentPath
 
-def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs") -> False:
+def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs") -> bool:
     try:
         if not AppliedJobsAPI(userCollection, jobsCollection, appliedJobsCollection):
             raise Exception("Applied Jobs API failed")
@@ -17,7 +17,7 @@ def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs", a
         return True
     except Exception as e:
         print(e)
-
+        return False
 
 def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs") -> bool:
 
