@@ -3,7 +3,7 @@ from model.SavedJob import SavedJob
 from model.Job import Job
 from helpers.SavedJobHelpers import SavedJobHelpers
 from helpers.JobHelpers import JobHelpers
-from ..apis.outputAPIs import SavedJobsAPI
+from apis.outputAPIs import SavedJobsAPI
 
 
 def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJobs",
