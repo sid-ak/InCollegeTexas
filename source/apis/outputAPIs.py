@@ -50,7 +50,7 @@ def SingleJobAppendAPI(job: Job):
                 outputFile.write("=====\n")
 
             except Exception as e:
-                print(f"Error writing saved job title to file {e}\n")
+                print(f"Error writing job details to file {e}\n")
                 return False
 
         return True
