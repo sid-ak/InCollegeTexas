@@ -7,3 +7,11 @@ def getCurrentPath():
         return os.getcwd()
     except Exception as e:
         print(f"Couldn't get current path {e}\n")
+
+def createOutputDirectory():
+    output_path = getCurrentPath() + '\output'
+    try:
+        if not os.path.exists(output_path):
+            os.mkdir(getCurrentPath() + '\output')
+    except Exception as e:
+        print(f"Couldn't make output directory {e}\n")
