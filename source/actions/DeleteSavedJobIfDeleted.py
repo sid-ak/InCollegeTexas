@@ -3,9 +3,11 @@ from model.SavedJob import SavedJob
 from model.Job import Job
 from helpers.SavedJobHelpers import SavedJobHelpers
 from helpers.JobHelpers import JobHelpers
+from ..apis.outputAPIs import SavedJobsAPI
 
 
-def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJobs", jobsCollection: str ="Jobs"):
+def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJobs",
+                            jobsCollection: str ="Jobs", userCollection:str = "Users"):
     # first get the list of all saved jobs by the user
     allSavedJobs: list[SavedJob] = SavedJobHelpers.GetAllSavedJobsOfUser(loggedUser=loggedUser, collection=savedJobsCollection)
     # now get the list of all existing jobs in the DB
@@ -27,6 +29,8 @@ def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJ
             for job in savedJobsDeleted:
                 try:
                     SavedJobHelpers.DeleteSavedJob(savedJob=job, collection=savedJobsCollection)
+                    if SavedJobsAPI(userCollection=userCollection,savedJobsCollection=savedJobsCollection):
+                        raise Exception("Couldn't new saved jobs in output file")
                 except Exception as e:
                     print("\nFailure! Could not delete the saved job for some reason. {e}\n")
             
