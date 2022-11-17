@@ -5,6 +5,7 @@ from helpers.MenuHelpers import MenuHelpers
 from helpers.JobTitleHelper import JobTitleHelper
 from helpers.NotificationHelpers import NotificationHelpers
 from actions.DeleteSavedJobIfDeleted import DeleteSavedJobIfDeleted
+from apis.outputAPIs import SingleJobAppendAPI
 
 
 # Allows a logged in user to create a job posting or view all the jobs.
@@ -36,7 +37,10 @@ def FindJobInternshipAction(loggedUser: User):
                 
                 # Push that job to the DB.
                 if JobHelpers.CreateJob(job) == True:
+                    # append new job added to ouput job file
+                    SingleJobAppendAPI(job)
                     print(f"\n{job.Title} created successfully.")
+
                 else:
                     raise Exception("CreateJob failed.")
 
