@@ -8,7 +8,7 @@ from helpers.JobHelpers import JobHelpers
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.UserHelpers import UserHelpers
 from helpers.APIHelpers import getCurrentPath, createOutputDirectory
-from models.Job import Job
+from model.Job import Job
 
 def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
                   appliedJobsCollection:str = "AppliedJobs", savedJobsCollection:str = "SavedJobs") -> bool:
