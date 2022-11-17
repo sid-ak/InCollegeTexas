@@ -38,7 +38,8 @@ def FindJobInternshipAction(loggedUser: User):
                 # Push that job to the DB.
                 if JobHelpers.CreateJob(job) == True:
                     # append new job added to ouput job file
-                    SingleJobAppendAPI(job)
+                    if not SingleJobAppendAPI(job):
+                        raise Exception("AppendJob API failed to add job to output file\n")
                     print(f"\n{job.Title} created successfully.")
 
                 else:
