@@ -72,7 +72,7 @@ def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", 
         return False
 
 # User API: write to file all users and their subscriptions
-def UserAPI(userCollection:str = "Users", subscriptionCollection:str = "Subscriptions") -> bool:
+def UserAPI(userCollection:str = "Users") -> bool:
     # create file called MyCollege_users.txt
     try: FILE_NAME = os.path.join(getCurrentPath(), "MyCollege_users.txt")
     except Exception as e:
