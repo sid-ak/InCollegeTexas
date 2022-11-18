@@ -104,6 +104,6 @@ class UserPrefHelpers:
                 
                 elif user.TierEnum == UserTierEnum.Plus:
                     print("\nYou will now be charged $10/month.")
-
+            
         except Exception as e:
             print(f"Exception occurred. Tier preference could not be set.\n{e}")

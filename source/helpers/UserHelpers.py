@@ -81,6 +81,14 @@ class UserHelpers:
         except:
             print(f"Could not get the specified user with user ID: {userId}")
 
+    # returns user Id for a specific user FULL NAME
+    def GetUserIdByName(name: str, collection: str = "Users") -> str:
+        users = UserHelpers.GetAllUsers(collection)
+        if not users: raise Exception("Could not retrieve users from DB\n")
+        for user in users:
+            if user.FirstName + " " + user.LastName == name:
+                return user.Id
+        return None
 
     # Creates the specified user in the DB.
     # Takes an optional argument for the child node in the DB.
