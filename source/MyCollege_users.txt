@@ -1,7 +1,0 @@
-obasit, Standard
-Sid, Plus
-Prerna, Plus
-aslfarmir, Standard
-Aoun, Plus
-Sid2, Standard
-Anshika, Standard

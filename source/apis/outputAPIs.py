@@ -113,7 +113,16 @@ def UserProfileAPI(userCollection:str = "Users") -> bool:
 
                 if ProfileHelpers.ProfileExists(user):
                     # write user profile to file
-                    try: outputFile.write(f"{userProfile.Title}\n{userProfile.Major}\n{userProfile.University}\n{userProfile.About}\n{userProfile.ExperienceList}\n{userProfile.EducationList}\n")
+                    try: 
+                        outputFile.write(f"{userProfile.Title}\n{userProfile.Major}\n{userProfile.University}\n{userProfile.About}\n")
+                        # writing experience:
+                        outputFile.write("Experience:\n")
+                        experience_output = ProfileHelpers.HelpPrintExperienceList(userProfile.ExperienceList).strip()
+                        outputFile.write(f"{experience_output}\n")
+                        # writing education:
+                        outputFile.write("Education:\n")
+                        education_output = ProfileHelpers.HelpPrintEducationList(userProfile.EducationList).strip()
+                        outputFile.write(f"{education_output}\n")
                     except Exception as e: print(f"Could not write to file {e}\n")
 
                     # each user profile separated by a line of "====="
