@@ -3,6 +3,7 @@ from helpers.MenuHelpers import MenuHelpers
 from model.User import User
 from helpers.UserHelpers import UserHelpers
 from enums.LanguageEnum import LanguageEnum
+from apis.outputAPIs import UserAPI
 
 class UserPrefHelpers:
     # Toggles the email preference for a user.
@@ -104,6 +105,9 @@ class UserPrefHelpers:
                 
                 elif user.TierEnum == UserTierEnum.Plus:
                     print("\nYou will now be charged $10/month.")
+
+                # calling the function to update the output file
+                UserAPI()
             
         except Exception as e:
             print(f"Exception occurred. Tier preference could not be set.\n{e}")
