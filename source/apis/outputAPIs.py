@@ -10,6 +10,7 @@ from helpers.UserHelpers import UserHelpers
 from helpers.APIHelpers import getCurrentPath
 from helpers.ProfileHelpers import ProfileHelpers
 from helpers.APIHelpers import getCurrentPath, createOutputDirectory
+from model.Job import Job
 
 
 def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
@@ -28,17 +29,74 @@ def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
         if not SavedJobsAPI(userCollection, savedJobsCollection):
             raise Exception("Saved Jobs API failed")
 
+
+        if not JobsAPI(jobsCollection):
+            raise Exception("Jobs API failed")
+
         if not UserAPI(userCollection):
             raise Exception("User API failed")
 
         if not UserProfileAPI():
             raise Exception("User Profiles API failed")
 
-
         return True
 
     except Exception as e:
         print(e)
+        return False
+
+def SingleJobAppendAPI(job: Job):
+    try: FILE_NAME = os.path.join(getCurrentPath()+ "\output", "MyCollege_jobs.txt")
+    except Exception as e:
+        print(f"Error appending Job file name to path {e}\n")
+        return False
+    try:
+        with open(FILE_NAME, "a") as outputFile:
+            try:
+                outputFile.write(f"{job.Title}\n")
+                outputFile.write(f"{job.Description}\n")
+                outputFile.write(f"{job.Employer}\n")
+                outputFile.write(f"{job.Location}\n")
+                outputFile.write(f"{job.Salary}\n")
+                outputFile.write("=====\n")
+
+            except Exception as e:
+                print(f"Error writing job details to file {e}\n")
+                return False
+
+        return True
+
+    except Exception as e:
+        print(f"Error Occurred: {e}")
+        return False
+
+def JobsAPI(jobsCollection: str = "Jobs") -> bool:
+    try: FILE_NAME = os.path.join(getCurrentPath()+ "\output", "MyCollege_jobs.txt")
+    except Exception as e:
+        print(f"Error appending file name to path {e}\n")
+        return False
+
+    try:
+        with open(FILE_NAME, "w") as outputFile:
+            allJobs = JobHelpers.GetAllJobs(jobsCollection)
+            if not allJobs: allJobs = [] # if no jobs in DB
+            for job in allJobs:
+                try:
+                    outputFile.write(f"{job.Title}\n")
+                    outputFile.write(f"{job.Description}\n")
+                    outputFile.write(f"{job.Employer}\n")
+                    outputFile.write(f"{job.Location}\n")
+                    outputFile.write(f"{job.Salary}\n")
+                    outputFile.write("=====\n")
+
+                except Exception as e:
+                    print(f"Error writing saved job title to file {e}\n")
+                    return False
+
+        return True
+
+    except Exception as e:
+        print(f"Error Occurred: {e}")
         return False
 
 def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs") -> bool:
@@ -120,7 +178,7 @@ def SavedJobsAPI(userCollection: str = "Users", savedJobsCollection: str = "Save
                     print(f"Error writing to file {e}\n")
                     return False
 
-            return True
+        return True
 
     except Exception as e:
         print(f"Error Occurred: {e}")
