@@ -11,13 +11,15 @@ def getCurrentPath() -> str:
     except Exception as e:
         print(f"Couldn't get current path {e}\n")
 
-def createOutputDirectory() -> None:
+
+def createOutputDirectory():
     output_path = getCurrentPath() + '\output'
     try:
         if not os.path.exists(output_path):
             os.mkdir(getCurrentPath() + '\output')
     except Exception as e:
         print(f"Couldn't make output directory {e}\n")
+
 
 def checkInputFileExists(fileName: str) -> str:
     input_path = getCurrentPath()
@@ -38,8 +40,8 @@ def checkInputFileExists(fileName: str) -> str:
     except Exception as e:
         print(f"Error checking if input file exists {e}")
 
-def GetInputJob(title, desc, posterName, employer, loc, salary, userCollection) -> Job:
 
+def GetInputJob(title, desc, posterName, employer, loc, salary, userCollection) -> Job:
     posterId = UserHelpers.GetUserIdByName(posterName, userCollection)
     if not posterId:
         raise Exception(f"Couldn't find user with poster name {posterName}\n")

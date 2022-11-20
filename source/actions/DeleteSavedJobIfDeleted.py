@@ -29,7 +29,7 @@ def DeleteSavedJobIfDeleted(loggedUser: User, savedJobsCollection: str = "SavedJ
             for job in savedJobsDeleted:
                 try:
                     SavedJobHelpers.DeleteSavedJob(savedJob=job, collection=savedJobsCollection)
-                    if SavedJobsAPI(userCollection=userCollection,savedJobsCollection=savedJobsCollection):
+                    if not SavedJobsAPI(userCollection=userCollection,savedJobsCollection=savedJobsCollection):
                         raise Exception("Couldn't update saved jobs in output file")
                 except Exception as e:
                     print("\nFailure! Could not delete the saved job for some reason. {e}\n")

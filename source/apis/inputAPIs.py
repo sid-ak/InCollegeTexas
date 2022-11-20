@@ -3,14 +3,15 @@ from helpers.JobHelpers import JobHelpers
 from helpers.UserHelpers import UserHelpers
 from model.User import User
 
+
 def RunInputAPIS(jobCollection:str = "Jobs", userCollection:str = "Users") -> bool:
 
     try:
-        if not jobsInputAPI(jobCollection, userCollection):
-            raise Exception("Error running jobs input API\n")
-
-        if not usersInputAPI(userCollection):
-            raise Exception("Error running users input API\n")
+        if checkInputFileExists("newJobs.txt") is not None:
+            if not jobsInputAPI(jobCollection, userCollection):
+                raise Exception("Error running jobs input API\n")
+            if not usersInputAPI(userCollection):
+                raise Exception("Error running users input API\n")
 
         return True
 
@@ -93,6 +94,7 @@ def jobsInputAPI(jobCollection:str = "Jobs", userCollection:str = "Users") -> bo
         print(f"Error reading job input file {e}\n")
         return False
 
+
 def usersInputAPI(userCollection:str = "Users") -> bool:
     input_path = checkInputFileExists("studentAccounts.txt")
     if input_path == None:
@@ -146,9 +148,3 @@ def usersInputAPI(userCollection:str = "Users") -> bool:
     except Exception as e:
         print(f"Error reading studentAccounts file {e}\n")
         return False
-
-                
-
-
-        
-    
