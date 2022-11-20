@@ -677,6 +677,7 @@ def test_UserAPI():
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     os.remove(outputFile)
 
+
 #function to test UserInputApiFile
 def test_UserInputAPI():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
@@ -703,3 +704,68 @@ def test_UserInputAPI():
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     assert True == UserHelpers.DeleteUserAccount(outputList[1], collection="testUsers")
     os.remove(testInput)
+
+
+#Testing User Profile API function
+def test_UserProfileAPI():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    UserHelpers.UpdateUser(user1, "testUsers")
+    i: int = 1
+    profile: Profile = Profile(
+        Id = user1.Id,
+        Title = "Test Title",
+        University = "Test University",
+        Major = "Test Major",
+        About = "Test About",
+        EducationList = [Education(
+            SchoolName = f"Test School Name {i}",
+            Degree = f"Test Degree {i}",
+            YearsAttended = 1
+        )],
+        ExperienceList = [Experience(
+            Title = f"Test Title {i}",
+            Employer = f"Employer {i}",
+            DateStarted = "10/25/2018",
+            DateEnded = "10/25/2022",
+            Location = f"Test Location {i}",
+            Description = f"Test Description {i}"
+        )]
+    )
+
+    user1.Profile = profile
+    assert True == UserHelpers.UpdateUser(user1, "testUsers")
+
+    testUserUpdated: User = UserHelpers.GetUser(user1, "testUsers")
+    assert testUserUpdated != None
+    assert testUserUpdated.Profile == profile
+
+    set_keyboard_input("-1")
+
+    UserProfileAPI(userCollection="testUsers")
+
+    outputFile = os.path.join(getCurrentPath() , "output", "MyCollege_profiles.txt")
+
+    with open(outputFile, "r") as file:
+        output = [line.strip() for line in file]
+
+    assert output == ["Test Title",
+                      "Test Major",
+                      "Test University",
+                      "Test About",
+                      "Experience:",
+                      "1)",
+                      "Title: Test Title 1",
+                      "Employer: Employer 1",
+                      "Date Started: 10/25/2018",
+                      "Date Ended: 10/25/2022",
+                      "Location: Test Location 1",
+                      "Description: Test Description 1",
+                      "Education:",
+                      "1)",
+                      "School Name: Test School Name 1",
+                      "Degree: Test Degree 1",
+                      "Years Attended: 1",
+                      "====="] 
+
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    os.remove(outputFile)
