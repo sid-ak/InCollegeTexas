@@ -4,8 +4,9 @@ from helpers.JobHelpers import JobHelpers
 def RunInputAPIS(jobCollection:str = "Jobs", userCollection:str = "Users") -> bool:
 
     try:
-        if not jobsInputAPI(jobCollection, userCollection):
-            raise Exception("Error running jobs input API\n")
+        if checkInputFileExists("newJobs.txt") is not None:
+            if not jobsInputAPI(jobCollection, userCollection):
+                raise Exception("Error running jobs input API\n")
 
         return True
 
