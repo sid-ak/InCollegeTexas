@@ -53,7 +53,7 @@ def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
         return False
 
 def SingleJobAppendAPI(job: Job):
-    try: FILE_NAME = os.path.join(getCurrentPath()+ "\output", "MyCollege_jobs.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath(), "output", "MyCollege_jobs.txt")
     except Exception as e:
         print(f"Error appending Job file name to path {e}\n")
         return False
@@ -78,7 +78,7 @@ def SingleJobAppendAPI(job: Job):
         return False
 
 def JobsAPI(jobsCollection: str = "Jobs") -> bool:
-    try: FILE_NAME = os.path.join(getCurrentPath()+ "\output", "MyCollege_jobs.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath(), "output", "MyCollege_jobs.txt")
     except Exception as e:
         print(f"Error appending file name to path {e}\n")
         return False
@@ -109,7 +109,7 @@ def JobsAPI(jobsCollection: str = "Jobs") -> bool:
 def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", appliedJobsCollection:str = "AppliedJobs") -> bool:
 
     # create file called MyCollege_appliedJobs.txt
-    try: FILE_NAME = os.path.join(getCurrentPath()+ "\output", "MyCollege_appliedJobs.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath(), "output", "MyCollege_appliedJobs.txt")
     except Exception as e:
         print(f"Error appending file name to path {e}\n")
         return False
@@ -155,7 +155,7 @@ def AppliedJobsAPI(userCollection: str = "Users", jobsCollection: str = "Jobs", 
 def SavedJobsAPI(userCollection: str = "Users", savedJobsCollection: str = "SavedJobs") -> bool:
 
     # create file called MyCollege_savedJobs.txt
-    try: FILE_NAME = os.path.join(getCurrentPath()+"\output", "MyCollege_savedJobs.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath(), "output", "MyCollege_savedJobs.txt")
 
     except Exception as e:
         print(f"Could not make saved jobs api file in directory {e}")
@@ -195,7 +195,7 @@ def SavedJobsAPI(userCollection: str = "Users", savedJobsCollection: str = "Save
 # User API: write to file all users and their subscriptions
 def UserAPI(userCollection:str = "Users") -> bool:
     # create file called MyCollege_users.txt
-    try: FILE_NAME = os.path.join(getCurrentPath() + "\output", "MyCollege_users.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath() , "output", "MyCollege_users.txt")
     except Exception as e:
         print(f"Error appending file name to path {e}\n")
         return False
@@ -218,7 +218,7 @@ def UserAPI(userCollection:str = "Users") -> bool:
 # User Profiles API: write to file all users and their profiles
 def UserProfileAPI(userCollection:str = "Users") -> bool:
     # create file called MyCollege_profiles.txt
-    try: FILE_NAME = os.path.join(getCurrentPath() + "\output", "MyCollege_profiles.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath() , "output", "MyCollege_profiles.txt")
     except Exception as e:
         print(f"Error appending file name to path {e}\n")
         return False

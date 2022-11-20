@@ -13,10 +13,11 @@ def getCurrentPath() -> str:
 
 
 def createOutputDirectory():
-    output_path = getCurrentPath() + '\output'
+    output_path = os.path.join(getCurrentPath(), 'output')
+    #output_path = getCurrentPath() + '\output'
     try:
         if not os.path.exists(output_path):
-            os.mkdir(getCurrentPath() + '\output')
+            os.mkdir(os.path.join(getCurrentPath(), 'output'))
     except Exception as e:
         print(f"Couldn't make output directory {e}\n")
 
@@ -24,12 +25,14 @@ def createOutputDirectory():
 def checkInputFileExists(fileName: str) -> str:
     input_path = getCurrentPath()
     try:
-        path = input_path + "\\" + fileName
+        path = os.path.join(input_path, fileName)
+        #path = input_path + "\\" + fileName
         if os.path.exists(path):
             return path
         else:
             try:
-                path = input_path + "\input\\" + fileName
+                path = os.path.join(input_path, "input", fileName)
+                #path = input_path + "\input\\" + fileName
                 if os.path.exists(path):
                     return path
                 else:
