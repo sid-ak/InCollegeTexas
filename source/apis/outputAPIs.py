@@ -259,7 +259,7 @@ def UserProfileAPI(userCollection:str = "Users") -> bool:
 def SavedJobsAPI(userCollection: str = "Users", savedJobsCollection: str = "SavedJobs") -> bool:
 
     # create file called MyCollege_savedJobs.txt
-    try: FILE_NAME = os.path.join(getCurrentPath()+"\output", "MyCollege_savedJobs.txt")
+    try: FILE_NAME = os.path.join(getCurrentPath(), "output", "MyCollege_savedJobs.txt")
 
     except Exception as e:
         print(f"Could not make saved jobs api file in directory {e}")
