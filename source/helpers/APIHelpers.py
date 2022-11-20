@@ -30,7 +30,6 @@ def checkInputFileExists(fileName: str) -> str:
         else:
             try:
                 path = os.path.join(input_path, "input", fileName)
-                #path = input_path + "\input\\" + fileName
                 if os.path.exists(path):
                     return path
                 else:
