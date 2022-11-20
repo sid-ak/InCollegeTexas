@@ -23,6 +23,7 @@ from helpers.JobNotificationHelpers import JobNotificationHelpers
 from helpers.APIHelpers import  getCurrentPath
 from apis.outputAPIs import UserAPI, UserProfileAPI
 from apis.inputAPIs import usersInputAPI
+from apis.outputAPIs import createOutputDirectory
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -662,9 +663,10 @@ def test_UserAPI():
 
     set_keyboard_input("-1")
     
+    createOutputDirectory()
     UserAPI(userCollection="testUsers")
-
-    outputFile = os.path.join(getCurrentPath() , "output", "MyCollege_users.txt")
+    outputDir = os.path.join(getCurrentPath(), "output")
+    outputFile = os.path.join(outputDir, "MyCollege_users.txt")
 
     with open(outputFile, "r") as file:
         output = [line.strip() for line in file]
