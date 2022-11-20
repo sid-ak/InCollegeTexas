@@ -5,13 +5,13 @@ from model.Job import Job
 
 # returns current path of where this function is called from
 # ideally would be called from a directory in level with main.py for any user
-def getCurrentPath():
+def getCurrentPath() -> str:
     try:
         return os.getcwd()
     except Exception as e:
         print(f"Couldn't get current path {e}\n")
 
-def createOutputDirectory():
+def createOutputDirectory() -> None:
     output_path = getCurrentPath() + '\output'
     try:
         if not os.path.exists(output_path):
@@ -19,7 +19,7 @@ def createOutputDirectory():
     except Exception as e:
         print(f"Couldn't make output directory {e}\n")
 
-def checkInputFileExists(fileName: str):
+def checkInputFileExists(fileName: str) -> str:
     input_path = getCurrentPath()
     try:
         path = input_path + "\\" + fileName
@@ -38,7 +38,7 @@ def checkInputFileExists(fileName: str):
     except Exception as e:
         print(f"Error checking if input file exists {e}")
 
-def GetInputJob(title, desc, posterName, employer, loc, salary, userCollection):
+def GetInputJob(title, desc, posterName, employer, loc, salary, userCollection) -> Job:
 
     posterId = UserHelpers.GetUserIdByName(posterName, userCollection)
     if not posterId:
