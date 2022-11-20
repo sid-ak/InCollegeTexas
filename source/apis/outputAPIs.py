@@ -7,10 +7,12 @@ import os.path
 from helpers.JobHelpers import JobHelpers
 from helpers.AppliedJobHelpers import AppliedJobHelpers
 from helpers.UserHelpers import UserHelpers
-from helpers.APIHelpers import getCurrentPath
+from helpers.APIHelpers import getCurrentPath, createOutputDirectory
 from helpers.ProfileHelpers import ProfileHelpers
+from model.Job import Job
 from helpers.APIHelpers import getCurrentPath, createOutputDirectory
 from model.Job import Job
+
 
 
 def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
@@ -20,7 +22,6 @@ def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
     except Exception as e:
         print(f"Couldn't make output directory {e}")
         return False
-
 
     try:
         if not AppliedJobsAPI(userCollection, jobsCollection, appliedJobsCollection):
@@ -38,6 +39,12 @@ def RunOutputAPIs(userCollection: str = "Users", jobsCollection: str = "Jobs",
 
         if not UserProfileAPI():
             raise Exception("User Profiles API failed")
+            
+        if not SavedJobsAPI(userCollection, savedJobsCollection):
+            raise Exception("Saved Jobs API failed")
+
+        if not JobsAPI(jobsCollection):
+            raise Exception("Jobs API failed")
 
         return True
 
@@ -244,6 +251,43 @@ def UserProfileAPI(userCollection:str = "Users") -> bool:
                         outputFile.write("=====\n")
                     except Exception as e:
                         print(f"Error writing to file {e}\n")
+        return True
+    except Exception as e:
+        print(f"An error occurred running the user profile output API! {e}\n")
+        return False
+
+def SavedJobsAPI(userCollection: str = "Users", savedJobsCollection: str = "SavedJobs") -> bool:
+
+    # create file called MyCollege_savedJobs.txt
+    try: FILE_NAME = os.path.join(getCurrentPath()+"\output", "MyCollege_savedJobs.txt")
+
+    except Exception as e:
+        print(f"Could not make saved jobs api file in directory {e}")
+        return False
+    try:
+        with open(FILE_NAME, "w") as outputFile:
+            allUsers = UserHelpers.GetAllUsers(collection=userCollection)
+            if allUsers == None: allUsers = []
+
+            for user in allUsers:
+                savedJobs = JobHelpers.GetSavedJobs(user, collection=savedJobsCollection)
+                if not savedJobs: continue # user has no saved jobs
+
+                try: outputFile.write(f"Username: {user.Username}\n")
+                except Exception as e:
+                    print(f"Error writing username to file {e}\n")
+                    return False
+
+                for savedJob in savedJobs:
+                    try: outputFile.write(f"{savedJob.Title}\n")
+                    except Exception as e:
+                        print(f"Error writing saved job title to file {e}\n")
+                        return False
+
+                try: outputFile.write("=====\n")
+                except Exception as e:
+                    print(f"Error writing to file {e}\n")
+                    return False
 
         return True
 

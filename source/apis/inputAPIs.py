@@ -1,5 +1,8 @@
 from helpers.APIHelpers import checkInputFileExists, GetInputJob
 from helpers.JobHelpers import JobHelpers
+from helpers.UserHelpers import UserHelpers
+from model.User import User
+
 
 def RunInputAPIS(jobCollection:str = "Jobs", userCollection:str = "Users") -> bool:
 
@@ -7,6 +10,8 @@ def RunInputAPIS(jobCollection:str = "Jobs", userCollection:str = "Users") -> bo
         if checkInputFileExists("newJobs.txt") is not None:
             if not jobsInputAPI(jobCollection, userCollection):
                 raise Exception("Error running jobs input API\n")
+            if not usersInputAPI(userCollection):
+                raise Exception("Error running users input API\n")
 
         return True
 
@@ -87,4 +92,59 @@ def jobsInputAPI(jobCollection:str = "Jobs", userCollection:str = "Users") -> bo
 
     except Exception as e:
         print(f"Error reading job input file {e}\n")
+        return False
+
+
+def usersInputAPI(userCollection:str = "Users") -> bool:
+    input_path = checkInputFileExists("studentAccounts.txt")
+    if input_path == None:
+        raise Exception("Input path does not exist!\n")
+
+    try:
+        with open(input_path, "r") as inputFile:
+            count = 0
+            username = firstName = lastName = password = ""
+            info = inputFile.readlines()
+
+            try:
+                users = []
+                user = []
+                userCount = 0
+                for input in info:
+                    if input == "=====\n" and userCount < 10:
+                        users.append(user)
+                        userCount += 1
+                        user = []
+                    
+                    else:
+                        user.append(input.strip())
+                
+                for user in users:
+                    splitInfo = user[0].split(", ")
+                    username = splitInfo[0]
+                    firstName = splitInfo[1]
+                    lastName = splitInfo[2]
+                    password = user[1]
+
+                    if UserHelpers.GetUserIdByName(firstName + " " + lastName) == None:
+                        userId = UserHelpers.CreateUserId(username, password)
+
+                        userUpdated = UserHelpers.UpdateUser(
+                            User(
+                                Id=userId,
+                                Username=username,
+                                FirstName=firstName,
+                                LastName=lastName),
+                            collection="Users")
+
+                        if userUpdated == False: raise Exception()
+
+            except Exception as e:
+                print(f"Error creating new users {e}\n")
+                return False
+        
+        return True
+    
+    except Exception as e:
+        print(f"Error reading studentAccounts file {e}\n")
         return False

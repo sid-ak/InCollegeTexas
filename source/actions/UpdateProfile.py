@@ -3,6 +3,7 @@ from helpers.MenuHelpers import MenuHelpers
 from model.User import User
 from helpers.UserHelpers import UserHelpers
 from helpers.ProfileHelpers import ProfileHelpers
+from apis.outputAPIs import UserProfileAPI
 
 
 # this function will push the changes to the profile to db if the user decides
@@ -18,6 +19,8 @@ def ConfirmChanges(loggedUser: User, profile: Profile) -> bool:
                 loggedUser.Profile = profile
                 if UserHelpers.UpdateUser(loggedUser):
                     print("\nSuccess! You have updated your profile.\n")
+                    # calling the function to update the output file
+                    UserProfileAPI()
                     return True
                 else:
                     print("\nFailure! We haven't been able to update your profile at this time.\n")
@@ -113,7 +116,6 @@ def EditProfile(userLoggedIn: User) -> bool:
         except Exception as e:
             print(f"\nError! Something went wrong when trying to update a profile.\n{e}")
             break
-
 
     return ConfirmChanges(loggedUser=userLoggedIn, profile=profile)
     
