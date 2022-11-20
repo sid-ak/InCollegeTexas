@@ -7,6 +7,7 @@ from actions.ApplyForJob import ApplyForJob
 from actions.SaveJob import SaveJob
 from model.User import User
 from actions.UnsaveJob import UnsaveJob
+from apis.outputAPIs import JobsAPI
 
 
 class JobTitleHelper:
@@ -47,7 +48,7 @@ class JobTitleHelper:
     
     
     #This Function gives the option to either apply or to save the job
-    def SelectJobOptions(loggedUser: User, job: Job, collection: str = "Users"):
+    def SelectJobOptions(loggedUser: User, job: Job, collection: str = "Users", jobsCollection:str = "Jobs"):
         while True:
 
             print("\nPlease select one of the following options:\n")
@@ -87,6 +88,9 @@ class JobTitleHelper:
                 elif(optionNo == 4 and flag):
                     if JobHelpers.DeleteJob(job) == True:
                         print(f"\n{job.Title} deleted successfully.")
+                        # re run JobsAPI to re create jobs output file
+                        if not JobsAPI(jobsCollection=jobsCollection):
+                            raise Exception("Couldn't regenerate Jobs API file")
                     else:
                         raise Exception("DeleteJob failed.")
 

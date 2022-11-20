@@ -7,10 +7,15 @@ from actions.DisplayImpLinks import DisplayImpLinks
 from actions.DisplayUsefulLinks import DisplayUsefulLinks
 from helpers.MenuHelpers import MenuHelpers
 from helpers.UserHelpers import UserHelpers
+from apis.outputAPIs import RunOutputAPIs
+from apis.inputAPIs import RunInputAPIS
 
 # this is the main run file
 class Main:
-    
+
+    # if not RunInputAPIS(): raise Exception("Error running Input APIs")
+    if not RunOutputAPIs(): raise Exception("Error running Output APIs")
+
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
         + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
 

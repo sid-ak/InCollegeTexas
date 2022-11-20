@@ -3,10 +3,11 @@ from model.Job import Job
 from helpers.JobHelpers import JobHelpers
 from model.AppliedJob import AppliedJob
 from helpers.AppliedJobHelpers import AppliedJobHelpers
+from apis.outputAPIs import AppliedJobsAPI
 
 
-
-def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJobs") -> bool:
+def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJobs",
+                userCollection:str = "Users", jobsCollection:str = "Jobs") -> bool:
     # first check if the user did not post this job  
     if JobHelpers.HelpFindUserPosted(loggedUser=loggedUser, jobInterested=selectedJob):
         print("\nFailure! You cannot apply for a job you posted.\n")
@@ -103,6 +104,9 @@ def ApplyForJob(loggedUser: User, selectedJob: Job, collection: str = "AppliedJo
             )
 
         if AppliedJobHelpers.CreateAppliedJob(appliedJob=appliedJob, loggedUser=loggedUser, collection=collection):
+            if not AppliedJobsAPI(userCollection=userCollection, jobsCollection=jobsCollection,
+                                  appliedJobsCollection=collection):
+                raise Exception("Couldn't update output file with applied job\n")
             print("\nSuccess! You have applied for the job!\n")
             return True
         else:

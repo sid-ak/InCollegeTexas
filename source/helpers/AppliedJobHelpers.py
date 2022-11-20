@@ -3,7 +3,6 @@ from model.AppliedJob import AppliedJob
 from firebaseSetup.Firebase import database
 from model.User import User
 
-
 class AppliedJobHelpers:
 
     # converts this entity into a dictionary
@@ -102,13 +101,11 @@ class AppliedJobHelpers:
     # deletes all applied jobs by a particular user
     def DeleteAppliedJobsOfUser(applierUser: User, collection: str = "AppliedJobs") -> bool:
         allAppliedJobs: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
-
         try:
             if (allAppliedJobs != None):
                 for dbAppliedJob in allAppliedJobs:
                     if dbAppliedJob.UserId == applierUser.Id:
                         database.child(collection).child(dbAppliedJob.UserId+dbAppliedJob.JobId).remove()
-                
                 return True
             
             else:
@@ -123,7 +120,6 @@ class AppliedJobHelpers:
     def GetLastAppliedJob(loggedUser: User, collection: str = "AppliedJobs") -> AppliedJob:
 
         try:
-
             # Get all the applied jobs of the user specified.
             appliedJobs: list[AppliedJob] = AppliedJobHelpers.GetAllAppliedJobsOfUser(
                 loggedUser, collection
@@ -149,3 +145,20 @@ class AppliedJobHelpers:
         except Exception as e:
             print(f"Could not get last applied job user due to an exception.\n{e}")
             return None
+
+    # returns a list of AppliedJob (s) for a specific Job
+    def GetApplicationsForSpecificJob(jobId: str, collection:str = "AppliedJobs") -> list[AppliedJob]:
+
+        try:
+            allJobApplications = AppliedJobHelpers.GetAllAppliedJobs(collection=collection)
+            if allJobApplications == None: return []
+
+            jobApplications = list(
+                filter(lambda application: application.JobId == jobId, allJobApplications)
+            )
+            return jobApplications
+        except Exception as e:
+            print(f"An error occurred while accessing applications for job: {jobId} {e}\n")
+            return None
+
+

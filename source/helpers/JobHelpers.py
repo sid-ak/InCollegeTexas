@@ -261,3 +261,18 @@ class JobHelpers:
         except Exception as e:
             print(f"\nException occurred while getting new jobs.\n{e}\n")
             return []
+
+    def CheckTitleInFB(jobTitle: str, jobsCollection:str = "Jobs") -> bool:
+        try:
+            jobs = JobHelpers.GetAllJobs(collection= jobsCollection)
+            if jobs == None:
+                raise Exception(f"Error getting all jobs from database\n")
+            for job in jobs:
+                if job.Title == jobTitle: return True
+            return False
+
+        except Exception as e:
+            print(f"Error checking job title in database {e}\n")
+            return False
+
+
