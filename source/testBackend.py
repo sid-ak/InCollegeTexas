@@ -20,8 +20,9 @@ from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
 from helpers.UserNotificationHelpers import UserNotificationHelpers
 from helpers.JobNotificationHelpers import JobNotificationHelpers
-from helpers.APIHelpers import checkInputFileExists, createOutputDirectory, getCurrentPath
+from helpers.APIHelpers import  getCurrentPath
 from apis.outputAPIs import UserAPI, UserProfileAPI
+from apis.inputAPIs import usersInputAPI
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -675,3 +676,30 @@ def test_UserAPI():
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     os.remove(outputFile)
+
+#function to test UserInputApiFile
+def test_UserInputAPI():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    UserHelpers.UpdateUser(user1, "testUsers")
+
+    testInput = os.path.join(getCurrentPath(), "input", "testStudentAccounts.txt")
+    with open(testInput, "w") as file:
+        file.write("TestUserFile, TestFirstFile, TestLastFile\n")
+        file.write("Test123!\n")
+        file.write("=====\n")
+    
+    set_keyboard_input("-1")
+    usersInputAPI(userCollection="testUsers", onTest=True)
+
+    outputList = []
+    outputList= UserHelpers.GetAllUsers(collection="testUsers")
+
+    output = list(map(lambda user: user.Username, outputList))
+
+    assert output == ["testUserID1",
+                      "TestUserFile"] 
+    
+    
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    assert True == UserHelpers.DeleteUserAccount(outputList[1], collection="testUsers")
+    os.remove(testInput)
