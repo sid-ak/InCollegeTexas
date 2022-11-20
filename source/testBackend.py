@@ -1,6 +1,7 @@
 import pytest
 from io import StringIO
 import sys
+import os
 from firebaseSetup.Firebase import database
 from authentication.Signin import LoginUser
 from model.User import User
@@ -19,6 +20,8 @@ from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
 from helpers.UserNotificationHelpers import UserNotificationHelpers
 from helpers.JobNotificationHelpers import JobNotificationHelpers
+from helpers.APIHelpers import checkInputFileExists, createOutputDirectory, getCurrentPath
+from apis.outputAPIs import UserAPI, UserProfileAPI
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -647,3 +650,28 @@ def test_NewUserNotification():
 
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
+
+#Epic 9: Testing User API function
+def test_UserAPI():
+    user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
+    UserHelpers.UpdateUser(user1, "testUsers")
+    
+    user2 = User(UserHelpers.CreateUserId("testUser2", "testPass2!"), "testUserID2", "test2", "test2")
+    UserHelpers.UpdateUser(user2, "testUsers")
+
+    set_keyboard_input("-1")
+    
+    UserAPI(userCollection="testUsers")
+
+    outputFile = os.path.join(getCurrentPath() , "output", "MyCollege_users.txt")
+
+    with open(outputFile, "r") as file:
+        output = [line.strip() for line in file]
+
+    
+    assert output == ["testUserID1, Standard",
+                      "testUserID2, Standard"] 
+
+    assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
+    assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
+    os.remove(outputFile)
