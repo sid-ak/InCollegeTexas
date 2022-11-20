@@ -96,10 +96,9 @@ def jobsInputAPI(jobCollection:str = "Jobs", userCollection:str = "Users") -> bo
 
 
 def usersInputAPI(userCollection:str = "Users", onTest:bool = False) -> bool:
-    if(not onTest): input_path = checkInputFileExists("studentAccounts.txt")
+    input_path = checkInputFileExists("studentAccounts.txt")
 
-    if(onTest == True):
-        input_path = checkInputFileExists("testStudentAccounts.txt")
+    if(onTest): input_path = checkInputFileExists("testStudentAccounts.txt")
 
     if input_path == None:
         raise Exception("Input path does not exist!\n")
@@ -129,7 +128,6 @@ def usersInputAPI(userCollection:str = "Users", onTest:bool = False) -> bool:
                     firstName = splitInfo[1]
                     lastName = splitInfo[2]
                     password = user[1]
-                    print(username)
 
                     if UserHelpers.GetUserIdByName(firstName + " " + lastName) == None:
                         userId = UserHelpers.CreateUserId(username, password)
