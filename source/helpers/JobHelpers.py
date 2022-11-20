@@ -235,6 +235,8 @@ class JobHelpers:
             jobs: list[Job] = []
             for savedJob in savedJobs:
                 job: Job = JobHelpers.GetJobByID(savedJob.JobId)
+                if job == None:
+                    continue
                 savedJobTitles.append(job.Title)
                 jobs.append(job)
 
