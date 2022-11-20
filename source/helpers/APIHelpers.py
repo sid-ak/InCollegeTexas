@@ -14,7 +14,6 @@ def getCurrentPath() -> str:
 
 def createOutputDirectory():
     output_path = os.path.join(getCurrentPath(), 'output')
-    #output_path = getCurrentPath() + '\output'
     try:
         if not os.path.exists(output_path):
             os.mkdir(os.path.join(getCurrentPath(), 'output'))
@@ -26,7 +25,6 @@ def checkInputFileExists(fileName: str) -> str:
     input_path = getCurrentPath()
     try:
         path = os.path.join(input_path, fileName)
-        #path = input_path + "\\" + fileName
         if os.path.exists(path):
             return path
         else:
