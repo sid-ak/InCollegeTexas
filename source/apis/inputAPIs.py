@@ -97,8 +97,11 @@ def jobsInputAPI(jobCollection:str = "Jobs", userCollection:str = "Users") -> bo
         return False
 
 
-def usersInputAPI(userCollection:str = "Users") -> bool:
+def usersInputAPI(userCollection:str = "Users", onTest:bool = False) -> bool:
     input_path = checkInputFileExists("studentAccounts.txt")
+
+    if(onTest): input_path = checkInputFileExists("testStudentAccounts.txt")
+
     if input_path == None:
         raise Exception("Input path does not exist!\n")
 
@@ -137,7 +140,7 @@ def usersInputAPI(userCollection:str = "Users") -> bool:
                                 Username=username,
                                 FirstName=firstName,
                                 LastName=lastName),
-                            collection="Users")
+                            collection=userCollection)
 
                         if userUpdated == False: raise Exception()
 

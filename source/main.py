@@ -13,7 +13,7 @@ from apis.inputAPIs import RunInputAPIS
 # this is the main run file
 class Main:
 
-    # if not RunInputAPIS(): raise Exception("Error running Input APIs")
+    if not RunInputAPIS(): raise Exception("Error running Input APIs")
     if not RunOutputAPIs(): raise Exception("Error running Output APIs")
 
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
