@@ -772,7 +772,7 @@ def test_AppliedJobsNotification():
   assert UserHelpers.UpdateUser(user2, "testUsersEpic8")
 
   set_keyboard_input(["09/09/2019", "10/10/2020", "I have all the skills."])
-  assert ApplyForJob(loggedUser=user2, selectedJob=job, collection="testAppliedJobsEpic8")
+  assert ApplyForJob(loggedUser=user2, selectedJob=job, collection="testAppliedJobsEpic8", runAPI=False)
 
   # now check if user 2 is notified of 1 applied job
   set_keyboard_input([""])
