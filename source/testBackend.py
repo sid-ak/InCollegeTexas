@@ -20,11 +20,9 @@ from model.Message import Message
 from helpers.MessageHelpers import MessageHelpers
 from helpers.UserNotificationHelpers import UserNotificationHelpers
 from helpers.JobNotificationHelpers import JobNotificationHelpers
-from helpers.APIHelpers import  getCurrentPath
-from apis.outputAPIs import UserAPI, UserProfileAPI
-from apis.inputAPIs import usersInputAPI
-from apis.outputAPIs import createOutputDirectory
-from apis.inputAPIs import jobsInputAPI
+from helpers.APIHelpers import  getCurrentPath, createOutputDirectory
+from apis.outputAPIs import UserAPI, UserProfileAPI, SingleJobAppendAPI
+from apis.inputAPIs import usersInputAPI, jobsInputAPI
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -679,7 +677,7 @@ def test_UserAPI():
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     os.remove(outputFile)
 
-#function to test UserInputApiFile
+# EPIC 10: function to test UserInputApiFile
 def test_UserInputAPI():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
     UserHelpers.UpdateUser(user1, "testUsers")
@@ -706,7 +704,7 @@ def test_UserInputAPI():
     assert True == UserHelpers.DeleteUserAccount(outputList[1], collection="testUsers")
     os.remove(testInput)
 
-#Testing User Profile API function
+# EPIC 10: Testing User Profile API function
 def test_UserProfileAPI():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
     UserHelpers.UpdateUser(user1, "testUsers")
@@ -839,9 +837,72 @@ def test_JobsInputAPI():
         jobLines: str = newJobsFile.readlines()
     with open(filePath, 'w') as newJobsFile:
         for line in jobLines:
-            if line not in newJobLines:
+            if line not in newJobLines or line == "=====\n":
                 newJobsFile.write(line)
+    
+    with open(filePath, 'r+') as newJobsFile:
+        jobLines: list[str] = newJobsFile.readlines()
+        newJobsFile.seek(0)
+        newJobsFile.truncate()
+        newJobsFile.writelines(jobLines[:-1])
 
     # Delete the test user and test jobs nodes in the DB.
     assert True == UserHelpers.DeleteUserAccount(testPoster, testUsersCollection)
     assert True == JobHelpers.DeleteJob(testJob, testJobsCollection)
+
+# EPIC 10: Tests that the output API for jobs works as expected.
+def test_SingleJobAppendAPI():
+
+    # Set required paths.
+    dirPath: str = os.path.join(getCurrentPath(), "output")
+    filePath: str = os.path.join(dirPath, "MyCollege_jobs.txt")
+
+    # Create the appropriate directory if it does not exist.
+    if not os.path.exists(dirPath): os.mkdir(dirPath)
+
+    # Create a test job.
+    testJobTitle: str = "New Job Test Title"
+    testJobDesc: str = " New Job Test Description"
+    testJobPosterId: User = ""
+    testJobEmpl: str = "New Job Test Employer Name"
+    testJobLoc: str = "New Job Test Location"
+    testJobSal: str = "New Job Test Salary"
+    testJobId: str = JobHelpers.CreateJobId(
+        testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobSal)
+    testJob: Job = Job(
+        testJobId, testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobSal, testJobPosterId)
+    
+    # Call the method under test that appends text to the output file.
+    SingleJobAppendAPI(testJob)
+
+    # Prepare the text that needs to be written to the file.
+    newJobLines: list[str] = [f"{testJob.Title}\n"]
+    newJobLines.append(f"{testJob.Description}\n")
+    newJobLines.append(f"{testJob.Employer}\n")
+    newJobLines.append(f"{testJobLoc}\n")
+    newJobLines.append(f"{testJobSal}\n")
+    newJobLines.append("=====\n")
+
+    with open(filePath, 'r') as outputJobsFile:
+        jobLinesFromFile: list[str] = outputJobsFile.readlines()
+
+    # The last six lines are the new job lines.
+    newJobLinesCount: int = -6
+    newJobLinesFromFile: list[str] = jobLinesFromFile[newJobLinesCount:]
+
+    assert newJobLines == newJobLinesFromFile
+
+    # Delete the newly created lines from the file.
+    with open(filePath, 'r') as outputJobsFile:
+        jobLinesFromFile: str = outputJobsFile.readlines()
+    with open(filePath, 'w') as outputJobsFile:
+        for line in jobLinesFromFile:
+            if line not in newJobLines or line == "=====\n":
+                outputJobsFile.write(line)
+
+    # Delete the last separator.
+    with open(filePath, 'r+') as newJobsFile:
+        jobLines: list[str] = newJobsFile.readlines()
+        newJobsFile.seek(0)
+        newJobsFile.truncate()
+        newJobsFile.writelines(jobLines[:-1])
