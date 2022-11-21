@@ -265,8 +265,9 @@ class JobHelpers:
     def CheckTitleInFB(jobTitle: str, jobsCollection:str = "Jobs") -> bool:
         try:
             jobs = JobHelpers.GetAllJobs(collection= jobsCollection)
-            if jobs == None:
-                raise Exception(f"Error getting all jobs from database\n")
+
+            if jobs == None: return False
+
             for job in jobs:
                 if job.Title == jobTitle: return True
             return False
