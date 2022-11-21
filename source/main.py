@@ -13,8 +13,10 @@ from apis.inputAPIs import RunInputAPIS
 # this is the main run file
 class Main:
 
-    if not RunInputAPIS(): raise Exception("Error running Input APIs")
-    if not RunOutputAPIs(): raise Exception("Error running Output APIs")
+    if not RunInputAPIS(): 
+        print("\nFailure in Input API's! Some possible reasons include the formatting in the input files, input files not existing, etc.\n")
+    if not RunOutputAPIs(): 
+        print("\nFailure in Output API's! Some possible reasons include the connection to database, etc.\n")
 
     print("\n77% of users found InCollegeTexas to be really helpful in making new connection and in finding a job.\n"
         + "Gopal, one of our users was able to get an internship with XYZ corporation using our platform.\n")
