@@ -24,6 +24,7 @@ from helpers.APIHelpers import  getCurrentPath
 from apis.outputAPIs import UserAPI, UserProfileAPI
 from apis.inputAPIs import usersInputAPI
 from apis.outputAPIs import createOutputDirectory
+from apis.inputAPIs import jobsInputAPI
 
 # Below Tests are for Epic 3 - 10/08/2022 by Amir
 '''Test to see all "Important Links" are displayed'''
@@ -632,7 +633,6 @@ def test_DeleteJobNotification():
 
     assert True == JobHelpers.DeleteJob(second_job, "TestJobs")                                 
 
-    
 #Epic 8: Testing if all the users get a notification when a new user signs up
 def test_NewUserNotification():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
@@ -679,7 +679,6 @@ def test_UserAPI():
     assert True == UserHelpers.DeleteUserAccount(user2, collection="testUsers")
     os.remove(outputFile)
 
-
 #function to test UserInputApiFile
 def test_UserInputAPI():
     user1 = User(UserHelpers.CreateUserId("testUser1", "testPass2!"), "testUserID1", "test1", "test1")
@@ -706,7 +705,6 @@ def test_UserInputAPI():
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     assert True == UserHelpers.DeleteUserAccount(outputList[1], collection="testUsers")
     os.remove(testInput)
-
 
 #Testing User Profile API function
 def test_UserProfileAPI():
@@ -771,3 +769,72 @@ def test_UserProfileAPI():
 
     assert True == UserHelpers.DeleteUserAccount(user1, collection="testUsers")
     os.remove(outputFile)
+
+# EPIC 10: Tests that the input API for jobs works as expected.
+def test_JobsInputAPI():
+
+    # Set the test collection nodes.
+    testJobsCollection: str = "TestJobsInputApi"
+    testUsersCollection: str = "TestUsersJobsInputApi"
+
+    # Create a test poster/user.
+    username: str = "testUsername"
+    password: str = "testPass@7"
+    userId: str = UserHelpers.CreateUserId(username, password)
+    firstName: str = "PosterFirstName"
+    lastName: str = "PosterLastName"
+    testPoster: User = User(
+        userId, username, firstName, lastName)
+    UserHelpers.UpdateUser(testPoster, testUsersCollection)
+
+    # Create a test job.
+    testJobTitle: str = "New Job Test Title"
+    testJobDesc: str = " New Job Test Description"
+    testJobPosterId: User = testPoster.Id
+    testJobEmpl: str = "New Job Test Employer Name"
+    testJobLoc: str = "New Job Test Location"
+    testJobSal: str = "New Job Test Salary"
+    testJobId: str = JobHelpers.CreateJobId(
+        testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobSal)
+    testJob: Job = Job(
+        testJobId, testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobLoc, testJobPosterId)
+
+    # Set required paths.
+    dirPath: str = os.path.join(getCurrentPath(), "input")
+    filePath: str = os.path.join(dirPath, "newJobs.txt")
+
+    # Create the appropriate directory if it does not exist.
+    if not os.path.exists(dirPath): os.mkdir(dirPath)
+
+    # Prepare the text that needs to be written to the file.
+    newJobLines: list[str] = [f"{testJob.Title}\n"]
+    newJobLines.append(f"{testJob.Description}\n")
+    newJobLines.append("&&&\n")
+    newJobLines.append(f"{testPoster.FirstName} {testPoster.LastName}\n")
+    newJobLines.append(f"{testJob.Employer}\n")
+    newJobLines.append(f"{testJobLoc}\n")
+    newJobLines.append(f"{testJobSal}\n")
+    newJobLines.append("=====\n")
+
+    # Create, open and write to the file.
+    with open(filePath, 'a') as newJobsFile:
+        newJobsFile.writelines(newJobLines)
+    
+    # Call the method under test, input jobs API.
+    assert True == jobsInputAPI(testJobsCollection, testUsersCollection)
+
+    # Assert that the job was updated in the DB.
+    # testJobFromDb: Job = JobHelpers.GetJobByID(testJob.Id, testJobsCollection)
+    # assert testJobFromDb == testJob
+    
+    # Delete the lines that were just written to the file.
+    with open(filePath, 'r') as newJobsFile:
+        jobLines: str = newJobsFile.readlines()
+    with open(filePath, 'w') as newJobsFile:
+        for line in jobLines:
+            if line not in newJobLines:
+                newJobsFile.write(line)
+
+    # Delete the test user and test jobs nodes in the DB.
+    assert True == UserHelpers.DeleteUserAccount(testPoster, testUsersCollection)
+    assert True == JobHelpers.DeleteJob(testJob, testJobsCollection)
