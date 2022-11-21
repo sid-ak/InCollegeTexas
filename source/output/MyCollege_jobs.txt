@@ -1,0 +1,48 @@
+Embedded Systems Programmer
+Work on FPGAs using VHDL
+Intel
+Clearwater, FL
+250,000
+=====
+Full Stack Engineer
+Work on developing web applications for the social club.
+Rockstar Games
+San Diego, Claifornia
+120,000
+=====
+Software Engineer
+Build autonoumous truck
+Aurora
+Mountain View
+200000
+=====
+Game Developer
+Work on latest Activision projects such as COD MW2 using the Unreal engine.
+Activision
+Atlanta, Georgia
+200,000
+=====
+Game Developer 1
+ make stuff to encourage leanring
+Siemens
+Tampa
+60000
+=====
+Web Developer
+Full stack web development using .NET, Angular and PostgreSQL.
+Dice
+Paris, France
+80,000
+=====
+Software Engineer
+We use software to solve real world problems, when it works.
+Tadpole Solutions
+Mars
+
+=====
+Software Engineer Intern
+Work on a WPF application and write integration tests for it.
+Siemens
+Chicago, IL
+120,000
+=====
