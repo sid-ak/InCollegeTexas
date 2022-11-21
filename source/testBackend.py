@@ -797,7 +797,7 @@ def test_JobsInputAPI():
     testJobId: str = JobHelpers.CreateJobId(
         testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobSal)
     testJob: Job = Job(
-        testJobId, testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobLoc, testJobPosterId)
+        testJobId, testJobTitle, testJobEmpl, testJobDesc, testJobLoc, testJobSal, testJobPosterId)
 
     # Set required paths.
     dirPath: str = os.path.join(getCurrentPath(), "input")
@@ -824,8 +824,15 @@ def test_JobsInputAPI():
     assert True == jobsInputAPI(testJobsCollection, testUsersCollection)
 
     # Assert that the job was updated in the DB.
-    # testJobFromDb: Job = JobHelpers.GetJobByID(testJob.Id, testJobsCollection)
-    # assert testJobFromDb == testJob
+    testJobFromDb: Job = JobHelpers.GetJobByID(testJob.Id, testJobsCollection)
+
+    # Need to compare each property because we want to ignore comparing timestamps.
+    assert testJobFromDb.Title == testJob.Title
+    assert testJobFromDb.Description == testJob.Description
+    assert testJobFromDb.PosterId == testJob.PosterId
+    assert testJobFromDb.Employer == testJob.Employer
+    assert testJobFromDb.Location == testJob.Location
+    assert testJobFromDb.Salary == testJob.Salary
     
     # Delete the lines that were just written to the file.
     with open(filePath, 'r') as newJobsFile:
